@@ -1,0 +1,14 @@
+// components
+@import '../components/atomic/audio-player/audio-player';
+@import '../components/atomic/TextInput/TextInput.scss';
+@import '../components/atomic/youtube-video-player/youtube-video-player.scss';
+
+// molecules
+@import '../components/molecules/pronunciation/pronunciation';
+
+//views
+@import '../views/ErrorBoundary/PageNotFound';
+
+h1 {
+	margin-bottom: 0;
+}
