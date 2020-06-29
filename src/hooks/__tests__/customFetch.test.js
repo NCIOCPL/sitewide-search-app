@@ -5,9 +5,7 @@ import { ClientContextProvider } from 'react-fetching-library';
 import UseCustomQuerySample from '../samples/UseCustomQuery';
 import { useStateValue } from '../../store/store';
 import MockAnalyticsProvider from '../../tracking/mock-analytics-provider';
-import { i18n } from '../../utils';
 import ErrorBoundary from '../../views/ErrorBoundary';
-import { setSearchEndpoint, setLanguage } from '../../services/api/endpoints';
 
 jest.mock('../../store/store');
 
@@ -21,27 +19,17 @@ describe('', () => {
 		console.error.mockRestore();
 	});
 
-	test('useCustomQuery example should throw a 404 error - English message', async () => {
-		const apiBaseEndpoint = 'http://localhost:3000/api';
+	test('should throw an error using a non existent endpoint - English message', async () => {
 		const basePath = '/';
 		const canonicalHost = 'https://www.example.gov';
 		const language = 'en';
-		const services = {
-			bestBets: '',
-			dictionary: '',
-			search: '/glossary/v1/',
-		};
-		setLanguage(language);
-		setSearchEndpoint(services.search);
 
 		useStateValue.mockReturnValue([
 			{
-				apiBaseEndpoint,
 				appId: 'mockAppId',
 				basePath,
 				canonicalHost,
 				language,
-				services,
 			},
 		]);
 
@@ -65,31 +53,21 @@ describe('', () => {
 			);
 		});
 		expect(
-			screen.getByText(i18n.pageNotFoundTitle[language])
+			screen.getByText('An error occurred. Please try again later.')
 		).toBeInTheDocument();
 	});
 
-	test('useCustomQuery example should throw a 404 error - Spanish message', async () => {
-		const apiBaseEndpoint = 'http://localhost:3000/api';
+	test('should throw an error using a non existent endpoint - Spanish message', async () => {
 		const basePath = '/';
 		const canonicalHost = 'https://www.example.gov';
 		const language = 'es';
-		const services = {
-			bestBets: '',
-			dictionary: '',
-			search: '/glossary/v1/',
-		};
-		setLanguage(language);
-		setSearchEndpoint(services.search);
 
 		useStateValue.mockReturnValue([
 			{
-				apiBaseEndpoint,
 				appId: 'mockAppId',
 				basePath,
 				canonicalHost,
 				language,
-				services,
 			},
 		]);
 
@@ -113,7 +91,7 @@ describe('', () => {
 			);
 		});
 		expect(
-			screen.getByText(i18n.pageNotFoundTitle[language])
+			screen.getByText('Se produjo un error. Por favor, vuelva a intentar más tarde.')
 		).toBeInTheDocument();
 	});
 
