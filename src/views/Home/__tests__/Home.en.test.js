@@ -1,10 +1,9 @@
-import {act, render, screen} from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { ClientContextProvider } from 'react-fetching-library';
 
-import ErrorBoundary from '../../ErrorBoundary';
 import Home from '../Home';
-import { setLanguage, setSearchEndpoint } from '../../../services/api/endpoints';
 import { useStateValue } from '../../../store/store.js';
 import { MockAnalyticsProvider } from '../../../tracking';
 import { i18n } from '../../../utils';
@@ -12,36 +11,36 @@ import { i18n } from '../../../utils';
 jest.mock('../../../store/store.js');
 
 describe('Home component(English)', () => {
-
-	test('Page load should result in a 404 message', async () => {
-		const apiBaseEndpoint = 'http://localhost:3000/api';
+	test('should show no results found page for "achoo" as search keyword', async () => {
 		const basePath = '/';
 		const canonicalHost = 'https://www.example.gov';
 		const language = 'en';
-		const services = {
-			bestBets: '',
-			dictionary: '',
-			search: '/glossary/v1/',
-		};
-		setLanguage(language);
-		setSearchEndpoint(services.search);
+		const title = 'NCI Search Results';
 
 		useStateValue.mockReturnValue([
 			{
-				apiBaseEndpoint,
 				appId: 'mockAppId',
 				basePath,
 				canonicalHost,
 				language,
-				services,
+				title,
 			},
 		]);
 
 		const client = {
 			query: async () => ({
-				error: true,
-				status: 404,
-				payload: {},
+				error: false,
+				status: 200,
+				payload: {
+					meta: {
+						offset: 0,
+						result_count: 0,
+						audience: 'Patient',
+						language: 'English',
+						message: ['Found 0 results.'],
+					},
+					result: [],
+				},
 			}),
 		};
 
@@ -49,16 +48,17 @@ describe('Home component(English)', () => {
 			render(
 				<MockAnalyticsProvider>
 					<ClientContextProvider client={client}>
-						<ErrorBoundary>
+						<MemoryRouter initialEntries={['/?swKeyword=achoo']}>
 							<Home />
-						</ErrorBoundary>
+						</MemoryRouter>
 					</ClientContextProvider>
 				</MockAnalyticsProvider>
 			);
 		});
+		expect(screen.getByText(title)).toBeInTheDocument();
 		expect(
-			screen.getByText(i18n.pageNotFoundTitle[language])
+			screen.getByText('0 results found for: achoo')
 		).toBeInTheDocument();
+		// expect(screen.getByText(i18n.pleaseCheckSpellingOrTryAnotherSearch)).toBeInTheDocument();
 	});
-
 });

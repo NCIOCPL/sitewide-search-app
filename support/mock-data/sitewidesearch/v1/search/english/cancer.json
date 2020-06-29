@@ -1,0 +1,43 @@
+{
+	"meta": {
+		"offset": 0,
+		"result_count": 1,
+		"audience": "Patient",
+		"language": "English",
+		"message": [
+			"Found 1 results."
+		]
+	},
+	"result": [
+		{
+			"id": 45333,
+			"matched": "cancer",
+			"term": {
+				"id": "45333",
+				"term": "cancer",
+				"alias": [],
+				"date_last_modified": "2020-06-10",
+				"definition": {
+					"html": "A term for\r diseases in which abnormal cells divide without control and\r can invade nearby tissues. Cancer cells\r can also spread to other parts of the body through the\r blood and lymph systems. There are several main types of\r cancer. Carcinoma is a\r cancer that begins in the skin or\r in tissues that line or cover internal organs. Sarcoma is a\r cancer that begins in bone,\r cartilage, fat, muscle, blood vessels, or other connective\r or supportive tissue. Leukemia is a\r cancer that begins in blood-forming\r tissue, such as the bone marrow, and causes too many\r abnormal blood cells to be made. Lymphoma and multiple\r myeloma are cancers that begin in the\r cells of the immune system. Central nervous system cancers\r are cancers that begin in the tissues of\r the brain and spinal cord. Also called malignancy.",
+					"text": "A term for\r diseases in which abnormal cells divide without control and\r can invade nearby tissues. Cancer cells\r can also spread to other parts of the body through the\r blood and lymph systems. There are several main types of\r cancer. Carcinoma is a\r cancer that begins in the skin or\r in tissues that line or cover internal organs. Sarcoma is a\r cancer that begins in bone,\r cartilage, fat, muscle, blood vessels, or other connective\r or supportive tissue. Leukemia is a\r cancer that begins in blood-forming\r tissue, such as the bone marrow, and causes too many\r abnormal blood cells to be made. Lymphoma and multiple\r myeloma are cancers that begin in the\r cells of the immune system. Central nervous system cancers\r are cancers that begin in the tissues of\r the brain and spinal cord. Also called malignancy."
+				},
+				"videos": [],
+				"pronunciation": {
+					"audio": "/PublishedContent/Media/CDR/media/705333.mp3",
+					"key": "(KAN-ser)"
+				},
+				"related": {
+					"drug_summary": [],
+					"external": [
+						{
+							"url": "https://www.cancer.gov/about-cancer/understanding/what-is-cancer",
+							"text": "What\rIs Cancer? "
+						}
+					],
+					"summary": [],
+					"term": []
+				}
+			}
+		}
+	]
+}

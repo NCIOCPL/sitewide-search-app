@@ -28,7 +28,6 @@ const initialize = ({
 	// configuration that handles logging to the console.
 	analyticsHandler = 'EddlAnalyticsHandler', // EDDLAnalyticsHandler(window, !!window.Cypress),
 	analyticsPublishedDate = 'unknown',
-	analyticsName = 'SitewideSearch',
 	appId = '@@/DEFAULT_SWS_APP_ID',
 	baseHost = 'http://localhost:3000',
 	basePath = '/',
@@ -54,7 +53,6 @@ const initialize = ({
 		analyticsChannel,
 		analyticsContentGroup,
 		analyticsPublishedDate,
-		analyticsName,
 		baseHost,
 		basePath,
 		bestbetsEndpoint,
@@ -64,6 +62,8 @@ const initialize = ({
 		language,
 		searchEndpoint,
 		siteName,
+		searchSiteFilter,
+		title
 	};
 
 	// Determine the analytics HoC we are going to use.
@@ -77,8 +77,7 @@ const initialize = ({
 					pageLanguage={language === 'es' ? 'spanish' : 'english'}
 					pageChannel={analyticsChannel}
 					pageContentGroup={analyticsContentGroup}
-					publishedDate={analyticsPublishedDate}
-					analyticsName={analyticsName}>
+					publishedDate={analyticsPublishedDate}>
 					{children}
 				</EddlAnalyticsProvider>
 			)
@@ -124,6 +123,7 @@ if (process.env.NODE_ENV !== 'production') {
 	const dictSettings = {
 		...appParams,
 		...integrationTestOverrides,
+		searchEndpoint: '/api/sitewidesearch/v1/',
 	};
 	initialize(dictSettings);
 } else if (window?.location?.host === 'react-app-dev.cancer.gov') {

@@ -14,14 +14,54 @@ const readFileAsync = util.promisify(fs.readFile);
  */
 const readDirAsync = util.promisify(fs.readdir);
 
+/**
+ * getSearchResults - Middleware for getting search results
+ * @param {Express.Request} req
+ * @param {Express.Response} res
+ * @param {Function} next
+ */
+const getSearchResults = async (req, res, next) => {
+	const {
+		query: { language, searchText },
+	} = req;
+	const lang = language.toLowerCase();
+
+	const mockDir = path.join(
+		__dirname,
+		'..',
+		'mock-data',
+		'sitewidesearch',
+		'v1',
+		'search',
+		lang
+	);
+	try {
+		const mockFile = path.join(mockDir, `${searchText}.json`);
+		await fs.promises
+			.access(mockFile)
+			.then(() => {
+				res.sendFile(mockFile);
+			})
+			.catch((err) => {
+				// const mockResponse = mockNoResultsAPI( err );
+				res.send(mockNoResultsAPI(err));
+			});
+	} catch (err) {
+		console.error(err);
+		res.send(mockNoResultsAPI(err));
+	}
+};
+
 const mockNoResultsAPI = (err) => {
 	const resObject = {
 		meta: {
-			totalResults: 0,
-			from: 0,
+			offset: 0,
+			result_count: 0,
+			audience: 'Patient',
+			language: 'English',
+			message: ['Found 0 results.'],
 		},
-		results: [],
-		links: null,
+		result: [],
 	};
 	if (err && err.code === 'ENOENT') {
 		console.error(err);
@@ -40,6 +80,8 @@ const mockNoResultsAPI = (err) => {
  * @param {Express.Application} app
  */
 const middleware = (app) => {
+	app.use('/api/sitewidesearch/v1/search', getSearchResults);
+
 	app.use('/api/*', (req, res, next) => {
 		console.error('Api path not implemented');
 		res.status(404).end();
