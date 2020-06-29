@@ -1,10 +1,14 @@
+import { ISO_CODE_LANG_MAP } from '../../../constants';
 import { getEndpoint } from '../endpoints';
 
-export const getSearchResults = () => {
-	const endpoint = getEndpoint('searchTestCall');
-
+export const getSearchResults = ({
+	dictionary = 'term',
+	keyword,
+	lang = 'en',
+}) => {
+	const endpoint = getEndpoint('searchResults');
 	return {
 		method: 'GET',
-		endpoint: `${endpoint}/?dictionary=term&searchText=cancer&language=English&searchType=exact&offset=0&maxResults=0`,
+		endpoint: `${endpoint}/?dictionary=${dictionary}&searchText=${keyword}&language=${ISO_CODE_LANG_MAP[lang]}&searchType=exact&offset=0&maxResults=0`,
 	};
 };

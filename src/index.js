@@ -64,6 +64,8 @@ const initialize = ({
 		language,
 		searchEndpoint,
 		siteName,
+		searchSiteFilter,
+		title
 	};
 
 	// Determine the analytics HoC we are going to use.
@@ -126,6 +128,7 @@ if (process.env.NODE_ENV !== 'production') {
 	const dictSettings = {
 		...appParams,
 		...integrationTestOverrides,
+		searchEndpoint: '/api/sitewidesearch/v1/',
 	};
 	initialize(dictSettings);
 } else if (window?.location?.host === 'react-app-dev.cancer.gov') {
