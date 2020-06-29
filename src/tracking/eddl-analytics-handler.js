@@ -55,6 +55,8 @@ const EddlAnalyticsHandler = (window) => {
 					publishedDate,
 					...additionalDetails
 				} = payload;
+				// Validate analytics parameters here
+				// (name, language, title, metaTitle)
 				window.NCIDataLayer.push({
 					type,
 					event,

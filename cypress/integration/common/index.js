@@ -1,4 +1,5 @@
 import { And, Given, Then } from 'cypress-cucumber-preprocessor/steps';
+import { i18n } from '../../../src/utils';
 
 const baseURL = Cypress.config('baseUrl');
 
@@ -28,6 +29,14 @@ Given('the user visits the home page', () => {
 	cy.visit('/');
 });
 
+Given('the user navigates to {string}',  (destURL) => {
+	cy.visit(destURL);
+});
+
+Given('user is viewing the no results found page on any site', () => {
+	cy.visit('/?swKeyword=achoo');
+});
+
 Given('{string} is set to {string}', (key, param) => {
 	cy.on('window:before:load', (win) => {
 		win.INT_TEST_APP_PARAMS[key] = param;
@@ -46,6 +55,10 @@ Then('the user gets an error page that reads {string}', (errorMessage) => {
 		return false;
 	});
 	cy.get('.error-container h1').should('have.text', errorMessage);
+});
+
+And('the page displays {string}', (text) => {
+	cy.get('p').contains(text);
 });
 
 /*
@@ -72,4 +85,19 @@ And('the following links and texts exist on the page', (dataTable) => {
 		const row = rawTable[i];
 		cy.get(`#main-content a[href='${row[0]}']`).should('have.text', row[1]);
 	}
+});
+
+/*
+    -----------------------
+        No Results Page
+    -----------------------
+*/
+And('the system returns the no results found page', () => {
+
+	cy.window().then((win) => {
+		if (win.INT_TEST_APP_PARAMS) {
+			const noResultsPageTitle =  i18n.nciSearchResults[win.INT_TEST_APP_PARAMS.language];
+			cy.get('h1').should('contain', noResultsPageTitle);
+		}
+	});
 });
