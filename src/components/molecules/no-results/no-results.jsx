@@ -20,10 +20,10 @@ const NoResults = ({ keyword }) => {
 		<>
 			{renderHelmet()}
 			<h1>{title}</h1>
-			<p>
+			<h3>
 				{i18n.noResultsFoundFor[language]}: {keyword}
-			</p>
-			<p>{i18n.pleaseCheckSpellingOrTryAnotherSearch[language]}</p>
+			</h3>
+			<h3>{i18n.pleaseCheckSpellingOrTryAnotherSearch[language]}</h3>
 		</>
 	);
 };

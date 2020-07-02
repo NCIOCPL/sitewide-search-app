@@ -58,7 +58,7 @@ Then('the user gets an error page that reads {string}', (errorMessage) => {
 });
 
 And('the page displays {string}', (text) => {
-	cy.get('p').contains(text);
+	cy.get('#NCI-app-root').contains(text);
 });
 
 /*

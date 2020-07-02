@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import './styles/dictionaries.scss';
+import './styles/sitewide-search.scss';
 
 import { useAppPaths } from './hooks';
 import PageNotFound from './views/ErrorBoundary/PageNotFound';
