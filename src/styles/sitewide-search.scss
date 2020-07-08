@@ -4,11 +4,9 @@
 @import '../components/atomic/youtube-video-player/youtube-video-player.scss';
 
 // molecules
+@import '../components/molecules/definition/definition';
 @import '../components/molecules/pronunciation/pronunciation';
 
 //views
+@import '../views/Home/Home';
 @import '../views/ErrorBoundary/PageNotFound';
-
-h1 {
-	margin-bottom: 0;
-}

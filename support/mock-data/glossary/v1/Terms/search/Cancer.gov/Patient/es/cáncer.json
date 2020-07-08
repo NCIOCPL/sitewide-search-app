@@ -1,0 +1,35 @@
+{
+	"meta": {
+		"totalResults": 323,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 45333,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "cáncer",
+			"firstLetter": null,
+			"prettyUrlName": "cancer",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/705332.mp3"
+			},
+			"definition": {
+				"html": "Término que describe las enfermedades en las que hay células anormales que se multiplican sin control e invaden los tejidos cercanos. Es posible que las células cancerosas también se diseminen a otras partes del cuerpo a través de los sistemas sanguíneo y linfático. Hay varios tipos de cánceres. El carcinoma es un cáncer que empieza en la piel o en los tejidos que revisten o cubren los órganos internos. El sarcoma empieza en el hueso, el cartílago, la grasa, el músculo, los vasos sanguíneos u otro tejido conjuntivo o de sostén. La leucemia afecta los tejidos donde se forman las células sanguíneas, como la médula ósea, y hace que se produzcan muchas células sanguíneas anormales. El linfoma y el mieloma múltiple afectan las células del sistema inmunitario. Los cánceres del sistema nervioso central empiezan en los tejidos del encéfalo y la médula espinal. También se llama neoplasia maligna.",
+				"text": "Término que describe las enfermedades en las que hay células anormales que se multiplican sin control e invaden los tejidos cercanos. Es posible que las células cancerosas también se diseminen a otras partes del cuerpo a través de los sistemas sanguíneo y linfático. Hay varios tipos de cánceres. El carcinoma es un cáncer que empieza en la piel o en los tejidos que revisten o cubren los órganos internos. El sarcoma empieza en el hueso, el cartílago, la grasa, el músculo, los vasos sanguíneos u otro tejido conjuntivo o de sostén. La leucemia afecta los tejidos donde se forman las células sanguíneas, como la médula ósea, y hace que se produzcan muchas células sanguíneas anormales. El linfoma y el mieloma múltiple afectan las células del sistema inmunitario. Los cánceres del sistema nervioso central empiezan en los tejidos del encéfalo y la médula espinal. También se llama neoplasia maligna."
+			},
+			"otherLanguages": [],
+			"relatedResources": [
+				{
+					"Url": "https://www.cancer.gov/espanol/cancer/naturaleza/que-es/",
+					"Type": "External",
+					"Text": "¿Qué es el cáncer?"
+				}
+			],
+			"media": []
+		}
+	],
+	"links": null
+}

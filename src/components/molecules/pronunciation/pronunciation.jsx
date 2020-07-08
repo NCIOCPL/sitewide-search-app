@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { AudioPlayer } from '../../';
 import { testIds } from '../../../constants';
 
-const Pronunciation = ({ pronunciationObj, language = 'en' }) => {
+const Pronunciation = ({ pronunciationObj, language = 'en', term }) => {
 	return (
 		<div className="pronunciation">
+			{term && <div className="pronunciation__term">{term}</div>}
 			{pronunciationObj.audio && (
 				<div className="pronunciation__audio">
 					<AudioPlayer audioSrc={pronunciationObj.audio} lang={language} />
@@ -29,6 +30,7 @@ Pronunciation.propTypes = {
 		key: PropTypes.string,
 		audio: PropTypes.string,
 	}).isRequired,
+	term: PropTypes.string,
 };
 
 export default Pronunciation;

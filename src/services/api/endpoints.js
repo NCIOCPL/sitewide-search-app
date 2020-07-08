@@ -26,7 +26,7 @@ export function setSearchEndpoint(search) {
 export const getEndpoint = (endpoint) => {
 	// Define api endpoints here
 	const urls = {
-		dictionaryTestCall: `${DICTIONARY_URI}/`,
+		dictionaryResults: `${DICTIONARY_URI}/Terms/search/Cancer.gov/Patient`,
 		searchResults: `${SEARCH_URI}/Search/cgov/${LANGUAGE}`,
 	};
 	return urls[endpoint];

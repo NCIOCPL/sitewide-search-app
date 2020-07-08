@@ -1,0 +1,29 @@
+{
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 44109,
+			"language": "en",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "caloric intake",
+			"firstLetter": null,
+			"prettyUrlName": "caloric-intake",
+			"pronunciation": {
+				"key": "(kuh-LOR-ik In-tayk)",
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/727734.mp3"
+			},
+			"definition": {
+				"html": "Refers to the number of calories (energy content) consumed.",
+				"text": "Refers to the number of calories (energy content) consumed."
+			},
+			"otherLanguages": [],
+			"relatedResources": [],
+			"media": []
+		}
+	],
+	"links": null
+}

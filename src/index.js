@@ -36,6 +36,7 @@ const initialize = ({
 	canonicalHost = 'https://www.cancer.gov',
 	dictionaryEndpoint = 'https://webapis.cancer.gov/glossary/v1/',
 	dropdownOptions = [20, 50],
+	glossaryURL = 'https://www.cancer.gov/publications/dictionaries/cancer-terms',
 	language = 'en', // en|es (English|Spanish)
 	rootId = 'NCI-app-root',
 	searchEndpoint = 'https://webapis.cancer.gov/sitewidesearch/v1/',
@@ -59,6 +60,7 @@ const initialize = ({
 		canonicalHost,
 		dictionaryEndpoint,
 		dropdownOptions,
+		glossaryURL,
 		language,
 		searchEndpoint,
 		siteName,
@@ -121,7 +123,6 @@ if (process.env.NODE_ENV !== 'production') {
 	const dictSettings = {
 		...appParams,
 		...integrationTestOverrides,
-		searchEndpoint: '/api/sitewidesearch/v1/',
 	};
 	initialize(dictSettings);
 } else if (window?.location?.host === 'react-app-dev.cancer.gov') {

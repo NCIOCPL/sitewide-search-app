@@ -1,0 +1,56 @@
+{
+	"meta": {
+		"totalResults": 12,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 444971,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "cáncer de mama",
+			"firstLetter": null,
+			"prettyUrlName": "cancer-de-mama",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/714536.mp3"
+			},
+			"definition": {
+				"html": "Cáncer que se forma en los tejidos del seno (mama). El tipo de cáncer de mama más común es el carcinoma ductal, que empieza en el revestimiento de los conductos  delgados que llevan leche desde los lobulillos de la mama hasta el pezón. Otro tipo de cáncer de mama es el carcinoma lobulillar, que empieza en los lobulillos (glándulas lácteas) de la mama. El cáncer de mama invasivo es el que se diseminó desde el sitio donde empezó (conductos de la mama o lobulillos) hasta el tejido normal que los rodea. El cáncer de mama se presenta tanto en hombres como en mujeres, aunque el cáncer de mama masculino es poco frecuente.",
+				"text": "Cáncer que se forma en los tejidos del seno (mama). El tipo de cáncer de mama más común es el carcinoma ductal, que empieza en el revestimiento de los conductos  delgados que llevan leche desde los lobulillos de la mama hasta el pezón. Otro tipo de cáncer de mama es el carcinoma lobulillar, que empieza en los lobulillos (glándulas lácteas) de la mama. El cáncer de mama invasivo es el que se diseminó desde el sitio donde empezó (conductos de la mama o lobulillos) hasta el tejido normal que los rodea. El cáncer de mama se presenta tanto en hombres como en mujeres, aunque el cáncer de mama masculino es poco frecuente."
+			},
+			"otherLanguages": [],
+			"relatedResources": [
+				{
+					"Url": "https://www.cancer.gov/espanol/tipos/seno",
+					"Type": "External",
+					"Text": "Cáncer de seno (mama)"
+				}
+			],
+			"media": [
+				{
+					"Type": "Image",
+					"ImageSources": [
+						{
+							"Size": "original",
+							"Src": "https://nci-media.cancer.gov/pdq/media/images/710874.jpg"
+						},
+						{
+							"Size": "571",
+							"Src": "https://nci-media.cancer.gov/pdq/media/images/710874-571.jpg"
+						},
+						{
+							"Size": "750",
+							"Src": "https://nci-media.cancer.gov/pdq/media/images/710874-750.jpg"
+						}
+					],
+					"Ref": "CDR0000710874",
+					"Alt": "Dibujo de la anatomía de la mama femenina en el que se muestran los ganglios linfáticos, el pezón, la aréola, la pared torácica, las costillas, el músculo, el tejido graso, el lóbulo, los conductos y los lobulillos.",
+					"Caption": "Anatomía de la mama femenina. Se muestran el pezón y la aréola en la parte externa de la mama. También se muestran los ganglios linfáticos, los lóbulos, los lobulillos, los conductos y otras partes internas de la mama."
+				}
+			]
+		}
+	],
+	"links": null
+}

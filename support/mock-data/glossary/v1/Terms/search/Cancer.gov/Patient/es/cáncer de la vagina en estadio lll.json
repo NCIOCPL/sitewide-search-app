@@ -1,0 +1,35 @@
+{
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 535780,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "cáncer de la vagina en estadio lll",
+			"firstLetter": null,
+			"prettyUrlName": "cancer-de-la-vagina-en-estadio-lll",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/718567.mp3"
+			},
+			"definition": {
+				"html": "El cáncer se diseminó hasta la pared de la pelvis.",
+				"text": "El cáncer se diseminó hasta la pared de la pelvis."
+			},
+			"otherLanguages": [],
+			"relatedResources": [
+				{
+					"Url": "https://www.cancer.gov/espanol/tipos/vagina/paciente/tratamiento-vagina-pdq",
+					"Type": "Summary",
+					"Text": "Tratamiento del cáncer de vagina"
+				}
+			],
+			"media": []
+		}
+	],
+	"links": null
+}
