@@ -1,8 +1,9 @@
 /// <reference types="Cypress" />
 
 import { And, Given, Then } from 'cypress-cucumber-preprocessor/steps';
-import { i18n } from '../../../src/utils';
+
 import { testIds } from '../../../src/constants';
+import { i18n } from '../../../src/utils';
 
 const baseURL = Cypress.config('baseUrl');
 
@@ -44,6 +45,122 @@ Given('{string} is set to {string}', (key, param) => {
 	cy.on('window:before:load', (win) => {
 		win.INT_TEST_APP_PARAMS[key] = param;
 	});
+});
+
+Given('user is viewing the second page of results for {string}', (keyword) => {
+	cy.visit(`/?swKeyword=${keyword}&offset=21&pageunit=20`);
+});
+
+/*
+    -------------
+      Home Page
+    -------------
+*/
+And('page subtitle {string} appears below the page title', (subTitle) => {
+	cy.get('div.results h3').should('have.text', subTitle);
+});
+
+/*
+    ------------------
+      Definition Box
+    ------------------
+*/
+And('definition box appears with title {string}', (definitionBoxTitle) => {
+	cy.get('div.definition h2').should('have.text', definitionBoxTitle);
+});
+
+And(
+	'the word {string} appears in the definition box, with the audio icon and pronunciation',
+	(term) => {
+		expect(
+			cy.get(`div.definition div.pronunciation .pronunciation__audio audio`)
+		).to.exist;
+		expect(
+			cy.get(`div.definition div.pronunciation .pronunciation__audio button`)
+		).to.exist;
+		expect(cy.get(`div[data-testid='${testIds.TERM_DEF_PRONUNCIATION}']`)).to
+			.exist;
+		cy.get('div.definition div.pronunciation .pronunciation__term').should(
+			'have.text',
+			term
+		);
+	}
+);
+
+And(
+	'the word {string} appears in the definition box with the audio icon',
+	(term) => {
+		expect(
+			cy.get(`div.definition div.pronunciation .pronunciation__audio audio`)
+		).to.exist;
+		expect(
+			cy.get(`div.definition div.pronunciation .pronunciation__audio button`)
+		).to.exist;
+		cy.get('div.definition div.pronunciation .pronunciation__term').should(
+			'have.text',
+			term
+		);
+	}
+);
+
+And('the definition {string} appears in the definition box', (definition) => {
+	cy.get('div.definition .definition__term-description').should(
+		'have.text',
+		definition
+	);
+});
+
+And(
+	'link to the definition page with text {string} and href {string} in the definition box',
+	(linkText, url) => {
+		cy.get('div.definition p a').should('have.text', linkText);
+		cy.get('div.definition p a')
+			.should('have.attr', 'href')
+			.and('to.be.eq', url);
+	}
+);
+
+And('link to the definition page with text {string} does not display', () => {
+	cy.get('div.definition p a').should('not.exist');
+});
+
+And(
+	'a button to toggle the full definition appears in the definition box labelled {string}',
+	(toggleText) => {
+		cy.get('div.definition .definition__toggle button').should(
+			'have.text',
+			toggleText
+		);
+	}
+);
+
+And(
+	'button to toggle the full definition in the definition box labelled {string} does not display',
+	() => {
+		cy.get('div.definition .definition__toggle button').should(
+			'not.exist',
+		);
+	}
+);
+
+//button to toggle the full definition in the definition box labelled "Show full definition" does not display
+
+And(
+	'user clicks on the full definition toggle button in the definition box',
+	() => {
+		cy.get('div.definition .definition__toggle button').click();
+	}
+);
+
+And('full definition toggle button text turns to {string}', (toggleText) => {
+	cy.get('div.definition .definition__toggle button').should(
+		'have.text',
+		toggleText
+	);
+});
+
+And('the definition box no longer appears on the page', () => {
+	cy.get('div.definition').should('not.exist');
 });
 
 /*

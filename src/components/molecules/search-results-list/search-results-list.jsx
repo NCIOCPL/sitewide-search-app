@@ -45,9 +45,6 @@ const SearchResultsList = ({
 
 	return (
 		<>
-			<h3 className="results__header">
-				{i18n.results[language]} {i18n.for[language]}: {keyword}
-			</h3>
 			<h4 className="results__info">
 				{i18n.results[language]} 1-{resultsPerPage} {i18n.of[language]}{' '}
 				{results.totalResults} {i18n.for[language]}: {keyword}

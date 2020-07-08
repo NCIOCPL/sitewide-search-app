@@ -1,0 +1,35 @@
+{
+	"meta": {
+		"totalResults": 14,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 45333,
+			"language": "en",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "cancer",
+			"firstLetter": null,
+			"prettyUrlName": "cancer",
+			"pronunciation": {
+				"key": "(KAN-ser)",
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/705333.mp3"
+			},
+			"definition": {
+				"html": "A term for diseases in which abnormal cells divide without control and can invade nearby tissues. Cancer cells can also spread to other parts of the body through the blood and lymph systems. There are several main types of cancer. Carcinoma is a cancer that begins in the skin or in tissues that line or cover internal organs. Sarcoma is a cancer that begins in bone, cartilage, fat, muscle, blood vessels, or other connective or supportive tissue. Leukemia is a cancer that begins in blood-forming tissue, such as the bone marrow, and causes too many abnormal blood cells to be made. Lymphoma and multiple myeloma are cancers that begin in the cells of the immune system. Central nervous system cancers are cancers that begin in the tissues of the brain and spinal cord. Also called malignancy.",
+				"text": "A term for diseases in which abnormal cells divide without control and can invade nearby tissues. Cancer cells can also spread to other parts of the body through the blood and lymph systems. There are several main types of cancer. Carcinoma is a cancer that begins in the skin or in tissues that line or cover internal organs. Sarcoma is a cancer that begins in bone, cartilage, fat, muscle, blood vessels, or other connective or supportive tissue. Leukemia is a cancer that begins in blood-forming tissue, such as the bone marrow, and causes too many abnormal blood cells to be made. Lymphoma and multiple myeloma are cancers that begin in the cells of the immune system. Central nervous system cancers are cancers that begin in the tissues of the brain and spinal cord. Also called malignancy."
+			},
+			"otherLanguages": [],
+			"relatedResources": [
+				{
+					"Url": "https://www.cancer.gov/about-cancer/understanding/what-is-cancer",
+					"Type": "External",
+					"Text": "What Is Cancer?"
+				}
+			],
+			"media": []
+		}
+	],
+	"links": null
+}

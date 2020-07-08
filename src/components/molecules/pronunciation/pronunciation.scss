@@ -1,7 +1,15 @@
 .pronunciation {
 	display: flex;
 	font-family: Noto Sans;
+	&__term {
+		padding-top: 8px;
+		flex: none;
+		width: auto;
+		font-weight: bold;
+		line-height: 1.4;
+	}
 	&__audio {
+		margin-right: 5px;
 		flex: none;
 		width: 42px;
 	}

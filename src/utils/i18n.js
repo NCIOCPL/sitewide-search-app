@@ -1,11 +1,23 @@
 export const i18n = {
+	definitionTitle: {
+		en: 'Definition',
+		es: 'Definición',
+	},
 	errorPageText: {
 		en: 'An error occurred. Please try again later.',
 		es: 'Se produjo un error. Por favor, vuelva a intentar más tarde.',
 	},
+	hideFullDefinition: {
+		en: 'Hide full definition',
+		es: 'Ocultar toda la definición',
+	},
+	moreInfoOnDictionaryPage: {
+		en: 'More information on dictionary page',
+		es: 'Más información',
+	},
 	nciSearchResults: {
 		en: 'NCI Search Results',
-		es: 'Resultados'
+		es: 'Resultados',
 	},
 	noResultsFoundFor: {
 		en: '0 results found for',
@@ -17,7 +29,15 @@ export const i18n = {
 	},
 	pleaseCheckSpellingOrTryAnotherSearch: {
 		en: 'Please check your spelling or try another search using a different word.',
-		es: 'Revise si hay errores en el texto ingresado o intente otra búsqueda.'
+		es: 'Revise si hay errores en el texto ingresado o intente otra búsqueda.',
+	},
+	resultsFor: {
+		en: 'Results for',
+		es: 'Resultados para',
+	},
+	showFullDefinition: {
+		en: 'Show full definition',
+		es: 'Mostrar toda la definición',
 	},
 	results: {
 		en: 'Results',

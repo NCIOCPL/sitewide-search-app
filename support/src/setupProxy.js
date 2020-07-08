@@ -15,63 +15,39 @@ const readFileAsync = util.promisify(fs.readFile);
 const readDirAsync = util.promisify(fs.readdir);
 
 /**
- * getDictionarySearchResults - Middleware for getting dictionary results.
+ * getDictionaryResults - Middleware for getting dictionary results
  * @param {Express.Request} req
  * @param {Express.Response} res
  * @param {Function} next
  */
-const getDictionarySearchResults = async (req, res, next) => {
+const getDictionaryResults = async (req, res, next) => {
 	const {
-		params: { audience, dictionary, language, query, queryType },
-		query: { matchType, size = 100, from = 0 },
+		params: { audience, dictionary, keyword, language, queryType },
 	} = req;
+	const lang = language.toLowerCase();
+	const query = keyword.toLowerCase();
 
-	const mockDir =
-		queryType === 'search'
-			? path.join(
-					__dirname,
-					'..',
-					'mock-data',
-					'Terms',
-					queryType,
-					dictionary,
-					audience,
-					language,
-					matchType
-			  )
-			: path.join(
-					__dirname,
-					'..',
-					'mock-data',
-					'Terms',
-					queryType,
-					dictionary,
-					audience,
-					language
-			  );
-
+	const mockDir = path.join(
+		__dirname,
+		'..',
+		'mock-data',
+		'glossary',
+		'v1',
+		'Terms',
+		queryType,
+		dictionary,
+		audience,
+		lang
+	);
 	try {
-		const mockFile = path.join(mockDir, `${query}_${size}_${from}.json`);
-		await fs.promises
-			.access(mockFile)
-			.then(() => {
-				res.sendFile(mockFile);
-			})
-			.catch((err) => {
-				// const mockResponse = mockNoResultsAPI( err );
-				res.send(mockNoResultsAPI(err));
-			});
+		const mockFile = path.join(mockDir, `${query}.json`);
+		await readFileAsync(mockFile);
+		res.sendFile(mockFile);
 	} catch (err) {
 		console.error(err);
 		res.send(mockNoResultsAPI(err));
 	}
 };
-
-/* getTermTotalCount - Middleware for getting a Term total count.
- * @param {Express.Request} req
- * @param {Express.Response} res
- * @param {Function} next
- */
 
 /**
  * getSearchResults - Middleware for getting sitewide search results.
@@ -180,16 +156,16 @@ const mockNoResultsAPI = (err) => {
  */
 const middleware = (app) => {
 	app.use(
-		'/api/Terms/:queryType/:dictionary/:audience/:language/:query',
-		getDictionarySearchResults
-	);
-
-	app.use(
 		'/api/sitewidesearch/v1/Search/:collection/:language/:term',
 		getSearchResults
 	);
 
 	app.use('/api/BestBets/:collection/:language/:term', getBestBetsResults);
+
+	app.use(
+		'/api/glossary/v1/Terms/:queryType/:dictionary/:audience/:language/:keyword',
+		getDictionaryResults
+	);
 
 	app.use('/api/*', (req, res, next) => {
 		console.error('Api path not implemented');

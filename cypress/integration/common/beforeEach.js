@@ -16,6 +16,7 @@ beforeEach(() => {
 			canonicalHost: 'https://www.cancer.gov',
 			dictionaryEndpoint: '/api/glossary/v1/',
 			dropdownOptions: [20, 50],
+			glossaryURL: 'https://www.cancer.gov/publications/dictionaries/cancer-terms',
 			language: 'en',
 			rootId: 'NCI-app-root',
 			searchEndpoint: '/api/sitewidesearch/v1/',

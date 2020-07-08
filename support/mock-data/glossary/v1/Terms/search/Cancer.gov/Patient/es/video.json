@@ -1,0 +1,29 @@
+{
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 45940,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "videocirugía",
+			"firstLetter": null,
+			"prettyUrlName": "videocirugia",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/707485.mp3"
+			},
+			"definition": {
+				"html": "Cirugía que se realiza con la ayuda de una cámara de video que proyecta y agranda la imagen en una pantalla de televisión. También se llama resección por videocirugía.",
+				"text": "Cirugía que se realiza con la ayuda de una cámara de video que proyecta y agranda la imagen en una pantalla de televisión. También se llama resección por videocirugía."
+			},
+			"otherLanguages": [],
+			"relatedResources": [],
+			"media": []
+		}
+	],
+	"links": null
+}

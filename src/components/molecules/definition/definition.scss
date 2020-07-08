@@ -1,0 +1,52 @@
+.definition {
+	padding: 16px 19px 10px;
+	border-radius: 3px;
+	box-shadow: 0 0 4px 0 hsla(0,0%,71%,.75);
+
+	&__toggle {
+		border-top: 1px solid #c7c6c6;
+		margin-left: -19px;
+		margin-right: -19px;
+		padding: 10px 19px 0;
+
+		button {
+			width: auto;
+			padding-left: 0;
+			font-size: 1rem;
+			border: none;
+			background: none;
+			color: #2E2E2E;
+			cursor: pointer;
+			font-family: Noto Sans, Century Gothic, Arial, sans-serif;
+			outline: none;
+
+			&::before {
+				border-style: solid;
+				border-width: 2px 2px 0 0;
+				content: '';
+				display: inline-block;
+				height: 8px;
+				margin-right: 10px;
+				position: relative;
+				top: 5px;
+				vertical-align: top;
+				width: 8px;
+			}
+			&.definition__show-full::before {
+				transform: rotate(135deg);
+			}
+			&.definition__hide-full::before {
+				top: 0;
+				vertical-align: unset;
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	&__term-description + &__toggle {
+		margin-top: 1.25em;
+	}
+}
+
+
+

@@ -38,7 +38,6 @@ describe('<SearchResultsList /> component', () => {
 			/>
 		);
 		expect(container.querySelector('.results__select')).toBeInTheDocument();
-		expect(container.querySelector('.results__header')).toBeInTheDocument();
 		expect(container.querySelector('.results__info')).toBeInTheDocument();
 		expect(container.querySelector('.results__container')).toBeInTheDocument();
 		expect(container.querySelector('.results__select')).toBeInTheDocument();

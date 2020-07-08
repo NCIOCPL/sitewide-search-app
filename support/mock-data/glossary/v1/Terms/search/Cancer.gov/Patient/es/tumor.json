@@ -1,0 +1,29 @@
+{
+	"meta": {
+		"totalResults": 107,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 46634,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "tumor",
+			"firstLetter": null,
+			"prettyUrlName": "tumor",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/709837.mp3"
+			},
+			"definition": {
+				"html": "Masa anormal de tejido que aparece cuando las células se multiplican más de lo debido o no se destruyen en el momento apropiado. Los tumores son benignos (no cancerosos) o malignos (cancerosos).  También se llama neoplasia.",
+				"text": "Masa anormal de tejido que aparece cuando las células se multiplican más de lo debido o no se destruyen en el momento apropiado. Los tumores son benignos (no cancerosos) o malignos (cancerosos).  También se llama neoplasia."
+			},
+			"otherLanguages": [],
+			"relatedResources": [],
+			"media": []
+		}
+	],
+	"links": null
+}
