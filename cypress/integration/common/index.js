@@ -1,5 +1,8 @@
+/// <reference types="Cypress" />
+
 import { And, Given, Then } from 'cypress-cucumber-preprocessor/steps';
 import { i18n } from '../../../src/utils';
+import { testIds } from '../../../src/constants';
 
 const baseURL = Cypress.config('baseUrl');
 
@@ -29,7 +32,7 @@ Given('the user visits the home page', () => {
 	cy.visit('/');
 });
 
-Given('the user navigates to {string}',  (destURL) => {
+Given('the user navigates to {string}', (destURL) => {
 	cy.visit(destURL);
 });
 
@@ -89,15 +92,84 @@ And('the following links and texts exist on the page', (dataTable) => {
 
 /*
     -----------------------
+       Meta Tags
+    -----------------------
+*/
+
+Then(
+	'{string} exists in the data for the page URL of {string}',
+	(noIndexDirective, expandURL) => {
+		cy.location('href').should('eq', `${baseURL}${expandURL}`);
+		cy.get('head meta[name="robots"]').should(
+			'have.attr',
+			'content',
+			'noindex'
+		);
+	}
+);
+/*
+    -----------------------
         No Results Page
     -----------------------
 */
 And('the system returns the no results found page', () => {
-
 	cy.window().then((win) => {
 		if (win.INT_TEST_APP_PARAMS) {
-			const noResultsPageTitle =  i18n.nciSearchResults[win.INT_TEST_APP_PARAMS.language];
+			const noResultsPageTitle =
+				i18n.nciSearchResults[win.INT_TEST_APP_PARAMS.language];
 			cy.get('h1').should('contain', noResultsPageTitle);
 		}
 	});
+});
+
+/*
+    -----------------------
+        Basic Results Page
+    -----------------------
+*/
+
+And(
+	'the system displays {string} {string} as an {string} tag',
+	(resultsIntroText, keyword, tag) => {
+		if (tag.toLowerCase() === 'h4')
+			cy.get(tag)
+				.first()
+				.invoke('text')
+				.should('contain', `${resultsIntroText}${keyword}`);
+		else cy.get(tag).should('contain.text', `${resultsIntroText}${keyword}`);
+	}
+);
+
+And('the system displays {int} results per page', (numberOfResults) => {
+	cy.get(`select[data-testid="${testIds.SEARCH_PAGE_UNIT}`)
+		.find(':selected')
+		.should('have.text', `${numberOfResults}`);
+});
+
+And('each result item displays the title of an item as a link', () => {
+	cy.get('.result__list-item a').should('have.attr', 'href');
+	cy.get('.result__list-item a').each(($el) => {
+		cy.wrap($el).invoke('text').should('not.be.empty');
+	});
+});
+
+And('each result item displays the description of an item', () => {
+	cy.get('.result__list-item div')
+		.first()
+		.invoke('text')
+		.should('not.be.empty');
+});
+
+And('each result item displays the full URL of an item', () => {
+	cy.get('.result__list-item').each(($el) => {
+		const href = $el.find('a').attr('href');
+		cy.wrap($el).find('cite').invoke('text').should('eq', href);
+	});
+});
+
+And('number {int} result item displays {string} label', (itemNumber, label) => {
+	cy.get('.result__list-item a')
+		.eq(itemNumber - 1)
+		.invoke('text')
+		.should('include', label);
 });

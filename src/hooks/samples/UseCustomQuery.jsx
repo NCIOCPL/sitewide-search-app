@@ -7,8 +7,8 @@ import { setLanguage, setSearchEndpoint } from '../../services/api/endpoints';
 const UseCustomQuerySample = () => {
 	const apiBaseEndpoint = 'http://localhost:3000/api';
 	const lang = 'en';
-	setLanguage(lang);
-	setSearchEndpoint(`${apiBaseEndpoint}/glossary/v1/search`);
+  setLanguage(lang);
+	setSearchEndpoint(`${apiBaseEndpoint}/sitewidesearch/v1/Search/cgov/${lang}`);
 	const { loading, payload } = useCustomQuery(getSearchResults());
 	return <>{!loading && payload && <h1>{payload.contentMessage}</h1>}</>;
 };
