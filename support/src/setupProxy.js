@@ -140,7 +140,7 @@ const getBestBetsResults = async (req, res, next) => {
 		const mockFile = path.join(mockDir, `${term}.json`);
 		await fs.promises
 			.access(mockFile)
-			.then(() => {
+			.then((pageunit) => {
 				res.sendFile(mockFile);
 			})
 			.catch((err) => {
