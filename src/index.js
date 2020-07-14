@@ -63,32 +63,30 @@ const initialize = ({
 		searchEndpoint,
 		siteName,
 		searchSiteFilter,
-		title
+		title,
 	};
 
 	// Determine the analytics HoC we are going to use.
 	// The following allows the app to be more portable, cgov will
 	// default to using EDDL Analytics. Other sites could supplier
 	// their own custom handler.
-	const AnalyticsHoC = ({children}) =>
-		analyticsHandler === 'EddlAnalyticsHandler'
-			? (
-				<EddlAnalyticsProvider
-					pageLanguage={language === 'es' ? 'spanish' : 'english'}
-					pageChannel={analyticsChannel}
-					pageContentGroup={analyticsContentGroup}
-					publishedDate={analyticsPublishedDate}>
-					{children}
-				</EddlAnalyticsProvider>
-			)
-			: (
-				<AnalyticsProvider analyticsHandler={analyticsHandler}>
-					{children}
-				</AnalyticsProvider>
-			);
+	const AnalyticsHoC = ({ children }) =>
+		analyticsHandler === 'EddlAnalyticsHandler' ? (
+			<EddlAnalyticsProvider
+				pageLanguage={language === 'es' ? 'spanish' : 'english'}
+				pageChannel={analyticsChannel}
+				pageContentGroup={analyticsContentGroup}
+				publishedDate={analyticsPublishedDate}>
+				{children}
+			</EddlAnalyticsProvider>
+		) : (
+			<AnalyticsProvider analyticsHandler={analyticsHandler}>
+				{children}
+			</AnalyticsProvider>
+		);
 
 	AnalyticsHoC.propTypes = {
-		children: PropTypes.node
+		children: PropTypes.node,
 	};
 
 	const AppBlock = () => {

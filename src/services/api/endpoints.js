@@ -27,7 +27,7 @@ export const getEndpoint = (endpoint) => {
 	// Define api endpoints here
 	const urls = {
 		dictionaryTestCall: `${DICTIONARY_URI}/`,
-		searchResults: `${SEARCH_URI}/search`,
+		searchResults: `${SEARCH_URI}/Search/cgov/${LANGUAGE}`,
 	};
 	return urls[endpoint];
 };

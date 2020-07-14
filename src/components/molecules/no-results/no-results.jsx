@@ -6,7 +6,7 @@ import { useStateValue } from '../../../store/store';
 import { i18n } from '../../../utils';
 
 const NoResults = ({ keyword }) => {
-	const [{ title, language }] = useStateValue();
+	const [{ language }] = useStateValue();
 
 	const renderHelmet = () => {
 		return (
@@ -19,7 +19,6 @@ const NoResults = ({ keyword }) => {
 	return (
 		<>
 			{renderHelmet()}
-			<h1>{title}</h1>
 			<h3>
 				{i18n.noResultsFoundFor[language]}: {keyword}
 			</h3>

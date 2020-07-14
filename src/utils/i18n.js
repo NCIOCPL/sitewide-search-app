@@ -19,8 +19,40 @@ export const i18n = {
 		en: 'Please check your spelling or try another search using a different word.',
 		es: 'Revise si hay errores en el texto ingresado o intente otra búsqueda.'
 	},
+	results: {
+		en: 'Results',
+		es: 'Resultados',
+	},
+	for: {
+		en: 'for',
+		es: 'para',
+	},
+	of: {
+		en: 'of',
+		es: 'de',
+	},
 	search: {
 		en: 'Search',
 		es: 'Buscar',
+	},
+	video: {
+		en: 'Video',
+		es: 'Video',
+	},
+	infographic: {
+		en: 'Infographic',
+		es: 'Infografía',
+	},
+	newSearch: {
+		en: 'New Search',
+		es: 'Nueva búsqueda',
+	},
+	searchWithin: {
+		en: 'Search Within',
+		es: 'Búsqueda dentro de los resultados',
+	},
+	enterKeywordsOrPhrases: {
+		en: 'Enter keywords or phrases',
+		es: 'Ingrese palabras clave o frases',
 	},
 };

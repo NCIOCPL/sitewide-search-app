@@ -6,21 +6,27 @@ describe('getSearchResults action', () => {
 
 	test(`should match getSearchResults action for keyword "cancer" and language default "English"`, () => {
 		const keyword = 'cancer';
+		const language = 'en';
+		setLanguage(language);
 		const retAction = {
 			method: 'GET',
-			endpoint: `/sitewidesearch/v1/search/?dictionary=term&searchText=${keyword}&language=English&searchType=exact&offset=0&maxResults=0`,
+			endpoint: `/sitewidesearch/v1/Search/cgov/en/${encodeURI(
+				keyword
+			)}?from=0&size=20`,
 		};
-		expect(getSearchResults({ keyword })).toEqual(retAction);
+		expect(getSearchResults({ language, keyword })).toEqual(retAction);
 	});
 
 	test(`should match getSearchResults action for keyword "pollo" and language "Spanish"`, () => {
 		const keyword = 'pollo';
-		const lang = 'es';
-		setLanguage(lang);
+		const language = 'es';
+		setLanguage(language);
 		const retAction = {
 			method: 'GET',
-			endpoint: `/sitewidesearch/v1/search/?dictionary=term&searchText=${keyword}&language=Spanish&searchType=exact&offset=0&maxResults=0`,
+			endpoint: `/sitewidesearch/v1/Search/cgov/es/${encodeURI(
+				keyword
+			)}?from=0&size=20`,
 		};
-		expect(getSearchResults({ keyword, lang })).toEqual(retAction);
+		expect(getSearchResults({ language, keyword })).toEqual(retAction);
 	});
 });

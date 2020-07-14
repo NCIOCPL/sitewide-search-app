@@ -39,7 +39,7 @@ describe('Home component(English)', () => {
 						language: 'English',
 						message: ['Found 0 results.'],
 					},
-					result: [],
+					results: [],
 				},
 			}),
 		};
@@ -56,9 +56,7 @@ describe('Home component(English)', () => {
 			);
 		});
 		expect(screen.getByText(title)).toBeInTheDocument();
-		expect(
-			screen.getByText('0 results found for: achoo')
-		).toBeInTheDocument();
+		expect(screen.getByText('0 results found for: achoo')).toBeInTheDocument();
 		// expect(screen.getByText(i18n.pleaseCheckSpellingOrTryAnotherSearch)).toBeInTheDocument();
 	});
 });
