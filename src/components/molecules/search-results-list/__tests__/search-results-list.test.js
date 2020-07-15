@@ -35,6 +35,7 @@ describe('<SearchResultsList /> component', () => {
 				results={payload}
 				resultsPerPage={pageunit}
 				setPageunit={() => {}}
+				setCurrent={() => {}}
 			/>
 		);
 		expect(container.querySelector('.results__select')).toBeInTheDocument();
@@ -66,6 +67,7 @@ describe('<SearchResultsList /> component', () => {
 				results={payload}
 				resultsPerPage={pageunit}
 				setPageunit={() => {}}
+				setCurrent={() => {}}
 			/>
 		);
 		const { getByTestId, getByText } = wrapper;

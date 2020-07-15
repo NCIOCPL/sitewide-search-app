@@ -9,14 +9,18 @@ import { useURLQuery, useCustomQuery } from '../../hooks';
 import { useStateValue } from '../../store/store';
 
 const Home = () => {
-	const urlQuery = useURLQuery();
 	const [{ canonicalHost, siteName, title, language }] = useStateValue();
-	const [stateSearchResults, setStateSearchResults] = useState();
-	const [pageunit, setPageunit] = useState(20);
+	const urlQuery = useURLQuery();
 	const keyword = urlQuery.get('swKeyword');
+	const offset = parseInt(urlQuery.get('from'),10);
+	const unit = parseInt(urlQuery.get('pageunit'),10);
+	const [stateSearchResults, setStateSearchResults] = useState();
+	const [pageunit, setPageunit] = useState(unit);
+	const [current, setCurrent] = useState(offset);
+	
 	const tracking = useTracking();
 	const searchResults = useCustomQuery(
-		getSearchResults({ language, keyword, pageunit }),
+		getSearchResults({ language, keyword, current, pageunit }),
 		!!keyword
 	);
 	// Set hasResults should there be results returned for any search
@@ -49,7 +53,7 @@ const Home = () => {
 			};
 			setStateSearchResults(newResults);
 		}
-	}, [searchResults.loading, searchResults.payload, pageunit]);
+	}, [searchResults.loading, searchResults.payload, pageunit, current]);
 
 	const renderHelmet = () => {
 		let retHead = <></>;
@@ -64,9 +68,11 @@ const Home = () => {
 				<SearchResultsList
 					keyword={keyword}
 					language={language}
+					currentPage={current}
 					results={stateSearchResults}
 					resultsPerPage={parseInt(pageunit, 10)}
 					setPageunit={setPageunit}
+					setCurrent={setCurrent}
 				/>
 			) : (
 				<NoResults keyword={keyword} />

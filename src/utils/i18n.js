@@ -55,4 +55,20 @@ export const i18n = {
 		en: 'Enter keywords or phrases',
 		es: 'Ingrese palabras clave o frases',
 	},
+	previous: {
+		en: 'Previous',
+		es: 'Anterior'
+	},
+	next: {
+		en: 'Next',
+		es: 'Siguiente'
+	},
+	show: {
+		en: 'Show',
+		es: 'Espectáculo'
+	},
+	resultsPerPage: {
+		en: 'Results Per Page',
+		es: 'Resultados Por Página'
+	}
 };

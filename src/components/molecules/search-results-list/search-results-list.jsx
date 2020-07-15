@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import ResultsListItem from './results-list-item';
+import SearchResultsPager from '../search-results-pager/search-results-pager';
+
 import { i18n } from '../../../utils';
 import { testIds } from '../../../constants';
 
@@ -10,8 +13,10 @@ import './search-results-list.scss';
 const SearchResultsList = ({
 	keyword,
 	results,
+	currentPage,
 	resultsPerPage,
 	setPageunit,
+	setCurrent,
 	language,
 }) => {
 	const options = [20, 50];
@@ -25,7 +30,7 @@ const SearchResultsList = ({
 	const dropDown = (
 		<select
 			data-testid={testIds.SEARCH_PAGE_UNIT}
-			className="results__select"
+			className="pager__select"
 			value={resultsPerPage}
 			onBlur={(e) => setPageunit(e.target.value)}
 			onChange={(e) => setPageunit(e.target.value)}>
@@ -42,22 +47,52 @@ const SearchResultsList = ({
 			/>
 		);
 	});
-
+	const renderHelmet = () => {
+		return (
+			<Helmet>
+				<meta name="robots" content="noindex" />
+			</Helmet>
+		);
+	};
 	return (
 		<>
+			{renderHelmet()}
 			<h3 className="results__header">
 				{i18n.results[language]} {i18n.for[language]}: {keyword}
 			</h3>
-			<h4 className="results__info">
-				{i18n.results[language]} 1-{resultsPerPage} {i18n.of[language]}{' '}
-				{results.totalResults} {i18n.for[language]}: {keyword}
-			</h4>
+			<div className="results__info">
+				<h4>
+					{i18n.results[language]} {currentPage}-{resultsPerPage}{' '}
+					{i18n.of[language]} {results.totalResults} {i18n.for[language]}:{' '}
+					{keyword}
+				</h4>
+				<SearchResultsPager
+					testid={testIds.RESULTS_PAGER_TOP}
+					current={currentPage}
+					total={results.totalResults}
+					language={language}
+					onChangeCurrent={(num) => setCurrent(parseInt(num, 10))}
+				/>
+			</div>
 			<ul className="no-bullets results__container">{ResultList}</ul>
 			<h4 className="results__info">
-				{i18n.results[language]} 1-{resultsPerPage} {i18n.of[language]}{' '}
-				{results.totalResults}
+				{i18n.results[language]} {currentPage}-{resultsPerPage}{' '}
+				{i18n.of[language]} {results.totalResults}
 			</h4>
-			<div className="results__viewby">view by {dropDown}</div>
+			<div className="results__info">
+				<div className="results__viewby">
+					{i18n.show[language]}
+					{dropDown}
+					{i18n.resultsPerPage[language]}
+				</div>
+				<SearchResultsPager
+					testid={testIds.RESULTS_PAGER_BOTTOM}
+					current={currentPage}
+					total={results.totalResults}
+					language={language}
+					onChangeCurrent={(num) => setCurrent(parseInt(num, 10))}
+				/>
+			</div>
 		</>
 	);
 };
@@ -69,7 +104,9 @@ SearchResultsList.propTypes = {
 		result: PropTypes.array,
 		totalResults: PropTypes.number,
 	}),
+	currentPage: PropTypes.number,
 	resultsPerPage: PropTypes.number,
+	setCurrent: PropTypes.func.isRequired,
 	setPageunit: PropTypes.func.isRequired,
 };
 

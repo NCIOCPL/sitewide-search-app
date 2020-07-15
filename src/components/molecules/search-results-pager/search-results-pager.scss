@@ -1,0 +1,61 @@
+@import '../../../styles/breakpoints';
+
+.pager__navigation,
+.pager__container {
+	align-items: center;
+	display: flex;
+	justify-content: flex-start;
+	margin-left: auto;
+}
+
+@include bp(small) {
+	.pager__navigation,
+	.pager__container {
+		margin-left: 0;
+	}
+
+	.pager__container {
+		border-top: 1px solid #000;
+		border-bottom: 1px solid #000;
+		padding: 16px 0;
+	}
+}
+
+.pager__container {
+	.pager__navigation {
+		color: #25619b;
+		list-style-type: none;
+
+		padding: 0;
+		margin-bottom: 0;
+		& > li {
+			align-items: center;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			list-style-type: none;
+			margin: 0 2px 0;
+		}
+
+		.pager__button {
+			border: none;
+			border-radius: 3px;
+			display: block;
+			padding: 2px 6px;
+			white-space: nowrap;
+			&.active {
+				background: #25619b;
+				color: #fff;
+			}
+
+			&:hover {
+				background: #eee;
+			}
+		}
+
+		.pager__ellipses--right,
+		.pager__ellipses--left {
+			padding: 2px 4px;
+		}
+	}
+}

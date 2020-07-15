@@ -10,9 +10,7 @@ describe('getSearchResults action', () => {
 		setLanguage(language);
 		const retAction = {
 			method: 'GET',
-			endpoint: `/sitewidesearch/v1/Search/cgov/en/${encodeURI(
-				keyword
-			)}?from=0&size=20`,
+			endpoint: `/sitewidesearch/v1/Search/cgov/en/${encodeURI(keyword)}?from=0&size=20`,
 		};
 		expect(getSearchResults({ language, keyword })).toEqual(retAction);
 	});
@@ -23,9 +21,7 @@ describe('getSearchResults action', () => {
 		setLanguage(language);
 		const retAction = {
 			method: 'GET',
-			endpoint: `/sitewidesearch/v1/Search/cgov/es/${encodeURI(
-				keyword
-			)}?from=0&size=20`,
+			endpoint: `/sitewidesearch/v1/Search/cgov/es/${encodeURI(keyword)}?from=0&size=20`,
 		};
 		expect(getSearchResults({ language, keyword })).toEqual(retAction);
 	});

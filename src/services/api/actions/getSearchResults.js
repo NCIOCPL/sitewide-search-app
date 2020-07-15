@@ -1,12 +1,15 @@
 import { ISO_CODE_LANG_MAP } from '../../../constants';
 import { getEndpoint } from '../endpoints';
 
-export const getSearchResults = ({ pageunit = 20, keyword, offset = 0 }) => {
+export const getSearchResults = ({
+	pageunit = 20,
+	keyword,
+	current = 0,
+}) => {
 	const endpoint = getEndpoint('searchResults');
+	current = current -1;
 	return {
 		method: 'GET',
-		endpoint: `${endpoint}/${encodeURI(
-			keyword
-		)}?from=${offset}&size=${pageunit}`,
+		endpoint: `${endpoint}/${encodeURI(keyword)}?from=${current}&size=${pageunit}`
 	};
 };
