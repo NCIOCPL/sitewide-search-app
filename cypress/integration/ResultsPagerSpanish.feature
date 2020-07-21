@@ -2,7 +2,7 @@ Feature: As a user, I would like to be able to page through search results from 
 
   Scenario: Spanish Search Results Pager
     Given "language" is set to "es"
-    Given the user navigates to "/?swKeyword=tumor"
+    Given the user navigates to "/?cfg=1&from=1&pageunit=20&swKeyword=tumor"
       Then the system returns the results page for "tumor"
       Then the system displays "Resultados 1-20 de 11189 para: " "tumor" as an "h4" tag
       Then the results are displayed

@@ -11,7 +11,7 @@ Feature: Basic search results Page Load
         And "channel" is set to "Search"
         And "analyticsContentGroup" is set to "Global Search"
         And "analyticsPublishedDate" is set to "02/02/2011"
-        When the user navigates to "/?swKeyword=tumor"
+        When the user navigates to "/?swKeyword=tumor&from=1&pageunit=20"
         And the system displays "Results 1-20 of 11189 for: " "tumor" as an "h4" tag
         And browser waits
         Then there should be an analytics event with the following details

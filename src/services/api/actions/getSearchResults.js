@@ -4,7 +4,7 @@ import { getEndpoint } from '../endpoints';
 export const getSearchResults = ({
 	pageunit = 20,
 	keyword,
-	current = 0,
+	current = 1,
 }) => {
 	const endpoint = getEndpoint('searchResults');
 	current = current -1;

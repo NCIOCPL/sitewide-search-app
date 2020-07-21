@@ -189,9 +189,7 @@ Then('the system displays {string} {string} as an {string} tag', (resultsIntroTe
 
 // Check to see if results are there
 Then('the results are displayed', () => {
-	cy.get('.result__description').each($el => {
-		cy.wrap($el).invoke('text').should('not.be.empty');
-	})
+	cy.get('.result__description').first().invoke('text').should('not.be.empty');
 });
 
 // Check to see if the first two numbers are present with decorator and button

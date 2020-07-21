@@ -75,10 +75,12 @@ const SearchResultsList = ({
 				/>
 			</div>
 			<ul className="no-bullets results__container">{ResultList}</ul>
-			<h4 className="results__info">
-				{i18n.results[language]} {currentPage}-{resultsPerPage}{' '}
-				{i18n.of[language]} {results.totalResults}
-			</h4>
+			<div  className="results__info">
+				<h4>
+					{i18n.results[language]} {currentPage}-{resultsPerPage}{' '}
+					{i18n.of[language]} {results.totalResults}
+				</h4>
+			</div>
 			<div className="results__info">
 				<div className="results__viewby">
 					{i18n.show[language]}

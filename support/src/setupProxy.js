@@ -76,8 +76,8 @@ const getSearchResults = async ( req, res, next ) => {
           collection,
           language,
           term,
-          current,
-          pageunit,
+          current = 0,
+          pageunit = 20,
       },
       query: {
           from = current,

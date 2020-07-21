@@ -1,7 +1,7 @@
 Feature: As a user, I would like to be able to page through search results from both the top and bottom of the page so that I can browse my search results.
 
   Scenario: English Search Results Pager
-    Given the user navigates to "/?swKeyword=tumor"
+    Given the user navigates to "/?swKeyword=tumor&from=1&pageunit=20"
       Given screen breakpoint is set to "mobile"
         Then the system returns the results page for "tumor"
         Then the system displays "Results 1-20 of 11189 for: " "tumor" as an "h4" tag
