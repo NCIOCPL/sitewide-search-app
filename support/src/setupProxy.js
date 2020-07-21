@@ -55,41 +55,39 @@ const getDictionaryResults = async (req, res, next) => {
  * @param {Express.Response} res
  * @param {Function} next
  */
-const getSearchResults = async (req, res, next) => {
-	const {
-		params: { collection, language, term },
-		query: {
-			from = 0,
-			size = 10,
-			// This is for a microsite, we filter the host and path.
-			site = 'all',
-		},
-	} = req;
+const getSearchResults = async ( req, res, next ) => {
+  const {
+      params: {
+          collection,
+          language,
+          term,
+          current = 0,
+          pageunit = 20,
+      },
+      query: {
+          from,
+          size,
+          // This is for a microsite, we filter the host and path.
+          site = 'all'
+      }
+  } = req;
 
-	const mockDir = path.join(
-		__dirname,
-		'..',
-		'mock-data',
-		'Search',
-		collection,
-		language,
-		site
-	);
-	try {
-		const mockFile = path.join(mockDir, `${term}.json`);
-		await fs.promises
-			.access(mockFile)
-			.then(() => {
-				res.sendFile(mockFile);
-			})
-			.catch((err) => {
-				// const mockResponse = mockNoResultsAPI( err );
-				res.send(mockNoResultsAPI(err));
-			});
-	} catch (err) {
-		console.error(err);
-		res.send(mockNoResultsAPI(err));
-	}
+  const mockDir = path.join( __dirname, '..', 'mock-data', 'Search', collection, language, site );
+  try {
+      //const mockFile = path.join( mockDir, `${term}.json` );
+      const mockFile = path.join(mockDir, `${term}_${from}-${size}.json`);
+      await fs.promises.access( mockFile )
+          .then( () => {
+              res.sendFile(mockFile);
+          })
+          .catch( err => {
+              // const mockResponse = mockNoResultsAPI( err );
+              res.send( mockNoResultsAPI( err ) );
+          });
+  } catch (err) {
+      console.error(err);
+      res.send( mockNoResultsAPI( err ) );
+  }
 };
 
 /**

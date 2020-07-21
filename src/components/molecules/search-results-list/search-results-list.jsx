@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import ResultsListItem from './results-list-item';
+import SearchResultsPager from '../search-results-pager/search-results-pager';
+
 import { i18n } from '../../../utils';
 import { testIds } from '../../../constants';
 
@@ -10,10 +13,23 @@ import './search-results-list.scss';
 const SearchResultsList = ({
 	keyword,
 	results,
+	currentPage,
 	resultsPerPage,
-	setPageunit,
 	language,
 }) => {
+	const updatePageUnit = (val) => {
+		window.location.href = `?swkeyword=${keyword}&page=${1}&pageunit=${val}&Offset=${1}`;
+		window.scrollTo(0, 0);
+	};
+	// converted values to display in page
+	const positionInResults = (currentPage - 1) * resultsPerPage;
+	const fromPage = currentPage > 1 ? positionInResults + 1 : currentPage;
+	let toPage =
+		currentPage > 1 ? positionInResults + resultsPerPage : resultsPerPage;
+	if (toPage > results.totalResults) {
+		toPage = results.totalResults;
+	}
+
 	const options = [20, 50];
 	const opts = options.map((item) => {
 		return (
@@ -24,11 +40,12 @@ const SearchResultsList = ({
 	});
 	const dropDown = (
 		<select
+			aria-label="number of results"
 			data-testid={testIds.SEARCH_PAGE_UNIT}
-			className="results__select"
+			className="pager__select"
 			value={resultsPerPage}
-			onBlur={(e) => setPageunit(e.target.value)}
-			onChange={(e) => setPageunit(e.target.value)}>
+			onBlur={(e) => updatePageUnit(e.target.value)}
+			onChange={(e) => updatePageUnit(e.target.value)}>
 			{opts}
 		</select>
 	);
@@ -42,23 +59,56 @@ const SearchResultsList = ({
 			/>
 		);
 	});
+	const renderHelmet = () => {
+		return (
+			<Helmet>
+				<meta name="robots" content="noindex" />
+			</Helmet>
+		);
+	};
 
 	return (
 		<>
-			<h4 className="results__info">
-				{i18n.results[language]} 1-{resultsPerPage} {i18n.of[language]}{' '}
-				{results.totalResults} {i18n.for[language]}: {keyword}
-			</h4>
+			{renderHelmet()}
+			<div className="results__info">
+				<h4>
+					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]}{' '}
+					{results.totalResults} {i18n.for[language]}: {keyword}
+				</h4>
+				<SearchResultsPager
+					testid={testIds.RESULTS_PAGER_TOP}
+					current={currentPage}
+					totalResults={results.totalResults}
+					resultsPerPage={resultsPerPage}
+					language={language}
+					keyword={keyword}
+				/>
+			</div>
 			<ul className="no-bullets results__container">{ResultList}</ul>
-			<h4 className="results__info">
-				{i18n.results[language]} 1-{resultsPerPage} {i18n.of[language]}{' '}
-				{results.totalResults}
-			</h4>
-			<div className="results__viewby">view by {dropDown}</div>
+			<div className="results__info">
+				<h4>
+					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]}{' '}
+					{results.totalResults}
+				</h4>
+			</div>
+			<div className="results__info pager__bottom">
+				<div className="results__viewby">
+					{i18n.show[language]}
+					{dropDown}
+					{i18n.resultsPerPage[language]}
+				</div>
+				<SearchResultsPager
+					testid={testIds.RESULTS_PAGER_BOTTOM}
+					current={currentPage}
+					totalResults={results.totalResults}
+					resultsPerPage={resultsPerPage}
+					language={language}
+					keyword={keyword}
+				/>
+			</div>
 		</>
 	);
 };
-
 SearchResultsList.propTypes = {
 	language: PropTypes.oneOf(['en', 'es']),
 	keyword: PropTypes.string,
@@ -66,8 +116,7 @@ SearchResultsList.propTypes = {
 		result: PropTypes.array,
 		totalResults: PropTypes.number,
 	}),
+	currentPage: PropTypes.number,
 	resultsPerPage: PropTypes.number,
-	setPageunit: PropTypes.func.isRequired,
 };
-
 export default SearchResultsList;

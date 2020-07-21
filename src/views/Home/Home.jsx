@@ -20,21 +20,27 @@ const Home = () => {
 	const [searchResultsLoaded, setSearchResultsLoaded] = useState(false);
 	const [stateDefinitionResult, setStateDefinitionResult] = useState();
 	const [stateSearchResults, setStateSearchResults] = useState();
-	const [pageunit, setPageunit] = useState(20);
 	const keyword = urlQuery.get('swKeyword') || urlQuery.get('swkeyword');
+	const currentPage = parseInt(urlQuery.get('page'), 10) || 1;
+	const unit = parseInt(urlQuery.get('pageunit'), 10) || 20;
+	const [pageunit, setPageunit] = useState(unit);
+	const [current] = useState(currentPage);
+
 	// Only display Definition component if offset
 	// doesn't exist in url or it exists and is the first page
-	const showDefinition =
-		!urlQuery.get('offset') || urlQuery.get('offset') === '0';
+	const showDefinition = !urlQuery.get('page') || urlQuery.get('page') === '1';
+
 	const tracking = useTracking();
 	const dictionaryResults = useCustomQuery(
 		getDictionaryResults({ keyword, lang: language }),
 		!!keyword
 	);
+
 	const searchResults = useCustomQuery(
-		getSearchResults({ language, keyword, pageunit }),
+		getSearchResults({ language, keyword, currentPage, unit }),
 		!!keyword
 	);
+
 	// Set hasResults should there be results returned for any search
 	const hasResults =
 		!!keyword &&
@@ -54,10 +60,9 @@ const Home = () => {
 		}
 
 		if (!searchResults.loading && searchResults.payload) {
-			// temp pageunit splide till API is ready
 			const newResults = {
 				...searchResults.payload,
-				result: searchResults.payload.results.slice(0, pageunit),
+				result: searchResults.payload.results,
 			};
 			setStateSearchResults(newResults);
 			setSearchResultsLoaded(true);
@@ -83,15 +88,25 @@ const Home = () => {
 				name: `${canonicalHost.replace('https://', '')}${
 					window.location.pathname
 				}${window.location.search}`,
-				numberResults: searchResults.payload ? searchResults.payload.totalResults : 0,
-				pageNum: 1,
-				itemsPerPage: pageunit,
+				numberResults: searchResults?.payload?.totalResults || 0,
+				pageNum: current || 1,
+				itemsPerPage: pageunit || 20,
 				searchKeyword: keyword,
 				title,
 				type: 'PageLoad',
 			});
 		}
 	}, [doneLoading]);
+
+	useEffect(() => {
+		if (!searchResults.loading && searchResults.payload) {
+			const newResults = {
+				...searchResults.payload,
+				result: searchResults.payload.results,
+			};
+			setStateSearchResults(newResults);
+		}
+	}, [searchResults.loading, searchResults.payload]);
 
 	const renderHelmet = () => {
 		return (
@@ -100,7 +115,6 @@ const Home = () => {
 			</Helmet>
 		);
 	};
-
 	return (
 		<>
 			{renderHelmet()}
@@ -112,9 +126,9 @@ const Home = () => {
 					<SearchResultsList
 						keyword={keyword}
 						language={language}
+						currentPage={current}
 						results={stateSearchResults}
 						resultsPerPage={parseInt(pageunit, 10)}
-						setPageunit={setPageunit}
 					/>
 				</div>
 			) : (
@@ -124,5 +138,4 @@ const Home = () => {
 		</>
 	);
 };
-
 export default Home;
