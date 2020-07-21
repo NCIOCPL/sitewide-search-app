@@ -69,6 +69,10 @@ And('definition box appears with title {string}', (definitionBoxTitle) => {
 	cy.get('div.definition h2').should('have.text', definitionBoxTitle);
 });
 
+And('definition box does not appear on the page', () => {
+	cy.get('div.definition').should('not.exist');
+});
+
 And(
 	'the word {string} appears in the definition box, with the audio icon and pronunciation',
 	(term) => {
