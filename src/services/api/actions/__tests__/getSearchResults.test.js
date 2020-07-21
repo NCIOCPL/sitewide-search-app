@@ -1,4 +1,5 @@
 import { setLanguage, setSearchEndpoint } from '../../endpoints';
+
 import { getSearchResults } from '../index';
 
 describe('getSearchResults action', () => {
@@ -12,7 +13,7 @@ describe('getSearchResults action', () => {
 			method: 'GET',
 			endpoint: `/sitewidesearch/v1/Search/cgov/en/${encodeURI(
 				keyword
-			)}?from=0&size=20`,
+			)}?size=20&from=1&site=all`,
 		};
 		expect(getSearchResults({ language, keyword })).toEqual(retAction);
 	});
@@ -25,7 +26,7 @@ describe('getSearchResults action', () => {
 			method: 'GET',
 			endpoint: `/sitewidesearch/v1/Search/cgov/es/${encodeURI(
 				keyword
-			)}?from=0&size=20`,
+			)}?size=20&from=1&site=all`,
 		};
 		expect(getSearchResults({ language, keyword })).toEqual(retAction);
 	});

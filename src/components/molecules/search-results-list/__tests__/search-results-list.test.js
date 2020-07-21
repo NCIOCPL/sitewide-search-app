@@ -1,75 +1,93 @@
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import { render, fireEvent, cleanup } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import SearchResultsList from '../search-results-list';
+import { MemoryRouter } from 'react-router-dom';
+import { ClientContextProvider } from 'react-fetching-library';
+
+import Home from '../../../../views/Home/Home';
+import { useStateValue } from '../../../../store/store.js';
+import { MockAnalyticsProvider } from '../../../../tracking';
 import { testIds } from '../../../../constants';
+jest.mock('../../../../store/store.js');
+let wrapper;
+describe('Search Results component(English)', () => {
+	test('should show results found page for "tumor" as search keyword', async () => {
+		const basePath = '/';
+		const canonicalHost = 'https://www.example.gov';
+		const language = 'en';
+		const title = 'NCI Search Results';
 
-describe('<SearchResultsList /> component', () => {
-	afterEach(cleanup);
-	let wrapper;
-	let pageunit = 20;
-	const keyword = 'tumor';
-	const payload = {
-		result: [
+		useStateValue.mockReturnValue([
 			{
-				title: 'Desmoid Tumor - National Cancer Institute',
-				url: 'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
-				contentType: 'cgvInfographic',
-				description:
-					'Desmoid tumors grow from the connective tissue in your body.',
+				appId: 'mockAppId',
+				basePath,
+				canonicalHost,
+				language,
+				title,
 			},
-			{
-				title: 'Desmoid Tumor - National Cancer Institute',
-				url: 'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
-				contentType: 'cgvInfographic',
-				description:
-					'Desmoid tumors grow from the connective tissue in your body.',
-			},
-		],
-	};
+		]);
 
-	test('renders the search item in component when object supplied', () => {
-		const { container } = render(
-			<SearchResultsList
-				keyword={keyword}
-				results={payload}
-				resultsPerPage={pageunit}
-				setPageunit={() => {}}
-			/>
-		);
-		expect(container.querySelector('.results__select')).toBeInTheDocument();
-		expect(container.querySelector('.results__info')).toBeInTheDocument();
-		expect(container.querySelector('.results__container')).toBeInTheDocument();
-		expect(container.querySelector('.results__select')).toBeInTheDocument();
-		expect(container.querySelector('.result__description')).toBeInTheDocument();
-	});
-
-	test('Trigger pageunit update to', function () {
-		const mockEvent = {
-			event: {
-				target: {
-					value: 50,
+		const client = {
+			query: async () => ({
+				error: false,
+				status: 200,
+				payload: {
+					meta: {
+						offset: 0,
+						result_count: 2,
+						audience: 'Patient',
+						language: 'English',
+						message: ['Found 2 results.'],
+					},
+					results: [
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+					],
 				},
-			},
+			}),
 		};
 
-		const selectValue = ({ event }) => {
-			const { value } = event.target;
-			pageunit = value;
-		};
-
-		selectValue(mockEvent);
-		wrapper = render(
-			<SearchResultsList
-				keyword={keyword}
-				results={payload}
-				resultsPerPage={pageunit}
-				setPageunit={() => {}}
-			/>
-		);
-		const { getByTestId, getByText } = wrapper;
-		const selectBox = getByTestId(testIds.SEARCH_PAGE_UNIT);
-		fireEvent.change(selectBox, { target: { value: 50 } });
-		expect(getByText('50')).toBeTruthy();
+		await act(async () => {
+			wrapper = await render(
+				<MockAnalyticsProvider>
+					<ClientContextProvider client={client}>
+						<MemoryRouter initialEntries={['/?swKeyword=tumor']}>
+							<Home />
+						</MemoryRouter>
+					</ClientContextProvider>
+				</MockAnalyticsProvider>
+			);
+		});
+		expect(screen.getAllByText('Desmoid Tumor')[0]).toBeInTheDocument();
+		expect(screen.getAllByText('Results for: tumor')[0]).toBeInTheDocument();
+		expect(screen.getAllByText(/1/)[0]).toBeInTheDocument();
+		expect(screen.getAllByText(/2/)[0]).toBeInTheDocument();
+		expect(screen.getAllByText(/.../)[0]).toBeInTheDocument();
+		expect(screen.getAllByText(/Next/)[0]).toBeInTheDocument();
+		expect(
+			screen.getAllByText(
+				'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid'
+			)[0]
+		).toBeInTheDocument();
+		expect(
+			screen.getAllByText(
+				'Desmoid tumors grow from the connective tissue in your body.'
+			)[0]
+		).toBeInTheDocument();
+		fireEvent.change(screen.getByTestId(testIds.SEARCH_PAGE_UNIT));
+		fireEvent.blur(screen.getByTestId(testIds.SEARCH_PAGE_UNIT));
 	});
 });

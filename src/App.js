@@ -9,12 +9,13 @@ import Home from './views/Home';
 
 const App = () => {
 	// this should be a DUMB component that just displays our display(group) components
-	const { HomePath } = useAppPaths();
+	const { HomePath, HomeWithQueryPath } = useAppPaths();
 
 	return (
 		<Router>
 			<Routes>
 				<Route path={HomePath()} element={<Home />} />
+				<Route path={HomeWithQueryPath()} element={<Home />} />
 				<Route path="/*" element={<PageNotFound />} />
 			</Routes>
 		</Router>
