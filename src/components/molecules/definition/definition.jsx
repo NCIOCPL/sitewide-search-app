@@ -7,9 +7,10 @@ import { i18n, splitSentencesToArray } from '../../../utils';
 
 const Definition = ({ results }) => {
 	const payload = results[0];
-	const definitionSentencesArray = splitSentencesToArray(
-		payload.definition.html
-	);
+	const definitionSentencesArray =
+		payload && payload.definition
+			? splitSentencesToArray(payload.definition.html)
+			: '';
 	const truncatedDefinition = definitionSentencesArray[0];
 	const [{ glossaryURL, language }] = useStateValue();
 	const [defToggleClassName, setDefToggleClassName] = useState(

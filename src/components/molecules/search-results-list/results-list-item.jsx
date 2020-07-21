@@ -13,7 +13,7 @@ const ResultsListItem = ({ result = {}, language = 'en' }) => {
 	const test = /- National Cancer Institute|- Instituto Nacional del Cáncer$/i;
 	// Quick check to find empty title tags for documents
 	const sanitizedTitle =
-		title.length < 1 ? 'Untitled ' : title.replace(test, '').trim();
+		!title || title.length < 1 ? 'Untitled ' : title.replace(test, '').trim();
 
 	const displayType =
 		contentType === 'cgvInfographic' || contentType === 'cgvVideo';

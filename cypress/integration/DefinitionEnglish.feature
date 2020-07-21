@@ -37,4 +37,10 @@ Feature: As a user I would like to see the Definition box when I navigate to the
 		And link to the definition page with text "More information on dictionary page" does not display
 		And button to toggle the full definition in the definition box labelled "Show full definition" does not display
 
+	Scenario: English Dictionary Definition Display - do not show definition box
+		Given the user navigates to "/?swKeyword=dceg"
+		Then the page title is "NCI Search Results"
+		And page subtitle "Results for: dceg" appears below the page title
+		And definition box does not appear on the page
+
 
