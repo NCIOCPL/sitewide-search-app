@@ -51,6 +51,7 @@ const Definition = ({ results }) => {
 	};
 
 	const renderTermDefinition = () => {
+		const idOrPurl = payload.prettyUrlName || payload.termId;
 		return (
 			<>
 				<div
@@ -60,7 +61,7 @@ const Definition = ({ results }) => {
 					}}></div>
 				{(payload.relatedResources.length > 0 || payload.media.length > 0) && (
 					<p>
-						<a href={`${glossaryURL}/def/${payload.termId}`}>
+						<a href={`${glossaryURL}/def/${idOrPurl}`}>
 							{i18n.moreInfoOnDictionaryPage[language]}
 						</a>
 					</p>

@@ -7,7 +7,7 @@ Feature: As a user I would like to see the Definition box when I navigate to the
 		And definition box appears with title "Definition:"
 		And the word "metastasis" appears in the definition box, with the audio icon and pronunciation
 		And the definition "The spread of cancer cells from the place where they first formed to another part of the body." appears in the definition box
-		And link to the definition page with text "More information on dictionary page" and href "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/46710" in the definition box
+		And link to the definition page with text "More information on dictionary page" and href "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/metastasis" in the definition box
 		And a button to toggle the full definition appears in the definition box labelled "Show full definition"
 		When user clicks on the full definition toggle button in the definition box
 		Then full definition toggle button text turns to "Hide full definition"

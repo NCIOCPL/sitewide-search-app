@@ -12,7 +12,7 @@ Feature: As a user I would like to see the Definition box when I navigate to the
 		And definition box appears with title "Definición:"
 		And the word "cáncer de mama" appears in the definition box with the audio icon
 		And the definition "Cáncer que se forma en los tejidos del seno (mama)." appears in the definition box
-		And link to the definition page with text "Más información" and href "https://www.cancer.gov/espanol/publicaciones/diccionario/def/444971" in the definition box
+		And link to the definition page with text "Más información" and href "https://www.cancer.gov/espanol/publicaciones/diccionario/def/cancer-de-mama" in the definition box
 		And a button to toggle the full definition appears in the definition box labelled "Mostrar toda la definición"
 		When user clicks on the full definition toggle button in the definition box
 		Then full definition toggle button text turns to "Ocultar toda la definición"
@@ -39,5 +39,5 @@ Feature: As a user I would like to see the Definition box when I navigate to the
 		And definition box appears with title "Definición:"
 		And the word "cáncer de la vagina en estadio lll" appears in the definition box with the audio icon
 		And the definition "El cáncer se diseminó hasta la pared de la pelvis." appears in the definition box
-		And link to the definition page with text "Más información" and href "https://www.cancer.gov/espanol/publicaciones/diccionario/def/535780" in the definition box
+		And link to the definition page with text "Más información" and href "https://www.cancer.gov/espanol/publicaciones/diccionario/def/cancer-de-la-vagina-en-estadio-lll" in the definition box
 		And button to toggle the full definition in the definition box labelled "Mostrar toda la definición" does not display
