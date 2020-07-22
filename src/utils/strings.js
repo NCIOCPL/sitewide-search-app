@@ -4,10 +4,5 @@ export const emboldenSubstring = (str, subStr) => {
 };
 
 export const splitSentencesToArray = (text) => {
-	const textArray = text.split(/(?:\.)/g).map(str => str + '.');
-	// Remove last array item if item value is '.' char
-	if (textArray.length > 0 && textArray[textArray.length - 1] === '.') {
-		textArray.pop();
-	}
-	return textArray;
+	return text.replace(/(?:\.\s)/g, '.|').split('|');
 };
