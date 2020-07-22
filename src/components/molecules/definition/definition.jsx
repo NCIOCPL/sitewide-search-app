@@ -36,20 +36,6 @@ const Definition = ({ results }) => {
 		setDefToggleClassName('definition__show-full');
 	};
 
-	const renderPronunciation = () => {
-		return (
-			<>
-				{payload.pronunciation && (
-					<Pronunciation
-						lang={language}
-						pronunciationObj={payload.pronunciation}
-						term={payload.termName}
-					/>
-				)}
-			</>
-		);
-	};
-
 	const renderTermDefinition = () => {
 		const idOrPurl = payload.prettyUrlName || payload.termId;
 		return (
@@ -83,7 +69,11 @@ const Definition = ({ results }) => {
 			{payload && (
 				<div className="definition">
 					<h2>{`${i18n.definitionTitle[language]}:`}</h2>
-					{renderPronunciation()}
+					<Pronunciation
+						lang={language}
+						pronunciationObj={payload.pronunciation}
+						term={payload.termName}
+					/>
 					{payload.definition && renderTermDefinition()}
 				</div>
 			)}

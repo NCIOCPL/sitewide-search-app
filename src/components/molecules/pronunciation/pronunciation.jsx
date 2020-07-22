@@ -8,12 +8,12 @@ const Pronunciation = ({ pronunciationObj, language = 'en', term }) => {
 	return (
 		<div className="pronunciation">
 			{term && <div className="pronunciation__term">{term}</div>}
-			{pronunciationObj.audio && (
+			{pronunciationObj?.audio && (
 				<div className="pronunciation__audio">
 					<AudioPlayer audioSrc={pronunciationObj.audio} lang={language} />
 				</div>
 			)}
-			{pronunciationObj.key && (
+			{pronunciationObj?.key && (
 				<div
 					className="pronunciation__key"
 					data-testid={testIds.TERM_DEF_PRONUNCIATION}>
@@ -29,7 +29,7 @@ Pronunciation.propTypes = {
 	pronunciationObj: PropTypes.shape({
 		key: PropTypes.string,
 		audio: PropTypes.string,
-	}).isRequired,
+	}),
 	term: PropTypes.string,
 };
 
