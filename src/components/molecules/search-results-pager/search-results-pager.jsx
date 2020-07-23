@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { i18n } from '../../../utils';
-import { useAppPaths } from '../../../hooks';
+import { useAppPaths, useURLQuery } from '../../../hooks';
 import './search-results-pager.scss';
 
 const SearchResultsPager = ({
@@ -13,6 +13,8 @@ const SearchResultsPager = ({
 	language = 'en',
 }) => {
 	const { HomeWithQueryPath } = useAppPaths();
+	const urlQuery = useURLQuery();
+	const swKeywordKey = /swKeyword/i;
 	// total pages = total results / pageunit
 	// position in Array = current page - 1 for array offset * pageunit
 	let total = ~~(totalResults / resultsPerPage);
@@ -29,7 +31,12 @@ const SearchResultsPager = ({
 		if (calculatedOffset > totalResults) {
 			calculatedOffset = calculatedOffset - resultsPerPage;
 		}
-		const linkPath = `?swkeyword=${keyword}&page=${i}&pageunit=${resultsPerPage}&Offset=${calculatedOffset}`;
+		urlQuery.set(swKeywordKey.ignoreCase, keyword);
+		urlQuery.delete('true');
+		urlQuery.set('page', i);
+		urlQuery.set('pageunit', resultsPerPage);
+		urlQuery.set('Offset', calculatedOffset);
+		const linkPath = `?${urlQuery.toString()}`;
 		return (
 			<li className="pager__list-item" key={`pager__button-${i}`}>
 				{(i === current && (
@@ -48,6 +55,30 @@ const SearchResultsPager = ({
 				)}
 			</li>
 		);
+	};
+
+	const getLinkPathNext = (currentPage, keyword, resultsPerPage) => {
+		urlQuery.set(swKeywordKey.ignoreCase, keyword);
+		urlQuery.delete('true');
+		urlQuery.set('page', (currentPage + 1).toString());
+		urlQuery.set('pageunit', resultsPerPage);
+		urlQuery.set(
+			'Offset',
+			((current + 1) * resultsPerPage - resultsPerPage + 1).toString()
+		);
+		return `?${urlQuery.toString()}`;
+	};
+
+	const getLinkPathPrevious = (currentPage, keyword, resultsPerPage) => {
+		urlQuery.set(swKeywordKey.ignoreCase, keyword);
+		urlQuery.delete('true');
+		urlQuery.set('page', (currentPage - 1).toString());
+		urlQuery.set('pageunit', resultsPerPage);
+		urlQuery.set(
+			'Offset',
+			((current - 1) * resultsPerPage - resultsPerPage + 1).toString()
+		);
+		return `?${urlQuery.toString()}`;
 	};
 
 	const generateLinks = () => {
@@ -94,16 +125,12 @@ const SearchResultsPager = ({
 	// @param pageunit: 			Number of items per page (I presume)
 	// @param Offset: 				Where the current page record starts
 	const ButtonIU = generateLinks();
-	const linkPathPrevious = `?swkeyword=${keyword}&page=${
-		current - 1
-	}&pageunit=${resultsPerPage}&Offset=${
-		(current - 1) * resultsPerPage - resultsPerPage + 1
-	}`;
-	const linkPathNext = `?swkeyword=${keyword}&page=${
-		current + 1
-	}&pageunit=${resultsPerPage}&Offset=${
-		(current + 1) * resultsPerPage - resultsPerPage + 1
-	}`;
+	const linkPathPrevious = getLinkPathPrevious(
+		current,
+		keyword,
+		resultsPerPage
+	);
+	const linkPathNext = getLinkPathNext(current, keyword, resultsPerPage);
 	const PgPrevious = (
 		<li key={'pager__button-previous'}>
 			<a

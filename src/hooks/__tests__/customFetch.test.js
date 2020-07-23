@@ -1,4 +1,4 @@
-import { act, render, screen } from '@testing-library/react';
+import { act, cleanup, render, screen } from '@testing-library/react';
 import React from 'react';
 import { ClientContextProvider } from 'react-fetching-library';
 
@@ -6,6 +6,8 @@ import UseCustomQuerySample from '../samples/UseCustomQuery';
 import { useStateValue } from '../../store/store';
 import MockAnalyticsProvider from '../../tracking/mock-analytics-provider';
 import ErrorBoundary from '../../views/ErrorBoundary';
+import { setDictionaryEndpoint, setLanguage, setSearchEndpoint } from '../../services/api/endpoints';
+import { i18n } from '../../utils';
 
 jest.mock('../../store/store');
 
@@ -17,6 +19,7 @@ describe('', () => {
 
 	afterEach(() => {
 		console.error.mockRestore();
+		cleanup();
 	});
 
 	test('should throw an error using a non existent endpoint - English message', async () => {
@@ -95,28 +98,31 @@ describe('', () => {
 		).toBeInTheDocument();
 	});
 
-	/*test('useCustomQuery example should throw error - Spanish message', async () => {
+	test('useCustomQuery example should throw error - Spanish message', async () => {
+		const basePath = '/';
+		const canonicalHost = 'https://www.example.gov';
+		const dictionaryAudience = 'Patient';
 		const dictionaryName = 'Cancer.gov';
-		const dictionaryTitle = 'Diccionario de cáncer';
+		const glossaryEndpoint = '/api/glossary/v1/';
 		const language = 'es';
-		setDictionaryName(dictionaryName);
-		setAudience('Patient');
-		setLanguage(language);
 
 		useStateValue.mockReturnValue([
 			{
-				altLanguageDictionaryBasePath: '/cancer-terms',
-				languageToggleSelector: '#LangList1 a',
 				appId: 'mockAppId',
-				canonicalHost: 'https://example.org',
-				basePath: '/',
-				dictionaryEndpoint: '/',
+				basePath,
+				canonicalHost,
+				glossaryEndpoint,
+				dictionaryAudience,
 				dictionaryName,
-				dictionaryTitle,
+				isBestbetsConfigured: false,
+				isDictionaryConfigured: true,
 				language,
+				searchEndpoint: '/api/sitewidesearch/v1/',
+				searchCollection: 'cgov',
+				searchSiteFilter: 'all',
 			},
 		]);
-		client = {
+		const client = {
 			query: async () => ({
 				error: true,
 				status: 500,
@@ -124,7 +130,7 @@ describe('', () => {
 			}),
 		};
 		await act(async () => {
-			wrapper = render(
+			render(
 				<MockAnalyticsProvider>
 					<ClientContextProvider client={client}>
 						<ErrorBoundary>
@@ -134,34 +140,33 @@ describe('', () => {
 				</MockAnalyticsProvider>
 			);
 		});
-		const { getByText } = wrapper;
-		expect(getByText(i18n.errorPageText[language])).toBeInTheDocument();
+		expect(screen.getByText(i18n.errorPageText[language])).toBeInTheDocument();
 	});
 
 	test('useCustomQuery example should display content and not throw error', async () => {
 		const contentMessage = 'Successful API call with content';
+		const dictionaryAudience = 'Patient';
 		const dictionaryName = 'Cancer.gov';
-		const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
+		const glossaryEndpoint = '/api/glossary/v1/';
 		const language = 'en';
-		setDictionaryName(dictionaryName);
-		setAudience('Patient');
 		setLanguage(language);
 
 		useStateValue.mockReturnValue([
 			{
-				altLanguageDictionaryBasePath: '/diccionario',
-				languageToggleSelector: '#LangList1 a',
 				appId: 'mockAppId',
-				canonicalHost: 'https://example.org',
-				basePath: '/',
-				dictionaryEndpoint: '/',
+				dictionaryAudience,
 				dictionaryName,
-				dictionaryTitle,
+				glossaryEndpoint,
+				isBestbetsConfigured: false,
+				isDictionaryConfigured: true,
 				language,
+				searchEndpoint: '/api/sitewidesearch/v1/',
+				searchCollection: 'cgov',
+				searchSiteFilter: 'all',
 			},
 		]);
 
-		client = {
+		const client = {
 			query: async () => ({
 				error: false,
 				status: 200,
@@ -169,7 +174,7 @@ describe('', () => {
 			}),
 		};
 		await act(async () => {
-			wrapper = render(
+			render(
 				<MockAnalyticsProvider>
 					<ClientContextProvider client={client}>
 						<ErrorBoundary>
@@ -179,7 +184,6 @@ describe('', () => {
 				</MockAnalyticsProvider>
 			);
 		});
-		const { getByText } = wrapper;
-		expect(getByText(contentMessage)).toBeInTheDocument();
-	});*/
+		expect(screen.getByText(contentMessage)).toBeInTheDocument();
+	});
 });
