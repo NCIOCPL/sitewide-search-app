@@ -2,7 +2,7 @@ Feature: As a user I would like to see the Definition box when I navigate to the
 
 	Background:
 		Given "language" is set to "es"
-		Given "glossaryURL" is set to "https://www.cancer.gov/espanol/publicaciones/diccionario"
+		Given "dictionaryUrl" is set to "https://www.cancer.gov/espanol/publicaciones/diccionario"
 		Given "title" is set to "Resultados"
 
 	Scenario: Spanish Dictionary Definition Display

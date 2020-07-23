@@ -43,7 +43,10 @@ Given('user is viewing the no results found page on any site', () => {
 
 Given('{string} is set to {string}', (key, param) => {
 	cy.on('window:before:load', (win) => {
-		win.INT_TEST_APP_PARAMS[key] = param;
+		if (param === 'null') {
+			win.INT_TEST_APP_PARAMS[key] = null;
+		} else
+			win.INT_TEST_APP_PARAMS[key] = param;
 	});
 });
 

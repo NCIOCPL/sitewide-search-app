@@ -2,7 +2,10 @@ import { setDictionaryEndpoint, setLanguage } from '../../endpoints';
 import { getDictionaryResults } from '../index';
 
 describe('getDictionaryResults action', () => {
-	setDictionaryEndpoint('/glossary/v1/');
+	const dictionaryAudience = 'Patient';
+	const dictionaryName = 'Cancer.gov';
+	setDictionaryEndpoint('/glossary/v1/', dictionaryAudience, dictionaryName);
+
 	const queryString =
 		'?matchType=Begins&size=1&requestedFields=media&requestedFields=relatedResources&requestedFields=language&requestedFields=dictionary&requestedFields=termName&requestedFields=prettyUrlName&requestedFields=pronunciation&requestedFields=definition';
 
@@ -10,7 +13,7 @@ describe('getDictionaryResults action', () => {
 		const keyword = 'cancer';
 		const expectedAction = {
 			method: 'GET',
-			endpoint: `/glossary/v1/Terms/search/Cancer.gov/Patient/en/${encodeURI(
+			endpoint: `/glossary/v1/Terms/search/${dictionaryName}/${dictionaryAudience}/en/${encodeURI(
 				keyword
 			)}${queryString}`,
 		};
@@ -23,7 +26,7 @@ describe('getDictionaryResults action', () => {
 		setLanguage(lang);
 		const expectedAction = {
 			method: 'GET',
-			endpoint: `/glossary/v1/Terms/search/Cancer.gov/Patient/es/${encodeURI(
+			endpoint: `/glossary/v1/Terms/search/${dictionaryName}/${dictionaryAudience}/es/${encodeURI(
 				keyword
 			)}${queryString}`,
 		};

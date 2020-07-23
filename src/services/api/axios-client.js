@@ -16,15 +16,34 @@ const axiosInstance = axios.create({
 export const getAxiosClient = (initialize) => {
 	const {
 		bestbetsEndpoint,
-		dictionaryEndpoint,
+		glossaryEndpoint,
+		isBestbetsConfigured,
+		isDictionaryConfigured,
 		language,
+		searchCollection,
 		searchEndpoint,
+		...rest
 	} = initialize;
 
-	setBestBetsEndpoint(bestbetsEndpoint);
-	setDictionaryEndpoint(dictionaryEndpoint);
-	setLanguage(language);
-	setSearchEndpoint(searchEndpoint);
+	try {
+		const { bestbetsCollection, dictionaryAudience, dictionaryName } = rest;
+
+		setLanguage(language);
+		setSearchEndpoint(searchEndpoint, searchCollection);
+
+		if (bestbetsEndpoint !== null && !bestbetsCollection) {
+			throw 'App initialize parameter bestbetsCollection was provided without a bestbetsCollection value! Provide appropriate value to properly initialize the app.';
+		}
+
+		if (glossaryEndpoint !== null && (!dictionaryAudience || !dictionaryName)) {
+			throw 'App initialize parameter glossaryEndpoint was provided without dictionaryAudience or dictionaryName values! Provide appropriate value(s) to properly initialize the app.';
+		}
+
+		setBestBetsEndpoint(bestbetsEndpoint, bestbetsCollection);
+		setDictionaryEndpoint(glossaryEndpoint, dictionaryAudience, dictionaryName);
+	} catch (e) {
+		console.error(e);
+	}
 
 	return createClient({
 		fetch: buildAxiosRequest(axiosInstance),

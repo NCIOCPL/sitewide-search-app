@@ -14,7 +14,12 @@ describe('Search Results component(English)', () => {
 		const basePath = '/';
 		const canonicalHost = 'https://www.example.gov';
 		const language = 'en';
+		const searchSiteFilter = 'all';
 		const title = 'NCI Search Results';
+		Object.defineProperty(window, 'location', {
+			value: () => {},
+			writable: true,
+		});
 
 		useStateValue.mockReturnValue([
 			{
@@ -22,6 +27,7 @@ describe('Search Results component(English)', () => {
 				basePath,
 				canonicalHost,
 				language,
+				searchSiteFilter,
 				title,
 			},
 		]);

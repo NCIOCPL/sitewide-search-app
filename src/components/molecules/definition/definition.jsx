@@ -12,7 +12,7 @@ const Definition = ({ results }) => {
 			? splitSentencesToArray(payload.definition.html)
 			: '';
 	const truncatedDefinition = definitionSentencesArray[0];
-	const [{ glossaryURL, language }] = useStateValue();
+	const [{ dictionaryUrl, language }] = useStateValue();
 	const [defToggleClassName, setDefToggleClassName] = useState(
 		'definition__show-full'
 	);
@@ -48,7 +48,7 @@ const Definition = ({ results }) => {
 					}}></div>
 				{(payload.relatedResources.length > 0 || payload.media.length > 0) && (
 					<p>
-						<a href={`${glossaryURL}/def/${idOrPurl}`}>
+						<a href={`${dictionaryUrl}/def/${idOrPurl}`}>
 							{i18n.moreInfoOnDictionaryPage[language]}
 						</a>
 					</p>
