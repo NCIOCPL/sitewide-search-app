@@ -37,8 +37,10 @@ describe('App component', () => {
 	test('HomePath route exists and matches expected route', async () => {
 		const apiBaseEndpoint = 'http://localhost:3000/api';
 		const basePath = '/';
-		const bestbetsEndpoint = `${apiBaseEndpoint}/bestbets/v1/`;
-		const dictionaryEndpoint = `${apiBaseEndpoint}/glossary/v1/`;
+		const bestbetsEndpoint = null;
+		const dictionaryAudience = 'Patient';
+		const dictionaryName = 'Cancer.gov';
+		const glossaryEndpoint = `${apiBaseEndpoint}/glossary/v1/`;
 		const searchEndpoint = `${apiBaseEndpoint}/sitewidesearch/v1/`;
 		const language = 'en';
 		const siteName = 'National Cancer Institute';
@@ -48,7 +50,11 @@ describe('App component', () => {
 				appId: 'mockAppId',
 				basePath,
 				bestbetsEndpoint,
-				dictionaryEndpoint,
+				dictionaryAudience,
+				dictionaryName,
+				glossaryEndpoint,
+				isBestbetsConfigured: false,
+				isDictionaryConfigured: true,
 				language,
 				searchEndpoint,
 				siteName,
@@ -59,7 +65,9 @@ describe('App component', () => {
 		const initialState = {
 			apiBaseEndpoint,
 			bestbetsEndpoint,
-			dictionaryEndpoint,
+			dictionaryAudience,
+			dictionaryName,
+			glossaryEndpoint,
 			language,
 			searchEndpoint,
 			siteName,

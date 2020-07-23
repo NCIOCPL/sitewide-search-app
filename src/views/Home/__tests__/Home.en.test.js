@@ -33,13 +33,11 @@ describe('Home component(English)', () => {
 				status: 200,
 				payload: {
 					meta: {
-						offset: 0,
-						result_count: 0,
-						audience: 'Patient',
-						language: 'English',
-						message: ['Found 0 results.'],
+						totalResults: 0,
+						from: 0,
 					},
 					results: [],
+					links: null,
 				},
 			}),
 		};
@@ -57,6 +55,13 @@ describe('Home component(English)', () => {
 		});
 		expect(screen.getByText(title)).toBeInTheDocument();
 		expect(screen.getByText('0 results found for: achoo')).toBeInTheDocument();
-		// expect(screen.getByText(i18n.pleaseCheckSpellingOrTryAnotherSearch)).toBeInTheDocument();
+	});
+
+	test('should not display definition box ', () => {
+		useStateValue.mockReturnValue([
+			{
+				appId: 'mockAppId',
+			},
+		]);
 	});
 });

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import SearchResultsPager from '../search-results-pager';
@@ -7,26 +7,30 @@ import { testIds } from '../../../../constants';
 
 jest.mock('../../../../store/store.js');
 
-let client;
 let wrapper;
 describe('Search Results Pager(English)', () => {
 	beforeEach(async () => {
 		const basePath = '/';
 		const canonicalHost = 'https://www.example.gov';
 		const language = 'en';
+		const searchSiteFilter = 'all';
 		const title = 'NCI Search Results';
-
 		useStateValue.mockReturnValue([
 			{
 				appId: 'mockAppId',
 				basePath,
 				canonicalHost,
 				language,
+				searchSiteFilter,
 				title,
 			},
 		]);
 
-		let current = 1;
+		Object.defineProperty(window, 'location', {
+			value: () => {},
+			writable: true,
+		});
+
 		wrapper = render(
 			<MemoryRouter initialEntries={['/?swKeyword=tumor']}>
 				<SearchResultsPager

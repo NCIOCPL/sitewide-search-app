@@ -41,7 +41,7 @@ describe('Definition component (English)', () => {
 		useStateValue.mockReturnValue([
 			{
 				appId: 'mockAppId',
-				glossaryURL:
+				dictionaryUrl:
 					'https://www.cancer.gov/publications/dictionaries/cancer-terms',
 				language: 'en',
 			},
@@ -124,7 +124,7 @@ describe('Definition component (Spanish)', () => {
 		useStateValue.mockReturnValue([
 			{
 				appId: 'mockAppId',
-				glossaryURL: 'https://www.cancer.gov/espanol/publicaciones/diccionario',
+				dictionaryUrl: 'https://www.cancer.gov/espanol/publicaciones/diccionario',
 				language: 'es',
 			},
 		]);

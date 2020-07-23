@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+import { testIds } from '../../../constants';
+import { useURLQuery } from '../../../hooks';
 import ResultsListItem from './results-list-item';
 import SearchResultsPager from '../search-results-pager/search-results-pager';
-
 import { i18n } from '../../../utils';
-import { testIds } from '../../../constants';
 
 import './search-results-list.scss';
 
@@ -17,8 +17,15 @@ const SearchResultsList = ({
 	resultsPerPage,
 	language,
 }) => {
+	const urlQuery = useURLQuery();
 	const updatePageUnit = (val) => {
-		window.location.href = `?swkeyword=${keyword}&page=${1}&pageunit=${val}&Offset=${1}`;
+		const swKeywordKey = /swKeyword/i;
+		urlQuery.set(swKeywordKey.ignoreCase, keyword);
+		urlQuery.delete('true');
+		urlQuery.set('page', '1');
+		urlQuery.set('pageunit', val);
+		urlQuery.set('Offset', '0');
+		window.location.href = `?${urlQuery.toString()}`;
 		window.scrollTo(0, 0);
 	};
 	// converted values to display in page

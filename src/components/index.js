@@ -11,3 +11,4 @@ export { default as Definition } from './molecules/definition';
 export { FigureCgovImage, FigureCgovVideo } from './molecules/figures';
 export { default as Pronunciation } from './molecules/pronunciation';
 export { default as NoResults } from './molecules/no-results'
+export { default as SearchResultsList } from './molecules/search-results-list';

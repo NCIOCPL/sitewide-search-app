@@ -31,12 +31,10 @@ const initialize = ({
 	appId = '@@/DEFAULT_SWS_APP_ID',
 	baseHost = 'http://localhost:3000',
 	basePath = '/',
-	bestbetsEndpoint = 'https://webapis.cancer.gov/bestbets/v1/',
-	bestbetsCollection = 'live',
+	bestbetsEndpoint = null,
 	canonicalHost = 'https://www.cancer.gov',
-	dictionaryEndpoint = 'https://webapis.cancer.gov/glossary/v1/',
+	glossaryEndpoint = null,
 	dropdownOptions = [20, 50],
-	glossaryURL = 'https://www.cancer.gov/publications/dictionaries/cancer-terms',
 	language = 'en', // en|es (English|Spanish)
 	rootId = 'NCI-app-root',
 	searchEndpoint = 'https://webapis.cancer.gov/sitewidesearch/v1/',
@@ -44,6 +42,7 @@ const initialize = ({
 	searchSiteFilter = 'all',
 	siteName = 'National Cancer Institute',
 	title = 'NCI Search Results',
+	...rest
 } = {}) => {
 	const appRootDOMNode = document.getElementById(rootId);
 	const isRehydrating = appRootDOMNode.getAttribute('data-isRehydrating');
@@ -58,14 +57,20 @@ const initialize = ({
 		basePath,
 		bestbetsEndpoint,
 		canonicalHost,
-		dictionaryEndpoint,
+		glossaryEndpoint,
 		dropdownOptions,
-		glossaryURL,
+		isBestbetsConfigured: bestbetsEndpoint !== null && rest.bestbetsCollection,
+		isDictionaryConfigured:
+			glossaryEndpoint !== null &&
+			rest.dictionaryAudience &&
+			rest.dictionaryName,
 		language,
+		searchCollection,
 		searchEndpoint,
 		siteName,
 		searchSiteFilter,
 		title,
+		...rest,
 	};
 
 	// Determine the analytics HoC we are going to use.

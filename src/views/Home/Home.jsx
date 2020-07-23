@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTracking } from 'react-tracking';
 
-import { Definition, NoResults, Spinner } from '../../components';
-import SearchResultsList from '../../components/molecules/search-results-list/search-results-list';
+import {
+	Definition,
+	NoResults,
+	SearchResultsList,
+	Spinner,
+} from '../../components';
 import { useCustomQuery, useURLQuery } from '../../hooks';
 import {
 	getDictionaryResults,
@@ -14,7 +18,9 @@ import { i18n } from '../../utils';
 
 const Home = () => {
 	const urlQuery = useURLQuery();
-	const [{ canonicalHost, language, siteName, title }] = useStateValue();
+	const [
+		{ canonicalHost, isDictionaryConfigured, language, siteName, title },
+	] = useStateValue();
 	const [doneLoading, setDoneLoading] = useState(false);
 	const [dictionaryResultsLoaded, setDictionaryResultsLoaded] = useState(false);
 	const [searchResultsLoaded, setSearchResultsLoaded] = useState(false);
@@ -26,14 +32,19 @@ const Home = () => {
 	const [pageunit, setPageunit] = useState(unit);
 	const [current] = useState(currentPage);
 
-	// Only display Definition component if offset
-	// doesn't exist in url or it exists and is the first page
-	const showDefinition = !urlQuery.get('page') || urlQuery.get('page') === '1';
+	// Only display Definition component if isDictionaryConfigured is true
+	// and offset doesn't exist in url or it exists and is the first page
+	const showDefinition =
+		isDictionaryConfigured &&
+		(!urlQuery.get('page') || urlQuery.get('page') === '1');
 
 	const tracking = useTracking();
+	// Fetch dictionary results only when
+	// glossaryEndpoint is not null
+	// and keyword is provided
 	const dictionaryResults = useCustomQuery(
 		getDictionaryResults({ keyword, lang: language }),
-		!!keyword
+		isDictionaryConfigured && !!keyword
 	);
 
 	const searchResults = useCustomQuery(
@@ -54,7 +65,10 @@ const Home = () => {
 			return;
 		}
 
-		if (!dictionaryResults.loading && dictionaryResults.payload) {
+		// If no glossaryEndpoint was provided, set setDictionaryResultsLoaded to true
+		if (!isDictionaryConfigured) {
+			setDictionaryResultsLoaded(true);
+		} else if (!dictionaryResults.loading && dictionaryResults.payload) {
 			setStateDefinitionResult(dictionaryResults.payload);
 			setDictionaryResultsLoaded(true);
 		}
@@ -98,16 +112,6 @@ const Home = () => {
 		}
 	}, [doneLoading]);
 
-	useEffect(() => {
-		if (!searchResults.loading && searchResults.payload) {
-			const newResults = {
-				...searchResults.payload,
-				result: searchResults.payload.results,
-			};
-			setStateSearchResults(newResults);
-		}
-	}, [searchResults.loading, searchResults.payload]);
-
 	const renderHelmet = () => {
 		return (
 			<Helmet>
@@ -115,6 +119,7 @@ const Home = () => {
 			</Helmet>
 		);
 	};
+
 	return (
 		<>
 			{renderHelmet()}
@@ -138,4 +143,5 @@ const Home = () => {
 		</>
 	);
 };
+
 export default Home;
