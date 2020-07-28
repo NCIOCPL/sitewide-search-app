@@ -3,7 +3,7 @@ import { getEndpoint } from '../endpoints';
 export const getDictionaryResults = ({ keyword, lang = 'en' }) => {
 	const endpoint = getEndpoint('dictionaryResults');
 	const queryString =
-		'?matchType=Begins&size=1&requestedFields=media&requestedFields=relatedResources&requestedFields=language&requestedFields=dictionary&requestedFields=termName&requestedFields=prettyUrlName&requestedFields=pronunciation&requestedFields=definition';
+		'?matchType=Exact&size=100&includeAdditionalInfo=true';
 	return {
 		method: 'GET',
 		endpoint: `${endpoint}/${lang}/${encodeURIComponent(
