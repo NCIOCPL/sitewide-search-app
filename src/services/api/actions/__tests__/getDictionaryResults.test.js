@@ -6,8 +6,7 @@ describe('getDictionaryResults action', () => {
 	const dictionaryName = 'Cancer.gov';
 	setDictionaryEndpoint('/glossary/v1/', dictionaryAudience, dictionaryName);
 
-	const queryString =
-		'?matchType=Begins&size=1&requestedFields=media&requestedFields=relatedResources&requestedFields=language&requestedFields=dictionary&requestedFields=termName&requestedFields=prettyUrlName&requestedFields=pronunciation&requestedFields=definition';
+	const queryString = '?matchType=Exact&size=100&includeAdditionalInfo=true';
 
 	test(`should match getDictionaryResults action for keyword "cancer" and language default "English"`, () => {
 		const keyword = 'cancer';
