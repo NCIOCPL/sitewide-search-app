@@ -59,7 +59,7 @@ const initialize = ({
 		canonicalHost,
 		glossaryEndpoint,
 		dropdownOptions,
-		isBestbetsConfigured: bestbetsEndpoint !== null && rest.bestbetsCollection,
+		isBestBetsConfigured: bestbetsEndpoint !== null && rest.bestbetsCollection,
 		isDictionaryConfigured:
 			glossaryEndpoint !== null &&
 			rest.dictionaryAudience &&

@@ -1,0 +1,14 @@
+[
+    {
+      "html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/espanol/cancer/tratamiento/medicamentos\">Formulación y aprobación de medicamentos</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Información sobre medicamentos específicos y la formulación y aprobación de medicamentos.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li><li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/espanol/cancer/tratamiento/medicamentos/indice-de-medicamentos\">Medicamentos aprobados para diferentes tipos de cáncer</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Esta página contiene una lista y enlaces a páginas del NCI con información sobre los medicamentos aprobados para tratar tipos específicos de cáncer.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li><li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/espanol/cancer/tratamiento/medicamentos/enfermedades-relacionadas-con-cancer\">Medicamentos aprobados para enfermedades relacionadas con el cáncer</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Enfermedades relacionadas con el cáncer y lista de medicamentos aprobados para tratar estas enfermedades. Los nombres de cada medicamento llevan a sumarios del NCI.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
+      "id": "1095940",
+      "name": "Medicamentos para el cáncer",
+      "weight": 70
+    },
+    {
+      "html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/espanol/cancer/naturaleza/que-es\">¿Qué es el cáncer?</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Definición de cáncer, explicación breve de cómo se origina el cáncer en las células del cuerpo, estadísticas básicas de cáncer y enlaces a otros recursos del NCI.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
+      "id": "1108710",
+      "name": "¿Qué es el cáncer?",
+      "weight": 20
+    }
+  ]

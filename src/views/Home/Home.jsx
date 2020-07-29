@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useTracking } from 'react-tracking';
 
 import {
+	BestBet,
 	Definition,
 	NoResults,
 	SearchResultsList,
@@ -10,6 +11,7 @@ import {
 } from '../../components';
 import { useCustomQuery, useURLQuery } from '../../hooks';
 import {
+	getBestBetResults,
 	getDictionaryResults,
 	getSearchResults,
 } from '../../services/api/actions';
@@ -19,11 +21,20 @@ import { i18n } from '../../utils';
 const Home = () => {
 	const urlQuery = useURLQuery();
 	const [
-		{ canonicalHost, isDictionaryConfigured, language, siteName, title },
+		{
+			canonicalHost,
+			isBestBetsConfigured,
+			isDictionaryConfigured,
+			language,
+			siteName,
+			title,
+		},
 	] = useStateValue();
 	const [doneLoading, setDoneLoading] = useState(false);
+	const [bestBetResultsLoaded, setBestBetResultsLoaded] = useState(false);
 	const [dictionaryResultsLoaded, setDictionaryResultsLoaded] = useState(false);
 	const [searchResultsLoaded, setSearchResultsLoaded] = useState(false);
+	const [stateBestBetResult, setStateBestBetResult] = useState();
 	const [stateDefinitionResult, setStateDefinitionResult] = useState();
 	const [stateSearchResults, setStateSearchResults] = useState();
 	const keyword = urlQuery.get('swKeyword') || urlQuery.get('swkeyword');
@@ -31,12 +42,12 @@ const Home = () => {
 	const unit = parseInt(urlQuery.get('pageunit'), 10) || 20;
 	const [pageunit, setPageunit] = useState(unit);
 	const [current] = useState(currentPage);
+	const isFirstPage = !urlQuery.get('page') || urlQuery.get('page') === '1';
 
+	const showBestBet = isBestBetsConfigured && isFirstPage;
 	// Only display Definition component if isDictionaryConfigured is true
 	// and offset doesn't exist in url or it exists and is the first page
-	const showDefinition =
-		isDictionaryConfigured &&
-		(!urlQuery.get('page') || urlQuery.get('page') === '1');
+	const showDefinition = isDictionaryConfigured && isFirstPage;
 
 	const tracking = useTracking();
 	// Fetch dictionary results only when
@@ -46,17 +57,21 @@ const Home = () => {
 		getDictionaryResults({ keyword, lang: language }),
 		isDictionaryConfigured && !!keyword
 	);
-
 	const searchResults = useCustomQuery(
 		getSearchResults({ language, keyword, currentPage, unit }),
 		!!keyword
 	);
-
+	const bestBetResults = useCustomQuery(
+		getBestBetResults({ keyword }),
+		isBestBetsConfigured && !!keyword
+	);
 	// Set hasResults should there be results returned for any search
+	// when a keyword has been provided
 	const hasResults =
 		!!keyword &&
 		(stateDefinitionResult?.results?.length > 0 ||
-			stateSearchResults?.result?.length > 0);
+			stateSearchResults?.result?.length > 0 ||
+			stateBestBetResult?.length > 0);
 
 	useEffect(() => {
 		// If no keyword was provided set doneLoading to true and early exit
@@ -82,10 +97,24 @@ const Home = () => {
 			setSearchResultsLoaded(true);
 		}
 
-		if (dictionaryResultsLoaded && searchResultsLoaded) {
+		if (!isBestBetsConfigured) {
+			setBestBetResultsLoaded(true);
+		} else if (!bestBetResults.loading && bestBetResults.payload) {
+			setStateBestBetResult(bestBetResults.payload);
+			setBestBetResultsLoaded(true);
+		}
+
+		if (
+			bestBetResultsLoaded &&
+			dictionaryResultsLoaded &&
+			searchResultsLoaded
+		) {
 			setDoneLoading(true);
 		}
 	}, [
+		bestBetResultsLoaded,
+		bestBetResults.loading,
+		bestBetResults.payload,
 		dictionaryResultsLoaded,
 		dictionaryResults.loading,
 		dictionaryResults.payload,
@@ -95,6 +124,8 @@ const Home = () => {
 	]);
 
 	useEffect(() => {
+		// Tracking should only be fired when all
+		// api calls are done and page is done loading
 		if (doneLoading) {
 			tracking.trackEvent({
 				event: 'SiteWideSearchApp:Load:Results',
@@ -128,6 +159,9 @@ const Home = () => {
 				<div className="results">
 					<h3>{`${i18n.resultsFor[language]}: ${keyword}`}</h3>
 					{showDefinition && <Definition {...stateDefinitionResult} />}
+					{showBestBet && (
+						<BestBet language={language} results={stateBestBetResult} />
+					)}
 					<SearchResultsList
 						keyword={keyword}
 						language={language}

@@ -5,6 +5,7 @@ Feature: As a user, I want to be able to see my search results on DCEG, navigate
         And "searchSiteFilter" is set to "dceg.cancer.gov"
         And "title" is set to "DCEG Search Results"
         And "glossaryEndpoint" is set to "null"
+        And "bestbetsEndpoint" is set to "null"
 
     Scenario: DCEG Results Page
         Given the user navigates to "/?swKeyword=cancer"
@@ -36,3 +37,9 @@ Feature: As a user, I want to be able to see my search results on DCEG, navigate
     Scenario: Results page metadata
         Given the user navigates to "/?swKeyword=cancer"
         Then "<meta name='robots' content='noindex' />" exists in the data for the page URL of "/?swKeyword=cancer"
+
+        Scenario: Best bets is not displayed 
+		Given the user navigates to "/?swKeyword=cancer%20risk%20assessment%20tools"
+		Then the page title is "DCEG Search Results"
+		And the system displays "Results for: " "cancer risk assessment tools" as an "h3" tag
+		Then a box for Best Bets is not displayed

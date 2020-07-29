@@ -7,6 +7,7 @@ export { default as TextInput } from './atomic/TextInput';
 export { default as YoutubeVideoPlayer } from './atomic/youtube-video-player';
 
 // molecules
+export { default as BestBet } from './molecules/best-bet/best-bet';
 export { default as Definition } from './molecules/definition';
 export { FigureCgovImage, FigureCgovVideo } from './molecules/figures';
 export { default as Pronunciation } from './molecules/pronunciation';

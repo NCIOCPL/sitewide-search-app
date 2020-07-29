@@ -1,4 +1,8 @@
 export const i18n = {
+	bestBetTitle: {
+		en: 'Best Bets for',
+		es: 'Mejores resultados para',
+	},
 	definitionTitle: {
 		en: 'Definition',
 		es: 'Definición',

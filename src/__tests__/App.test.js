@@ -53,7 +53,7 @@ describe('App component', () => {
 				dictionaryAudience,
 				dictionaryName,
 				glossaryEndpoint,
-				isBestbetsConfigured: false,
+				isBestBetsConfigured: false,
 				isDictionaryConfigured: true,
 				language,
 				searchEndpoint,

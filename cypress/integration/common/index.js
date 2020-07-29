@@ -313,36 +313,36 @@ Then('the results are displayed', () => {
 });
 
 // Check to see if the first two numbers are present with decorator and button
-And('both pagers display numbers {int} and {int}, followed by {string}, the last page number and the option to click {string} and {string} for screen readers', 
+And('both pagers display numbers {int} and {int}, followed by {string}, the last page number and the option to click {string} and {string} for screen readers',
 (a,b,divider,button,sr) => {
 	// using test ids to check top and bottom pagers exist and contain the starting point
 	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${a}${sr}${b}${sr}${divider}`);
 	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_BOTTOM}`).should('contain.text', `${a}${sr}${b}${sr}${divider}`);
 	cy.get('.pager__next').should('contain.text', `${button}`);
 });
-// 2 Clicks 
-And('user clicks {string} and displays {int}, {int}, and {int} followed by {string}, and {int} highlighted as the page they are on and {string} for screen readers and {int} and {string}', 
+// 2 Clicks
+And('user clicks {string} and displays {int}, {int}, and {int} followed by {string}, and {int} highlighted as the page they are on and {string} for screen readers and {int} and {string}',
 (step,a,b,c,divider,d,sr,t,btn) => {
 	cy.get('.pager__next').first().click();
 	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${a}${sr}${b}${sr}${c}${sr}${divider}${t}${sr}${btn}`);
 	cy.get('.active').should('contain.text', `${d}`);
 });
 // 3 Clicks
-And('user clicks {string} and displays {int}, {int}, {int}, and {int} followed by {string}, and {int} highlighted as the page they are on and {string} for screen readers',  
+And('user clicks {string} and displays {int}, {int}, {int}, and {int} followed by {string}, and {int} highlighted as the page they are on and {string} for screen readers',
 (step,a,b,c,d,divider,e,sr) => {
 	cy.get('.pager__next').first().click();
 	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${a}${sr}${b}${sr}${c}${sr}${d}${sr}${divider}`);
 	cy.get('.active').should('contain.text', `${e}`);
 });
 // 4 Clicks
-And('user clicks {string} and displays {int}, {int}, {int}, {int}, and {int} followed by {string}, and {int} highlighted as the page they are on and {string} for screen readers',   
+And('user clicks {string} and displays {int}, {int}, {int}, {int}, and {int} followed by {string}, and {int} highlighted as the page they are on and {string} for screen readers',
 (step,a,b,c,d,e,divider,f,sr) => {
 	cy.get('.pager__next').first().click();
 	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${a}${sr}${b}${sr}${c}${sr}${d}${sr}${e}${sr}${divider}`);
 	cy.get('.active').should('contain.text', `${f}`);
 });
 // 5 Clicks
-And('user clicks {string} and displays {int} followed by {string}, {int}, {int}, {int} followed by {string}, and {int} highlighted as the page they are on and {int} the last page and {string} for screen readers', 
+And('user clicks {string} and displays {int} followed by {string}, {int}, {int}, {int} followed by {string}, and {int} highlighted as the page they are on and {int} the last page and {string} for screen readers',
 (step,a,dividerLeft,b,c,d,dividerRight,e,f,sr) => {
 	cy.get('.pager__next').first().click();
 	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${a}${sr}${dividerLeft}${b}${sr}${c}${sr}${d}${sr}${dividerRight}${f}${sr}`);
@@ -359,4 +359,34 @@ And('the option for {string} appears before the page numbers',(button) => {
 
 And('the pager has a border on top and bottom',()=>{
 	cy.get('.pager__container').first().should('have.css', 'border-top');
+});
+
+/*
+    -----------------------
+        Best Bets
+    -----------------------
+*/
+
+And('a box for Best Bets appears below the subtitle', () => {
+	cy.get('.best-bet').should('be.visible');
+});
+
+And('the title of the related item number {int} appears as a link with text {string}', (itemNum, titleText) => {
+	cy.get('div[class^="title-and-desc"] a').eq(itemNum - 1).as('itemRes').should('have.attr', 'href');;
+	cy.get('@itemRes').should('have.text', titleText);
+});
+And('the description of the item number {int} appears below the title', (itemNum) => {
+	cy.get('div[class^="title-and-desc"] a~div.description p').eq(itemNum - 1).should('not.be.empty')
+});
+
+And('the system displays best bet number {int} title {string} as an {string} tag', (bestBetNum, resultsIntroText, tag) => {
+	cy.get(tag).eq(bestBetNum-1).should('contain.text', `${resultsIntroText}`);
+});
+
+When('user navigates to the next page', () => {
+	cy.get('.pager__next').first().click();
+});
+
+Then('a box for Best Bets is not displayed', () => {
+	cy.get('.best-bet').should('not.exist');
 });

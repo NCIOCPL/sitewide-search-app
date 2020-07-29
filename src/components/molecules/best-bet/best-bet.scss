@@ -1,0 +1,26 @@
+.definition + .best-bet {
+	margin-top: 1.5rem;
+}
+
+.best-bet {
+	margin-left: -3.125em;
+	margin-right: -3.125em;
+	background-color: #dbf2f8;
+	overflow: auto;
+
+	&__item {
+		padding: 2.5% 3.125em;
+	}
+
+	.list {
+		margin: 0;
+
+		.list-item {
+			margin-bottom: 0;
+
+			.title {
+				font-size: 1em;
+			}
+		}
+	}
+}
