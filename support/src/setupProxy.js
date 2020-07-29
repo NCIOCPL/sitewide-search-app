@@ -100,6 +100,8 @@ const getBestBetsResults = async (req, res, next) => {
 		__dirname,
 		'..',
 		'mock-data',
+		'bestbets',
+		'v1',
 		'BestBets',
 		collection,
 		language
@@ -146,7 +148,7 @@ const middleware = (app) => {
 		getSearchResults
 	);
 
-	app.use('/api/BestBets/:collection/:language/:term', getBestBetsResults);
+	app.use('/api/bestbets/v1/BestBets/:collection/:language/:term', getBestBetsResults);
 
 	app.use(
 		'/api/glossary/v1/Terms/:queryType/:dictionary/:audience/:language/:keyword',

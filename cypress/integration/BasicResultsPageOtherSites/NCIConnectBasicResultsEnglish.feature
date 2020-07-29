@@ -5,6 +5,8 @@ Feature: As a user, I want to be able to see my search results when on English N
         And "searchSiteFilter" is set to "www.cancer.gov/rare-brain-spine-tumor"
         And "title" is set to "NCI-Connect Search Results"
         And "glossaryEndpoint" is set to "null"
+        And "bestbetsEndpoint" is set to "null"
+
 
     Scenario: NCI-Connect Results Page
         Given the user navigates to "/?swKeyword=tumor"
@@ -36,3 +38,9 @@ Feature: As a user, I want to be able to see my search results when on English N
     Scenario: Results page metadata
         Given the user navigates to "/?swKeyword=tumor"
         Then "<meta name='robots' content='noindex' />" exists in the data for the page URL of "/?swKeyword=tumor"
+
+    Scenario: Best bets is not displayed
+        Given the user navigates to "/?swKeyword=cancer%20risk%20assessment%20tools"
+        Then the page title is "NCI-Connect Search Results"
+        And the system displays "Results for: " "cancer risk assessment tools" as an "h3" tag
+        Then a box for Best Bets is not displayed

@@ -1,5 +1,9 @@
 @import '../../../styles/breakpoints';
 
+.best-bet + .results__info h4 {
+	margin-top: 40px;
+}
+
 .results__info {
 	display: block;
 	align-items: baseline;

@@ -9,7 +9,7 @@ function cleanURI(uri) {
 
 export function setBestBetsEndpoint(bestBets, collection) {
 	if (bestBets) {
-		BEST_BETS_URI = cleanURI(bestBets);
+		BEST_BETS_URI = `${cleanURI(bestBets)}/BestBets/${collection}`;
 	}
 }
 
@@ -30,6 +30,7 @@ export function setSearchEndpoint(search, collection) {
 export const getEndpoint = (endpoint) => {
 	// Define api endpoints here
 	const urls = {
+		bestBetResults: `${BEST_BETS_URI}/${LANGUAGE}`,
 		dictionaryResults: `${DICTIONARY_URI}`,
 		searchResults: `${SEARCH_URI}/${LANGUAGE}`,
 	};
