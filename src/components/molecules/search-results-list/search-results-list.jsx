@@ -50,7 +50,7 @@ const SearchResultsList = ({
 			aria-label="number of results"
 			data-testid={testIds.SEARCH_PAGE_UNIT}
 			className="pager__select"
-			value={resultsPerPage}
+			defaultValue={resultsPerPage}
 			onBlur={(e) => updatePageUnit(e.target.value)}
 			onChange={(e) => updatePageUnit(e.target.value)}>
 			{opts}
