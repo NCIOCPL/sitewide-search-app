@@ -19,13 +19,7 @@ const SearchResultsList = ({
 }) => {
 	const urlQuery = useURLQuery();
 	const updatePageUnit = (val) => {
-		const swKeywordKey = /swKeyword/i;
-		urlQuery.set(swKeywordKey.ignoreCase, keyword);
-		urlQuery.delete('true');
-		urlQuery.set('page', '1');
-		urlQuery.set('pageunit', val);
-		urlQuery.set('Offset', '0');
-		window.location.href = `?${urlQuery.toString()}`;
+		window.location.href = `?swkeyword=${keyword}&page=${1}&pageunit=${val}&Offset=${1}`;
 		window.scrollTo(0, 0);
 	};
 	// converted values to display in page
@@ -50,7 +44,7 @@ const SearchResultsList = ({
 			aria-label="number of results"
 			data-testid={testIds.SEARCH_PAGE_UNIT}
 			className="pager__select"
-			value={resultsPerPage}
+			defaultValue={resultsPerPage}
 			onBlur={(e) => updatePageUnit(e.target.value)}
 			onChange={(e) => updatePageUnit(e.target.value)}>
 			{opts}
