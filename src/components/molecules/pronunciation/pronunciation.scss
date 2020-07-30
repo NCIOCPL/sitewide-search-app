@@ -1,21 +1,36 @@
+@import '../../../styles/breakpoints';
+
 .pronunciation {
-	display: flex;
+	//display: flex;
 	font-family: Noto Sans;
 	&__term {
 		padding-top: 8px;
-		flex: none;
+		display: block;
 		width: auto;
 		font-weight: bold;
 		line-height: 1.4;
 	}
 	&__audio {
-		margin-right: 5px;
-		flex: none;
+		display: inline-block;
 		width: 42px;
+		margin-right: 5px;
 	}
 	&__key {
-		flex: 1 1 auto;
+		display: inline-flex;
 		line-height: 1.4;
 		padding-top: 8px;
+	}
+	& .btnAudio {
+		padding: 5px 0;
+	}
+}
+@include break(medium) {
+	.pronunciation {
+		&__term {
+			display: inline-block;
+		}
+		& .btnAudio {
+			padding: 5px 10px;
+		}
 	}
 }
