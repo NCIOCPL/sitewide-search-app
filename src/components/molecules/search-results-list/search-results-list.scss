@@ -30,6 +30,10 @@
 }
 .result__url {
 	font-size: 14px;
+	word-break: break-word;
+}
+.result__description {
+	word-break: break-word;
 }
 
 .pager__bottom {
