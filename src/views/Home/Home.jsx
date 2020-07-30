@@ -44,10 +44,15 @@ const Home = () => {
 	const [current] = useState(currentPage);
 	const isFirstPage = !urlQuery.get('page') || urlQuery.get('page') === '1';
 
-	const showBestBet = isBestBetsConfigured && isFirstPage;
+	const showBestBet =
+		isBestBetsConfigured && stateBestBetResult?.length > 0 && isFirstPage;
 	// Only display Definition component if isDictionaryConfigured is true
+	// and no results returned
 	// and offset doesn't exist in url or it exists and is the first page
-	const showDefinition = isDictionaryConfigured && isFirstPage;
+	const showDefinition =
+		isDictionaryConfigured &&
+		stateDefinitionResult?.results?.length > 0 &&
+		isFirstPage;
 
 	const tracking = useTracking();
 	// Fetch dictionary results only when
@@ -158,10 +163,17 @@ const Home = () => {
 			{doneLoading && hasResults ? (
 				<div className="results">
 					<h3>{`${i18n.resultsFor[language]}: ${keyword}`}</h3>
-					{showDefinition && <Definition {...stateDefinitionResult} />}
-					{showBestBet && (
-						<BestBet language={language} results={stateBestBetResult} />
-					)}
+					<div
+						className={
+							showBestBet && showDefinition
+								? 'results__feature--bestbet--definition'
+								: 'results__feature'
+						}>
+						{showBestBet && (
+							<BestBet language={language} results={stateBestBetResult} />
+						)}
+						{showDefinition && <Definition {...stateDefinitionResult} />}
+					</div>
 					<SearchResultsList
 						keyword={keyword}
 						language={language}

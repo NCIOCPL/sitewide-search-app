@@ -1,0 +1,35 @@
+{
+    "meta": {
+      "totalResults": 1,
+      "from": 0
+    },
+    "results": [
+      {
+        "termId": 45963,
+        "language": "es",
+        "dictionary": "Cancer.gov",
+        "audience": "Patient",
+        "termName": "carcinoma",
+        "firstLetter": "c",
+        "prettyUrlName": "carcinoma",
+        "pronunciation": {
+          "key": null,
+          "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707515.mp3"
+        },
+        "definition": {
+          "html": "Cáncer que empieza en la piel o en los tejidos que revisten o cubren los órganos internos.",
+          "text": "Cáncer que empieza en la piel o en los tejidos que revisten o cubren los órganos internos."
+        },
+        "otherLanguages": [
+          {
+            "language": "en",
+            "termName": "carcinoma",
+            "prettyUrlName": "carcinoma"
+          }
+        ],
+        "relatedResources": [],
+        "media": []
+      }
+    ],
+    "links": null
+  }

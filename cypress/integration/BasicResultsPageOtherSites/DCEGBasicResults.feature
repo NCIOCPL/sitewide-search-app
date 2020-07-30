@@ -38,8 +38,8 @@ Feature: As a user, I want to be able to see my search results on DCEG, navigate
         Given the user navigates to "/?swKeyword=cancer"
         Then "<meta name='robots' content='noindex' />" exists in the data for the page URL of "/?swKeyword=cancer"
 
-        Scenario: Best bets is not displayed 
-		Given the user navigates to "/?swKeyword=cancer%20risk%20assessment%20tools"
-		Then the page title is "DCEG Search Results"
-		And the system displays "Results for: " "cancer risk assessment tools" as an "h3" tag
-		Then a box for Best Bets is not displayed
+    Scenario: Best bets is not displayed
+        Given the user navigates to "/?swKeyword=cancer%20risk%20assessment%20tools"
+        Then the page title is "DCEG Search Results"
+        And the system displays "Results for: " "cancer risk assessment tools" as an "h3" tag
+        Then a box for Best Bets is not displayed
