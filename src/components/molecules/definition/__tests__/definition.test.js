@@ -87,6 +87,67 @@ describe('Definition component (English)', () => {
 			container.querySelector('button.definition__show-full')
 		).toHaveTextContent('Show full definition');
 	});
+	test('should not display if payload has no results', () => {
+		const definitionResult = {
+			meta: {
+				totalResults: 0,
+				from: 0,
+			},
+			results: [],
+		};
+		useStateValue.mockReturnValue([
+			{
+				appId: 'mockAppId',
+				dictionaryUrl:
+					'https://www.cancer.gov/publications/dictionaries/cancer-terms',
+				language: 'en',
+			},
+		]);
+		const { container } = render(<Definition {...definitionResult} />);
+		expect(container.querySelector('definition__term-description')).toBeNull();
+	});
+	test('should not display more info link when there are no related sources or media', () => {
+		const definitionResult = {
+			meta: {
+				totalResults: 1,
+				from: 0,
+			},
+			results: [
+				{
+					termId: 45333,
+					language: 'en',
+					dictionary: 'Cancer.gov',
+					audience: 'Patient',
+					termName: 'cancer',
+					firstLetter: 'c',
+					prettyUrlName: null,
+					pronunciation: {
+						key: '(KAN-ser)',
+						audio: 'https://nci-media.cancer.gov/pdq/media/audio/705333.mp3',
+					},
+					definition: {
+						html:
+							'A term for diseases in which abnormal cells divide without control and can invade nearby tissues. Cancer cells can also spread to other parts of the body through the blood and lymph systems. There are several main types of cancer. Carcinoma is a cancer that begins in the skin or in tissues that line or cover internal organs. Sarcoma is a cancer that begins in bone, cartilage, fat, muscle, blood vessels, or other connective or supportive tissue. Leukemia is a cancer that begins in blood-forming tissue, such as the bone marrow, and causes too many abnormal blood cells to be made. Lymphoma and multiple myeloma are cancers that begin in the cells of the immune system. Central nervous system cancers are cancers that begin in the tissues of the brain and spinal cord. Also called malignancy.',
+						text:
+							'A term for diseases in which abnormal cells divide without control and can invade nearby tissues. Cancer cells can also spread to other parts of the body through the blood and lymph systems. There are several main types of cancer. Carcinoma is a cancer that begins in the skin or in tissues that line or cover internal organs. Sarcoma is a cancer that begins in bone, cartilage, fat, muscle, blood vessels, or other connective or supportive tissue. Leukemia is a cancer that begins in blood-forming tissue, such as the bone marrow, and causes too many abnormal blood cells to be made. Lymphoma and multiple myeloma are cancers that begin in the cells of the immune system. Central nervous system cancers are cancers that begin in the tissues of the brain and spinal cord. Also called malignancy.',
+					},
+					otherLanguages: [],
+					relatedResources: [],
+					media: [],
+				},
+			],
+		};
+		useStateValue.mockReturnValue([
+			{
+				appId: 'mockAppId',
+				dictionaryUrl:
+					'https://www.cancer.gov/publications/dictionaries/cancer-terms',
+				language: 'en',
+			},
+		]);
+		const { container } = render(<Definition {...definitionResult} />);
+		expect(container.querySelector('p a')).toBeNull();
+	});
 });
 
 describe('Definition component (Spanish)', () => {
