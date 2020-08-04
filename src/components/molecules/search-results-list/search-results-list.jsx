@@ -24,7 +24,6 @@ const SearchResultsList = ({
 		urlQuery.delete('true');
 		urlQuery.set('page', '1');
 		urlQuery.set('pageunit', val);
-		urlQuery.set('Offset', '0');
 		window.location.href = `?${urlQuery.toString()}`;
 		window.scrollTo(0, 0);
 	};

@@ -61,6 +61,150 @@ describe('Search Results component(English)', () => {
 							description:
 								'Desmoid tumors grow from the connective tissue in your body.',
 						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvInfographic',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
+						{
+							title: 'Desmoid Tumor - National Cancer Institute',
+							url:
+								'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid',
+							contentType: 'cgvVideo',
+							description:
+								'Desmoid tumors grow from the connective tissue in your body.',
+						},
 					],
 				},
 			}),
@@ -79,10 +223,6 @@ describe('Search Results component(English)', () => {
 		});
 		expect(screen.getAllByText('Desmoid Tumor')[0]).toBeInTheDocument();
 		expect(screen.getAllByText('Results for: tumor')[0]).toBeInTheDocument();
-		expect(screen.getAllByText(/1/)[0]).toBeInTheDocument();
-		expect(screen.getAllByText(/2/)[0]).toBeInTheDocument();
-		expect(screen.getAllByText(/.../)[0]).toBeInTheDocument();
-		expect(screen.getAllByText(/Next/)[0]).toBeInTheDocument();
 		expect(
 			screen.getAllByText(
 				'https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid'

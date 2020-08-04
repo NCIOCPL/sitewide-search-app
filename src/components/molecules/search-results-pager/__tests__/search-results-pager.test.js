@@ -1,4 +1,5 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import SearchResultsPager from '../search-results-pager';
@@ -8,6 +9,7 @@ import { testIds } from '../../../../constants';
 jest.mock('../../../../store/store.js');
 
 let wrapper;
+let current = 0;
 describe('Search Results Pager(English)', () => {
 	beforeEach(async () => {
 		const basePath = '/';
@@ -25,17 +27,13 @@ describe('Search Results Pager(English)', () => {
 				title,
 			},
 		]);
-
-		Object.defineProperty(window, 'location', {
-			value: () => {},
-			writable: true,
-		});
-
+		// moves counter up one each test
+		current += 1;
 		wrapper = render(
 			<MemoryRouter initialEntries={['/?swKeyword=tumor']}>
 				<SearchResultsPager
 					testid={testIds.RESULTS_PAGER_TOP}
-					current={1}
+					current={current}
 					totalResults={200}
 					resultsPerPage={20}
 					language={'en'}
@@ -44,7 +42,7 @@ describe('Search Results Pager(English)', () => {
 			</MemoryRouter>
 		);
 	});
-
+	// counter 1
 	test('Should load the pager component', () => {
 		const { queryAllByText } = wrapper;
 		expect(wrapper.getAllByRole('navigation')[0]).toBeInTheDocument();
@@ -53,15 +51,26 @@ describe('Search Results Pager(English)', () => {
 		expect(queryAllByText(/.../)[0]).toBeInTheDocument();
 		expect(queryAllByText(/Next/)[0]).toBeInTheDocument();
 	});
-
+	// counter 2
 	test('test Nav element is there and link options', () => {
-		expect(wrapper.getAllByRole('navigation')[0]).toBeInTheDocument();
-		expect(wrapper.getAllByRole('link')[0]).toHaveTextContent('2Go to Page');
-		fireEvent.click(wrapper.getAllByRole('link')[0]);
-		expect(wrapper.queryAllByText(/.../)[0]).toHaveClass('show-for-sr');
-		expect(wrapper.getAllByRole('link')[1]).toHaveClass('total_pages');
-		expect(wrapper.getAllByRole('listitem')[2]).toHaveClass(
+		expect(wrapper.queryAllByText(/.../)[1]).toHaveClass('show-for-sr');
+		expect(wrapper.queryAllByText(/.../)[2]).toHaveClass('show-for-sr');
+		expect(wrapper.getAllByRole('link')[0]).toHaveTextContent('< Previous');
+		expect(wrapper.getAllByRole('link')[3]).toHaveClass('total_pages');
+		expect(wrapper.getAllByRole('listitem')[4]).toHaveClass(
 			'pager__ellipses--right'
+		);
+	});
+	// counter 3
+	test('Test href and urls', () => {
+		expect(wrapper.queryAllByText(/3/)[0]).toHaveClass('pager__button active');
+		expect(wrapper.getAllByRole('link')[2]).toHaveAttribute(
+			'href',
+			'/?swKeyword=tumor&page=2&pageunit=20'
+		);
+		expect(wrapper.getAllByRole('link')[1]).toHaveAttribute(
+			'href',
+			'/?swKeyword=tumor&page=1&pageunit=20'
 		);
 	});
 });

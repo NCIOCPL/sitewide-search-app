@@ -1,0 +1,125 @@
+{
+	"results": [
+		{
+			"title": "The University of Texas MD Anderson Cancer Center—Targeted Therapeutics for Ovarian Cancer - National Cancer Institute",
+			"url": "https://www.cancer.gov/nano/research/alliance/ircn/texas",
+			"contentType": "cgvArticle",
+			"description": "Will offer nanotherapeutic formulations and novel approaches targeting multiple components of the tumor and its microenvironment, specifically for high-grade serous ovarian cancers."
+		},
+		{
+			"title": "Stem Cells Deliver Chemo to Metastatic Breast Cancer - National Cancer Institute",
+			"url": "https://www.cancer.gov/news-events/cancer-currents-blog/2017/breast-metastases-targeting-stem-cells",
+			"contentType": "cgvBlogPost",
+			"description": "Using modified stem cells, researchers delivered a cancer drug selectively to metastatic breast cancer tumors in mice, as this NCI Cancer Currents post explains."
+		},
+		{
+			"title": "NCI Presentations at SNO - National Cancer Institute",
+			"url": "https://www.cancer.gov/rare-brain-spine-tumor/blog/2019/sno-presentations",
+			"contentType": "cgvBlogPost",
+			"description": "Read a synopsis of the NCI-CONNECT presentations at the 2018 Annual Meeting of the Society for Neuro-Oncology."
+		},
+		{
+			"title": "Clinical Trial to Treat Gliosarcoma or Primary CNS Sarcoma - National Cancer Institute",
+			"url": "https://www.cancer.gov/rare-brain-spine-tumor/refer-participate/clinical-studies/gliosarcoma-clinical-trial",
+			"contentType": "cgvVideo",
+			"description": "Neuro-oncologist Mark Gilbert, M.D., shares information about a clinical trial at NIH investigating the effectiveness of a cancer drug to treat people with gliosarcoma or primary sarcoma of the central nervous system."
+		},
+		{
+			"title": "Brain and Spine Cancers Did you Know? - National Cancer Institute",
+			"url": "https://www.cancer.gov/rare-brain-spine-tumor/blog/2019/did-you-know",
+			"contentType": "cgvVideo",
+			"description": null
+		},
+		{
+			"title": "PDQ® Pediatric Cancer Treatment Summaries - National Cancer Institute",
+			"url": "https://www.cancer.gov/publications/pdq/information-summaries/pediatric-treatment",
+			"contentType": "cgvMiniLanding",
+			"description": "Find treatment information for different types of cancer in children. Includes information about diagnosis, staging, and prognosis."
+		},
+		{
+			"title": "What Is Cancer? - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/understanding/what-is-cancer",
+			"contentType": "cgvArticle",
+			"description": "Explanations about what cancer is, how cancer cells differ from normal cells, and genetic changes that cause cancer to grow and spread."
+		},
+		{
+			"title": "Clinical Trials Using Irinotecan Hydrochloride - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/treatment/clinical-trials/intervention/irinotecan-hydrochloride",
+			"contentType": "nciAppModulePage",
+			"description": "NCI supports clinical trials that test new and more effective ways to treat cancer. Find clinical trials studying irinotecan hydrochloride."
+		},
+		{
+			"title": "Clinical Trials Using Temozolomide - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/treatment/clinical-trials/intervention/temozolomide",
+			"contentType": "nciAppModulePage",
+			"description": "NCI supports clinical trials that test new and more effective ways to treat cancer. Find clinical trials studying temozolomide."
+		},
+		{
+			"title": "Treatment Clinical Trials for Testicular Cancer - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/treatment/clinical-trials/disease/testicular-cancer/treatment",
+			"contentType": "nciAppModulePage",
+			"description": "NCI supports clinical trials studying new and more effective ways to detect and treat cancer. Find treatment clinical trials for testicular cancer."
+		},
+		{
+			"title": "Clinical Trials to Treat Testicular Cancer - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/treatment/clinical-trials/testicular-cancer",
+			"contentType": "nciAppModulePage",
+			"description": "Find clinical trials to treat testicular cancer."
+		},
+		{
+			"title": "A to Z List of Cancer Types - National Cancer Institute",
+			"url": "https://www.cancer.gov/types",
+			"contentType": "cgvHomeLanding",
+			"description": "Alphabetical list of all cancers, with links to disease-specific and general information about treatment, coping, screening, prevention, clinical trials, and other topics."
+		},
+		{
+			"title": "Meetings - National Cancer Institute",
+			"url": "https://www.cancer.gov/rare-brain-spine-tumor/about/meetings",
+			"contentType": "cgvArticle",
+			"description": "NCI-CONNECT hosts meetings at NIH throughout the year to bring together worldwide leaders in neuro-oncology to advance knowledge and collaborations."
+		},
+		{
+			"title": "Midline Glioma Cancer Survivor Joins Study to Help Others - National Cancer Institute",
+			"url": "https://www.cancer.gov/rare-brain-spine-tumor/blog/2019/midline-glioma-survivor",
+			"contentType": "cgvBlogPost",
+			"description": "José shares how he learned about his rare midline glioma cancer in his spine and why he chose to participate in a clinical study to help others."
+		},
+		{
+			"title": "Targeted Therapy Larotrectinib Shows Promise in Early Trials - National Cancer Institute",
+			"url": "https://www.cancer.gov/news-events/cancer-currents-blog/2018/larotrectinib-effective-across-cancer-types",
+			"contentType": "cgvBlogPost",
+			"description": "Larotrectinib shrank tumors in patients with 13 different cancer types, clinical trials show. The drug, which targets tumors with TRK fusions, was effective in children and adults. Update reflects FDA approval."
+		},
+		{
+			"title": "Q&A: How to Manage Living with Cancer During the Holidays - National Cancer Institute",
+			"url": "https://www.cancer.gov/rare-brain-spine-tumor/blog/2019/manage-cancer-holidays",
+			"contentType": "cgvBlogPost",
+			"description": "Our neuro-oncology care providers answered the most common questions they receive during the holidays. Read their advice to help you manage living with a brain and spine tumor so you can enjoy the holiday season."
+		},
+		{
+			"title": "Clinical Trials Using Carboplatin - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/treatment/clinical-trials/intervention/carboplatin",
+			"contentType": "nciAppModulePage",
+			"description": "NCI supports clinical trials that test new and more effective ways to treat cancer. Find clinical trials studying carboplatin."
+		},
+		{
+			"title": "Treatment Clinical Trials for Neuroblastoma - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/treatment/clinical-trials/disease/neuroblastoma/treatment",
+			"contentType": "nciAppModulePage",
+			"description": "NCI supports clinical trials studying new and more effective ways to detect and treat cancer. Find treatment clinical trials for neuroblastoma."
+		},
+		{
+			"title": "Overcoming the Challenges of Metastatic Cancer - National Cancer Institute",
+			"url": "https://www.cancer.gov/news-events/cancer-currents-blog/2017/metastatic-cancer-kaplan",
+			"contentType": "cgvBlogPost",
+			"description": "NCI’s Dr. Rosandra Kaplan discusses metastatic cancer research and new ideas for treating and preventing metastatic cancer."
+		},
+		{
+			"title": "8 Tips to Cope with Cancer During the Holidays - National Cancer Institute",
+			"url": "https://www.cancer.gov/rare-brain-spine-tumor/blog/2018/coping-with-holidays",
+			"contentType": "cgvBlogPost",
+			"description": "Holidays can be stressful if you or a loved one is living with a brain or spine tumor. Learn tips to help you cope."
+		}
+	],
+	"totalResults": 11556
+}
