@@ -48,7 +48,7 @@ const Home = () => {
 		isBestBetsConfigured && stateBestBetResult?.length > 0 && isFirstPage;
 	// Only display Definition component if isDictionaryConfigured is true
 	// and no results returned
-	// and offset doesn't exist in url or it exists and is the first page
+	// and doesn't exist in url or it exists and is the first page
 	const showDefinition =
 		isDictionaryConfigured &&
 		stateDefinitionResult?.results?.length > 0 &&

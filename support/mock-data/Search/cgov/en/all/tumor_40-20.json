@@ -1,0 +1,125 @@
+{
+	"results": [
+		{
+			"title": "Childhood Gastrointestinal Carcinoid Tumors Treatment (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/gi-carcinoid-tumors/patient/child-gi-carcinoid-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "The treatment of childhood gastrointestinal carcinoid tumors includes surgery, hormone therapy, embolization, and targeted therapy. Learn more about the symptoms, tests to diagnose, prognosis and treatment of these childhood tumors in this expert-reviewed summary."
+		},
+		{
+			"title": "Gastrointestinal Carcinoid Tumors Treatment (Adult) (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/gi-carcinoid-tumors/patient/gi-carcinoid-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Gastrointestinal (GI) carcinoid tumor treatment options include surgery, radiation therapy, chemotherapy, and hormone therapy. Treatment for carcinoid syndrome includes hormonal treatment, interferon, and other medications to control symptoms. Learn more in this expert-reviewed information summary."
+		},
+		{
+			"title": "Gastrointestinal Stromal Tumors Treatment (Adult) (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/soft-tissue-sarcoma/patient/gist-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Gastrointestinal stromal tumors (GIST) are usually found on the stomach or small intestine, but they can be found anywhere in or near the GI tract. Find out about risk factors, symptoms, tests to diagnose, prognosis, staging, and treatment for gastrointestinal stromal tumors."
+		},
+		{
+			"title": "Ovarian Germ Cell Tumors Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/ovarian/hp/ovarian-germ-cell-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Ovarian germ cell tumors treatment options include surgery, chemotherapy, and radiation therapy. Get detailed treatment information for newly diagnosed or recurrent germ cell tumors in this summary for clinicians."
+		},
+		{
+			"title": "Ovarian Low Malignant Potential Tumors Treatment (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/ovarian/patient/ovarian-low-malignant-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Treatment of ovarian low malignant potential tumors depends on tumor size and stage (whether it affects part of or the whole ovary, or has spread to other parts of the body) and the woman's plans for having children. Learn about types of surgery and other treatment options for ovarian low malignant potential tumors."
+		},
+		{
+			"title": "Tumor Grade Fact Sheet - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet",
+			"contentType": "cgvArticle",
+			"description": "A fact sheet that discusses tumor grade and its role in prognosis. Explains concepts like normal cell biology and cell differentiation."
+		},
+		{
+			"title": "Adult Central Nervous System Tumors Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/brain/hp/adult-brain-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Adult central nervous system tumor treatment options include surgery, radiosurgery, radiation therapy, chemotherapy, surveillance, and supportive care. Get detailed information about the types and treatment of newly diagnosed and recurrent brain and spinal tumors in this clinician summary."
+		},
+		{
+			"title": "Ovarian Germ Cell Tumors Treatment (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/ovarian/patient/ovarian-germ-cell-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Surgery is the most common treatment of ovarian germ cell tumor. Types of surgery include hysterectomy and removal of one or both ovaries and fallopian tubes (bilateral salpingo-oophorectomy). Treatment may also include chemotherapy or radiation therapy. Learn about treatment options for ovarian germ cell tumors."
+		},
+		{
+			"title": "Ovarian Low Malignant Potential Tumors Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/ovarian/hp/ovarian-low-malignant-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Ovarian low malignant potential tumors treatment includes surgery only for early stage and surgery with chemotherapy for advanced stage disease. Get detailed treatment information in this summary for clinicians."
+		},
+		{
+			"title": "Childhood Tracheobronchial Tumors Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/lung/hp/child-tracheobronchial-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "This evidence-based, expert-reviewed summary discusses the histology, prognosis, clinical presentation, diagnostic evaluation, and treatment of pediatric tracheobronchial tumors."
+		},
+		{
+			"title": "Childhood Extracranial Germ Cell Tumors Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/extracranial-germ-cell/hp/germ-cell-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Treatment for children with extracranial germ cell tumors (GCT) may involve surgical resection followed by monitoring or chemotherapy before or after surgery.\nGet detailed treatment information for newly diagnosed and recurrent extracranial GCTs in this summary for clinicians."
+		},
+		{
+			"title": "Gastrointestinal Stromal Tumors Treatment (Adult) (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/soft-tissue-sarcoma/hp/gist-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Gastrointestinal stromal tumor (GIST) treatment depends on the extent of disease and may involve surgery and/or tyrosine kinase inhibitors. Get detailed information about the diagnosis, prognosis, and treatment of newly diagnosed and recurrent GIST in this summary for clinicians."
+		},
+		{
+			"title": "Rare Tumor Workshops - National Cancer Institute",
+			"url": "https://www.cancer.gov/pediatric-adult-rare-tumor/research/rare-tumor-workshops",
+			"contentType": "cgvArticle",
+			"description": "MyPART holds workshops to help scientists learn what to study about rare cancer and share research. Also, advocates discuss issues important to patients, clinicians share their experience treating the rare cancer, and FDA representatives help design experiments and clinical trials."
+		},
+		{
+			"title": "DCB - Tumor Metastasis Research - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-nci/organization/dcb/research-portfolio/tumor-metastasis",
+			"contentType": "cgvArticle",
+			"description": "Tumor metastasis research examines the mechanisms that allow cancer cells to leave the primary tumor and spread to another part of the body. Learn about recent tumor metastasis research studies supported by the Division of Cancer Biology."
+		},
+		{
+			"title": "Childhood Cardiac (Heart) Tumors Treatment (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/cardiac/patient-child-cardiac-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Childhood cardiac (heart) tumors may be benign (not cancer) or malignant (cancer). Learn about the symptoms,  tests to diagnose, and treatment of childhood heart tumors in this expert-reviewed summary."
+		},
+		{
+			"title": "PXA Tumor Survivor - National Cancer Institute",
+			"url": "https://www.cancer.gov/rare-brain-spine-tumor/blog/2019/pxa-survivor",
+			"contentType": "cgvBlogPost",
+			"description": "Darien shares how he lived with what he thought was an aggressive brain cancer for eight years. Then, he got an accurate low-grade rare tumor diagnosis and made a fresh start."
+		},
+		{
+			"title": "Tumor Markers in Common Use - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list",
+			"contentType": "cgvArticle",
+			"description": "A list of tumor markers that are in common use, mainly to direct treatment or for testing in blood to help make a diagnosis of cancer."
+		},
+		{
+			"title": "Visualizing tumor blood vessels - National Cancer Institute",
+			"url": "https://www.cancer.gov/news-events/cancer-currents-blog/2016/intravital-microscopy",
+			"contentType": "cgvBlogPost",
+			"description": "High powered intravital microscopy reveals that 50 percent of blood vessels in melanoma tumors do not have any blood flow, according to a new study."
+		},
+		{
+			"title": "Childhood Gastrointestinal Stromal Tumors Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/soft-tissue-sarcoma/hp/child-gist-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "This evidence-based, expert-reviewed summary discusses the clinical features, molecular features and treatment of pediatric gastrointestinal stromal tumors (GIST)."
+		},
+		{
+			"title": "Extragonadal Germ Cell Tumors Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/extragonadal-germ-cell/hp/extragonadal-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Extragonadal germ cell tumors (GCT) treatment depends on the type and can include surgery, radiation, chemotherapy, and stem cell transplant. Get detailed information about the treatment of newly diagnosed and recurrent extragonadal GCTs in this summary for clinicians."
+		}
+	],
+	"totalResults": 11556
+}

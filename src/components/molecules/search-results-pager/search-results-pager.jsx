@@ -16,9 +16,8 @@ const SearchResultsPager = ({
 	const urlQuery = useURLQuery();
 	const swKeywordKey = /swKeyword/i;
 	// total pages = total results / pageunit
-	// position in Array = current page - 1 for array offset * pageunit
 	let total = ~~(totalResults / resultsPerPage);
-	// check for odd remainder of items and make new page/offset
+	// check for odd remainder of items and make new page
 	if (totalResults / resultsPerPage - total > 0) {
 		total += 1;
 	}
@@ -27,15 +26,10 @@ const SearchResultsPager = ({
 		let bstate = `pager__button `;
 		if (i === current) bstate += 'active ';
 		if (i === total) bstate += 'total_pages';
-		let calculatedOffset = i === 1 ? 0 : i * resultsPerPage + 1;
-		if (calculatedOffset > totalResults) {
-			calculatedOffset = calculatedOffset - resultsPerPage;
-		}
 		urlQuery.set(swKeywordKey.ignoreCase, keyword);
 		urlQuery.delete('true');
 		urlQuery.set('page', i);
 		urlQuery.set('pageunit', resultsPerPage);
-		urlQuery.set('Offset', calculatedOffset);
 		const linkPath = `?${urlQuery.toString()}`;
 		return (
 			<li className="pager__list-item" key={`pager__button-${i}`}>
@@ -62,10 +56,6 @@ const SearchResultsPager = ({
 		urlQuery.delete('true');
 		urlQuery.set('page', (currentPage + 1).toString());
 		urlQuery.set('pageunit', resultsPerPage);
-		urlQuery.set(
-			'Offset',
-			((current + 1) * resultsPerPage - resultsPerPage + 1).toString()
-		);
 		return `?${urlQuery.toString()}`;
 	};
 
@@ -74,10 +64,6 @@ const SearchResultsPager = ({
 		urlQuery.delete('true');
 		urlQuery.set('page', (currentPage - 1).toString());
 		urlQuery.set('pageunit', resultsPerPage);
-		urlQuery.set(
-			'Offset',
-			((current - 1) * resultsPerPage - resultsPerPage + 1).toString()
-		);
 		return `?${urlQuery.toString()}`;
 	};
 
@@ -96,7 +82,7 @@ const SearchResultsPager = ({
 		const end_total = total - 4;
 		const start_min = current < 5;
 		// check to see if we're less that 5 from start or end
-		const inout = start_min || current > end_total;
+		const inout = start_min || current + 1 > end_total;
 		// set start position
 		let start = inout ? (start_min ? 1 : end_total) : current - 1;
 		let end = current > end_total ? total : current + 2;
@@ -119,11 +105,10 @@ const SearchResultsPager = ({
 		}
 		return links;
 	};
-	// url pattern ?swKeyword=term&page=2&pageunit=10&Offset=10
+	// url pattern ?swKeyword=term&page=2&pageunit=10
 	// @param swKeyword:			Search Term
 	// @param page: 					Actual page number
 	// @param pageunit: 			Number of items per page (I presume)
-	// @param Offset: 				Where the current page record starts
 	const ButtonIU = generateLinks();
 	const linkPathPrevious = getLinkPathPrevious(
 		current,

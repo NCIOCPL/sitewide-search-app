@@ -12,7 +12,7 @@ Feature: Basic search results Page Load
         And "analyticsContentGroup" is set to "Global Search"
         And "analyticsPublishedDate" is set to "02/02/2011"
         When the user navigates to "/?swKeyword=tumor"
-        And the system displays "Results 1-20 of 11189 for: " "tumor" as an "h4" tag
+        And the system displays "Results 1-20 of 11556 for: " "tumor" as an "h4" tag
         And browser waits
         Then there should be an analytics event with the following details
             | key                                  | value                                          |
@@ -26,7 +26,7 @@ Feature: Basic search results Page Load
             | page.channel                         | Search                                         |
             | page.contentGroup                    | Global Search                                  |
             | page.publishedDate                   | 02/02/2011                                     |
-            | page.additionalDetails.numberResults | (int)11189                                     |
+            | page.additionalDetails.numberResults | (int)11556                                     |
             | page.additionalDetails.searchKeyword | tumor                                          |
             | page.additionalDetails.itemsPerPage  | (int)20                                        |
             | page.additionalDetails.pageNum       | (int)1                                         |
