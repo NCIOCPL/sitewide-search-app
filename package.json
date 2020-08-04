@@ -201,10 +201,13 @@
 		"reporter": [
 			"text",
 			"json"
+		],
+		"exclude": [
+			"**/node_modules/**"
 		]
 	},
 	"devDependencies": {
-		"cypress": "^4.8.0",
+		"cypress": "^4.12.0",
 		"cypress-cucumber-preprocessor": "^2.5.0",
 		"eslint-config-airbnb": "^18.1.0",
 		"eslint-config-prettier": "^6.11.0",
