@@ -4,7 +4,6 @@ import React from 'react';
 import { i18n } from '../../../utils';
 
 const BestBet = ({ language = 'en', results }) => {
-	const payload = results[0];
 	return (
 		<>
 			{results && results.length > 0 && (
@@ -14,7 +13,7 @@ const BestBet = ({ language = 'en', results }) => {
 							<h2>{`${i18n.bestBetTitle[language]} ${bestBetItem.name}`}</h2>
 							<div
 								dangerouslySetInnerHTML={{
-									__html: payload.html,
+									__html: bestBetItem.html,
 								}}
 							/>
 						</div>

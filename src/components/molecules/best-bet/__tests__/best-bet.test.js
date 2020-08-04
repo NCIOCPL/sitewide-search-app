@@ -4,7 +4,13 @@ import React from 'react';
 import BestBet from '../best-bet';
 
 describe('<BestBet />', () => {
-	test('should show best bet title (English)', () => {
+
+	function getContentFromHTML(html, pos) {
+		const content = new DOMParser().parseFromString(html, 'text/html');
+		return content.body.textContent.trim().split('\n')[pos];
+	}
+
+	test('should show best bet title and content (English)', () => {
 		const language = 'en';
 		const results = [
 			{
@@ -17,7 +23,34 @@ describe('<BestBet />', () => {
 		];
 		const expectedTitle = `Best Bets for ${results[0].name}`;
 		render(<BestBet language={language} results={results} />);
+		const expectedContent = getContentFromHTML(results[0].html, 1);
 		expect(screen.getByText(expectedTitle)).toBeInTheDocument();
+		expect(screen.getByText(expectedContent)).toBeInTheDocument();
+	});
+
+	test('should show multiple best bet titles and corresponding content (English)', () => {
+		const language = 'en';
+		const results = [
+			{
+				"html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"http://visualsonline.cancer.gov\">Visuals Online</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">An NCI database of cancer-specific scientific and patient care-related images, as well as general biomedical and science-related images and portraits of NCI directors and staff.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
+				"id": "35618",
+				"name": "Cancer Images",
+				"weight": 70
+			},
+			{
+				"html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/types/breast/breast-changes\">Breast Changes and Conditions</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Provides information on how specific breast changes, including atypical hyperplasia, lobular carcinoma in situ, ductal carcinoma in situ and breast cancer, are detected, diagnosed, and treated.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li><li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/types/breast/patient/breast-treatment-pdq\">Breast Cancer Treatment (PDQ®)–Patient Version</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Breast cancer treatment depends on several factors and can include combinations of surgery, chemotherapy, radiation, hormone, and targeted therapy. Learn more about how breast cancer is diagnosed and treated in this expert-reviewed summary.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
+				"id": "35784",
+				"name": "Ductal Carcinoma In Situ (DCIS)",
+				"weight": 25
+			}
+		];
+		render(<BestBet language={language} results={results} />);
+		results.map( (thisResult, index) => {
+			const expectedTitle = `Best Bets for ${thisResult.name}`;
+			const expectedContent = getContentFromHTML(thisResult.html, 1);
+			expect(screen.getByText(expectedTitle)).toBeInTheDocument();
+			expect(screen.getByText(expectedContent)).toBeInTheDocument();
+		});
 	});
 
 	test('should show best bet title (Spanish)', () => {
@@ -34,5 +67,12 @@ describe('<BestBet />', () => {
 		const expectedTitle = `Mejores resultados para ${results[0].name}`;
 		render(<BestBet language={language} results={results} />);
 		expect(screen.getByText(expectedTitle)).toBeInTheDocument();
+	});
+
+	test('should not display if there are no results', () => {
+		const language = 'es';
+		const results = [];
+		const { container } = render(<BestBet language={language} results={results} />);
+		expect(container.querySelector('.best-bet')).toBeNull();
 	});
 });
