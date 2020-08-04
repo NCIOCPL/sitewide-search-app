@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Pronunciation } from '../../index';
 import { useStateValue } from '../../../store/store';
 import { i18n, splitSentencesToArray } from '../../../utils';
+import { useTracking } from 'react-tracking';
 
 const Definition = ({ results }) => {
 	const payload = results[0];
@@ -22,6 +23,7 @@ const Definition = ({ results }) => {
 	const [definitionToggleText, setDefinitionToggleText] = useState(
 		i18n.showFullDefinition[language]
 	);
+	const tracking = useTracking();
 
 	const toggleClickHandler = (e) => {
 		const { className } = e.target;
@@ -37,6 +39,21 @@ const Definition = ({ results }) => {
 		setDefToggleClassName('definition__show-full');
 	};
 
+	const handleMoreInfoClick = (e) => {
+		e.preventDefault;
+		tracking.trackEvent({
+			type: 'Other',
+			event: 'SitewideSearchApp:Other:DictionaryLinkClick',
+			linkName: 'glossifiedTerm',
+			glossaryTerm: payload.termName,
+			glossaryTermId: payload.termId,
+			isDefinitionExpanded: defToggleClassName === 'definition__show-full' ? 'false' : 'true'
+		});
+		return true;
+	};
+
+
+
 	const renderTermDefinition = () => {
 		const idOrPurl = payload.prettyUrlName || payload.termId;
 		return (
@@ -48,7 +65,7 @@ const Definition = ({ results }) => {
 					}}></div>
 				{(payload.relatedResources.length > 0 || payload.media.length > 0) && (
 					<p>
-						<a href={`${dictionaryUrl}/def/${idOrPurl}`}>
+						<a href={`${dictionaryUrl}/def/${idOrPurl}`} onClick={handleMoreInfoClick}>
 							{i18n.moreInfoOnDictionaryPage[language]}
 						</a>
 					</p>
