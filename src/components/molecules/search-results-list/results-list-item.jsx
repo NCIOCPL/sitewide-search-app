@@ -1,8 +1,11 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { useTracking } from 'react-tracking';
+
 import { i18n } from '../../../utils';
 
-const ResultsListItem = ({ result = {}, language = 'en' }) => {
+const ResultsListItem = ({ result = {}, resultIndex, language = 'en' }) => {
+	const tracking = useTracking();
 	const { title, description, contentType, url } = result;
 
 	// Result Items come back with a NCI suffix which we don't want to display to the user.
@@ -30,9 +33,23 @@ const ResultsListItem = ({ result = {}, language = 'en' }) => {
 			);
 		}
 	}
+
+	const handleResultItemTitleClick = () => {
+		tracking.trackEvent({
+			type: 'Other',
+			event: 'SitewideSearchApp:Other:ResultClick',
+			linkName: 'SiteWideSearchResults',
+			resultIndex,
+			resultUrl: url,
+		});
+	};
+
 	return (
 		<li className="result__list-item">
-			<a href={url} className="result__link">
+			<a
+				href={url}
+				className="result__link"
+				onClick={handleResultItemTitleClick}>
 				{sanitizedTitle} {displayType && decorator}
 			</a>
 			<div className="result__description">{description}</div>
@@ -44,6 +61,7 @@ const ResultsListItem = ({ result = {}, language = 'en' }) => {
 ResultsListItem.propTypes = {
 	language: PropTypes.oneOf(['en', 'es']),
 	result: PropTypes.object.isRequired,
+	resultIndex: PropTypes.number.isRequired,
 };
 
 export default ResultsListItem;

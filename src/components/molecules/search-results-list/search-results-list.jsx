@@ -57,11 +57,23 @@ const SearchResultsList = ({
 		</select>
 	);
 
+	/**
+	 *	Computes index value of result item taking current items per page (pageunit) into consideration
+	 *
+	 *	@param {number} Result index in current response
+	 *	@returns {number} Computed result index number
+	 */
+	const getResultIndex = (index) => {
+		const page = currentPage === 1 ? 0 : resultsPerPage;
+		return index + 1 + page;
+	};
+
 	const ResultList = results.result.map((result, index) => {
 		return (
 			<ResultsListItem
 				key={`listItem${index}`}
 				result={result}
+				resultIndex={getResultIndex(index)}
 				language={language}
 			/>
 		);

@@ -45,8 +45,7 @@ Given('{string} is set to {string}', (key, param) => {
 	cy.on('window:before:load', (win) => {
 		if (param === 'null') {
 			win.INT_TEST_APP_PARAMS[key] = null;
-		} else
-			win.INT_TEST_APP_PARAMS[key] = param;
+		} else { win.INT_TEST_APP_PARAMS[key] = param; }
 	});
 });
 
@@ -279,20 +278,28 @@ And('each result item displays the title of an item as a link', () => {
 });
 
 And('each result item displays the description of an item', () => {
-	cy.get('.result__list-item div').first().invoke('text').should('not.be.empty');
+	cy.get('.result__list-item div')
+		.first()
+		.invoke('text')
+		.should('not.be.empty');
 });
 
 And('each result item displays the full URL of an item', () => {
-	cy.get('.result__list-item').each($el => {
+	cy.get('.result__list-item').each(($el) => {
 		const href = $el.find('a').attr('href');
 		cy.wrap($el).find('cite').invoke('text').should('eq', href);
-	})
+	});
 });
 
 And('number {int} result item displays {string} label', (itemNumber, label) => {
 	cy.get('.result__list-item a').eq(itemNumber - 1).invoke('text').should('include', label)
 });
 
+And('the user clicks on the second result', () => {
+	cy.get('.results__container li a')
+		.eq(1)
+		.trigger('click', { followRedirect: false });
+});
 
 /*
     ------------------------------
@@ -304,12 +311,17 @@ Then('the system returns the results page for {string}', (keyword) => {
 	cy.get('h3').first().invoke('text').should('contain', keyword);
 });
 
-Then('the system displays {string} {string} as an {string} tag', (resultsIntroText, keyword, tag) => {
-	if (tag.toLowerCase() === 'h4')
-		cy.get(tag).first().invoke('text').should('contain', `${resultsIntroText}${keyword}`);
-	else
-		cy.get(tag).should('contain.text', `${resultsIntroText}${keyword}`);
-});
+Then(
+	'the system displays {string} {string} as an {string} tag',
+	(resultsIntroText, keyword, tag) => {
+		if (tag.toLowerCase() === 'h4')
+			cy.get(tag)
+				.first()
+				.invoke('text')
+				.should('contain', `${resultsIntroText}${keyword}`);
+		else cy.get(tag).should('contain.text', `${resultsIntroText}${keyword}`);
+	}
+);
 
 // Check to see if results are there
 Then('the results are displayed', () => {
