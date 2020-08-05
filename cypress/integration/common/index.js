@@ -394,3 +394,7 @@ When('user navigates to the next page', () => {
 Then('a box for Best Bets is not displayed', () => {
 	cy.get('.best-bet').should('not.exist');
 });
+
+When('user clicks on a title of related item number {int}', (index)=>{
+	cy.get('div[class^="title-and-desc"] a').eq(index - 1).trigger('click', {followRedirect:false});
+});

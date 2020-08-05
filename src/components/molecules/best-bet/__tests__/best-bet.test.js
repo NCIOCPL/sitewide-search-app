@@ -2,8 +2,12 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
 import BestBet from '../best-bet';
+import { MockAnalyticsProvider } from '../../../../tracking';
+
+const analyticsHandler = jest.fn((data) => { });
 
 describe('<BestBet />', () => {
+
 
 	function getContentFromHTML(html, pos) {
 		const content = new DOMParser().parseFromString(html, 'text/html');
@@ -22,7 +26,10 @@ describe('<BestBet />', () => {
 			},
 		];
 		const expectedTitle = `Best Bets for ${results[0].name}`;
-		render(<BestBet language={language} results={results} />);
+		render(
+			<MockAnalyticsProvider>
+				<BestBet language={language} results={results} />
+			</MockAnalyticsProvider>);
 		const expectedContent = getContentFromHTML(results[0].html, 1);
 		expect(screen.getByText(expectedTitle)).toBeInTheDocument();
 		expect(screen.getByText(expectedContent)).toBeInTheDocument();
@@ -44,8 +51,11 @@ describe('<BestBet />', () => {
 				"weight": 25
 			}
 		];
-		render(<BestBet language={language} results={results} />);
-		results.map( (thisResult, index) => {
+		render(
+			<MockAnalyticsProvider>
+				<BestBet language={language} results={results} />
+			</MockAnalyticsProvider>);
+		results.map((thisResult, index) => {
 			const expectedTitle = `Best Bets for ${thisResult.name}`;
 			const expectedContent = getContentFromHTML(thisResult.html, 1);
 			expect(screen.getByText(expectedTitle)).toBeInTheDocument();
@@ -65,14 +75,40 @@ describe('<BestBet />', () => {
 			},
 		];
 		const expectedTitle = `Mejores resultados para ${results[0].name}`;
-		render(<BestBet language={language} results={results} />);
+		render(
+			<MockAnalyticsProvider>
+				<BestBet language={language} results={results} />
+			</MockAnalyticsProvider>);
 		expect(screen.getByText(expectedTitle)).toBeInTheDocument();
 	});
 
 	test('should not display if there are no results', () => {
 		const language = 'es';
 		const results = [];
-		const { container } = render(<BestBet language={language} results={results} />);
+		const { container } = render(
+			<MockAnalyticsProvider>
+				<BestBet language={language} results={results} />
+			</MockAnalyticsProvider>);
 		expect(container.querySelector('.best-bet')).toBeNull();
+	});
+
+	test('Analytics are firing on the best bet link click', () => {
+		const language = 'en';
+		const results = [
+			{
+				html: "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"http://ctep.cancer.gov\">Cancer Therapy Evaluation Program (CTEP)</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">CTEP is the program within the Division of Cancer Treatment and Diagnosis that plans, assesses, and coordinates all aspects of clinical trials.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
+				id: "36567",
+				name: "Cancer Therapy Evaluation Program (CTEP)",
+				weight: 100
+			},
+		];
+
+		const { container } = render(
+			<MockAnalyticsProvider analyticsHandler={analyticsHandler}>
+				<BestBet language={language} results={results} />
+			</MockAnalyticsProvider>);
+		const bestBetLink = container.querySelector('a.title');
+		fireEvent.click(bestBetLink);
+		expect(analyticsHandler).toHaveBeenCalledTimes(1)
 	});
 });
