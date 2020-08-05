@@ -51,6 +51,7 @@
 @include break(medium) {
 	.results {
 		&__feature--bestbet--definition {
+			flex-wrap: nowrap;
 			.best-bet {
 				flex: 66.66667% 1;
 				margin-left: 0;
