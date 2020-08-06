@@ -8,7 +8,7 @@ Feature: As a content editor, I would like to identify content for users to find
 		And the system displays best bet number 1 title "Best Bets for Cancer Therapy Evaluation Program (CTEP)" as an "h2" tag
 		And the title of the related item number 1 appears as a link with text "Cancer Therapy Evaluation Program (CTEP)"
 		And the description of the item number 1 appears below the title
-		And the system displays "Results 1-20 of 797 for: " "ctep" as an "h4" tag
+		And the system displays "Results 1-20 of 799 for: " "ctep" as an "h4" tag
 		And the system displays 20 results per page
 		When user navigates to the next page
 		Then a box for Best Bets is not displayed
