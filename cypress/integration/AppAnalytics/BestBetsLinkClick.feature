@@ -12,7 +12,7 @@ Feature: As a user, when I click on BestBets link I should be raising an analyti
         And "analyticsContentGroup" is set to "Global Search"
         And "analyticsPublishedDate" is set to "02/02/2011"
         When the user navigates to "/?swKeyword=ctep"
-        And the system displays "Results 1-20 of 797 for: " "ctep" as an "h4" tag
+        And the system displays "Results 1-20 of 799 for: " "ctep" as an "h4" tag
         When user clicks on a title of related item number 1
         Then there should be an analytics event with the following details
             | key                   | value                                    |

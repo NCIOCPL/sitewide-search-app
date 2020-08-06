@@ -10,6 +10,9 @@ const convertValue = (val) => {
 		if (val.indexOf('(int)') === 0) {
 			return parseInt(val.replace('(int)', ''))
 		}
+		if (val.indexOf('(bool)') === 0) {
+			return val.indexOf('true') >= 0;
+		}
 	}
 	return val;
 }

@@ -142,6 +142,8 @@ const Home = () => {
 				pageNum: current || 1,
 				itemsPerPage: pageunit || 20,
 				searchKeyword: keyword,
+				showingBestBets: showBestBet,
+				showingDefinition: showDefinition,
 				title,
 				type: 'PageLoad',
 			});
