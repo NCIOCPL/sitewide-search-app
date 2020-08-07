@@ -32,7 +32,8 @@ export const i18n = {
 		es: 'No se encontró la página',
 	},
 	pleaseCheckSpellingOrTryAnotherSearch: {
-		en: 'Please check your spelling or try another search using a different word.',
+		en:
+			'Please check your spelling or try another search using a different word.',
 		es: 'Revise si hay errores en el texto ingresado o intente otra búsqueda.',
 	},
 	resultsFor: {
@@ -81,22 +82,22 @@ export const i18n = {
 	},
 	previous: {
 		en: 'Previous',
-		es: 'Anterior'
+		es: 'Anterior',
 	},
 	next: {
 		en: 'Next',
-		es: 'Siguiente'
+		es: 'Siguiente',
 	},
 	show: {
 		en: 'Show',
-		es: 'Espectáculo'
+		es: 'Mostrar',
 	},
 	resultsPerPage: {
-		en: 'Results Per Page',
-		es: 'Resultados Por Página'
+		en: 'results per page',
+		es: 'resultados por página',
 	},
 	goToPage: {
 		en: 'Go to Page',
-		es: 'Ir a la Página'
-	}
+		es: 'Ir a la Página',
+	},
 };
