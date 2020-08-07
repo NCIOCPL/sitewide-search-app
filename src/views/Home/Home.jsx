@@ -94,11 +94,7 @@ const Home = () => {
 		}
 
 		if (!searchResults.loading && searchResults.payload) {
-			const newResults = {
-				...searchResults.payload,
-				result: searchResults.payload.results,
-			};
-			setStateSearchResults(newResults);
+			setStateSearchResults(searchResults.payload);
 			setSearchResultsLoaded(true);
 		}
 
@@ -180,7 +176,7 @@ const Home = () => {
 						keyword={keyword}
 						language={language}
 						currentPage={current}
-						results={stateSearchResults}
+						payload={stateSearchResults}
 						resultsPerPage={parseInt(pageunit, 10)}
 					/>
 				</div>

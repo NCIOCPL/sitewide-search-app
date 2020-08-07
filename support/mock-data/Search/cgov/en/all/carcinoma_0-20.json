@@ -1,131 +1,125 @@
 {
-    "results": [
-      {
-        "title": "NUT Carcinoma - National Cancer Institute",
-        "url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-soft-tissue-tumors/nut-carcinoma",
-        "contentType": "cgvArticle",
-        "description": "NUT carcinoma, also known as NUT midline carcinoma, is a type of rare cancer that can grow anywhere in the body. Usually, it is found in the head, neck, and lungs."
-      },
-      {
-        "title": "Fibrolamellar Carcinoma - National Cancer Institute",
-        "url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-digestive-system-tumors/fibrolamellar-hepatocellular-carcinoma",
-        "contentType": "cgvArticle",
-        "description": "Fibrolamellar Carcinoma, or FLC, is a rare cancer of the liver that usually grows in teens and adults under 40 years old. It is unsusal because it occurs in people who have healthy livers. Learn more about how this cancer forms, is treated, and the prognosis."
-      },
-      {
-        "title": "Adrenocortical Carcinoma - National Cancer Institute",
-        "url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-endocrine-tumor/adrenocortical-carcinoma",
-        "contentType": "cgvArticle",
-        "description": "Adrenocortical carcinoma, or ACC, is a cancer of the adrenal glands, which are two small triangular-shaped glands that sit on top of each kidney. It is very rare, afffecting around one in one million people in the US annually.  Learn more about diagnosis, treatement, and prognosis of this disease."
-      },
-      {
-        "title": "Childhood Basal Cell Carcinoma and Squamous Cell Carcinoma of the Skin Treatment (PDQ®)–Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/skin/patient/child-skin-treatment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "The primary treatment of childhood basal cell carcinoma and squamous cell carcinoma of the skin is surgery. Learn more about the risk factors, symptoms, tests to diagnose, and treatment of childhood basal cell carcinoma and squamous cell carcinoma of the skin in this expert-reviewed summary."
-      },
-      {
-        "title": "Childhood Midline Tract Carcinoma Involving the NUT Gene (NUT Midline Carcinoma) Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/midline/hp-child-midline-tract-carcinoma-treatment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Treatment options for children with midline tract carcinoma involving the NUT gene (NUT Midline Carcinoma) include chemotherapy, surgery, and radiation therapy. Get detailed treatment information for newly diagnosed and recurrent childhood NUT midline carcinoma in this summary for clinicians."
-      },
-      {
-        "title": "Childhood Basal Cell Carcinoma and Squamous Cell Carcinoma of the Skin Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/skin/hp/child-skin-treatment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "This evidence-based, expert-reviewed summary discusses the incidence, risk factors, clinical presentation, diagnosis, and treatment of pediatric basal cell carcinoma and squamous cell carcinoma of the skin."
-      },
-      {
-        "title": "Adrenocortical Carcinoma—Health Professional Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/adrenocortical/hp",
-        "contentType": "cgvCancerTypeHome",
-        "description": "Adrenocortical carcinoma is also called cancer of the adrenal cortex. A tumor of the adrenal cortex may be functioning or nonfunctioning. Most adrenocortical tumors are functioning. Find evidence-based information on adrenocortical carcinoma including treatment and research."
-      },
-      {
-        "title": "Merkel Cell Carcinoma Treatment (PDQ®)–Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/skin/patient/merkel-cell-treatment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Merkel cell carcinoma is a rare type of skin cancer that usually starts in areas of skin exposed to the sun. Sun exposure and having a weak immune system can affect the risk of Merkel cell  carcinoma.  Merkel cell carcinoma usually appears as a single painless lump on sun-exposed skin. Find out more about risk factors, symptoms, tests to diagnose, prognosis, staging, and treatment for Merkel cell carcinoma."
-      },
-      {
-        "title": "Adrenocortical Carcinoma Treatment (Adult) (PDQ®)–Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/adrenocortical/patient/adrenocortical-treatment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Adrenocortical carcinoma (also called ACC or adrenal cancer) treatment usually involves surgery and may include radiation therapy and chemotherapy. Learn about risk factors, symptoms, diagnosis, prognosis, and treatment for newly diagnosed and recurrent ACC in this expert-reviewed summary."
-      },
-      {
-        "title": "Adrenocortical Carcinoma—Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/adrenocortical",
-        "contentType": "cgvCancerTypeHome",
-        "description": "Adrenocortical carcinoma is a rare cancer which forms in the cortex (outer layer) of an adrenal gland. There are two adrenal glands. One sits on top of each kidney. Start here to find information on adrenocortical carcinoma treatment and research."
-      },
-      {
-        "title": "Childhood Adrenocortical Carcinoma Treatment (PDQ®)–Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/adrenocortical/patient/child-adrenocortical-treatment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Treatment for childhood adrenocortical cancer (cancer of the adrenal cortex) is surgery to remove the tumor. Learn more about the risk factors, symptoms, tests to diagnose, prognosis, and treatment of childhood adrenocortical cancer in this expert-reviewed summary."
-      },
-      {
-        "title": "Carcinoma of Unknown Primary Treatment (PDQ®)–Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/unknown-primary/patient/unknown-primary-treatment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Carcinoma of unknown primary (CUP), treatment can include surgery, radiation therapy, chemotherapy, or hormone therapy. Get detailed information about the diagnosis and treatment of CUP in this expert-reviewed summary."
-      },
-      {
-        "title": "Translocation Renal Cell Carcinoma - National Cancer Institute",
-        "url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-kidney-tumors/translocation-renal-cell-carcinoma",
-        "contentType": "cgvArticle",
-        "description": "Translocation renal cell carcinoma is a type of cancer that grows in the kidney."
-      },
-      {
-        "title": "Papillary Renal Cell Carcinoma - National Cancer Institute",
-        "url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-kidney-tumors/papillary-renal-cell-carcinoma",
-        "contentType": "cgvArticle",
-        "description": "Papillary renal cell carcinoma is a type of cancer that grows in the kidney."
-      },
-      {
-        "title": "Thymoma and Thymic Carcinoma—Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/thymoma",
-        "contentType": "cgvCancerTypeHome",
-        "description": "Thymomas and thymic carcinomas are rare tumors that form in cells on the thymus. Thymomas grow slowly and rarely spread beyond the thymus. Thymic carcinoma grows faster, often spreads to other parts of the body, and is harder to treat. Start here to find information on thymoma and thymic carcinoma treatment."
-      },
-      {
-        "title": "Adrenocortical Carcinoma Research - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/adrenocortical/research",
-        "contentType": "cgvCancerResearch",
-        "description": "Find research articles on adrenocortical carcinoma, which may include news stories, clinical trials, blog posts, and descriptions of active studies."
-      },
-      {
-        "title": "Thymoma and Thymic Carcinoma—Health Professional Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/thymoma/hp",
-        "contentType": "cgvCancerTypeHome",
-        "description": "Thymomas and thymic carcinomas are epithelial tumors of the thymus. A thymic epithelial tumor that exhibits cytologic atypia and histologic features no longer specific to the thymus is known as a thymic carcinoma. Find evidence-based information on thymoma and thymic carcinoma treatment."
-      },
-      {
-        "title": "Carcinoma of Unknown Primary—Health Professional Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/unknown-primary/hp",
-        "contentType": "cgvCancerTypeHome",
-        "description": "Carcinoma of unknown primary (CUP) is a rare disease in which malignant cells are found in the body but the site of the primary cancer is not known. Most CUPs are adenocarcinomas, or undifferentiated tumors. Find evidence-based information on the treatment for carcinoma of unknown primary."
-      },
-      {
-        "title": "Carcinoma of Unknown Primary—Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/unknown-primary",
-        "contentType": "cgvCancerTypeHome",
-        "description": "Carcinoma of unknown primary (CUP) occurs when cancer cells have spread in the body and formed metastatic tumors but the site of the primary cancer is not known. There are a number of reasons why the primary cancer may not be found. Start here to find treatment information for carcinoma of unknown primary."
-      },
-      {
-        "title": "Thymoma and Thymic Carcinoma Treatment (Adult) (PDQ®)–Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/thymoma/patient/thymoma-treatment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Thymoma and thymic carcinoma treatment options include surgery, radiation therapy, chemotherapy, chemoradiation, and hormone therapy. Learn more about the treatments for newly diagnosed and recurrent thymoma and thymic carcinoma in this expert-reviewed summary."
-      },
-      {
-        "title": "Adrenocortical Carcinoma Treatment (Adult) (PDQ®)–Health Professional Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/adrenocortical/hp/adrenocortical-treatment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Adrenocortical carcinoma (ACC or adrenal cancer) treatment is usually radical open complete resection and may include chemotherapy and radiation. Get detailed information about the prognosis and treatment of newly diagnosed and recurrent ACC in this comprehensive summary for clinicians."
-      }
-    ],
-    "totalResults": 2946
-  }
+	"results": [
+		{
+			"title": "NUT Carcinoma - National Cancer Institute",
+			"url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-soft-tissue-tumors/nut-carcinoma",
+			"contentType": "cgvArticle",
+			"description": "NUT carcinoma, also known as NUT midline carcinoma, is a type of rare cancer that can grow anywhere in the body. Usually, it is found in the head, neck, and lungs."
+		},
+		{
+			"title": "Fibrolamellar Carcinoma - National Cancer Institute",
+			"url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-digestive-system-tumors/fibrolamellar-hepatocellular-carcinoma",
+			"contentType": "cgvArticle",
+			"description": "Fibrolamellar Carcinoma, or FLC, is a rare cancer of the liver that usually grows in teens and adults under 40 years old. It is unsusal because it occurs in people who have healthy livers. Learn more about how this cancer forms, is treated, and the prognosis."
+		},
+		{
+			"title": "Adrenocortical Carcinoma - National Cancer Institute",
+			"url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-endocrine-tumor/adrenocortical-carcinoma",
+			"contentType": "cgvArticle",
+			"description": "Adrenocortical carcinoma, or ACC, is a cancer of the adrenal glands, which are two small triangular-shaped glands that sit on top of each kidney. It is very rare, afffecting around one in one million people in the US annually.  Learn more about diagnosis, treatement, and prognosis of this disease."
+		},
+		{
+			"title": "Childhood Basal Cell Carcinoma and Squamous Cell Carcinoma of the Skin Treatment (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/skin/patient/child-skin-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "The primary treatment of childhood basal cell carcinoma and squamous cell carcinoma of the skin is surgery. Learn more about the risk factors, symptoms, tests to diagnose, and treatment of childhood basal cell carcinoma and squamous cell carcinoma of the skin in this expert-reviewed summary."
+		},
+		{
+			"title": "Childhood Midline Tract Carcinoma Involving the NUT Gene (NUT Midline Carcinoma) Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/midline/hp-child-midline-tract-carcinoma-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Treatment options for children with midline tract carcinoma involving the NUT gene (NUT Midline Carcinoma) include chemotherapy, surgery, and radiation therapy. Get detailed treatment information for newly diagnosed and recurrent childhood NUT midline carcinoma in this summary for clinicians."
+		},
+		{
+			"title": "Adrenocortical Carcinoma—Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/adrenocortical/hp",
+			"contentType": "cgvCancerTypeHome",
+			"description": "Adrenocortical carcinoma is also called cancer of the adrenal cortex. A tumor of the adrenal cortex may be functioning or nonfunctioning. Most adrenocortical tumors are functioning. Find evidence-based information on adrenocortical carcinoma including treatment and research."
+		},
+		{
+			"title": "Childhood Basal Cell Carcinoma and Squamous Cell Carcinoma of the Skin Treatment (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/skin/hp/child-skin-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "This evidence-based, expert-reviewed summary discusses the incidence, risk factors, clinical presentation, diagnosis, and treatment of pediatric basal cell carcinoma and squamous cell carcinoma of the skin."
+		},
+		{
+			"title": "Adrenocortical Carcinoma—Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/adrenocortical",
+			"contentType": "cgvCancerTypeHome",
+			"description": "Adrenocortical carcinoma is a rare cancer which forms in the cortex (outer layer) of an adrenal gland. There are two adrenal glands. One sits on top of each kidney. Start here to find information on adrenocortical carcinoma treatment and research."
+		},
+		{
+			"title": "Merkel Cell Carcinoma Treatment (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/skin/patient/merkel-cell-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Merkel cell carcinoma is a rare type of skin cancer that usually starts in areas of skin exposed to the sun. Sun exposure and having a weak immune system can affect the risk of Merkel cell  carcinoma.  Merkel cell carcinoma usually appears as a single painless lump on sun-exposed skin. Find out more about risk factors, symptoms, tests to diagnose, prognosis, staging, and treatment for Merkel cell carcinoma."
+		},
+		{
+			"title": "Adrenocortical Carcinoma Treatment (Adult) (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/adrenocortical/patient/adrenocortical-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Adrenocortical carcinoma (also called ACC or adrenal cancer) treatment usually involves surgery and may include radiation therapy and chemotherapy. Learn about risk factors, symptoms, diagnosis, prognosis, and treatment for newly diagnosed and recurrent ACC in this expert-reviewed summary."
+		},
+		{
+			"title": "Childhood Adrenocortical Carcinoma Treatment (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/adrenocortical/patient/child-adrenocortical-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Treatment for childhood adrenocortical cancer (cancer of the adrenal cortex) is surgery to remove the tumor. Learn more about the risk factors, symptoms, tests to diagnose, prognosis, and treatment of childhood adrenocortical cancer in this expert-reviewed summary."
+		},
+		{
+			"title": "Carcinoma of Unknown Primary Treatment (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/unknown-primary/patient/unknown-primary-treatment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Carcinoma of unknown primary (CUP), treatment can include surgery, radiation therapy, chemotherapy, or hormone therapy. Get detailed information about the diagnosis and treatment of CUP in this expert-reviewed summary."
+		},
+		{
+			"title": "Translocation Renal Cell Carcinoma - National Cancer Institute",
+			"url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-kidney-tumors/translocation-renal-cell-carcinoma",
+			"contentType": "cgvArticle",
+			"description": "Translocation renal cell carcinoma is a type of cancer that grows in the kidney."
+		},
+		{
+			"title": "Papillary Renal Cell Carcinoma - National Cancer Institute",
+			"url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-kidney-tumors/papillary-renal-cell-carcinoma",
+			"contentType": "cgvArticle",
+			"description": "Papillary renal cell carcinoma is a type of cancer that grows in the kidney."
+		},
+		{
+			"title": "Thymoma and Thymic Carcinoma—Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/thymoma",
+			"contentType": "cgvCancerTypeHome",
+			"description": "Thymomas and thymic carcinomas are rare tumors that form in cells on the thymus. Thymomas grow slowly and rarely spread beyond the thymus. Thymic carcinoma grows faster, often spreads to other parts of the body, and is harder to treat. Start here to find information on thymoma and thymic carcinoma treatment."
+		},
+		{
+			"title": "Adrenocortical Carcinoma Research - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/adrenocortical/research",
+			"contentType": "cgvCancerResearch",
+			"description": "Find research articles on adrenocortical carcinoma, which may include news stories, clinical trials, blog posts, and descriptions of active studies."
+		},
+		{
+			"title": "Thymoma and Thymic Carcinoma—Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/thymoma/hp",
+			"contentType": "cgvCancerTypeHome",
+			"description": "Thymomas and thymic carcinomas are epithelial tumors of the thymus. A thymic epithelial tumor that exhibits cytologic atypia and histologic features no longer specific to the thymus is known as a thymic carcinoma. Find evidence-based information on thymoma and thymic carcinoma treatment."
+		},
+		{
+			"title": "Carcinoma of Unknown Primary—Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/unknown-primary/hp",
+			"contentType": "cgvCancerTypeHome",
+			"description": "Carcinoma of unknown primary (CUP) is a rare disease in which malignant cells are found in the body but the site of the primary cancer is not known. Most CUPs are adenocarcinomas, or undifferentiated tumors. Find evidence-based information on the treatment for carcinoma of unknown primary."
+		},
+		{
+			"title": "Carcinoma of Unknown Primary—Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/unknown-primary",
+			"contentType": "cgvCancerTypeHome",
+			"description": "Carcinoma of unknown primary (CUP) occurs when cancer cells have spread in the body and formed metastatic tumors but the site of the primary cancer is not known. There are a number of reasons why the primary cancer may not be found. Start here to find treatment information for carcinoma of unknown primary."
+		},
+		{
+			"title": "Clear Cell Renal Cell Carcinoma - National Cancer Institute",
+			"url": "https://www.cancer.gov/pediatric-adult-rare-tumor/rare-tumors/rare-kidney-tumors/clear-cell-renal-cell-carcinoma",
+			"contentType": "cgvArticle",
+			"description": "Clear cell renal cell carcinoma, or ccRCC, is a type of kidney cancer."
+		}
+	],
+	"totalResults": 2960
+}

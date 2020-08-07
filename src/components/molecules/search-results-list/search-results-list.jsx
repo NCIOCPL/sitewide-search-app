@@ -12,11 +12,12 @@ import './search-results-list.scss';
 
 const SearchResultsList = ({
 	keyword,
-	results,
+	payload,
 	currentPage,
 	resultsPerPage,
 	language,
 }) => {
+	const { results } = payload;
 	const urlQuery = useURLQuery();
 	const updatePageUnit = (val) => {
 		const swKeywordKey = /swKeyword/i;
@@ -32,8 +33,8 @@ const SearchResultsList = ({
 	const fromPage = currentPage > 1 ? positionInResults + 1 : currentPage;
 	let toPage =
 		currentPage > 1 ? positionInResults + resultsPerPage : resultsPerPage;
-	if (toPage > results.totalResults) {
-		toPage = results.totalResults;
+	if (toPage > payload.totalResults) {
+		toPage = payload.totalResults;
 	}
 
 	const options = [20, 50];
@@ -67,7 +68,7 @@ const SearchResultsList = ({
 		return index + 1 + page;
 	};
 
-	const ResultList = results.result.map((result, index) => {
+	const ResultList = results.map((result, index) => {
 		return (
 			<ResultsListItem
 				key={`listItem${index}`}
@@ -84,22 +85,23 @@ const SearchResultsList = ({
 			</Helmet>
 		);
 	};
+	console.log(results);
 	// Is there more than page unit to display?
-	const lessResults = results.totalResults < resultsPerPage;
-	const showPager = !lessResults && results.result.length == resultsPerPage;
+	const lessResults = payload.totalResults < resultsPerPage;
+	const showPager = !lessResults && results.length == resultsPerPage;
 	return (
 		<>
 			{renderHelmet()}
 			<div className="results__info">
 				<h4>
 					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]}{' '}
-					{results.totalResults} {i18n.for[language]}: {keyword}
+					{payload.totalResults} {i18n.for[language]}: {keyword}
 				</h4>
 				{showPager && (
 					<SearchResultsPager
 						testid={testIds.RESULTS_PAGER_TOP}
 						current={currentPage}
-						totalResults={results.totalResults}
+						totalResults={payload.totalResults}
 						resultsPerPage={resultsPerPage}
 						language={language}
 						keyword={keyword}
@@ -110,7 +112,7 @@ const SearchResultsList = ({
 			<div className="results__info">
 				<h4>
 					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]}{' '}
-					{results.totalResults}
+					{payload.totalResults}
 				</h4>
 			</div>
 			{showPager && (
@@ -123,7 +125,7 @@ const SearchResultsList = ({
 					<SearchResultsPager
 						testid={testIds.RESULTS_PAGER_BOTTOM}
 						current={currentPage}
-						totalResults={results.totalResults}
+						totalResults={payload.totalResults}
 						resultsPerPage={resultsPerPage}
 						language={language}
 						keyword={keyword}
@@ -136,10 +138,7 @@ const SearchResultsList = ({
 SearchResultsList.propTypes = {
 	language: PropTypes.oneOf(['en', 'es']),
 	keyword: PropTypes.string,
-	results: PropTypes.shape({
-		result: PropTypes.array,
-		totalResults: PropTypes.number,
-	}),
+	payload: PropTypes.object,
 	currentPage: PropTypes.number,
 	resultsPerPage: PropTypes.number,
 };

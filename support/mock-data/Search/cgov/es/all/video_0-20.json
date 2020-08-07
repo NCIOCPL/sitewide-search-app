@@ -1,16 +1,16 @@
 {
 	"results": [
 		{
-			"title": "Panorama del Instituto Nacional del Cáncer - Instituto Nacional del Cáncer",
-			"url": "https://www.cancer.gov/espanol/instituto/general/infografia-nci",
+			"title": "Desigualdades en salud por cáncer | ¿Sabía usted? serie de videos - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/naturaleza/desigualdades/desigualdades-en-salud-por-cancer-video",
 			"contentType": "cgvInfographic",
-			"description": "La infografía \"Panorama del Instituto Nacional del Cáncer\" permite conocer más acerca del Instituto Nacional del Cáncer y las actividades que realiza en la investigación del cáncer."
+			"description": "En este video el doctor Anthony L. Back, enseña a otros oncólogos la forma de hablar del pronóstico del cáncer con sus pacientes."
 		},
 		{
 			"title": "El fraude en la salud - Instituto Nacional del Cáncer",
 			"url": "https://www.cancer.gov/espanol/cancer/fraude-en-la-salud-video",
 			"contentType": "cgvVideo",
-			"description": "no description provided"
+			"description": null
 		},
 		{
 			"title": "Para los médicos, un enfoque centrado en el paciente - Instituto Nacional del Cáncer",
@@ -31,22 +31,10 @@
 			"description": "Los estudios clínicos para evaluar tratamientos de cáncer comprenden varios pasos, los cuales se llaman fases. Este video explica lo que son las tres fases principales."
 		},
 		{
-			"title": "Inhibidores de puntos de control inmunitario - Instituto Nacional del Cáncer",
-			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/tipos/inmunoterapia/inhibidor-puntos-de-control-video",
-			"contentType": "cgvVideo",
-			"description": "La inmunoterapia usa el sistema inmunitario del cuerpo para combatir el cáncer. En este video se describe un tipo de inmunoterapia que usa los inhibidores de puntos de control inmunitario para tratar el cáncer."
-		},
-		{
 			"title": "Terapia de transferencia de células T - Instituto Nacional del Cáncer",
 			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/tipos/inmunoterapia/transferencia-de-celulas-t-video",
 			"contentType": "cgvVideo",
 			"description": "La inmunoterapia usa el sistema inmunitario del cuerpo para combatir el cáncer. En este video se describe un tipo de inmunoterapia para tratar el cáncer que se llama terapia de transferencia de células T."
-		},
-		{
-			"title": "Estimulación inmunitaria no específica - Instituto Nacional del Cáncer",
-			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/tipos/inmunoterapia/estimulacion-inmunitaria-noespecifica-video",
-			"contentType": "cgvVideo",
-			"description": "La inmunoterapia usa el sistema inmunitario del cuerpo para combatir el cáncer. En este video se describe un tipo de inmunoterapia llamada estimulación inmunitaria no específica que se usa para tratar el cáncer."
 		},
 		{
 			"title": "Virus del papiloma humano (VPH)| ¿Sabía usted? - Instituto Nacional del Cáncer",
@@ -55,10 +43,82 @@
 			"description": "Para destacar temas clave en la vigilancia del cáncer, en este video del NCI se describen el virus del papiloma humano (VPH), los cánceres relacionados con el VPH y las vacunas contra el VPH."
 		},
 		{
+			"title": "Inhibidores de puntos de control inmunitario - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/tipos/inmunoterapia/inhibidor-puntos-de-control-video",
+			"contentType": "cgvVideo",
+			"description": "La inmunoterapia usa el sistema inmunitario del cuerpo para combatir el cáncer. En este video se describe un tipo de inmunoterapia que usa los inhibidores de puntos de control inmunitario para tratar el cáncer."
+		},
+		{
+			"title": "Estimulación inmunitaria no específica - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/tipos/inmunoterapia/estimulacion-inmunitaria-noespecifica-video",
+			"contentType": "cgvVideo",
+			"description": "La inmunoterapia usa el sistema inmunitario del cuerpo para combatir el cáncer. En este video se describe un tipo de inmunoterapia llamada estimulación inmunitaria no específica que se usa para tratar el cáncer."
+		},
+		{
 			"title": "Los estudios clínicos - Instituto Nacional del Cáncer",
 			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/estudios-clinicos/preguntas/estudios-clinicos-coleccion-de-videos",
 			"contentType": "cgvArticle",
 			"description": "Vea estos videos para obtener información básica sobre los estudios clínicos de cáncer, entender las fases de los estudios clínicos, cómo se protege su seguridad y los costos de los estudios."
+		},
+		{
+			"title": "Servicio de Información sobre el Cáncer - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/contactenos/video-cis",
+			"contentType": "cgvVideo",
+			"description": "¿Tiene preguntas sobre el cáncer o sobre los estudios clínicos? Los especialistas en información de cáncer del NCI le pueden ayudar."
+		},
+		{
+			"title": "¿Participo en un estudio clínico? - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/estudios-clinicos/decidir-participar/participo-estudio-clinico-video",
+			"contentType": "cgvVideo",
+			"description": "Vea este video y conozca tres motivos por los que tal vez quiera participar en un estudio clínico. Como cualquier otro tratamiento, hay posibles beneficios y riesgos. Al analizar todas las opciones, incluso los estudios clínicos, usted participa en una decisión que influye en su vida."
+		},
+		{
+			"title": "Tratamiento del cáncer colorrectal infantil (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/tipos/colorrectal/paciente/tratamiento-colorrectal-infantil-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "El tratamiento del cáncer colorrectal infantil incluye cirugía, radioterapia y quimioterapia. Para obtener más información sobre los factores de riesgo, los síntomas, las pruebas diagnósticas y el tratamiento del cáncer de estómago infantil, consulte este resumen de información revisada por expertos."
+		},
+		{
+			"title": "Tratamiento del cáncer de vejiga (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/tipos/vejiga/paciente/tratamiento-vejiga-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del tratamiento del cáncer de vejiga."
+		},
+		{
+			"title": "Planificar la transición para la atención del cáncer avanzado en la etapa final de la vida (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/cancer-avanzado/planes/etapa-final-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre la preparación necesaria por parte de los proveedores de atención de la salud, los pacientes y sus familias para la transición a la atención del cáncer avanzado en la etapa final de la vida."
+		},
+		{
+			"title": "Síndromes cardiopulmonares (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/cardiopulmonares-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de las afecciones comunes que producen síntomas en el tórax. Los síndromes cardiopulmonares que se exponen en este sumario son la disnea relacionada con el cáncer, el derrame pleural maligno, el derrame pericárdico y el síndrome de la vena cava superior."
+		},
+		{
+			"title": "No hay excusas - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/tipos/colorrectal/colorrectal-video",
+			"contentType": "cgvVideo",
+			"description": null
+		},
+		{
+			"title": "Tratamiento del cáncer de ano (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/tipos/ano/paciente/tratamiento-ano-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del tratamiento del cáncer de ano."
+		},
+		{
+			"title": "Tratamiento del cáncer de nasofaringe infantil (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/tipos/cabeza-cuello/paciente/infantil/tratamiento-nasofaringe-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre el tratamiento del cáncer de nasofaringe infantil."
+		},
+		{
+			"title": "Tratamiento del melanoma infantil (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/tipos/piel/paciente/tratamiento-melanoma-infantil-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Las opciones de tratamiento del melanoma infantil incluyen cirugía, inmunoterapia y terapia dirigida. Para obtener más información sobre los factores de riesgo, los síntomas, las pruebas diagnosticas y el tratamiento del melanoma infantil recién diagnosticado y recidivante, consulte este resumen de información revisada por expertos."
 		}
 	],
 	"totalResults": 157
