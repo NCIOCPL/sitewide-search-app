@@ -1,7 +1,7 @@
 .definition {
 	padding: 16px 19px 10px;
 	border-radius: 3px;
-	box-shadow: 0 0 4px 0 hsla(0,0%,71%,.75);
+	box-shadow: 0 0 4px 0 hsla(0, 0%, 71%, 0.75);
 
 	&__toggle {
 		border-top: 1px solid #c7c6c6;
@@ -15,7 +15,7 @@
 			font-size: 1rem;
 			border: none;
 			background: none;
-			color: #2E2E2E;
+			color: #2e2e2e;
 			cursor: pointer;
 			font-family: Noto Sans, Century Gothic, Arial, sans-serif;
 			outline: none;
@@ -26,6 +26,7 @@
 				content: '';
 				display: inline-block;
 				height: 8px;
+				margin-left: 2px;
 				margin-right: 10px;
 				position: relative;
 				top: 5px;
@@ -36,8 +37,8 @@
 				transform: rotate(135deg);
 			}
 			&.definition__hide-full::before {
-				top: 0;
-				vertical-align: unset;
+				margin-top: 4px;
+				//vertical-align: unset;
 				transform: rotate(-45deg);
 			}
 		}
@@ -52,6 +53,3 @@
 		margin-top: 1.25em;
 	}
 }
-
-
-

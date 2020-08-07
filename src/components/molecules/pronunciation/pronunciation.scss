@@ -2,10 +2,10 @@
 
 .pronunciation {
 	//display: flex;
-	font-family: Noto Sans;
+	font-family: Noto Sans, 'Century Gothic', Arial, sans-serif;
 	&__term {
 		padding-top: 8px;
-		display: block;
+		display: inline-block;
 		width: auto;
 		font-weight: bold;
 		line-height: 1.4;
@@ -18,7 +18,6 @@
 	&__key {
 		display: inline-flex;
 		line-height: 1.4;
-		padding-top: 8px;
 	}
 	& .btnAudio {
 		padding: 5px 0;
@@ -26,9 +25,6 @@
 }
 @include break(medium) {
 	.pronunciation {
-		&__term {
-			display: inline-block;
-		}
 		& .btnAudio {
 			padding: 5px 10px;
 		}
