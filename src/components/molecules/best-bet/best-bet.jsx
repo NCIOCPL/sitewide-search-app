@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { i18n, closest } from '../../../utils';
 import { useTracking } from 'react-tracking';
@@ -7,11 +7,11 @@ import { useTracking } from 'react-tracking';
 const BestBet = ({ language = 'en', results }) => {
 	const tracking = useTracking();
 
-  const findIndexOfLink = (items, toFind) => {
+	const findIndexOfLink = (items, toFind) => {
 		let indexMatch = -1;
 		items.forEach((item, index) => {
-			// This is ugly. Fix this later.
-			if (item.children[0].children[0].href === toFind) {
+			const link = item.querySelector('a.title');
+			if (link && link.href === toFind) {
 				indexMatch = index;
 				return;
 			}
@@ -26,7 +26,7 @@ const BestBet = ({ language = 'en', results }) => {
 			// find the ul
 			const bbList = Array.from(e.target.closest('ul').querySelectorAll('li'));
 			let bestBetIndex = findIndexOfLink(bbList, e.target.href);
-			
+
 			tracking.trackEvent({
 				type: 'Other',
 				event: 'SitewideSearchApp:Other:BestBetClick',
@@ -34,7 +34,7 @@ const BestBet = ({ language = 'en', results }) => {
 				bestBetIndex: bestBetIndex + 1,
 				bestBetUrl: e.target.href,
 				categoryName: bbItem.name,
-				categoryPosition: categoryIndex +1
+				categoryPosition: categoryIndex + 1
 			});
 		}
 
