@@ -17,7 +17,7 @@ Feature: Basic search results Page Load
 			| key                                      | value                                          |
 			| type                                     | PageLoad                                       |
 			| event                                    | SiteWideSearchApp:Load:Results                 |
-			| page.name                                | www.cancer.gov/?swKeyword=tumor                |
+			| page.name                                | www.cancer.gov/								                |
 			| page.title                               | NCI Search Results                             |
 			| page.metaTitle                           | NCI Search Results - National Cancer Institute |
 			| page.language                            | english                                        |
@@ -49,7 +49,7 @@ Feature: Basic search results Page Load
 			| key                                      | value                                              |
 			| type                                     | PageLoad                                           |
 			| event                                    | SiteWideSearchApp:Load:Results                     |
-			| page.name                                | www.cancer.gov/?swKeyword=tumor&page=2&pageunit=20 |
+			| page.name                                | www.cancer.gov/																	  |
 			| page.title                               | NCI Search Results                                 |
 			| page.metaTitle                           | NCI Search Results - National Cancer Institute     |
 			| page.language                            | english                                            |
@@ -81,7 +81,7 @@ Feature: Basic search results Page Load
 			| key                                      | value                                          |
 			| type                                     | PageLoad                                       |
 			| event                                    | SiteWideSearchApp:Load:Results                 |
-			| page.name                                | www.cancer.gov/?swKeyword=cancer               |
+			| page.name                                | www.cancer.gov/								                |
 			| page.title                               | NCI Search Results                             |
 			| page.metaTitle                           | NCI Search Results - National Cancer Institute |
 			| page.language                            | english                                        |
@@ -113,7 +113,7 @@ Feature: Basic search results Page Load
 			| key                                      | value                                          |
 			| type                                     | PageLoad                                       |
 			| event                                    | SiteWideSearchApp:Load:Results                 |
-			| page.name                                | www.cancer.gov/?swKeyword=ctep                 |
+			| page.name                                | www.cancer.gov/							                  |
 			| page.title                               | NCI Search Results                             |
 			| page.metaTitle                           | NCI Search Results - National Cancer Institute |
 			| page.language                            | english                                        |

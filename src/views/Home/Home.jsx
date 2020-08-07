@@ -137,7 +137,7 @@ const Home = () => {
 				metaTitle: `${title} - ${siteName}`,
 				name: `${canonicalHost.replace('https://', '')}${
 					window.location.pathname
-				}${window.location.search}`,
+				}`,
 				numberResults: searchResults?.payload?.totalResults || 0,
 				pageNum: current || 1,
 				itemsPerPage: pageunit || 20,
