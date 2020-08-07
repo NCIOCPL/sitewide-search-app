@@ -84,7 +84,9 @@ const SearchResultsList = ({
 			</Helmet>
 		);
 	};
-
+	// Is there more than page unit to display?
+	const lessResults = results.totalResults < resultsPerPage;
+	const showPager = !lessResults && results.result.length == resultsPerPage;
 	return (
 		<>
 			{renderHelmet()}
@@ -93,14 +95,16 @@ const SearchResultsList = ({
 					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]}{' '}
 					{results.totalResults} {i18n.for[language]}: {keyword}
 				</h4>
-				<SearchResultsPager
-					testid={testIds.RESULTS_PAGER_TOP}
-					current={currentPage}
-					totalResults={results.totalResults}
-					resultsPerPage={resultsPerPage}
-					language={language}
-					keyword={keyword}
-				/>
+				{showPager && (
+					<SearchResultsPager
+						testid={testIds.RESULTS_PAGER_TOP}
+						current={currentPage}
+						totalResults={results.totalResults}
+						resultsPerPage={resultsPerPage}
+						language={language}
+						keyword={keyword}
+					/>
+				)}
 			</div>
 			<ul className="no-bullets results__container">{ResultList}</ul>
 			<div className="results__info">
@@ -109,21 +113,23 @@ const SearchResultsList = ({
 					{results.totalResults}
 				</h4>
 			</div>
-			<div className="results__info pager__bottom">
-				<div className="results__viewby">
-					{i18n.show[language]}
-					{dropDown}
-					{i18n.resultsPerPage[language]}
+			{showPager && (
+				<div className="results__info pager__bottom">
+					<div className="results__viewby">
+						{i18n.show[language]}
+						{dropDown}
+						{i18n.resultsPerPage[language]}
+					</div>
+					<SearchResultsPager
+						testid={testIds.RESULTS_PAGER_BOTTOM}
+						current={currentPage}
+						totalResults={results.totalResults}
+						resultsPerPage={resultsPerPage}
+						language={language}
+						keyword={keyword}
+					/>
 				</div>
-				<SearchResultsPager
-					testid={testIds.RESULTS_PAGER_BOTTOM}
-					current={currentPage}
-					totalResults={results.totalResults}
-					resultsPerPage={resultsPerPage}
-					language={language}
-					keyword={keyword}
-				/>
-			</div>
+			)}
 		</>
 	);
 };
