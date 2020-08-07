@@ -16,7 +16,7 @@ Feature: No Results Found Analytics
 			| key                                      | value                                          |
 			| type                                     | PageLoad                                       |
 			| event                                    | SiteWideSearchApp:Load:Results                 |
-			| page.name                                | www.cancer.gov/?swKeyword=achoo                |
+			| page.name                                | www.cancer.gov/								                |
 			| page.title                               | NCI Search Results                             |
 			| page.metaTitle                           | NCI Search Results - National Cancer Institute |
 			| page.language                            | english                                        |
