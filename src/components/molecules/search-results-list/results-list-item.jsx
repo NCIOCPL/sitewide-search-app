@@ -24,12 +24,12 @@ const ResultsListItem = ({ result = {}, resultIndex, language = 'en' }) => {
 	if (displayType) {
 		if (contentType === 'cgvInfographic') {
 			decorator = (
-				<span className="result__type">({i18n.infographic[language]})</span>
+				<span className="result__type"> ({i18n.infographic[language]})</span>
 			);
 		}
 		if (contentType === 'cgvVideo') {
 			decorator = (
-				<span className="result__type">({i18n.video[language]})</span>
+				<span className="result__type"> ({i18n.video[language]})</span>
 			);
 		}
 	}
@@ -50,8 +50,9 @@ const ResultsListItem = ({ result = {}, resultIndex, language = 'en' }) => {
 				href={url}
 				className="result__link"
 				onClick={handleResultItemTitleClick}>
-				{sanitizedTitle} {displayType && decorator}
+				{sanitizedTitle}
 			</a>
+			{displayType && decorator}
 			<div className="result__description">{description}</div>
 			<cite className="result__url">{url}</cite>
 		</li>

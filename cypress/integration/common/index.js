@@ -296,8 +296,8 @@ And('each result item displays the full URL of an item', () => {
 });
 
 And('number {int} result item displays {string} label', (itemNumber, label) => {
-	cy.get('.result__list-item a')
-		.eq(itemNumber - 1)
+	cy.get('.result__list-item')
+		.eq(itemNumber - 1).find('.result__type')
 		.invoke('text')
 		.should('include', label);
 });
