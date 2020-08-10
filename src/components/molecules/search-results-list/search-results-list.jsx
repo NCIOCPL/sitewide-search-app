@@ -84,7 +84,8 @@ const SearchResultsList = ({
 			</Helmet>
 		);
 	};
-
+	// Is there more than page unit to display?
+	const showPager = results.totalResults > resultsPerPage;
 	return (
 		<>
 			{renderHelmet()}
@@ -93,14 +94,16 @@ const SearchResultsList = ({
 					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]}{' '}
 					{results.totalResults} {i18n.for[language]}: {keyword}
 				</h4>
-				<SearchResultsPager
-					testid={testIds.RESULTS_PAGER_TOP}
-					current={currentPage}
-					totalResults={results.totalResults}
-					resultsPerPage={resultsPerPage}
-					language={language}
-					keyword={keyword}
-				/>
+				{showPager && (
+					<SearchResultsPager
+						testid={testIds.RESULTS_PAGER_TOP}
+						current={currentPage}
+						totalResults={results.totalResults}
+						resultsPerPage={resultsPerPage}
+						language={language}
+						keyword={keyword}
+					/>
+				)}
 			</div>
 			<ul className="no-bullets results__container">{ResultList}</ul>
 			<div className="results__info">
@@ -115,14 +118,16 @@ const SearchResultsList = ({
 					{dropDown}
 					{i18n.resultsPerPage[language]}
 				</div>
-				<SearchResultsPager
-					testid={testIds.RESULTS_PAGER_BOTTOM}
-					current={currentPage}
-					totalResults={results.totalResults}
-					resultsPerPage={resultsPerPage}
-					language={language}
-					keyword={keyword}
-				/>
+				{showPager && (
+					<SearchResultsPager
+						testid={testIds.RESULTS_PAGER_BOTTOM}
+						current={currentPage}
+						totalResults={results.totalResults}
+						resultsPerPage={resultsPerPage}
+						language={language}
+						keyword={keyword}
+					/>
+				)}
 			</div>
 		</>
 	);

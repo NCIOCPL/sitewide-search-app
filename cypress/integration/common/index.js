@@ -414,6 +414,9 @@ And('the pager has a border on top and bottom', () => {
 	cy.get('.pager__container').first().should('have.css', 'border-top');
 });
 
+And('no pager is shown', () => {
+	cy.get('.pager__container').should('not.exist');
+});
 /*
     -----------------------
         Best Bets
