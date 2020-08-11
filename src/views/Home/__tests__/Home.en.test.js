@@ -58,7 +58,6 @@ describe('Home component(English)', () => {
 		expect(screen.getByText(title)).toBeInTheDocument();
 		expect(screen.getByText('NCI Search Results')).toBeInTheDocument();
 		expect(screen.getByText('0 results found for: achoo')).toBeInTheDocument();
-		expect(screen.getByText('Results 0-0 of 0 for: achoo')).toBeInTheDocument();
 	});
 
 	test('should not display definition box ', () => {
