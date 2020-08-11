@@ -22,18 +22,7 @@ const NoResults = ({ keyword }) => {
 			<h3>
 				{i18n.noResultsFoundFor[language]}: {keyword}
 			</h3>
-			<div className="results__info">
-				<h4>
-					{i18n.results[language]} {0}-{0} {i18n.of[language]} {0}{' '}
-					{i18n.for[language]}: {keyword}
-				</h4>
-			</div>
 			<h3>{i18n.pleaseCheckSpellingOrTryAnotherSearch[language]}</h3>
-			<div className="results__info">
-				<h4>
-					{i18n.results[language]} {0}-{0} {i18n.of[language]} {0}
-				</h4>
-			</div>
 		</>
 	);
 };
