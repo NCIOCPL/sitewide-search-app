@@ -44,6 +44,12 @@
 			flex: 33.33333% 1;
 			margin-bottom: 0;
 			background-color: #fff;
+
+			.pronunciation {
+				&__term {
+					display: inline;
+				}
+			}
 		}
 	}
 }
