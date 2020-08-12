@@ -15,10 +15,11 @@
 
 		padding: 0;
 		margin-bottom: 0;
+
 		& > li {
 			align-items: center;
 			cursor: pointer;
-			display: flex;
+			display: inline-flex;
 			justify-content: center;
 			list-style-type: none;
 			margin: 0 2px 0;
@@ -28,6 +29,7 @@
 			border: none;
 			border-radius: 3px;
 			display: block;
+			min-width: 24px;
 			padding: 2px 6px;
 			text-decoration: none;
 			white-space: nowrap;
@@ -68,7 +70,7 @@
 
 	.pager__container {
 		border: none;
-		padding: 0;
 		margin-top: 0;
+		padding: 0 0 0 50px;
 	}
 }
