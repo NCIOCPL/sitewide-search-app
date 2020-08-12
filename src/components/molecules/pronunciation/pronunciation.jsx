@@ -8,18 +8,20 @@ const Pronunciation = ({ pronunciationObj, language = 'en', term }) => {
 	return (
 		<div className="pronunciation">
 			{term && <div className="pronunciation__term">{term}</div>}
-			{pronunciationObj?.audio && (
-				<div className="pronunciation__audio">
-					<AudioPlayer audioSrc={pronunciationObj.audio} lang={language} />
-				</div>
-			)}
-			{pronunciationObj?.key && (
-				<div
-					className="pronunciation__key"
-					data-testid={testIds.TERM_DEF_PRONUNCIATION}>
-					{pronunciationObj.key}
-				</div>
-			)}
+			<div className="pronunciation__audio-key-container">
+				{pronunciationObj?.audio && (
+					<div className="pronunciation__audio">
+						<AudioPlayer audioSrc={pronunciationObj.audio} lang={language} />
+					</div>
+				)}
+				{pronunciationObj?.key && (
+					<div
+						className="pronunciation__key"
+						data-testid={testIds.TERM_DEF_PRONUNCIATION}>
+						{pronunciationObj.key}
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };
