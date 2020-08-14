@@ -81,14 +81,20 @@ const SearchResultsPager = ({
 		// end check and start check
 		const end_total = total - 4;
 		const start_min = current < 5;
+
 		// check to see if we're less that 5 from start or end
 		const inout = start_min || current + 1 > end_total;
+
 		// set start position
 		let start = inout ? (start_min ? 1 : end_total) : current - 1;
 		let end = current > end_total ? total : current + 2;
+
 		// set decorators and end points
-		if (end >= total - 1) end = total + 1;
-		if (current > end_total) start = end_total;
+		if (current >= end_total) {
+			const offset = end_total - current;
+			start = end_total - offset - 1;
+		}
+		if (current > end_total) end = total + 1;
 
 		// Generate first and decorator
 		if (current > 4) {
@@ -99,7 +105,7 @@ const SearchResultsPager = ({
 			if (i > 0) links.push(PgButton(i));
 		}
 		// Generate decorator and last
-		if (end < total) {
+		if (end < total && current - 1 < end_total) {
 			if (end < total - 1) links.push(decorator('right'));
 			links.push(PgButton(total));
 		}
