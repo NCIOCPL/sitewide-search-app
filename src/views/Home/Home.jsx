@@ -45,14 +45,13 @@ const Home = () => {
 	const isFirstPage = !urlQuery.get('page') || urlQuery.get('page') === '1';
 
 	const showBestBet =
-		isBestBetsConfigured && stateBestBetResult?.length > 0 && isFirstPage;
+    isBestBetsConfigured && stateBestBetResult?.length > 0;
+    
 	// Only display Definition component if isDictionaryConfigured is true
 	// and no results returned
-	// and doesn't exist in url or it exists and is the first page
 	const showDefinition =
 		isDictionaryConfigured &&
-		stateDefinitionResult?.results?.length > 0 &&
-		isFirstPage;
+		stateDefinitionResult?.results?.length > 0
 
 	const tracking = useTracking();
 	// Fetch dictionary results only when
