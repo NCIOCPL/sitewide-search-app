@@ -60,16 +60,19 @@ const Home = () => {
 	// and keyword is provided
 	const dictionaryResults = useCustomQuery(
 		getDictionaryResults({ keyword, lang: language }),
-		isDictionaryConfigured && !!keyword
-	);
+		isDictionaryConfigured && !!keyword && isFirstPage
+  );
+  
 	const searchResults = useCustomQuery(
 		getSearchResults({ language, keyword, currentPage, unit }),
 		!!keyword
-	);
+  );
+  
 	const bestBetResults = useCustomQuery(
 		getBestBetResults({ keyword }),
-		isBestBetsConfigured && !!keyword
-	);
+		isBestBetsConfigured && !!keyword && isFirstPage
+  );
+  
 	// Set hasResults should there be results returned for any search
 	// when a keyword has been provided
 	const hasResults =
@@ -85,14 +88,6 @@ const Home = () => {
 			return;
 		}
 
-		// If no glossaryEndpoint was provided, set setDictionaryResultsLoaded to true
-		if (!isDictionaryConfigured) {
-			setDictionaryResultsLoaded(true);
-		} else if (!dictionaryResults.loading && dictionaryResults.payload) {
-			setStateDefinitionResult(dictionaryResults.payload);
-			setDictionaryResultsLoaded(true);
-		}
-
 		if (!searchResults.loading && searchResults.payload) {
 			const newResults = {
 				...searchResults.payload,
@@ -102,9 +97,17 @@ const Home = () => {
 			setSearchResultsLoaded(true);
 		}
 
+		// If no glossaryEndpoint was provided, set setDictionaryResultsLoaded to true
+		if (!isDictionaryConfigured) {
+			setDictionaryResultsLoaded(true);
+		} else if (!dictionaryResults.loading) {
+			setStateDefinitionResult(dictionaryResults.payload);
+			setDictionaryResultsLoaded(true);
+		}
+
 		if (!isBestBetsConfigured) {
 			setBestBetResultsLoaded(true);
-		} else if (!bestBetResults.loading && bestBetResults.payload) {
+		} else if (!bestBetResults.loading) {
 			setStateBestBetResult(bestBetResults.payload);
 			setBestBetResultsLoaded(true);
 		}
@@ -115,16 +118,13 @@ const Home = () => {
 			searchResultsLoaded
 		) {
 			setDoneLoading(true);
-		}
+		} 
 	}, [
-		bestBetResultsLoaded,
-		bestBetResults.loading,
-		bestBetResults.payload,
-		dictionaryResultsLoaded,
-		dictionaryResults.loading,
-		dictionaryResults.payload,
+    bestBetResultsLoaded,
+    bestBetResults.payload,
+    dictionaryResultsLoaded,
+    dictionaryResults.payload,
 		searchResultsLoaded,
-		searchResults.loading,
 		searchResults.payload,
 	]);
 
@@ -165,17 +165,19 @@ const Home = () => {
 			{doneLoading && hasResults ? (
 				<div className="results">
 					<h3>{`${i18n.resultsFor[language]}: ${keyword}`}</h3>
-					<div
-						className={
-							showBestBet && showDefinition
-								? 'results__feature--bestbet--definition'
-								: 'results__feature'
-						}>
-						{showBestBet && (
-							<BestBet language={language} results={stateBestBetResult} />
-						)}
-						{showDefinition && <Definition {...stateDefinitionResult} />}
-					</div>
+					{isFirstPage && (
+						<div
+							className={
+								showBestBet && showDefinition
+									? 'results__feature--bestbet--definition'
+									: 'results__feature'
+							}>
+							{showBestBet && (
+								<BestBet language={language} results={stateBestBetResult} />
+							)}
+							{showDefinition && <Definition {...stateDefinitionResult} />}
+						</div>
+					)}
 					<SearchResultsList
 						keyword={keyword}
 						language={language}

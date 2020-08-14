@@ -1,0 +1,125 @@
+{
+	"results": [
+		{
+			"title": "Aspectos generales de la prevención del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/causas-prevencion/aspectos-generales-prevencion-paciente-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Información general sobre la prevención del cáncer y descripciones de conceptos usados en sumarios específicos sobre la prevención del cáncer."
+		},
+		{
+			"title": "Linfedema (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/linfedema/linfedema-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre la anatomía, la patofisiología, las manifestaciones clínicas, el diagnóstico y el tratamiento del linfedema relacionado con el cáncer, una afección en la que se acumula líquido linfático en los tejidos y causa inflamación.."
+		},
+		{
+			"title": "Sofocos y sudores nocturnos (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/sexualidad-mujeres/sofocos-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de las causas y el tratamiento de  los sofocos y sudores nocturnos en los pacientes de cáncer."
+		},
+		{
+			"title": "Comunicación en la atención del cáncer (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/sobrellevar/adaptacion-al-cancer/comunicacion-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre la comunicación con el paciente de cáncer y su familia, incluso los aspectos distintivos de la comunicación con pacientes de cáncer, los factores que afectan la comunicación y el entrenamiento de las aptitudes para la comunicación."
+		},
+		{
+			"title": "Acupuntura (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/mca/paciente/acupuntura-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre la acupuntura como tratamiento para las personas con cáncer o trastornos relacionados con esta enfermedad."
+		},
+		{
+			"title": "Toxicidad financiera del tratamiento del cáncer (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/manejo-del-cancer/costos/toxicidad-financiera-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del riesgo de sufrir dificultades financieras durante el tratamiento del cáncer."
+		},
+		{
+			"title": "Linfedema (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/linfedema/linfedema-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del tratamiento del linfedema."
+		},
+		{
+			"title": "Adaptación al cáncer: ansiedad y sufrimiento (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/sobrellevar/sentimientos/ansiedad-sufrimiento-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de las difíciles respuestas emocionales que se presentan en muchos de los pacientes con cáncer.  Este sumario se enfoca en asuntos de la adaptación normal, alteración psicosocial y trastornos de adaptación."
+		},
+		{
+			"title": "Tratamiento de los cánceres raros en la niñez (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/tipos/infantil/paciente/canceres-infantiles-raros-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del tratamiento de los cánceres raros en la niñez  como los cánceres de la cabeza y el cuello, el tórax, el abdomen, el aparato reproductor, la piel y otros."
+		},
+		{
+			"title": "Aspectos generales de la prevención del cáncer (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/causas-prevencion/aspectos-generales-prevencion-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Información general sobre la prevención del cáncer y  descripciones de conceptos usados en sumarios específicos sobre la prevención del cáncer."
+		},
+		{
+			"title": "Antineoplastones (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/mca/pro/antineoplastones-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre los antineoplastones como tratamiento para personas con cáncer."
+		},
+		{
+			"title": "Sofocos y sudores nocturnos (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/sexualidad-mujeres/sofocos-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de las causas y el tratamiento de los sofocos y sudores nocturnos en los pacientes de cáncer."
+		},
+		{
+			"title": "Aspectos generales de los exámenes de detección del cáncer (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/deteccion/aspectos-generales-deteccion-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Información sobre la medición de la eficacia de los exámenes de detección del cáncer y la evaluación de la solidez de los datos  probatorios obtenidos en estudios de investigación sobre la detección del cáncer."
+		},
+		{
+			"title": "Acupuntura (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/mca/pro/acupuntura-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre la acupuntura como tratamiento para las personas con cáncer o trastornos relacionados con esta enfermedad."
+		},
+		{
+			"title": "Aspectos generales de los exámenes de detección del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/deteccion/aspectos-generales-deteccion-paciente-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Información sobre la medición de la eficacia de los exámenes de detección del cáncer y la evaluación de la solidez de las pruebas obtenidas en estudios de investigación de detección del cáncer."
+		},
+		{
+			"title": "Deterioro cognitivo en adultos con cánceres fuera del sistema nervioso central (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/memoria/deterioro-cognitivo-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del deterioro cognitivo en pacientes de cáncer versus la cognición normal, e intervenciones para tratar los cambios cognitivos"
+		},
+		{
+			"title": "Fatiga (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/fatiga/fatiga-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de la fatiga, una afección caracterizada por extremo cansancio e incapacidad para funcionar por la falta de energía, que a menudo se observa como una complicación del cáncer y su tratamiento."
+		},
+		{
+			"title": "Comunicación en la atención del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/sobrellevar/adaptacion-al-cancer/comunicacion-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de la información revisada por expertos acerca de la comunicación con el paciente de cáncer y sus familiares, que incluye los aspectos distintivos de la comunicación con pacientes de cáncer, los factores que afectan la comunicación y la capacitación en aptitudes para la comunicación."
+		},
+		{
+			"title": "Toxicidad financiera del tratamiento del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/manejo-del-cancer/costos/toxicidad-financiera-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del riesgo de sufrir dificultades financieras durante el tratamiento del cáncer."
+		},
+		{
+			"title": "Coenzima Q10 (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/mca/pro/coenzima-q10-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre el uso de la coenzima Q10 como tratamiento para las personas con cáncer."
+		}
+	],
+	"totalResults": 1339
+}
