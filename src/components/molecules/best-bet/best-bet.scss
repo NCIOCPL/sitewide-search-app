@@ -18,8 +18,12 @@ definition + .best-bet {
 		.list-item {
 			margin-bottom: 0;
 
-			.title {
+			.title-and-desc > * {
 				font-size: 1em;
+      }
+      
+			a.title {
+				color: #276998;
 			}
 		}
 	}
