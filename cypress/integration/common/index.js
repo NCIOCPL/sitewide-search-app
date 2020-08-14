@@ -337,7 +337,7 @@ Then('the results are displayed', () => {
 
 // Check to see if the first two numbers are present with decorator and button
 And(
-	'both pagers display numbers {int} and {int}, followed by {string}, the last page number and the option to click {string} and {string} for screen readers',
+	'both pagers display numbers {string} and {string}, followed by {string}, the last page number and the option to click {string} and {string} for screen readers',
 	(a, b, divider, button, sr) => {
 		// using test ids to check top and bottom pagers exist and contain the starting point
 		cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should(
@@ -353,9 +353,13 @@ And(
 );
 // 2 Clicks
 And(
-	'user clicks {string} and displays {string}, {int}, {int}, and {int} followed by {string}, and {int} highlighted as the page they are on and {string} for screen readers and {int} and {string}',
+	'user clicks {string} and displays {string}, {string}, {string}, and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers and {string} and {string}',
 	(step, pr, a, b, c, divider, d, sr, t, btn) => {
-		cy.get('.pager__next').first().click();
+		if (step === 'Next' || step === 'Siguiente') {
+			cy.get('.pager__next').first().click();
+		} else {
+			cy.get('a.pager__button.pager__previous').first().click();
+		}
 		cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should(
 			'contain.text',
 			`${pr}${a}${sr}${b}${sr}${c}${sr}${divider}${t}${sr}${btn}`
@@ -365,9 +369,13 @@ And(
 );
 // 3 Clicks
 And(
-	'user clicks {string} and displays {string}, {int}, {int}, {int}, and {int} followed by {string}, and {int} highlighted as the page they are on and {string} for screen readers',
+	'user clicks {string} and displays {string}, {string}, {string}, {string}, and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers',
 	(step, pr, a, b, c, d, divider, e, sr) => {
-		cy.get('.pager__next').first().click();
+		if (step === 'Next' || step === 'Siguiente') {
+			cy.get('.pager__next').first().click();
+		} else {
+			cy.get('a.pager__button.pager__previous').first().click();
+		}
 		cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should(
 			'contain.text',
 			`${pr}${a}${sr}${b}${sr}${c}${sr}${d}${sr}${divider}`
@@ -377,9 +385,13 @@ And(
 );
 // 4 Clicks
 And(
-	'user clicks {string} and displays {string}, {int}, {int}, {int}, {int}, and {int} followed by {string}, and {int} highlighted as the page they are on and {string} for screen readers',
+	'user clicks {string} and displays {string}, {string}, {string}, {string}, {string}, and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers',
 	(step, pr, a, b, c, d, e, divider, f, sr) => {
-		cy.get('.pager__next').first().click();
+		if (step === 'Next' || step === 'Siguiente') {
+			cy.get('.pager__next').first().click();
+		} else {
+			cy.get('a.pager__button.pager__previous').first().click();
+		}
 		cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should(
 			'contain.text',
 			`${pr}${a}${sr}${b}${sr}${c}${sr}${d}${sr}${e}${sr}${divider}`
@@ -389,9 +401,13 @@ And(
 );
 // 5 Clicks
 And(
-	'user clicks {string} and displays {string}, {int} followed by {string}, {int}, {int}, {int} followed by {string}, and {int} highlighted as the page they are on and {int} the last page and {string} for screen readers',
+	'user clicks {string} and displays {string}, {string} followed by {string}, {string}, {string}, {string} followed by {string}, and {string} highlighted as the page they are on and {string} the last page and {string} for screen readers',
 	(step, pr, a, dividerLeft, b, c, d, dividerRight, e, f, sr) => {
-		cy.get('.pager__next').first().click();
+		if (step === 'Next' || step === 'Siguiente') {
+			cy.get('.pager__next').first().click();
+		} else {
+			cy.get('a.pager__button.pager__previous').first().click();
+		}
 		cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should(
 			'contain.text',
 			`${pr}${a}${sr}${dividerLeft}${b}${sr}${c}${sr}${d}${sr}${dividerRight}${f}${sr}`
@@ -417,6 +433,35 @@ And('the pager has a border on top and bottom', () => {
 And('no pager is shown', () => {
 	cy.get('.pager__container').should('not.exist');
 });
+
+
+And('both pagers display numbers {string} and {string}, followed by {string}, {string}, {string} and {string} for screen readers',
+	(step, a, divider, b, c, sr) => {
+		// using test ids to check top and bottom pagers exist and contain the starting point
+		cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should(
+			'contain.text',
+			`${step}${a}${sr}${divider}${b}${sr}${c}${sr}`
+		);
+		cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_BOTTOM}`).should(
+			'contain.text',
+			`${step}${a}${sr}${divider}${b}${sr}${c}${sr}`
+		);
+
+	});
+
+And('user clicks {string} and displays {string}, {string}, {string}, {string}, {string}, {string} and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers'
+	, (step, pr, a, b, c, d, e, f, g, currPage, sr) => {
+		if (step === 'Next' || step === 'Siguiente') {
+			cy.get('.pager__next').first().click();
+		} else {
+			cy.get('a.pager__button.pager__previous').first().click();
+		}
+		cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should(
+			'contain.text',
+			`${pr}${a}${sr}${b}${sr}${c}${sr}${d}${sr}${e}${sr}${f}${sr}${g}`
+		);
+		cy.get('.active').should('contain.text', `${currPage}`);
+	});
 /*
     -----------------------
         Best Bets
