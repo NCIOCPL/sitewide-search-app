@@ -23,11 +23,6 @@
 	margin-top: 0;
 }
 
-.content-container {
-	position: relative;
-	width: 100%;
-	overflow-x: hidden;
-}
 @include break(medium) {
 	.results__info {
 		display: flex;

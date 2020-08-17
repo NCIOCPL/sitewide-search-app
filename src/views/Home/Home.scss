@@ -25,17 +25,16 @@
 	}
 	&__feature--bestbet--definition {
 		position: relative;
-		margin-left: -3.125em;
-		margin-right: -3.125em;
 		margin-bottom: 50px;
 		display: flex;
 		flex-wrap: wrap;
-		padding: 2.5% 3.125em;
+		padding: 2.5% 0;
 		background-color: #dbf2f8;
 		align-items: flex-start;
 		justify-content: center;
 
 		.best-bet {
+			position: relative;
 			margin-bottom: 1em;
 			background-color: transparent;
 		}
@@ -44,12 +43,23 @@
 			flex: 33.33333% 1;
 			margin-bottom: 0;
 			background-color: #fff;
-
+			z-index: 2;
 			.pronunciation {
 				&__term {
 					display: inline;
 				}
 			}
+		}
+
+		&:before {
+			position: absolute;
+			content: '';
+			left: -3.125em;
+			right: -3.125em;
+			top: 0;
+			bottom: 0;
+			background-color: #dbf2f8;
+			z-index: 0;
 		}
 	}
 }
@@ -70,5 +80,4 @@
 			}
 		}
 	}
-
 }
