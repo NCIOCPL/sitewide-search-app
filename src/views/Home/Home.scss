@@ -1,0 +1,74 @@
+@import '../../styles/breakpoints';
+
+.results {
+	h2 {
+		font-size: 1.25em;
+		line-height: 1.5em;
+		margin-bottom: 0.5em;
+		margin-top: 0;
+	}
+	h3,
+	h4 {
+		font-size: 1.25em;
+		line-height: 1.5em;
+		margin-top: 40px;
+		margin-bottom: 30px;
+	}
+
+	/*
+		--------------------------------------
+		Feature Box for BestBet and Definition
+		--------------------------------------
+	*/
+	&__feature {
+		margin-bottom: 40px;
+	}
+	&__feature--bestbet--definition {
+		position: relative;
+		margin-left: -3.125em;
+		margin-right: -3.125em;
+		margin-bottom: 50px;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 2.5% 3.125em;
+		background-color: #dbf2f8;
+		align-items: flex-start;
+		justify-content: center;
+
+		.best-bet {
+			margin-bottom: 1em;
+			background-color: transparent;
+		}
+
+		.definition {
+			flex: 33.33333% 1;
+			margin-bottom: 0;
+			background-color: #fff;
+
+			.pronunciation {
+				&__term {
+					display: inline;
+				}
+			}
+		}
+	}
+}
+
+@include break(medium) {
+	.results {
+		&__feature--bestbet--definition {
+			flex-wrap: nowrap;
+			.best-bet {
+				flex: 66.66667% 1;
+				margin-left: 0;
+				margin-right: 0;
+				padding-right: 0.9375em;
+
+				.best-bet__item {
+					padding: 0;
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,28 @@
+@import '../../../styles/breakpoints';
+
+.pronunciation {
+	//display: flex;
+	font-family: Noto Sans, 'Century Gothic', Arial, sans-serif;
+	&__term {
+		padding-top: 8px;
+		display: inline-block;
+		width: auto;
+		font-weight: bold;
+		line-height: 1.4;
+	}
+	&__audio-key-container {
+		display: inline-block;
+	}
+	&__audio {
+		display: inline;
+		width: 42px;
+		margin-right: 5px;
+	}
+	&__key {
+		display: inline;
+		line-height: 1.4;
+	}
+	& .btnAudio {
+		padding: 5px 0;
+	}
+}
