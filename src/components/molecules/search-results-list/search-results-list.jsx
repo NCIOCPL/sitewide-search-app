@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Helmet } from 'react-helmet';
 
 import { testIds } from '../../../constants';
 import { useURLQuery } from '../../../hooks';
@@ -77,18 +76,11 @@ const SearchResultsList = ({
 			/>
 		);
 	});
-	const renderHelmet = () => {
-		return (
-			<Helmet>
-				<meta name="robots" content="noindex" />
-			</Helmet>
-		);
-	};
+
 	// Is there more than page unit to display?
 	const showPager = results.totalResults > resultsPerPage;
 	return (
 		<>
-			{renderHelmet()}
 			<div className="results__info">
 				<h4>
 					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]}{' '}

@@ -222,23 +222,6 @@ And('the following links and texts exist on the page', (dataTable) => {
 
 /*
     -----------------------
-       Meta Tags
-    -----------------------
-*/
-
-Then(
-	'{string} exists in the data for the page URL of {string}',
-	(noIndexDirective, expandURL) => {
-		cy.location('href').should('eq', `${baseURL}${expandURL}`);
-		cy.get('head meta[name="robots"]').should(
-			'have.attr',
-			'content',
-			'noindex'
-		);
-	}
-);
-/*
-    -----------------------
         No Results Page
     -----------------------
 */
