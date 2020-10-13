@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Helmet } from 'react-helmet';
 
 import { useStateValue } from '../../../store/store';
 import { i18n } from '../../../utils';
@@ -8,17 +7,8 @@ import { i18n } from '../../../utils';
 const NoResults = ({ keyword }) => {
 	const [{ language }] = useStateValue();
 
-	const renderHelmet = () => {
-		return (
-			<Helmet>
-				<meta name="robots" content="noindex" />
-			</Helmet>
-		);
-	};
-
 	return (
 		<>
-			{renderHelmet()}
 			<h3>
 				{i18n.noResultsFoundFor[language]}: {keyword}
 			</h3>

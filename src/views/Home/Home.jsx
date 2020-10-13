@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { useTracking } from 'react-tracking';
 
 import {
@@ -46,7 +45,7 @@ const Home = () => {
 
 	const showBestBet =
     isBestBetsConfigured && stateBestBetResult?.length > 0;
-    
+
 	// Only display Definition component if isDictionaryConfigured is true
 	// and no results returned
 	const showDefinition =
@@ -61,17 +60,17 @@ const Home = () => {
 		getDictionaryResults({ keyword, lang: language }),
 		isDictionaryConfigured && !!keyword && isFirstPage
   );
-  
+
 	const searchResults = useCustomQuery(
 		getSearchResults({ language, keyword, currentPage, unit }),
 		!!keyword
   );
-  
+
 	const bestBetResults = useCustomQuery(
 		getBestBetResults({ keyword }),
 		isBestBetsConfigured && !!keyword && isFirstPage
   );
-  
+
 	// Set hasResults should there be results returned for any search
 	// when a keyword has been provided
 	const hasResults =
@@ -117,7 +116,7 @@ const Home = () => {
 			searchResultsLoaded
 		) {
 			setDoneLoading(true);
-		} 
+		}
 	}, [
     bestBetResultsLoaded,
     bestBetResults.payload,
@@ -149,17 +148,8 @@ const Home = () => {
 		}
 	}, [doneLoading]);
 
-	const renderHelmet = () => {
-		return (
-			<Helmet>
-				<meta name="robots" content="noindex" />
-			</Helmet>
-		);
-	};
-
 	return (
 		<>
-			{renderHelmet()}
 			<h1>{title}</h1>
 			{doneLoading && hasResults ? (
 				<div className="results">

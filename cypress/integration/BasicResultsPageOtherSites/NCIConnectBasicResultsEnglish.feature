@@ -35,10 +35,6 @@ Feature: As a user, I want to be able to see my search results when on English N
         And the system displays "Results 1-20 of 139 for: " "tumor" as an "h4" tag
         And number 3 result item displays "(Video)" label
 
-    Scenario: Results page metadata
-        Given the user navigates to "/?swKeyword=tumor"
-        Then "<meta name='robots' content='noindex' />" exists in the data for the page URL of "/?swKeyword=tumor"
-
     Scenario: Best bets is not displayed
         Given the user navigates to "/?swKeyword=cancer%20risk%20assessment%20tools"
         Then the page title is "NCI-Connect Search Results"

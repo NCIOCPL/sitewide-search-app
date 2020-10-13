@@ -27,8 +27,3 @@ Feature: Feature name
         And the system displays "Resultados para: " "video" as an "h3" tag
         And the system displays "Resultados 1-20 de 157 para: " "video" as an "h4" tag
         And number 5 result item displays "(Video)" label
-
-
-    Scenario: Results page metadata
-        Given the user navigates to "/?swKeyword=video"
-        Then "<meta name='robots' content='noindex' />" exists in the data for the page URL of "/?swKeyword=video"

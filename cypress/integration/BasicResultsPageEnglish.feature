@@ -23,8 +23,3 @@ Feature: As a user, I want to be able to see my search results, navigate to the 
         And the system displays "Results for: " "tumor" as an "h3" tag
         And the system displays "Results 661-680 of 11556 for: " "tumor" as an "h4" tag
         And number 4 result item displays "(Video)" label
-
-
-    Scenario: Results page metadata
-        Given the user navigates to "/?swKeyword=tumor"
-        Then "<meta name='robots' content='noindex' />" exists in the data for the page URL of "/?swKeyword=tumor"

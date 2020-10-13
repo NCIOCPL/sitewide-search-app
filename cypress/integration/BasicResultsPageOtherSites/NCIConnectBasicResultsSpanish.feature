@@ -33,7 +33,3 @@ Feature: As a user, I want to be able to see my search results when on Spanish N
         And the system displays "Resultados para: " "tumor" as an "h3" tag
         And the system displays "Resultados 1-20 de 21 para: " "tumor" as an "h4" tag
         And number 3 result item displays "(Video)" label
-
-    Scenario: Results page metadata
-        Given the user navigates to "/?swKeyword=tumor"
-        Then "<meta name='robots' content='noindex' />" exists in the data for the page URL of "/?swKeyword=tumor"
