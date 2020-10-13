@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { i18n } from '../../../utils';
 import { useAppPaths, useURLQuery } from '../../../hooks';
+import {Link} from 'react-router-dom';
 import './search-results-pager.scss';
 
 const SearchResultsPager = ({
@@ -134,12 +135,12 @@ const SearchResultsPager = ({
 	);
 	const PgNext = (
 		<li key={'pager__button-next'}>
-			<a
-				href={HomeWithQueryPath({ query: linkPathNext })}
+			<Link
+				to={HomeWithQueryPath({ query: linkPathNext })}
 				className="pager__button pager__next"
 				aria-label={`Goto next, Page ${current + 1}`}>
 				{`${i18n.next[language]} >`}
-			</a>
+			</Link>
 		</li>
 	);
 	return (
