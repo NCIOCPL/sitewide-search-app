@@ -1,0 +1,12 @@
+{
+  "urls": [
+    "http://localhost:3000",
+    "http://localhost:3000/?swKeyword=tumor",
+    "http://localhost:3000/?swKeyword=tumor&page=9&pageunit=20",
+    "http://localhost:3000/?swKeyword=video",
+    "http://localhost:3000/?swKeyword=cancer%20risk%20assessment%20tools",
+    "http://localhost:3000/?swKeyword=metastasis",
+    "http://localhost:3000/?swKeyword=achoo",
+    "http://localhost:3000/?swKeyword=mynci"
+  ]
+}
