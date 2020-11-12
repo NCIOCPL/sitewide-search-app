@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { useTracking } from 'react-tracking';
 
 import TextInput from '../../components/atomic/TextInput';
@@ -58,16 +57,6 @@ const PageNotFound = () => {
 		event.preventDefault();
 	};
 
-	const renderHelmet = () => {
-		return (
-			<Helmet>
-				<title>{i18n.pageNotFoundTitle[language]}</title>
-				<meta property="dcterms.subject" content="Error Pages" />
-				<meta property="dcterms.type" content="errorpage" />
-			</Helmet>
-		);
-	};
-
 	const updateTextInput = (event) => {
 		const { value } = event.target;
 		updateSearchText(value);
@@ -75,7 +64,6 @@ const PageNotFound = () => {
 
 	return (
 		<>
-			{renderHelmet()}
 			<div className="error-container">
 				<h1>{i18n.pageNotFoundTitle[language]}</h1>
 				<>
