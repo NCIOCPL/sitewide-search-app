@@ -6,7 +6,6 @@ import { ClientContextProvider } from 'react-fetching-library';
 import Home from '../Home';
 import { useStateValue } from '../../../store/store.js';
 import { MockAnalyticsProvider } from '../../../tracking';
-import { i18n } from '../../../utils';
 
 jest.mock('../../../store/store.js');
 

@@ -4,11 +4,9 @@ import React from 'react';
 import BestBet from '../best-bet';
 import { MockAnalyticsProvider } from '../../../../tracking';
 
-const analyticsHandler = jest.fn((data) => { });
+const analyticsHandler = jest.fn(() => {});
 
 describe('<BestBet />', () => {
-
-
 	function getContentFromHTML(html, pos) {
 		const content = new DOMParser().parseFromString(html, 'text/html');
 		return content.body.textContent.trim().split('\n')[pos];
@@ -29,7 +27,8 @@ describe('<BestBet />', () => {
 		render(
 			<MockAnalyticsProvider>
 				<BestBet language={language} results={results} />
-			</MockAnalyticsProvider>);
+			</MockAnalyticsProvider>
+		);
 		const expectedContent = getContentFromHTML(results[0].html, 1);
 		expect(screen.getByText(expectedTitle)).toBeInTheDocument();
 		expect(screen.getByText(expectedContent)).toBeInTheDocument();
@@ -39,23 +38,26 @@ describe('<BestBet />', () => {
 		const language = 'en';
 		const results = [
 			{
-				"html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"http://visualsonline.cancer.gov\">Visuals Online</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">An NCI database of cancer-specific scientific and patient care-related images, as well as general biomedical and science-related images and portraits of NCI directors and staff.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
-				"id": "35618",
-				"name": "Cancer Images",
-				"weight": 70
+				html:
+					'<div class="managed list">\n<ul>\n<li class="general-list-item general list-item">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class="title-and-desc title desc container"><a class="title" href="http://visualsonline.cancer.gov">Visuals Online</a><!-- start description -->\n<div class="description"><p class="body">An NCI database of cancer-specific scientific and patient care-related images, as well as general biomedical and science-related images and portraits of NCI directors and staff.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>',
+				id: '35618',
+				name: 'Cancer Images',
+				weight: 70,
 			},
 			{
-				"html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/types/breast/breast-changes\">Breast Changes and Conditions</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Provides information on how specific breast changes, including atypical hyperplasia, lobular carcinoma in situ, ductal carcinoma in situ and breast cancer, are detected, diagnosed, and treated.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li><li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/types/breast/patient/breast-treatment-pdq\">Breast Cancer Treatment (PDQ®)–Patient Version</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Breast cancer treatment depends on several factors and can include combinations of surgery, chemotherapy, radiation, hormone, and targeted therapy. Learn more about how breast cancer is diagnosed and treated in this expert-reviewed summary.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
-				"id": "35784",
-				"name": "Ductal Carcinoma In Situ (DCIS)",
-				"weight": 25
-			}
+				html:
+					'<div class="managed list">\n<ul>\n<li class="general-list-item general list-item">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class="title-and-desc title desc container"><a class="title" href="/types/breast/breast-changes">Breast Changes and Conditions</a><!-- start description -->\n<div class="description"><p class="body">Provides information on how specific breast changes, including atypical hyperplasia, lobular carcinoma in situ, ductal carcinoma in situ and breast cancer, are detected, diagnosed, and treated.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li><li class="general-list-item general list-item">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class="title-and-desc title desc container"><a class="title" href="/types/breast/patient/breast-treatment-pdq">Breast Cancer Treatment (PDQ®)–Patient Version</a><!-- start description -->\n<div class="description"><p class="body">Breast cancer treatment depends on several factors and can include combinations of surgery, chemotherapy, radiation, hormone, and targeted therapy. Learn more about how breast cancer is diagnosed and treated in this expert-reviewed summary.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>',
+				id: '35784',
+				name: 'Ductal Carcinoma In Situ (DCIS)',
+				weight: 25,
+			},
 		];
 		render(
 			<MockAnalyticsProvider>
 				<BestBet language={language} results={results} />
-			</MockAnalyticsProvider>);
-		results.map((thisResult, index) => {
+			</MockAnalyticsProvider>
+		);
+		results.map((thisResult) => {
 			const expectedTitle = `Best Bets for ${thisResult.name}`;
 			const expectedContent = getContentFromHTML(thisResult.html, 1);
 			expect(screen.getByText(expectedTitle)).toBeInTheDocument();
@@ -78,7 +80,8 @@ describe('<BestBet />', () => {
 		render(
 			<MockAnalyticsProvider>
 				<BestBet language={language} results={results} />
-			</MockAnalyticsProvider>);
+			</MockAnalyticsProvider>
+		);
 		expect(screen.getByText(expectedTitle)).toBeInTheDocument();
 	});
 
@@ -88,7 +91,8 @@ describe('<BestBet />', () => {
 		const { container } = render(
 			<MockAnalyticsProvider>
 				<BestBet language={language} results={results} />
-			</MockAnalyticsProvider>);
+			</MockAnalyticsProvider>
+		);
 		expect(container.querySelector('.best-bet')).toBeNull();
 	});
 
@@ -96,19 +100,21 @@ describe('<BestBet />', () => {
 		const language = 'en';
 		const results = [
 			{
-				html: "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"http://ctep.cancer.gov\">Cancer Therapy Evaluation Program (CTEP)</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">CTEP is the program within the Division of Cancer Treatment and Diagnosis that plans, assesses, and coordinates all aspects of clinical trials.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
-				id: "36567",
-				name: "Cancer Therapy Evaluation Program (CTEP)",
-				weight: 100
+				html:
+					'<div class="managed list">\n<ul>\n<li class="general-list-item general list-item">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class="title-and-desc title desc container"><a class="title" href="http://ctep.cancer.gov">Cancer Therapy Evaluation Program (CTEP)</a><!-- start description -->\n<div class="description"><p class="body">CTEP is the program within the Division of Cancer Treatment and Diagnosis that plans, assesses, and coordinates all aspects of clinical trials.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>',
+				id: '36567',
+				name: 'Cancer Therapy Evaluation Program (CTEP)',
+				weight: 100,
 			},
 		];
 
 		const { container } = render(
 			<MockAnalyticsProvider analyticsHandler={analyticsHandler}>
 				<BestBet language={language} results={results} />
-			</MockAnalyticsProvider>);
+			</MockAnalyticsProvider>
+		);
 		const bestBetLink = container.querySelector('a.title');
 		fireEvent.click(bestBetLink);
-		expect(analyticsHandler).toHaveBeenCalledTimes(1)
+		expect(analyticsHandler).toHaveBeenCalledTimes(1);
 	});
 });

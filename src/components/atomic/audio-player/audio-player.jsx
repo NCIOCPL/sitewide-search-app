@@ -34,7 +34,7 @@ const AudioPlayer = ({ audioSrc, lang = 'en', tracking = () => {} }) => {
 		setPaused(false);
 	};
 
-	const trackPaused = (e) => {
+	const trackPaused = () => {
 		setPaused(true);
 		setPlaying(false);
 	};
@@ -49,7 +49,8 @@ const AudioPlayer = ({ audioSrc, lang = 'en', tracking = () => {} }) => {
 				ref={playerRef}
 				onEnded={trackEnded}
 				onPause={trackPaused}
-				preload="none" />
+				preload="none"
+			/>
 
 			<button
 				type="button"

@@ -8,7 +8,7 @@ import { useStateValue } from '../../../../store/store.js';
 import { MockAnalyticsProvider } from '../../../../tracking';
 import { testIds } from '../../../../constants';
 jest.mock('../../../../store/store.js');
-let wrapper;
+
 describe('Search Results component(English)', () => {
 	test('should show results found page for "tumor" as search keyword', async () => {
 		const basePath = '/';
@@ -211,7 +211,7 @@ describe('Search Results component(English)', () => {
 		};
 
 		await act(async () => {
-			wrapper = await render(
+			await render(
 				<MockAnalyticsProvider>
 					<ClientContextProvider client={client}>
 						<MemoryRouter initialEntries={['/?swKeyword=tumor']}>

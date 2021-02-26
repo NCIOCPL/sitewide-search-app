@@ -47,12 +47,11 @@ const Definition = ({ results }) => {
 			linkName: 'glossifiedTerm',
 			glossaryTerm: payload.termName,
 			glossaryTermId: payload.termId,
-			isDefinitionExpanded: defToggleClassName === 'definition__show-full' ? 'false' : 'true'
+			isDefinitionExpanded:
+				defToggleClassName === 'definition__show-full' ? 'false' : 'true',
 		});
 		return true;
 	};
-
-
 
 	const renderTermDefinition = () => {
 		const idOrPurl = payload.prettyUrlName || payload.termId;
@@ -65,7 +64,9 @@ const Definition = ({ results }) => {
 					}}></div>
 				{(payload.relatedResources.length > 0 || payload.media.length > 0) && (
 					<p>
-						<a href={`${dictionaryUrl}/def/${idOrPurl}`} onClick={handleMoreInfoClick}>
+						<a
+							href={`${dictionaryUrl}/def/${idOrPurl}`}
+							onClick={handleMoreInfoClick}>
 							{i18n.moreInfoOnDictionaryPage[language]}
 						</a>
 					</p>
