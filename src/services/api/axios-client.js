@@ -17,8 +17,6 @@ export const getAxiosClient = (initialize) => {
 	const {
 		bestbetsEndpoint,
 		glossaryEndpoint,
-		isBestBetsConfigured,
-		isDictionaryConfigured,
 		language,
 		searchCollection,
 		searchEndpoint,

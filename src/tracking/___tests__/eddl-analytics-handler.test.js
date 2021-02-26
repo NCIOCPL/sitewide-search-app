@@ -1,11 +1,11 @@
 import { EddlAnalyticsHandler } from '../index';
 
 let consoleError;
-let consoleLogger;
+
 describe('EddlAnalyticsHandler', () => {
 	beforeEach(() => {
 		consoleError = jest.spyOn(console, 'error');
-		consoleLogger = jest.spyOn(console, 'log');
+		jest.spyOn(console, 'log');
 	});
 	afterEach(() => {
 		console.error.mockRestore();
@@ -64,7 +64,10 @@ describe('EddlAnalyticsHandler', () => {
 		const mockWindow = {
 			NCIDataLayer: [],
 		};
-		EddlAnalyticsHandler(mockWindow, true)({
+		EddlAnalyticsHandler(
+			mockWindow,
+			true
+		)({
 			type: 'Chicken',
 			event: 'TestOther',
 			name: 'pageName',

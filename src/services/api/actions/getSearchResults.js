@@ -2,6 +2,10 @@ import { getEndpoint } from '../endpoints';
 import { useStateValue } from '../../../store/store';
 
 export const getSearchResults = ({ unit = 20, keyword, currentPage = 1 }) => {
+	// This is bad using a hook in an action. This will be replaced
+	// with the new service/api config, but this is not good like
+	// this.
+	/*eslint react-hooks/rules-of-hooks: ["off"]*/
 	const [{ searchSiteFilter }] = useStateValue();
 	const endpoint = getEndpoint('searchResults');
 	let computedIndex = currentPage - 1;

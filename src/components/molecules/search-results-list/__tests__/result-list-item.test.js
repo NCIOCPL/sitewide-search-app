@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 
 import ResultsListItem from '../results-list-item';
 import MockAnalyticsProvider from '../../../../tracking/mock-analytics-provider';
-import { MemoryRouter } from 'react-router-dom';
 
 describe('<ResultsListItem /> component', () => {
 	const analyticsHandler = jest.fn(() => {});

@@ -7,7 +7,8 @@ import { i18n } from '../../utils';
 
 const PageNotFound = () => {
 	const [{ canonicalHost, language }] = useStateValue();
-	const [searchText, updateSearchText] = useState('');
+	// This is odd and should be fixed
+	const [, updateSearchText] = useState('');
 	const tracking = useTracking();
 
 	useEffect(() => {
