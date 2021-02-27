@@ -1,12 +1,9 @@
-import { setLanguage, setSearchEndpoint } from '../../endpoints';
 import { getSearchResults } from '../index';
 import { useStateValue } from '../../../../store/store';
 
 jest.mock('../../../../store/store');
 
 describe('getSearchResults action', () => {
-	const searchCollection = 'doc';
-	setSearchEndpoint('/sitewidesearch/v1/', searchCollection);
 	const searchSiteFilter = 'example.com';
 	useStateValue.mockReturnValue([
 		{
@@ -15,29 +12,29 @@ describe('getSearchResults action', () => {
 		},
 	]);
 
-	test(`should match getSearchResults action for keyword "cancer" and language default "English"`, () => {
+	test(`should match getSearchResults action for keyword "cancer" default options`, () => {
 		const keyword = 'cancer';
-		const language = 'en';
-		setLanguage(language);
 		const retAction = {
+			interceptorName: 'sitewide-search-api',
 			method: 'GET',
-			endpoint: `/sitewidesearch/v1/Search/${searchCollection}/en/${encodeURI(
+			endpoint: `{{API_HOST}}/Search/{{COLLECTION}}/{{LANGUAGE}}/${encodeURI(
 				keyword
-			)}?size=20&from=0&site=${searchSiteFilter}`,
+			)}?size=20&from=0&site={{SITE_FILTER}}`,
 		};
-		expect(getSearchResults({ language, keyword })).toEqual(retAction);
+		expect(getSearchResults({ keyword })).toEqual(retAction);
 	});
 
-	test(`should match getSearchResults action for keyword "pollo" and language "Spanish"`, () => {
+	test(`should match getSearchResults action for keyword "pollo" and page 5, size 10`, () => {
 		const keyword = 'pollo';
-		const language = 'es';
-		setLanguage(language);
 		const retAction = {
+			interceptorName: 'sitewide-search-api',
 			method: 'GET',
-			endpoint: `/sitewidesearch/v1/Search/${searchCollection}/es/${encodeURI(
+			endpoint: `{{API_HOST}}/Search/{{COLLECTION}}/{{LANGUAGE}}/${encodeURI(
 				keyword
-			)}?size=20&from=0&site=${searchSiteFilter}`,
+			)}?size=10&from=20&site={{SITE_FILTER}}`,
 		};
-		expect(getSearchResults({ language, keyword })).toEqual(retAction);
+		expect(getSearchResults({ keyword, unit: 10, currentPage: 3 })).toEqual(
+			retAction
+		);
 	});
 });

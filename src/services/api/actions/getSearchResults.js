@@ -1,19 +1,19 @@
-import { getEndpoint } from '../endpoints';
-import { useStateValue } from '../../../store/store';
-
+/**
+ * Gets a search result for the Site-wide Search API
+ *
+ * @param {Object} params parameters for the API call
+ * @param {number} params.unit number of items to fetch
+ * @param {string} params.keyword the keyword of the search
+ * @param {number} params.currentPage current page number of results
+ */
 export const getSearchResults = ({ unit = 20, keyword, currentPage = 1 }) => {
-	// This is bad using a hook in an action. This will be replaced
-	// with the new service/api config, but this is not good like
-	// this.
-	/*eslint react-hooks/rules-of-hooks: ["off"]*/
-	const [{ searchSiteFilter }] = useStateValue();
-	const endpoint = getEndpoint('searchResults');
 	let computedIndex = currentPage - 1;
 	computedIndex = computedIndex < 1 ? 0 : computedIndex * unit;
 	return {
+		interceptorName: 'sitewide-search-api',
 		method: 'GET',
-		endpoint: `${endpoint}/${encodeURIComponent(
+		endpoint: `{{API_HOST}}/Search/{{COLLECTION}}/{{LANGUAGE}}/${encodeURIComponent(
 			keyword
-		)}?size=${unit}&from=${computedIndex}&site=${searchSiteFilter}`,
+		)}?size=${unit}&from=${computedIndex}&site={{SITE_FILTER}}`,
 	};
 };
