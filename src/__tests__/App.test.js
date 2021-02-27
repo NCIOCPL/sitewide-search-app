@@ -6,7 +6,7 @@ import { ClientContextProvider } from 'react-fetching-library';
 import { MemoryRouter, useLocation } from 'react-router';
 
 import { useAppPaths } from '../hooks';
-import { getAxiosClient } from '../services/api/axios-client';
+import { getAxiosClient } from '../services/api/common';
 import { useStateValue } from '../store/store.js';
 import { MockAnalyticsProvider } from '../tracking';
 import Home from '../views/Home';
@@ -62,22 +62,12 @@ describe('App component', () => {
 		]);
 
 		const { HomePath } = useAppPaths();
-		const initialState = {
-			apiBaseEndpoint,
-			bestbetsEndpoint,
-			dictionaryAudience,
-			dictionaryName,
-			glossaryEndpoint,
-			language,
-			searchEndpoint,
-			siteName,
-		};
 
 		await act(async () => {
 			render(
 				<MockAnalyticsProvider>
 					<MemoryRouter initialEntries={[HomePath()]}>
-						<ClientContextProvider client={getAxiosClient(initialState)}>
+						<ClientContextProvider client={getAxiosClient([])}>
 							<ComponentWithLocation RenderComponent={Home} />
 						</ClientContextProvider>
 					</MemoryRouter>

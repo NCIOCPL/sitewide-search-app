@@ -55,7 +55,7 @@ const Home = () => {
 	// glossaryEndpoint is not null
 	// and keyword is provided
 	const dictionaryResults = useCustomQuery(
-		getDictionaryResults({ keyword, lang: language }),
+		getDictionaryResults({ keyword }),
 		isDictionaryConfigured && !!keyword && isFirstPage
 	);
 

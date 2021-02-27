@@ -1,4 +1,5 @@
 export { i18n } from './i18n';
+export { cleanURI } from './cleanURI';
 export { getProductTestBase } from './getProductTestBase';
 export { formatNumberToThousands } from './number';
 export { matchItemToTerm } from './matchItemToTerm';

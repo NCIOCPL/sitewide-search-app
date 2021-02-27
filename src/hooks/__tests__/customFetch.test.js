@@ -6,7 +6,6 @@ import UseCustomQuerySample from '../samples/UseCustomQuery';
 import { useStateValue } from '../../store/store';
 import MockAnalyticsProvider from '../../tracking/mock-analytics-provider';
 import ErrorBoundary from '../../views/ErrorBoundary';
-import { setLanguage } from '../../services/api/endpoints';
 import { i18n } from '../../utils';
 
 jest.mock('../../store/store');
@@ -151,7 +150,6 @@ describe('', () => {
 		const dictionaryName = 'Cancer.gov';
 		const glossaryEndpoint = '/api/glossary/v1/';
 		const language = 'en';
-		setLanguage(language);
 
 		useStateValue.mockReturnValue([
 			{
