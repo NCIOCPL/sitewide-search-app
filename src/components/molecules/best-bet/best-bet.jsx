@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { i18n, closest } from '../../../utils';
+import { i18n } from '../../../utils';
 import { useTracking } from 'react-tracking';
 
 const BestBet = ({ language = 'en', results }) => {
@@ -17,8 +17,7 @@ const BestBet = ({ language = 'en', results }) => {
 			}
 		});
 		return indexMatch;
-	}
-
+	};
 
 	const handleBestBetLink = (e, bbItem, categoryIndex) => {
 		e.preventDefault;
@@ -34,18 +33,17 @@ const BestBet = ({ language = 'en', results }) => {
 				bestBetIndex: bestBetIndex + 1,
 				bestBetUrl: e.target.href,
 				categoryName: bbItem.name,
-				categoryPosition: categoryIndex + 1
+				categoryPosition: categoryIndex + 1,
 			});
 		}
 
 		return true;
-
 	};
 
 	return (
 		<>
 			{results && results.length > 0 && (
-				<div className="best-bet" >
+				<div className="best-bet">
 					{results.map((bestBetItem, index) => (
 						<div className="best-bet__item" key={index}>
 							<h2>{`${i18n.bestBetTitle[language]} ${bestBetItem.name}`}</h2>

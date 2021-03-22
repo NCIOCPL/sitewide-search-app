@@ -39,18 +39,16 @@ const Home = () => {
 	const keyword = urlQuery.get('swKeyword') || urlQuery.get('swkeyword');
 	const currentPage = parseInt(urlQuery.get('page'), 10) || 1;
 	const unit = parseInt(urlQuery.get('pageunit'), 10) || 20;
-	const [pageunit, setPageunit] = useState(unit);
+	const [pageunit] = useState(unit);
 	const [current] = useState(currentPage);
 	const isFirstPage = !urlQuery.get('page') || urlQuery.get('page') === '1';
 
-	const showBestBet =
-    isBestBetsConfigured && stateBestBetResult?.length > 0;
+	const showBestBet = isBestBetsConfigured && stateBestBetResult?.length > 0;
 
 	// Only display Definition component if isDictionaryConfigured is true
 	// and no results returned
 	const showDefinition =
-		isDictionaryConfigured &&
-		stateDefinitionResult?.results?.length > 0
+		isDictionaryConfigured && stateDefinitionResult?.results?.length > 0;
 
 	const tracking = useTracking();
 	// Fetch dictionary results only when
@@ -59,17 +57,17 @@ const Home = () => {
 	const dictionaryResults = useCustomQuery(
 		getDictionaryResults({ keyword, lang: language }),
 		isDictionaryConfigured && !!keyword && isFirstPage
-  );
+	);
 
 	const searchResults = useCustomQuery(
 		getSearchResults({ language, keyword, currentPage, unit }),
 		!!keyword
-  );
+	);
 
 	const bestBetResults = useCustomQuery(
 		getBestBetResults({ keyword }),
 		isBestBetsConfigured && !!keyword && isFirstPage
-  );
+	);
 
 	// Set hasResults should there be results returned for any search
 	// when a keyword has been provided
@@ -118,10 +116,10 @@ const Home = () => {
 			setDoneLoading(true);
 		}
 	}, [
-    bestBetResultsLoaded,
-    bestBetResults.payload,
-    dictionaryResultsLoaded,
-    dictionaryResults.payload,
+		bestBetResultsLoaded,
+		bestBetResults.payload,
+		dictionaryResultsLoaded,
+		dictionaryResults.payload,
 		searchResultsLoaded,
 		searchResults.payload,
 	]);

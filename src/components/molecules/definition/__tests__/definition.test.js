@@ -7,7 +7,7 @@ import { MockAnalyticsProvider } from '../../../../tracking';
 
 jest.mock('../../../../store/store');
 
-const analyticsHandler = jest.fn((data) => { });
+const analyticsHandler = jest.fn(() => {});
 
 describe('Definition component (English)', () => {
 	test('should display definition title, check definition text toggle click ', () => {
@@ -52,7 +52,8 @@ describe('Definition component (English)', () => {
 		const { container } = render(
 			<MockAnalyticsProvider>
 				<Definition {...definitionResult} />
-			</MockAnalyticsProvider>);
+			</MockAnalyticsProvider>
+		);
 		expect(screen.getByText('Definition:')).toBeInTheDocument();
 		expect(
 			container.querySelector('div.pronunciation__term')
@@ -112,7 +113,8 @@ describe('Definition component (English)', () => {
 		const { container } = render(
 			<MockAnalyticsProvider>
 				<Definition {...definitionResult} />
-			</MockAnalyticsProvider>);
+			</MockAnalyticsProvider>
+		);
 		expect(container.querySelector('definition__term-description')).toBeNull();
 	});
 	test('should not display more info link when there are no related sources or media', () => {
@@ -157,7 +159,8 @@ describe('Definition component (English)', () => {
 		const { container } = render(
 			<MockAnalyticsProvider>
 				<Definition {...definitionResult} />
-			</MockAnalyticsProvider>);
+			</MockAnalyticsProvider>
+		);
 		expect(container.querySelector('p a')).toBeNull();
 	});
 });
@@ -197,14 +200,16 @@ describe('Definition component (Spanish)', () => {
 		useStateValue.mockReturnValue([
 			{
 				appId: 'mockAppId',
-				dictionaryUrl: 'https://www.cancer.gov/espanol/publicaciones/diccionario',
+				dictionaryUrl:
+					'https://www.cancer.gov/espanol/publicaciones/diccionario',
 				language: 'es',
 			},
 		]);
 		const { container } = render(
 			<MockAnalyticsProvider>
 				<Definition {...definitionResult} />
-			</MockAnalyticsProvider>);
+			</MockAnalyticsProvider>
+		);
 		expect(screen.getByText('Definición:')).toBeInTheDocument();
 		expect(
 			container.querySelector('div.pronunciation__term')
@@ -261,7 +266,7 @@ describe('Definition component analytics (English)', () => {
 					firstLetter: null,
 					prettyUrlName: 'cancer',
 					pronunciation: {
-						key: "(meh-TAS-tuh-sis)",
+						key: '(meh-TAS-tuh-sis)',
 						audio: 'https://nci-media.cancer.gov/pdq/media/audio/705332.mp3',
 					},
 					definition: {
@@ -271,11 +276,13 @@ describe('Definition component analytics (English)', () => {
 							'The spread of cancer cells from the place where they first formed to another part of the body. In metastasis, cancer cells break away from the original (primary) tumor, travel through the blood or lymph system, and form a new tumor in other organs or tissues of the body. The new, metastatic tumor is the same type of cancer as the primary tumor. For example, if breast cancer spreads to the lung, the cancer cells in the lung are breast cancer cells, not lung cancer cells.',
 					},
 					otherLanguages: [],
-					relatedResources: [{
-						Url: "https://www.cancer.gov/types/metastatic-cancer",
-						Type: "External",
-						Text: "Metastatic Cancer"
-					}],
+					relatedResources: [
+						{
+							Url: 'https://www.cancer.gov/types/metastatic-cancer',
+							Type: 'External',
+							Text: 'Metastatic Cancer',
+						},
+					],
 					media: [],
 				},
 			],
@@ -283,16 +290,18 @@ describe('Definition component analytics (English)', () => {
 		useStateValue.mockReturnValue([
 			{
 				appId: 'mockAppId',
-				dictionaryUrl: 'https://www.cancer.gov/publications/dictionaries/cancer-terms',
+				dictionaryUrl:
+					'https://www.cancer.gov/publications/dictionaries/cancer-terms',
 				language: 'en',
 			},
 		]);
 		const { container } = render(
 			<MockAnalyticsProvider analyticsHandler={analyticsHandler}>
 				<Definition {...definitionResult} />
-			</MockAnalyticsProvider>);
-			const showFull = container.querySelector('.definition__show-full');
-			fireEvent.click(showFull);
+			</MockAnalyticsProvider>
+		);
+		const showFull = container.querySelector('.definition__show-full');
+		fireEvent.click(showFull);
 		const moreInfo = container.querySelector('div.definition p a');
 		fireEvent.click(moreInfo);
 		expect(analyticsHandler).toHaveBeenCalledTimes(1);

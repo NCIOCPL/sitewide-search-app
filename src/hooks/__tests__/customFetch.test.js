@@ -6,7 +6,7 @@ import UseCustomQuerySample from '../samples/UseCustomQuery';
 import { useStateValue } from '../../store/store';
 import MockAnalyticsProvider from '../../tracking/mock-analytics-provider';
 import ErrorBoundary from '../../views/ErrorBoundary';
-import { setDictionaryEndpoint, setLanguage, setSearchEndpoint } from '../../services/api/endpoints';
+import { setLanguage } from '../../services/api/endpoints';
 import { i18n } from '../../utils';
 
 jest.mock('../../store/store');
@@ -94,7 +94,9 @@ describe('', () => {
 			);
 		});
 		expect(
-			screen.getByText('Se produjo un error. Por favor, vuelva a intentar más tarde.')
+			screen.getByText(
+				'Se produjo un error. Por favor, vuelva a intentar más tarde.'
+			)
 		).toBeInTheDocument();
 	});
 

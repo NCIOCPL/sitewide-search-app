@@ -12,6 +12,7 @@ const EddlAnalyticsHandler = (window) => {
 		}
 		switch (payload.type) {
 			case 'Other': {
+				/*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
 				const {
 					type,
 					event,
@@ -66,7 +67,7 @@ const EddlAnalyticsHandler = (window) => {
 						metaTitle,
 						language,
 						type: 'nciAppModulePage',
-						...(audience && {audience}),
+						...(audience && { audience }),
 						channel,
 						contentGroup,
 						publishedDate,
