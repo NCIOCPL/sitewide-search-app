@@ -8,5 +8,12 @@
     "http://localhost:3000/?swKeyword=metastasis",
     "http://localhost:3000/?swKeyword=achoo",
     "http://localhost:3000/?swKeyword=mynci"
-  ]
+  ],
+	"chromeLaunchConfig": {
+		"args": [
+			"--no-sandbox",
+			"--disable-setuid-sandbox",
+			"--disable-dev-shm-usage"
+		]
+	}
 }
