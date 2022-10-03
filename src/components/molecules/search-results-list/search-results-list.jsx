@@ -28,11 +28,15 @@ const SearchResultsList = ({
 	};
 	// converted values to display in page
 	const positionInResults = (currentPage - 1) * resultsPerPage;
-	const fromPage = currentPage > 1 ? positionInResults + 1 : currentPage;
+	let fromPage = currentPage > 1 ? positionInResults + 1 : currentPage;
 	let toPage =
 		currentPage > 1 ? positionInResults + resultsPerPage : resultsPerPage;
 	if (toPage > results.totalResults) {
 		toPage = results.totalResults;
+	}
+
+	if (results.totalResults == 0) {
+		fromPage = results.totalResults;
 	}
 
 	const options = [20, 50];
