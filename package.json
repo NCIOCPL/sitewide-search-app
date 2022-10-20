@@ -41,8 +41,8 @@
 		"sass": "^1.54.9"
 	},
 	"engines": {
-		"node": "12.13.0",
-		"npm": "6.13.6"
+		"node": "18.11.0",
+		"npm": "8.19.2"
 	},
 	"scripts": {
 		"start": "node scripts/start.js",
