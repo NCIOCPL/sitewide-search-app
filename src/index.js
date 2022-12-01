@@ -9,9 +9,12 @@ import { StateProvider } from './store/store';
 import reducer from './store/reducer';
 import { AnalyticsProvider, EddlAnalyticsProvider } from './tracking';
 import * as serviceWorker from './serviceWorker';
-import { getProductTestBase } from './utils';
+import { cleanURI, getProductTestBase } from './utils';
 import { ClientContextProvider } from 'react-fetching-library';
-import { getAxiosClient } from './services/api/axios-client';
+import {
+	getAxiosClient,
+	replacingRequestInterceptor,
+} from './services/api/common';
 import ErrorBoundary from './views/ErrorBoundary';
 
 /**
@@ -73,6 +76,18 @@ const initialize = ({
 		...rest,
 	};
 
+	// Validate required parameters
+	if (bestbetsEndpoint !== null && !rest.bestbetsCollection) {
+		throw 'App initialize parameter bestbetsCollection was provided without a bestbetsCollection value! Provide appropriate value to properly initialize the app.';
+	}
+
+	if (
+		glossaryEndpoint !== null &&
+		(!rest.dictionaryAudience || !rest.dictionaryName)
+	) {
+		throw 'App initialize parameter glossaryEndpoint was provided without dictionaryAudience or dictionaryName values! Provide appropriate value(s) to properly initialize the app.';
+	}
+
 	// Determine the analytics HoC we are going to use.
 	// The following allows the app to be more portable, cgov will
 	// default to using EDDL Analytics. Other sites could supplier
@@ -96,11 +111,36 @@ const initialize = ({
 		children: PropTypes.node,
 	};
 
+	// Setup requestInterceptors for RTL client.
+	const requestInterceptors = [
+		replacingRequestInterceptor('sitewide-search-api', {
+			COLLECTION: searchCollection,
+			API_HOST: cleanURI(searchEndpoint),
+			SITE_FILTER: searchSiteFilter,
+			LANGUAGE: language,
+		}),
+		bestbetsEndpoint !== null
+			? replacingRequestInterceptor('bestbets-api', {
+					COLLECTION: rest.bestbetsCollection,
+					API_HOST: cleanURI(bestbetsEndpoint),
+					LANGUAGE: language,
+			  })
+			: null,
+		glossaryEndpoint !== null
+			? replacingRequestInterceptor('glossary-api', {
+					API_HOST: cleanURI(glossaryEndpoint),
+					AUDIENCE: rest.dictionaryAudience,
+					DICTIONARY_NAME: rest.dictionaryName,
+					LANGUAGE: language,
+			  })
+			: null,
+	].filter((item) => item !== null);
+
 	const AppBlock = () => {
 		return (
 			<StateProvider initialState={initialState} reducer={reducer}>
 				<AnalyticsHoC>
-					<ClientContextProvider client={getAxiosClient(initialState)}>
+					<ClientContextProvider client={getAxiosClient(requestInterceptors)}>
 						<ErrorBoundary>
 							<App />
 						</ErrorBoundary>

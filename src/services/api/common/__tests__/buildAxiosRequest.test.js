@@ -1,7 +1,7 @@
 import axios from 'axios';
 import nock from 'nock';
 
-import { buildAxiosRequest } from '../api/buildAxiosRequest';
+import { buildAxiosRequest } from '../buildAxiosRequest';
 
 describe('buildAxiosRequest', () => {
 	const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';

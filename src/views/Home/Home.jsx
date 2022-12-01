@@ -55,7 +55,7 @@ const Home = () => {
 	// glossaryEndpoint is not null
 	// and keyword is provided
 	const dictionaryResults = useCustomQuery(
-		getDictionaryResults({ keyword, lang: language }),
+		getDictionaryResults({ keyword }),
 		isDictionaryConfigured && !!keyword && isFirstPage
 	);
 
@@ -131,9 +131,9 @@ const Home = () => {
 			tracking.trackEvent({
 				event: 'SiteWideSearchApp:Load:Results',
 				metaTitle: `${title} - ${siteName}`,
-				name: `${canonicalHost.replace('https://', '')}${
-					window.location.pathname
-				}`,
+				name:
+					canonicalHost.replace(/https:\/\/|http:\/\//, '') +
+					window.location.pathname,
 				numberResults: searchResults?.payload?.totalResults || 0,
 				pageNum: current || 1,
 				itemsPerPage: pageunit || 20,
