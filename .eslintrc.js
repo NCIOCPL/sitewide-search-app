@@ -1,4 +1,5 @@
 module.exports = {
+	extends: '@nciocpl/esling-config-react',
 	env: {
 		browser: true,
 		es6: true,
