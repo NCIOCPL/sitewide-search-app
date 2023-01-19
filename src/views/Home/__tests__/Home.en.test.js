@@ -59,6 +59,58 @@ describe('Home component(English)', () => {
 		expect(screen.getByText('0 results found for: achoo')).toBeInTheDocument();
 	});
 
+	test('should show no results found page when no search keyword is provided', async () => {
+		const basePath = '/';
+		const canonicalHost = 'https://www.example.gov';
+		const language = 'en';
+		const title = 'NCI Search Results';
+
+		useStateValue.mockReturnValue([
+			{
+				appId: 'mockAppId',
+				basePath,
+				canonicalHost,
+				language,
+				title,
+			},
+		]);
+
+		const client = {
+			query: async () => ({
+				error: false,
+				status: 200,
+				payload: {
+					meta: {
+						totalResults: 0,
+						from: 0,
+					},
+					results: [],
+					links: null,
+				},
+			}),
+		};
+
+		await act(async () => {
+			render(
+				<MockAnalyticsProvider>
+					<ClientContextProvider client={client}>
+						<MemoryRouter initialEntries={['/']}>
+							<Home />
+						</MemoryRouter>
+					</ClientContextProvider>
+				</MockAnalyticsProvider>
+			);
+		});
+		expect(screen.getByText(title)).toBeInTheDocument();
+		expect(screen.getByText('NCI Search Results')).toBeInTheDocument();
+		expect(screen.getByText('0 results found for:')).toBeInTheDocument();
+		expect(
+			screen.getByText(
+				'Please check your spelling or try another search using a different word.'
+			)
+		).toBeInTheDocument();
+	});
+
 	test('should not display definition box ', () => {
 		useStateValue.mockReturnValue([
 			{
@@ -72,6 +124,8 @@ describe('Home component(English)', () => {
 		const canonicalHost = 'https://www.example.gov';
 		const language = 'en';
 		const title = 'NCI Search Results';
+		const isBestBetsConfigured = true;
+		const isDictionaryConfigured = true;
 
 		useStateValue.mockReturnValue([
 			{
@@ -80,6 +134,8 @@ describe('Home component(English)', () => {
 				canonicalHost,
 				language,
 				title,
+				isBestBetsConfigured,
+				isDictionaryConfigured,
 			},
 		]);
 
