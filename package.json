@@ -200,7 +200,7 @@
 		"sass-loader": "^10.3.1",
 		"semver": "6.3.0",
 		"start-server-and-test": "^1.10.8",
-		"style-loader": "0.23.1",
+		"style-loader": "^2.0.0",
 		"terser-webpack-plugin": "^4.2.2",
 		"ts-pnp": "1.1.6",
 		"url-loader": "2.3.0",
