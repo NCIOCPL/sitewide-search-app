@@ -1,35 +1,35 @@
 {
-    "meta": {
-      "totalResults": 1,
-      "from": 0
-    },
-    "results": [
-      {
-        "termId": 45963,
-        "language": "en",
-        "dictionary": "Cancer.gov",
-        "audience": "Patient",
-        "termName": "carcinoma",
-        "firstLetter": "c",
-        "prettyUrlName": "carcinoma",
-        "pronunciation": {
-          "key": "(KAR-sih-NOH-muh)",
-          "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707516.mp3"
-        },
-        "definition": {
-          "html": "Cancer that begins in the skin or in tissues that line or cover internal organs.",
-          "text": "Cancer that begins in the skin or in tissues that line or cover internal organs."
-        },
-        "otherLanguages": [
-          {
-            "language": "es",
-            "termName": "carcinoma",
-            "prettyUrlName": "carcinoma"
-          }
-        ],
-        "relatedResources": [],
-        "media": []
-      }
-    ],
-    "links": null
-  }
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 45963,
+			"language": "en",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "carcinoma",
+			"firstLetter": "c",
+			"prettyUrlName": "carcinoma",
+			"pronunciation": {
+				"key": "(KAR-sih-NOH-muh)",
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707516.mp3"
+			},
+			"definition": {
+				"html": "Cancer that begins in the skin or in tissues that line or cover internal organs.",
+				"text": "Cancer that begins in the skin or in tissues that line or cover internal organs."
+			},
+			"otherLanguages": [
+				{
+					"language": "es",
+					"termName": "carcinoma",
+					"prettyUrlName": "carcinoma"
+				}
+			],
+			"relatedResources": [],
+			"media": []
+		}
+	],
+	"links": null
+}

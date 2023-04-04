@@ -1,8 +1,8 @@
 [
-    {
-      "html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/espanol/tipos\">Tipos de cáncer</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Lista alfabética de todos los tipos de cáncer con enlaces a enfermedades específicas e información general sobre tratamiento, cuidados de apoyo, exámenes de detección, prevención, estudios clínicos y otros temas.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
-      "id": "73719",
-      "name": "Carcinoma (en español)",
-      "weight": 5
-    }
-  ]
+	{
+		"html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/espanol/tipos\">Tipos de cáncer</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Lista alfabética de todos los tipos de cáncer con enlaces a enfermedades específicas e información general sobre tratamiento, cuidados de apoyo, exámenes de detección, prevención, estudios clínicos y otros temas.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
+		"id": "73719",
+		"name": "Carcinoma (en español)",
+		"weight": 5
+	}
+]

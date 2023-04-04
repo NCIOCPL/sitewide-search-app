@@ -1,8 +1,8 @@
 [
-    {
-      "html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/about-cancer/understanding/what-is-cancer\">What Is Cancer?</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Understand how cancer cells differ from normal cells and genetics changes that cause cancer to grow and spread.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
-      "id": "35832",
-      "name": "Carcinoma",
-      "weight": 7
-    }
-  ]
+	{
+		"html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"/about-cancer/understanding/what-is-cancer\">What Is Cancer?</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">Understand how cancer cells differ from normal cells and genetics changes that cause cancer to grow and spread.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
+		"id": "35832",
+		"name": "Carcinoma",
+		"weight": 7
+	}
+]
