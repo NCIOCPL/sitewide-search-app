@@ -1,8 +1,8 @@
 [
-    {
-      "html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"http://ctep.cancer.gov\">Cancer Therapy Evaluation Program (CTEP)</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">CTEP is the program within the Division of Cancer Treatment and Diagnosis that plans, assesses, and coordinates all aspects of clinical trials.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
-      "id": "36567",
-      "name": "Cancer Therapy Evaluation Program (CTEP)",
-      "weight": 100
-    }
-  ]
+	{
+		"html": "<div class=\"managed list\">\n<ul>\n<li class=\"general-list-item general list-item\">\n<!-- cgvSnListItemGeneral -->\n<!-- Image -->\n<!-- End Image -->\n<div class=\"title-and-desc title desc container\"><a class=\"title\" href=\"http://ctep.cancer.gov\">Cancer Therapy Evaluation Program (CTEP)</a><!-- start description -->\n<div class=\"description\"><p class=\"body\">CTEP is the program within the Division of Cancer Treatment and Diagnosis that plans, assesses, and coordinates all aspects of clinical trials.</p></div><!-- end description --></div><!-- end title & desc container -->\n</li></ul>\n</div>",
+		"id": "36567",
+		"name": "Cancer Therapy Evaluation Program (CTEP)",
+		"weight": 100
+	}
+]

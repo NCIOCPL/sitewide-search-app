@@ -2,7 +2,7 @@
 import { Then } from 'cypress-cucumber-preprocessor/steps';
 
 Then('the page contains meta tags with the following names', (dataTable) => {
-	cy.document().then((doc) => {
+	cy.document().then(() => {
 		for (const { name, content } of dataTable.hashes()) {
 			const locator = `meta[name='${name}']`;
 			//find element, ensure it has attribute content

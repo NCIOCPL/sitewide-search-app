@@ -1,125 +1,125 @@
 {
-    "results": [
-      {
-        "title": "Colorectal Cancer Risk Assessment Tool",
-        "url": "https://ccrisktool.cancer.gov/",
-        "contentType": null,
-        "description": "An interactive tool designed by scientists at the National Cancer Institute to estimate an individualâ€™s risk of developing colorectal cancer."
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Tool",
-        "url": "https://bcrisktool.cancer.gov/",
-        "contentType": null,
-        "description": "An interactive tool, also known as The Gail Model, designed by scientists at the National Cancer Institute and the NSABP to estimate a woman's risk of developing invasive breast cancer."
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Tool",
-        "url": "https://bcrisktool.cancer.gov/about.html",
-        "contentType": null,
-        "description": "An interactive tool, also known as The Gail Model, designed by scientists at the National Cancer Institute and the NSABP to estimate a woman's risk of developing invasive breast cancer."
-      },
-      {
-        "title": "Colorectal Cancer Risk Assessment Tool",
-        "url": "https://ccrisktool.cancer.gov/about.html",
-        "contentType": null,
-        "description": "An interactive tool designed by scientists at the National Cancer Institute to estimate an individualâ€™s risk of developing colorectal cancer."
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Tool",
-        "url": "https://bcrisktool.cancer.gov/calculator.html",
-        "contentType": null,
-        "description": "An interactive tool, also known as The Gail Model, designed by scientists at the National Cancer Institute and the NSABP to estimate a woman's risk of developing invasive breast cancer."
-      },
-      {
-        "title": "Thyroid Cancer Risk Assessment Tool - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/tcrat",
-        "contentType": "cgvArticle",
-        "description": "The R package thyroid implements a risk prediction model developed by NCI researchers to calculate the absolute risk of developing a second primary thyroid cancer (SPTC) in individuals who were diagnosed with a cancer during their childhood."
-      },
-      {
-        "title": "Colorectal Cancer Risk Assessment Tool",
-        "url": "https://ccrisktool.cancer.gov/calculator.html",
-        "contentType": null,
-        "description": "An interactive tool designed by scientists at the National Cancer Institute to estimate an individualâ€™s risk of developing colorectal cancer."
-      },
-      {
-        "title": "Colon Cancer Risk Assessment Tool - Gauss Program - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/ccratgauss",
-        "contentType": "cgvArticle",
-        "description": "GAUSS program that projects absolute colon cancer risk (with confidence intervals) according to NCI’s CCRAT algorithm"
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Tool SAS Macro (Gail Model) - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/bcrasasmacro",
-        "contentType": "cgvArticle",
-        "description": "SAS macro (commonly referred to as the Gail Model) that projects absolute risk of invasive breast cancer according to NCI's (BCRAT) algorithm for specified race/ethnic groups and age intervals. "
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Tool 2.0 R Package - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/bcra",
-        "contentType": "cgvArticle",
-        "description": "BCRA is an R package that projects absolute risk of invasive breast cancer according to NCI’s Breast Cancer Risk Assessment Tool (BCRAT) algorithm for specified race/ethnic groups and age intervals."
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Tool 2.0 License Agreement - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/bcra/license",
-        "contentType": "cgvArticle",
-        "description": "Breast Cancer Risk Assessment Tool 2.0 License Agreement"
-      },
-      {
-        "title": "Cancer Genetics Risk Assessment and Counseling (PDQ®)–Health Professional Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/about-cancer/causes-prevention/genetics/risk-assessment-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Cancer genetics risk assessment and genetic counseling includes family history, psychosocial assessments, and education on hereditary cancer syndromes, testing, and risk. Get more information including the ethical, legal, and social implications of genetic testing in this summary for clinicians."
-      },
-      {
-        "title": "Tool Weighs Benefits, Risks of Raloxifene or Tamoxifen to Prevent Breast Cancer - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/breast/research/benefit-risk-tool",
-        "contentType": "cgvArticle",
-        "description": "Researchers have developed a benefit-risk index to help guide decisions on whether postmenopausal women at increased risk of developing breast cancer should take raloxifene or tamoxifen to reduce that risk."
-      },
-      {
-        "title": "Surgery to Reduce the Risk of Breast Cancer Fact Sheet - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/breast/risk-reducing-surgery-fact-sheet",
-        "contentType": "cgvArticle",
-        "description": "A fact sheet that describes mastectomy and salpingo-oophorectomy, two surgeries that may be used to reduce breast cancer risk in women at very high risk, and nonsurgical options."
-      },
-      {
-        "title": "Breast Cancer Risk in American Women - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/breast/risk-fact-sheet",
-        "contentType": "cgvArticle",
-        "description": "A fact sheet that provides statistics about a woman’s risk of developing breast cancer and information about breast cancer risk factors."
-      },
-      {
-        "title": "Integrating Geriatric Assessment into Cancer Care - National Cancer Institute",
-        "url": "https://www.cancer.gov/news-events/cancer-currents-blog/2018/geriatric-assessment-cancer-care-mohile",
-        "contentType": "cgvBlogPost",
-        "description": "Dr. Supriya Mohile discusses efforts to incorporate geriatric assessment into the cancer care of older patients, including the recent publication of ASCO clinical guidelines on geriatric cancer care."
-      },
-      {
-        "title": "Cancer Genetics Overview (PDQ®)–Health Professional Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/about-cancer/causes-prevention/genetics/overview-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Cancer Genetics Overview discusses hereditary cancers and the role of genetic variants (mutations). Get information about genetic counseling, familial cancer syndromes, genomic sequencing, germline and somatic testing, ethical and legal issues and more in this summary for clinicians."
-      },
-      {
-        "title": "Resources for Health Professionals - National Cancer Institute",
-        "url": "https://www.cancer.gov/resources-for/hp",
-        "contentType": "cgvMiniLanding",
-        "description": "Get the latest information about cancer with our PDQ® Cancer Information Summaries and find NCI-supported clinical trials. We also offer training information and tools as well as resources for public health program planners and cancer registrars."
-      },
-      {
-        "title": "Breast Cancer Prevention (PDQ®)–Patient Version - National Cancer Institute",
-        "url": "https://www.cancer.gov/types/breast/patient/breast-prevention-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Breast cancer prevention strategies include avoiding known risks, having a healthy lifestyle, and medications or surgery for those at high risk. Learn more about breast cancer prevention, risks and protective factors, and how to estimate risk in this expert-reviewed summary."
-      },
-      {
-        "title": "Studying the Impact of Total Diet on Cancer Risk - National Cancer Institute",
-        "url": "https://www.cancer.gov/news-events/cancer-currents-blog/2018/cancer-risk-total-diet",
-        "contentType": "cgvBlogPost",
-        "description": "Dr. Jill Reedy explains a shift in diet and cancer risk studies, with researchers using a holistic approach that analyzes dietary patterns across the lifespan."
-      }
-    ],
-    "totalResults": 18634
-  }
+	"results": [
+		{
+			"title": "Colorectal Cancer Risk Assessment Tool",
+			"url": "https://ccrisktool.cancer.gov/",
+			"contentType": null,
+			"description": "An interactive tool designed by scientists at the National Cancer Institute to estimate an individualâ€™s risk of developing colorectal cancer."
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Tool",
+			"url": "https://bcrisktool.cancer.gov/",
+			"contentType": null,
+			"description": "An interactive tool, also known as The Gail Model, designed by scientists at the National Cancer Institute and the NSABP to estimate a woman's risk of developing invasive breast cancer."
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Tool",
+			"url": "https://bcrisktool.cancer.gov/about.html",
+			"contentType": null,
+			"description": "An interactive tool, also known as The Gail Model, designed by scientists at the National Cancer Institute and the NSABP to estimate a woman's risk of developing invasive breast cancer."
+		},
+		{
+			"title": "Colorectal Cancer Risk Assessment Tool",
+			"url": "https://ccrisktool.cancer.gov/about.html",
+			"contentType": null,
+			"description": "An interactive tool designed by scientists at the National Cancer Institute to estimate an individualâ€™s risk of developing colorectal cancer."
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Tool",
+			"url": "https://bcrisktool.cancer.gov/calculator.html",
+			"contentType": null,
+			"description": "An interactive tool, also known as The Gail Model, designed by scientists at the National Cancer Institute and the NSABP to estimate a woman's risk of developing invasive breast cancer."
+		},
+		{
+			"title": "Thyroid Cancer Risk Assessment Tool - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/tcrat",
+			"contentType": "cgvArticle",
+			"description": "The R package thyroid implements a risk prediction model developed by NCI researchers to calculate the absolute risk of developing a second primary thyroid cancer (SPTC) in individuals who were diagnosed with a cancer during their childhood."
+		},
+		{
+			"title": "Colorectal Cancer Risk Assessment Tool",
+			"url": "https://ccrisktool.cancer.gov/calculator.html",
+			"contentType": null,
+			"description": "An interactive tool designed by scientists at the National Cancer Institute to estimate an individualâ€™s risk of developing colorectal cancer."
+		},
+		{
+			"title": "Colon Cancer Risk Assessment Tool - Gauss Program - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/ccratgauss",
+			"contentType": "cgvArticle",
+			"description": "GAUSS program that projects absolute colon cancer risk (with confidence intervals) according to NCI’s CCRAT algorithm"
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Tool SAS Macro (Gail Model) - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/bcrasasmacro",
+			"contentType": "cgvArticle",
+			"description": "SAS macro (commonly referred to as the Gail Model) that projects absolute risk of invasive breast cancer according to NCI's (BCRAT) algorithm for specified race/ethnic groups and age intervals. "
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Tool 2.0 R Package - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/bcra",
+			"contentType": "cgvArticle",
+			"description": "BCRA is an R package that projects absolute risk of invasive breast cancer according to NCI’s Breast Cancer Risk Assessment Tool (BCRAT) algorithm for specified race/ethnic groups and age intervals."
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Tool 2.0 License Agreement - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/bcra/license",
+			"contentType": "cgvArticle",
+			"description": "Breast Cancer Risk Assessment Tool 2.0 License Agreement"
+		},
+		{
+			"title": "Cancer Genetics Risk Assessment and Counseling (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/causes-prevention/genetics/risk-assessment-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Cancer genetics risk assessment and genetic counseling includes family history, psychosocial assessments, and education on hereditary cancer syndromes, testing, and risk. Get more information including the ethical, legal, and social implications of genetic testing in this summary for clinicians."
+		},
+		{
+			"title": "Tool Weighs Benefits, Risks of Raloxifene or Tamoxifen to Prevent Breast Cancer - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/breast/research/benefit-risk-tool",
+			"contentType": "cgvArticle",
+			"description": "Researchers have developed a benefit-risk index to help guide decisions on whether postmenopausal women at increased risk of developing breast cancer should take raloxifene or tamoxifen to reduce that risk."
+		},
+		{
+			"title": "Surgery to Reduce the Risk of Breast Cancer Fact Sheet - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/breast/risk-reducing-surgery-fact-sheet",
+			"contentType": "cgvArticle",
+			"description": "A fact sheet that describes mastectomy and salpingo-oophorectomy, two surgeries that may be used to reduce breast cancer risk in women at very high risk, and nonsurgical options."
+		},
+		{
+			"title": "Breast Cancer Risk in American Women - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/breast/risk-fact-sheet",
+			"contentType": "cgvArticle",
+			"description": "A fact sheet that provides statistics about a woman’s risk of developing breast cancer and information about breast cancer risk factors."
+		},
+		{
+			"title": "Integrating Geriatric Assessment into Cancer Care - National Cancer Institute",
+			"url": "https://www.cancer.gov/news-events/cancer-currents-blog/2018/geriatric-assessment-cancer-care-mohile",
+			"contentType": "cgvBlogPost",
+			"description": "Dr. Supriya Mohile discusses efforts to incorporate geriatric assessment into the cancer care of older patients, including the recent publication of ASCO clinical guidelines on geriatric cancer care."
+		},
+		{
+			"title": "Cancer Genetics Overview (PDQ®)–Health Professional Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/about-cancer/causes-prevention/genetics/overview-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Cancer Genetics Overview discusses hereditary cancers and the role of genetic variants (mutations). Get information about genetic counseling, familial cancer syndromes, genomic sequencing, germline and somatic testing, ethical and legal issues and more in this summary for clinicians."
+		},
+		{
+			"title": "Resources for Health Professionals - National Cancer Institute",
+			"url": "https://www.cancer.gov/resources-for/hp",
+			"contentType": "cgvMiniLanding",
+			"description": "Get the latest information about cancer with our PDQ® Cancer Information Summaries and find NCI-supported clinical trials. We also offer training information and tools as well as resources for public health program planners and cancer registrars."
+		},
+		{
+			"title": "Breast Cancer Prevention (PDQ®)–Patient Version - National Cancer Institute",
+			"url": "https://www.cancer.gov/types/breast/patient/breast-prevention-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Breast cancer prevention strategies include avoiding known risks, having a healthy lifestyle, and medications or surgery for those at high risk. Learn more about breast cancer prevention, risks and protective factors, and how to estimate risk in this expert-reviewed summary."
+		},
+		{
+			"title": "Studying the Impact of Total Diet on Cancer Risk - National Cancer Institute",
+			"url": "https://www.cancer.gov/news-events/cancer-currents-blog/2018/cancer-risk-total-diet",
+			"contentType": "cgvBlogPost",
+			"description": "Dr. Jill Reedy explains a shift in diet and cancer risk studies, with researchers using a holistic approach that analyzes dietary patterns across the lifespan."
+		}
+	],
+	"totalResults": 18634
+}

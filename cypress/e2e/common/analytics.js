@@ -8,14 +8,14 @@ import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 const convertValue = (val) => {
 	if (typeof val === 'string') {
 		if (val.indexOf('(int)') === 0) {
-			return parseInt(val.replace('(int)', ''))
+			return parseInt(val.replace('(int)', ''));
 		}
 		if (val.indexOf('(bool)') === 0) {
 			return val.indexOf('true') >= 0;
 		}
 	}
 	return val;
-}
+};
 
 /**
  * Converts an object with a.b.c styled keys into an
@@ -23,71 +23,61 @@ const convertValue = (val) => {
  * @param {object} obj The DataTable.hashes()
  */
 const convertAnalyticsDatatableObject = (obj) => {
-  const objPass1 = Object.keys(obj)
-    .map(key => {
+	const objPass1 = Object.keys(obj)
+		.map((key) => {
 			const [first, ...rest] = key.split('.');
-      if (rest.length > 0) {
+			if (rest.length > 0) {
 				const newRestKey = rest.join('.');
 				const value = convertValue(obj[first + '.' + newRestKey]);
-        return {
-          first,
-          rest: {
-            [newRestKey]: value
-          }
-        }
-      } else {
-        return {
-          first,
-          value: obj[first]
-        }
-      }
-    })
-    .reduce(
-      (ac,curr) => {
-        const newKey = curr.first;
+				return {
+					first,
+					rest: {
+						[newRestKey]: value,
+					},
+				};
+			} else {
+				return {
+					first,
+					value: obj[first],
+				};
+			}
+		})
+		.reduce((ac, curr) => {
+			const newKey = curr.first;
 
-				if (curr.value !== undefined) {
-          if (ac[newKey]) {
-            throw new Error(`Key, ${newKey}, is already defined.`);
-          }
-          return {
-            [newKey]: curr.value,
-            ...ac
-          }
-        } else if (curr.rest) {
-          if (ac[newKey] && typeof ac[newKey] !== 'object') {
-            throw new Error(`Key, ${newKey}, is mixing values and objects.`);
-          }
+			if (curr.value !== undefined) {
+				if (ac[newKey]) {
+					throw new Error(`Key, ${newKey}, is already defined.`);
+				}
+				return {
+					[newKey]: curr.value,
+					...ac,
+				};
+			} else if (curr.rest) {
+				if (ac[newKey] && typeof ac[newKey] !== 'object') {
+					throw new Error(`Key, ${newKey}, is mixing values and objects.`);
+				}
 
-          return {
-            ...ac,
-            [newKey]: {
-              ...ac[newKey],
-              ...curr.rest
-            }
-          }
-
-        } else {
-          // This is not good
-          return ac;
-        }
-      },
-      {}
-    );
-  return Object.entries(objPass1)
-    .reduce(
-      (ac, [key, val] = {}) => {
-        return {
-          ...ac,
-          [key]: (typeof val === "object") ?
-					convertAnalyticsDatatableObject(val) :
-            val
-        }
-      },
-      {}
-    );
-
-}
+				return {
+					...ac,
+					[newKey]: {
+						...ac[newKey],
+						...curr.rest,
+					},
+				};
+			} else {
+				// This is not good
+				return ac;
+			}
+		}, {});
+	return Object.entries(objPass1).reduce((ac, [key, val] = {}) => {
+		return {
+			...ac,
+			[key]:
+				typeof val === 'object' ? convertAnalyticsDatatableObject(val) : val,
+		};
+	}, {});
+};
 
 /**
  * Finds an event with the following information.
@@ -95,7 +85,9 @@ const convertAnalyticsDatatableObject = (obj) => {
  * @param {string} event The name of the event
  */
 const getEventFromEDDL = (win, type, event) => {
-	return win.NCIDataLayer.filter(evt => evt.type === type && evt.event === event);
+	return win.NCIDataLayer.filter(
+		(evt) => evt.type === type && evt.event === event
+	);
 };
 
 When('the NCIDataLayer is cleared', () => {
@@ -125,16 +117,16 @@ Then(
 				}
 				return {
 					...ac,
-					[key]: val
-				}
-			}, {})
+					[key]: val,
+				};
+			}, {});
 
 			if (!dataObj.event) {
-				throw new Error("Datatable is missing the event name")
+				throw new Error('Datatable is missing the event name');
 			}
 
 			if (!dataObj.type) {
-				throw new Error("Datatable is missing the event type")
+				throw new Error('Datatable is missing the event type');
 			}
 
 			// Find the matching events, this should be only one.
