@@ -1,131 +1,131 @@
 {
-    "results": [
-      {
-        "title": "Thyroid Cancer Risk Assessment Tool - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/tcrat",
-        "contentType": "cgvArticle",
-        "description": "The R package thyroid implements a risk prediction model developed by NCI researchers to calculate the absolute risk of developing a second primary thyroid cancer (SPTC) in individuals who were diagnosed with a cancer during their childhood."
-      },
-      {
-        "title": "Colon Cancer Risk Assessment Tool - Gauss Program - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/ccratgauss",
-        "contentType": "cgvArticle",
-        "description": "GAUSS program that projects absolute colon cancer risk (with confidence intervals) according to NCI’s CCRAT algorithm"
-      },
-      {
-        "title": "Risk Assessment Macros and Software Programs - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment",
-        "contentType": "cgvMiniLanding",
-        "description": "Overview of risk assessment macros and software programs offered by DCEG"
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Tool SAS Macro (Gail Model) - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/bcrasasmacro",
-        "contentType": "cgvArticle",
-        "description": "SAS macro (commonly referred to as the Gail Model) that projects absolute risk of invasive breast cancer according to NCI's (BCRAT) algorithm for specified race/ethnic groups and age intervals. "
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Tool 2.0 R Package - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/bcra",
-        "contentType": "cgvArticle",
-        "description": "BCRA is an R package that projects absolute risk of invasive breast cancer according to NCI’s Breast Cancer Risk Assessment Tool (BCRAT) algorithm for specified race/ethnic groups and age intervals."
-      },
-      {
-        "title": "Colon Cancer Risk Assessment - SAS Macro - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/ccratsasmacro",
-        "contentType": "cgvArticle",
-        "description": "SAS macro that projects absolute risk of colon cancer according to NCI’s CCRAT algorithm. "
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Tool 2.0 License Agreement - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/bcra/license",
-        "contentType": "cgvArticle",
-        "description": "Breast Cancer Risk Assessment Tool 2.0 License Agreement"
-      },
-      {
-        "title": "CARE Model: Breast Cancer Risk Assessment for African American Women - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/care",
-        "contentType": "cgvArticle",
-        "description": "SAS macro that allows researchers to estimate an African American woman's risk of developing invasive breast cancer over specified age interval"
-      },
-      {
-        "title": "Breast Cancer Risk Assessment Model for Hispanic Women   - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/hispbrca-ram",
-        "contentType": "cgvArticle",
-        "description": "Breast Cancer Risk Prediction macro for projecting risk for Hispanic Americans"
-      },
-      {
-        "title": "Risk Assessment Tools and Methods - Public Health Impact of DCEG Research - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/research/public-health-impact/risk-assessment",
-        "contentType": "cgvArticle",
-        "description": "Risk Assessment Tools and Methods"
-      },
-      {
-        "title": "Breast Cancer with Mammographic Density Risk Assessment SAS Macro - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/bcramdsasmacro",
-        "contentType": "cgvArticle",
-        "description": "A SAS macro that projects absolute invasive breast cancer risk for white women based on measurements of mammographic density and other risk factors."
-      },
-      {
-        "title": "Asian Pacific Islander American Women - Breast Cancer Risk Assessment SAS Macro - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/apa",
-        "contentType": "cgvArticle",
-        "description": "Software that projects absolute breast cancer risk over defined age intervals for Asian and Pacific Islander American women with specific risk factors"
-      },
-      {
-        "title": "Breast, Endometrial, and Ovarian Risk Assessment Tool SAS Macros - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/br-en-oc-ram",
-        "contentType": "cgvArticle",
-        "description": "Breast, Endometrial, and Ovarian Risk Assessment Macro"
-      },
-      {
-        "title": "Interactive Risk Attributable Program (IRAP) - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/irap",
-        "contentType": "cgvArticle",
-        "description": "IRAP is an interactive computer program which calculates both point estimates and confidence intervals for attributable risk, based on regression models, from cohort or case-control data. "
-      },
-      {
-        "title": "R Package for Individual Risks of Lung Cancer and Lung Cancer Death - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/lcmodels",
-        "contentType": "cgvArticle",
-        "description": "R package that calculates risks using published lung cancer risk models"
-      },
-      {
-        "title": "Lung Cancer Risk Models for Screening (R package: lcrisks) - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/lcrisks",
-        "contentType": "cgvArticle",
-        "description": "Calculates individual risks of lung cancer and lung cancer death based on covariates"
-      },
-      {
-        "title": "Online calculator estimates lifetime risk of developing cancer from exposure to ionizing radiation - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/radrat",
-        "contentType": "cgvArticle",
-        "description": "Online calculator for estimating lifetime risk of cancer incidence from exposure to ionizing radiation"
-      },
-      {
-        "title": "Lung Cancer Risk Models for Screening License Agreement - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/lcrisks/licenseagreement",
-        "contentType": "cgvArticle",
-        "description": "Lung Cancer Risk Models for Screening License Agreement"
-      },
-      {
-        "title": "Individual Risks of Lung Cancer and Lung Cancer Death Models2 - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/lcmodels/lcmodels2",
-        "contentType": "cgvArticle",
-        "description": "R package that calculates risks using published lung cancer risk models"
-      },
-      {
-        "title": "Individual Risks of Lung Cancer and Lung Cancer Death Models License Agreement - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/lcmodels/license",
-        "contentType": "cgvArticle",
-        "description": "Individual Risks of Lung Cancer and Lung Cancer Death Models License Agreement"
-      },
-      {
-        "title": "Binomial Linear Model R Package - National Cancer Institute",
-        "url": "https://dceg.cancer.gov/tools/risk-assessment/blm",
-        "contentType": "cgvArticle",
-        "description": "R package for estimating absolute risk and risk differences from cohort data with a binomial linear or LEXPIT regression model."
-      }
-    ],
-    "totalResults": 1652
-  }
+	"results": [
+		{
+			"title": "Thyroid Cancer Risk Assessment Tool - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/tcrat",
+			"contentType": "cgvArticle",
+			"description": "The R package thyroid implements a risk prediction model developed by NCI researchers to calculate the absolute risk of developing a second primary thyroid cancer (SPTC) in individuals who were diagnosed with a cancer during their childhood."
+		},
+		{
+			"title": "Colon Cancer Risk Assessment Tool - Gauss Program - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/ccratgauss",
+			"contentType": "cgvArticle",
+			"description": "GAUSS program that projects absolute colon cancer risk (with confidence intervals) according to NCI’s CCRAT algorithm"
+		},
+		{
+			"title": "Risk Assessment Macros and Software Programs - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment",
+			"contentType": "cgvMiniLanding",
+			"description": "Overview of risk assessment macros and software programs offered by DCEG"
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Tool SAS Macro (Gail Model) - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/bcrasasmacro",
+			"contentType": "cgvArticle",
+			"description": "SAS macro (commonly referred to as the Gail Model) that projects absolute risk of invasive breast cancer according to NCI's (BCRAT) algorithm for specified race/ethnic groups and age intervals. "
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Tool 2.0 R Package - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/bcra",
+			"contentType": "cgvArticle",
+			"description": "BCRA is an R package that projects absolute risk of invasive breast cancer according to NCI’s Breast Cancer Risk Assessment Tool (BCRAT) algorithm for specified race/ethnic groups and age intervals."
+		},
+		{
+			"title": "Colon Cancer Risk Assessment - SAS Macro - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/ccratsasmacro",
+			"contentType": "cgvArticle",
+			"description": "SAS macro that projects absolute risk of colon cancer according to NCI’s CCRAT algorithm. "
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Tool 2.0 License Agreement - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/bcra/license",
+			"contentType": "cgvArticle",
+			"description": "Breast Cancer Risk Assessment Tool 2.0 License Agreement"
+		},
+		{
+			"title": "CARE Model: Breast Cancer Risk Assessment for African American Women - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/care",
+			"contentType": "cgvArticle",
+			"description": "SAS macro that allows researchers to estimate an African American woman's risk of developing invasive breast cancer over specified age interval"
+		},
+		{
+			"title": "Breast Cancer Risk Assessment Model for Hispanic Women   - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/hispbrca-ram",
+			"contentType": "cgvArticle",
+			"description": "Breast Cancer Risk Prediction macro for projecting risk for Hispanic Americans"
+		},
+		{
+			"title": "Risk Assessment Tools and Methods - Public Health Impact of DCEG Research - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/research/public-health-impact/risk-assessment",
+			"contentType": "cgvArticle",
+			"description": "Risk Assessment Tools and Methods"
+		},
+		{
+			"title": "Breast Cancer with Mammographic Density Risk Assessment SAS Macro - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/bcramdsasmacro",
+			"contentType": "cgvArticle",
+			"description": "A SAS macro that projects absolute invasive breast cancer risk for white women based on measurements of mammographic density and other risk factors."
+		},
+		{
+			"title": "Asian Pacific Islander American Women - Breast Cancer Risk Assessment SAS Macro - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/apa",
+			"contentType": "cgvArticle",
+			"description": "Software that projects absolute breast cancer risk over defined age intervals for Asian and Pacific Islander American women with specific risk factors"
+		},
+		{
+			"title": "Breast, Endometrial, and Ovarian Risk Assessment Tool SAS Macros - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/br-en-oc-ram",
+			"contentType": "cgvArticle",
+			"description": "Breast, Endometrial, and Ovarian Risk Assessment Macro"
+		},
+		{
+			"title": "Interactive Risk Attributable Program (IRAP) - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/irap",
+			"contentType": "cgvArticle",
+			"description": "IRAP is an interactive computer program which calculates both point estimates and confidence intervals for attributable risk, based on regression models, from cohort or case-control data. "
+		},
+		{
+			"title": "R Package for Individual Risks of Lung Cancer and Lung Cancer Death - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/lcmodels",
+			"contentType": "cgvArticle",
+			"description": "R package that calculates risks using published lung cancer risk models"
+		},
+		{
+			"title": "Lung Cancer Risk Models for Screening (R package: lcrisks) - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/lcrisks",
+			"contentType": "cgvArticle",
+			"description": "Calculates individual risks of lung cancer and lung cancer death based on covariates"
+		},
+		{
+			"title": "Online calculator estimates lifetime risk of developing cancer from exposure to ionizing radiation - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/radrat",
+			"contentType": "cgvArticle",
+			"description": "Online calculator for estimating lifetime risk of cancer incidence from exposure to ionizing radiation"
+		},
+		{
+			"title": "Lung Cancer Risk Models for Screening License Agreement - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/lcrisks/licenseagreement",
+			"contentType": "cgvArticle",
+			"description": "Lung Cancer Risk Models for Screening License Agreement"
+		},
+		{
+			"title": "Individual Risks of Lung Cancer and Lung Cancer Death Models2 - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/lcmodels/lcmodels2",
+			"contentType": "cgvArticle",
+			"description": "R package that calculates risks using published lung cancer risk models"
+		},
+		{
+			"title": "Individual Risks of Lung Cancer and Lung Cancer Death Models License Agreement - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/lcmodels/license",
+			"contentType": "cgvArticle",
+			"description": "Individual Risks of Lung Cancer and Lung Cancer Death Models License Agreement"
+		},
+		{
+			"title": "Binomial Linear Model R Package - National Cancer Institute",
+			"url": "https://dceg.cancer.gov/tools/risk-assessment/blm",
+			"contentType": "cgvArticle",
+			"description": "R package for estimating absolute risk and risk differences from cohort data with a binomial linear or LEXPIT regression model."
+		}
+	],
+	"totalResults": 1652
+}

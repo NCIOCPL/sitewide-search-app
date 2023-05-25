@@ -1,125 +1,125 @@
 {
-    "results": [
-      {
-        "title": "Medicamentos aprobados para diferentes tipos de cáncer - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos/indice-de-medicamentos",
-        "contentType": "cgvMiniLanding",
-        "description": "Esta página contiene una lista y enlaces a páginas del NCI con información sobre los medicamentos aprobados para tratar tipos específicos de cáncer."
-      },
-      {
-        "title": "Formulación y aprobación de medicamentos - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos",
-        "contentType": "cgvMiniLanding",
-        "description": "Información sobre medicamentos específicos y la formulación y aprobación de medicamentos."
-      },
-      {
-        "title": "Uso extraoficial de medicamentos en el tratamiento del cáncer - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos/uso-extraoficial",
-        "contentType": "cgvArticle",
-        "description": "Conozca qué es el uso extraoficial o no indicado de medicamentos y el papel que desempeña en el tratamiento del cáncer."
-      },
-      {
-        "title": "Acceso a medicamentos experimentales para cáncer - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos/acceso-fase-investigacion",
-        "contentType": "cgvArticle",
-        "description": "Medicamento experimental es el evaluado en laboratorios y en animales y aprobado por la FDA de EE. UU. para probarse en personas, pero no puede anunciarse, venderse o recetarse. Medicamentos experimentales pueden estar disponibles por estudios clínicos o por programas de extensión de acceso. Aprenda más."
-      },
-      {
-        "title": "Medicamentos aprobados para enfermedades relacionadas con el cáncer - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos/enfermedades-relacionadas-con-cancer",
-        "contentType": "cgvMiniLanding",
-        "description": "Enfermedades relacionadas con el cáncer y lista de medicamentos aprobados para tratar estas enfermedades. Los nombres de cada medicamento llevan a sumarios del NCI."
-      },
-      {
-        "title": "El estudio NCI-MATCH vinculará los medicamentos dirigidos con mutaciones - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/noticias/comunicados-de-prensa/2015/nci-match",
-        "contentType": "cgvPressRelease",
-        "description": "Los investigadores del estudio a nivel nacional NCI-MATCH: Análisis molecular para la elección de tratamientos, anunciaron que el estudio busca determinar la eficacia de los tratamientos dirigidos en personas con tumores que presentan mutaciones genéticas específicas independientemente de su tipo de cáncer."
-      },
-      {
-        "title": "Toxicidad financiera del tratamiento del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/manejo-del-cancer/costos/toxicidad-financiera-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca del riesgo de sufrir dificultades financieras durante el tratamiento del cáncer."
-      },
-      {
-        "title": "Etapa final de la vida (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/cancer-avanzado/cuidadores/planificacion/etapa-final-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Sumario informativo revisado por expertos sobre el tratamiento y la atención del paciente de cáncer desde los últimos días hasta las últimas horas de vida; esto incluye los síntomas comunes, los dilemas éticos que pueden surgir y la función que desempeña el oncólogo en proveer cuidados al paciente y su familia durante este período."
-      },
-      {
-        "title": "El dolor y el cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/dolor/dolor-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca del dolor como una complicación del cáncer o su tratamiento. Se  tratan abordajes para el control y el tratamiento del dolor relacionado con el cáncer."
-      },
-      {
-        "title": "Depresión (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/sobrellevar/sentimientos/depresion-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca del diagnóstico, evaluación y tratamiento de la depresión en adultos y niños que padecen de cáncer."
-      },
-      {
-        "title": "Náuseas y vómitos relacionados con el tratamiento del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/nauseas/nauseas-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca de las náuseas y vómitos como complicaciones del cáncer o su tratamiento. Se plantean abordajes  de tratamiento de las náuseas y vómitos."
-      },
-      {
-        "title": "La nutrición en el tratamiento del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/perdida-apetito/nutricion-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca de las causas y tratamiento de los problemas de nutrición que se presentan en pacientes de cáncer."
-      },
-      {
-        "title": "Delirium (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/memoria/delirium-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca del delirium como una complicación del cáncer o su tratamiento.  Se describen enfoques de los  cuidados médicos de apoyo y los abordajes farmacológicos para el manejo del delirium."
-      },
-      {
-        "title": "Fatiga (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/fatiga/fatiga-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca de la fatiga, una afección caracterizada por extremo cansancio e incapacidad para funcionar por la falta de energía, que a menudo se observa como una complicación del cáncer y su tratamiento."
-      },
-      {
-        "title": "Toxicidad financiera del tratamiento del cáncer (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/manejo-del-cancer/costos/toxicidad-financiera-pro-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca del riesgo de sufrir dificultades financieras durante el tratamiento del cáncer."
-      },
-      {
-        "title": "Sofocos y sudores nocturnos (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/sexualidad-mujeres/sofocos-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca de las causas y el tratamiento de  los sofocos y sudores nocturnos en los pacientes de cáncer."
-      },
-      {
-        "title": "Deterioro cognitivo en adultos con cánceres fuera del sistema nervioso central (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/memoria/deterioro-cognitivo-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca del deterioro cognitivo en pacientes de cáncer en relación con el funcionamiento cognitivo normal y las intervenciones para tratar los cambios cognitivos."
-      },
-      {
-        "title": "Coenzima Q10 (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/mca/paciente/coenzima-q10-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos sobre el uso de la conzima Q10 como tratamiento para las personas con cáncer."
-      },
-      {
-        "title": "Adaptación al cáncer: Ansiedad y sufrimiento (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/sobrellevar/sentimientos/ansiedad-sufrimiento-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos acerca de las difíciles respuestas emocionales que se presentan en muchos de los pacientes con cáncer. Este sumario se enfoca en asuntos de la adaptación normal, alteración psicosocial y trastornos de adaptación."
-      },
-      {
-        "title": "Cáncer de próstata, nutrición y suplementos alimentarios (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
-        "url": "https://www.cancer.gov/espanol/cancer/tratamiento/mca/paciente/prostata-suplementos-pdq",
-        "contentType": "pdqCancerInfoSummary",
-        "description": "Resumen de información revisada por expertos sobre el uso de la nutrición y  los suplementos alimentarios para disminuir el riesgo de presentar cáncer de próstata o como tratamiento  del mismo."
-      }
-    ],
-    "totalResults": 1337
-  }
+	"results": [
+		{
+			"title": "Medicamentos aprobados para diferentes tipos de cáncer - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos/indice-de-medicamentos",
+			"contentType": "cgvMiniLanding",
+			"description": "Esta página contiene una lista y enlaces a páginas del NCI con información sobre los medicamentos aprobados para tratar tipos específicos de cáncer."
+		},
+		{
+			"title": "Formulación y aprobación de medicamentos - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos",
+			"contentType": "cgvMiniLanding",
+			"description": "Información sobre medicamentos específicos y la formulación y aprobación de medicamentos."
+		},
+		{
+			"title": "Uso extraoficial de medicamentos en el tratamiento del cáncer - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos/uso-extraoficial",
+			"contentType": "cgvArticle",
+			"description": "Conozca qué es el uso extraoficial o no indicado de medicamentos y el papel que desempeña en el tratamiento del cáncer."
+		},
+		{
+			"title": "Acceso a medicamentos experimentales para cáncer - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos/acceso-fase-investigacion",
+			"contentType": "cgvArticle",
+			"description": "Medicamento experimental es el evaluado en laboratorios y en animales y aprobado por la FDA de EE. UU. para probarse en personas, pero no puede anunciarse, venderse o recetarse. Medicamentos experimentales pueden estar disponibles por estudios clínicos o por programas de extensión de acceso. Aprenda más."
+		},
+		{
+			"title": "Medicamentos aprobados para enfermedades relacionadas con el cáncer - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/medicamentos/enfermedades-relacionadas-con-cancer",
+			"contentType": "cgvMiniLanding",
+			"description": "Enfermedades relacionadas con el cáncer y lista de medicamentos aprobados para tratar estas enfermedades. Los nombres de cada medicamento llevan a sumarios del NCI."
+		},
+		{
+			"title": "El estudio NCI-MATCH vinculará los medicamentos dirigidos con mutaciones - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/noticias/comunicados-de-prensa/2015/nci-match",
+			"contentType": "cgvPressRelease",
+			"description": "Los investigadores del estudio a nivel nacional NCI-MATCH: Análisis molecular para la elección de tratamientos, anunciaron que el estudio busca determinar la eficacia de los tratamientos dirigidos en personas con tumores que presentan mutaciones genéticas específicas independientemente de su tipo de cáncer."
+		},
+		{
+			"title": "Toxicidad financiera del tratamiento del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/manejo-del-cancer/costos/toxicidad-financiera-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del riesgo de sufrir dificultades financieras durante el tratamiento del cáncer."
+		},
+		{
+			"title": "Etapa final de la vida (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/cancer-avanzado/cuidadores/planificacion/etapa-final-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Sumario informativo revisado por expertos sobre el tratamiento y la atención del paciente de cáncer desde los últimos días hasta las últimas horas de vida; esto incluye los síntomas comunes, los dilemas éticos que pueden surgir y la función que desempeña el oncólogo en proveer cuidados al paciente y su familia durante este período."
+		},
+		{
+			"title": "El dolor y el cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/dolor/dolor-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del dolor como una complicación del cáncer o su tratamiento. Se  tratan abordajes para el control y el tratamiento del dolor relacionado con el cáncer."
+		},
+		{
+			"title": "Depresión (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/sobrellevar/sentimientos/depresion-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del diagnóstico, evaluación y tratamiento de la depresión en adultos y niños que padecen de cáncer."
+		},
+		{
+			"title": "Náuseas y vómitos relacionados con el tratamiento del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/nauseas/nauseas-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de las náuseas y vómitos como complicaciones del cáncer o su tratamiento. Se plantean abordajes  de tratamiento de las náuseas y vómitos."
+		},
+		{
+			"title": "La nutrición en el tratamiento del cáncer (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/perdida-apetito/nutricion-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de las causas y tratamiento de los problemas de nutrición que se presentan en pacientes de cáncer."
+		},
+		{
+			"title": "Delirium (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/memoria/delirium-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del delirium como una complicación del cáncer o su tratamiento.  Se describen enfoques de los  cuidados médicos de apoyo y los abordajes farmacológicos para el manejo del delirium."
+		},
+		{
+			"title": "Fatiga (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/fatiga/fatiga-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de la fatiga, una afección caracterizada por extremo cansancio e incapacidad para funcionar por la falta de energía, que a menudo se observa como una complicación del cáncer y su tratamiento."
+		},
+		{
+			"title": "Toxicidad financiera del tratamiento del cáncer (PDQ®)–Versión para profesionales de salud - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/manejo-del-cancer/costos/toxicidad-financiera-pro-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del riesgo de sufrir dificultades financieras durante el tratamiento del cáncer."
+		},
+		{
+			"title": "Sofocos y sudores nocturnos (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/sexualidad-mujeres/sofocos-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de las causas y el tratamiento de  los sofocos y sudores nocturnos en los pacientes de cáncer."
+		},
+		{
+			"title": "Deterioro cognitivo en adultos con cánceres fuera del sistema nervioso central (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/efectos-secundarios/memoria/deterioro-cognitivo-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca del deterioro cognitivo en pacientes de cáncer en relación con el funcionamiento cognitivo normal y las intervenciones para tratar los cambios cognitivos."
+		},
+		{
+			"title": "Coenzima Q10 (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/mca/paciente/coenzima-q10-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre el uso de la conzima Q10 como tratamiento para las personas con cáncer."
+		},
+		{
+			"title": "Adaptación al cáncer: Ansiedad y sufrimiento (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/sobrellevar/sentimientos/ansiedad-sufrimiento-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos acerca de las difíciles respuestas emocionales que se presentan en muchos de los pacientes con cáncer. Este sumario se enfoca en asuntos de la adaptación normal, alteración psicosocial y trastornos de adaptación."
+		},
+		{
+			"title": "Cáncer de próstata, nutrición y suplementos alimentarios (PDQ®)–Versión para pacientes - Instituto Nacional del Cáncer",
+			"url": "https://www.cancer.gov/espanol/cancer/tratamiento/mca/paciente/prostata-suplementos-pdq",
+			"contentType": "pdqCancerInfoSummary",
+			"description": "Resumen de información revisada por expertos sobre el uso de la nutrición y  los suplementos alimentarios para disminuir el riesgo de presentar cáncer de próstata o como tratamiento  del mismo."
+		}
+	],
+	"totalResults": 1337
+}

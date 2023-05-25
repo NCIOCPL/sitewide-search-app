@@ -40,9 +40,9 @@ describe('buildAxiosRequest', () => {
 			expect(status).toEqual(200);
 			scope.done();
 		});
-	});*/
+	});
 
-	/*test('200 response for a valid axios request with no headers', async () => {
+	test('200 response for a valid axios request with no headers', async () => {
 		const endpoint = `/Terms/expand/Cancer.gov/Patient/en/A`;
 		const query = '?size=10000';
 		const init = `${baseURL}${endpoint}${query}`;
@@ -57,7 +57,7 @@ describe('buildAxiosRequest', () => {
 		});
 	});*/
 
-	/*test('200 response on an expand axios request for a character with no results', async () => {
+	test('200 response on an expand axios request for a character with no results', async () => {
 		const endpoint = `/Terms/expand/Cancer.gov/Patient/en/undefined`;
 		const query = '?size=10000';
 		const init = `${baseURL}${endpoint}${query}`;
@@ -78,7 +78,7 @@ describe('buildAxiosRequest', () => {
 			expect(JSON.parse(_bodyText)).toMatchObject(expectedResponseBody);
 			scope.done();
 		});
-	});*/
+	});
 
 	test('404 response for an invalid axios request', async () => {
 		const endpoint = `/chicken/`;

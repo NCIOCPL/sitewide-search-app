@@ -1,125 +1,125 @@
 {
 	"results": [
-	  {
-		"title": "M10-Ch.2",
-		"url": "https://cancercontrol.cancer.gov/brp/tcrb/monographs/10/m10_2.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "nullCTPR 2005",
-		"url": "https://progressreport.cancer.gov/sites/default/files/archive/report2005.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Incidence & Mortality by Race/Ethnicity, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/topic_race_ethnicity.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Abramson Cancer Center of the University of Pennsylvania Institutional Data and Safety Monitoring Plan (DSMP)",
-		"url": "https://cancercenters.cancer.gov/Documents/AbramsonDSMP508C.pdf",
-		"contentType": null,
-		"description": "Abramson Cancer Center of the University of Pennsylvania Institutional Data and Safety Abramson Cancer Center of the University of Pennsylvania Institutional Data and Safety Monitoring Plan (DSMP)"
-	  },
-	  {
-		"title": "Brain and Other Nervous System Cancer, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_03_brain_ons.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Hodgkin Lymphoma, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_09_hodgkins.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Liver and Intrahepatic Bile Duct Cancer, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_14_liver_bile.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Myeloma, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_18_myeloma.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "08-0046 DCCPS AR.FINAL3",
-		"url": "https://progressreport.cancer.gov/sites/default/files/archive/report2001.PDF",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Monograph 19: The Role of the Media in Promoting and Reducing Tobacco Use",
-		"url": "https://cancercontrol.cancer.gov/brp/tcrb/monographs/19/m19_8.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Larynx Cancer, 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_12_larynx.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Melanoma of the Skin, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_16_melanoma_skin.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Cancer of the Oral Cavity and Pharynx, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_20_oral_cavity_pharynx.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "D:\\CAPIDO00\\CRQ\\QCANCER00.wpd",
-		"url": "https://epi.grants.cancer.gov/diet/shortreg/instruments/multifactor-screener-in-nhis-2000-interviewer-administered-version.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "All Cancer Sites, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_02_all_sites.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Kidney and Renal Pelvis Cancer, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_11_kidney_pelvis.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Urinary Bladder Cancer, CSR 1975-2017",
-		"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_27_urinary_bladder.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "Monograph 22. A Socioecological Approach to Addressing Tobacco-Related Health Disparities",
-		"url": "https://cancercontrol.cancer.gov/brp/tcrb/monographs/22/docs/m22_4.pdf",
-		"contentType": null,
-		"description": "Chapter 4. Flavored Tobacco and Chemosensory Processes"
-	  },
-	  {
-		"title": "M5-Foreword",
-		"url": "https://cancercontrol.cancer.gov/brp/tcrb/monographs/5/m5_complete.pdf",
-		"contentType": null,
-		"description": null
-	  },
-	  {
-		"title": "2015 Spanish NHIS Sample Adult Cancer Questionnaire",
-		"url": "https://epi.grants.cancer.gov/diet/shortreg/instruments/dsq-in-nhis-ccs-2015-spanish-version.pdf",
-		"contentType": null,
-		"description": null
-	  }
+		{
+			"title": "M10-Ch.2",
+			"url": "https://cancercontrol.cancer.gov/brp/tcrb/monographs/10/m10_2.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "nullCTPR 2005",
+			"url": "https://progressreport.cancer.gov/sites/default/files/archive/report2005.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Incidence & Mortality by Race/Ethnicity, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/topic_race_ethnicity.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Abramson Cancer Center of the University of Pennsylvania Institutional Data and Safety Monitoring Plan (DSMP)",
+			"url": "https://cancercenters.cancer.gov/Documents/AbramsonDSMP508C.pdf",
+			"contentType": null,
+			"description": "Abramson Cancer Center of the University of Pennsylvania Institutional Data and Safety Abramson Cancer Center of the University of Pennsylvania Institutional Data and Safety Monitoring Plan (DSMP)"
+		},
+		{
+			"title": "Brain and Other Nervous System Cancer, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_03_brain_ons.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Hodgkin Lymphoma, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_09_hodgkins.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Liver and Intrahepatic Bile Duct Cancer, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_14_liver_bile.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Myeloma, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_18_myeloma.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "08-0046 DCCPS AR.FINAL3",
+			"url": "https://progressreport.cancer.gov/sites/default/files/archive/report2001.PDF",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Monograph 19: The Role of the Media in Promoting and Reducing Tobacco Use",
+			"url": "https://cancercontrol.cancer.gov/brp/tcrb/monographs/19/m19_8.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Larynx Cancer, 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_12_larynx.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Melanoma of the Skin, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_16_melanoma_skin.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Cancer of the Oral Cavity and Pharynx, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_20_oral_cavity_pharynx.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "D:\\CAPIDO00\\CRQ\\QCANCER00.wpd",
+			"url": "https://epi.grants.cancer.gov/diet/shortreg/instruments/multifactor-screener-in-nhis-2000-interviewer-administered-version.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "All Cancer Sites, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_02_all_sites.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Kidney and Renal Pelvis Cancer, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_11_kidney_pelvis.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Urinary Bladder Cancer, CSR 1975-2017",
+			"url": "https://seer.cancer.gov/csr/1975_2017/results_merged/sect_27_urinary_bladder.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "Monograph 22. A Socioecological Approach to Addressing Tobacco-Related Health Disparities",
+			"url": "https://cancercontrol.cancer.gov/brp/tcrb/monographs/22/docs/m22_4.pdf",
+			"contentType": null,
+			"description": "Chapter 4. Flavored Tobacco and Chemosensory Processes"
+		},
+		{
+			"title": "M5-Foreword",
+			"url": "https://cancercontrol.cancer.gov/brp/tcrb/monographs/5/m5_complete.pdf",
+			"contentType": null,
+			"description": null
+		},
+		{
+			"title": "2015 Spanish NHIS Sample Adult Cancer Questionnaire",
+			"url": "https://epi.grants.cancer.gov/diet/shortreg/instruments/dsq-in-nhis-ccs-2015-spanish-version.pdf",
+			"contentType": null,
+			"description": null
+		}
 	],
 	"totalResults": 11581
-  }
+}

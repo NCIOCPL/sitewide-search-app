@@ -1,11 +1,9 @@
 /// <reference types="Cypress" />
 
-import { And, Given, Then } from 'cypress-cucumber-preprocessor/steps';
+import { And, Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
 
 import { testIds } from '../../../src/constants';
 import { i18n } from '../../../src/utils';
-
-const baseURL = Cypress.config('baseUrl');
 
 Then('page title is {string}', (title) => {
 	cy.get('h1').should('contain', title);
@@ -16,7 +14,7 @@ Then('the page title is {string}', (title) => {
 });
 
 Then('page title on error page is {string}', (title) => {
-	Cypress.on('uncaught:exception', (err, runnable) => {
+	Cypress.on('uncaught:exception', () => {
 		// returning false here to Cypress from
 		// failing the test
 		return false;
@@ -147,7 +145,7 @@ And(
 	}
 );
 
-And('the user clicks the {string} link', (moreInfo) => {
+And('the user clicks the {string} link', () => {
 	cy.get('div.definition p a').trigger('click', { followRedirect: false });
 });
 
@@ -182,7 +180,7 @@ Given('screen breakpoint is set to {string}', (screenSize) => {
     ----------------------------------------
 */
 Then('the user gets an error page that reads {string}', (errorMessage) => {
-	Cypress.on('uncaught:exception', (err, runnable) => {
+	Cypress.on('uncaught:exception', () => {
 		// returning false here to Cypress from
 		// failing the test
 		return false;
@@ -280,7 +278,8 @@ And('each result item displays the full URL of an item', () => {
 
 And('number {int} result item displays {string} label', (itemNumber, label) => {
 	cy.get('.result__list-item')
-		.eq(itemNumber - 1).find('.result__type')
+		.eq(itemNumber - 1)
+		.find('.result__type')
 		.invoke('text')
 		.should('include', label);
 });
@@ -417,8 +416,8 @@ And('no pager is shown', () => {
 	cy.get('.pager__container').should('not.exist');
 });
 
-
-And('both pagers display numbers {string} and {string}, followed by {string}, {string}, {string} and {string} for screen readers',
+And(
+	'both pagers display numbers {string} and {string}, followed by {string}, {string}, {string} and {string} for screen readers',
 	(step, a, divider, b, c, sr) => {
 		// using test ids to check top and bottom pagers exist and contain the starting point
 		cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should(
@@ -429,11 +428,12 @@ And('both pagers display numbers {string} and {string}, followed by {string}, {s
 			'contain.text',
 			`${step}${a}${sr}${divider}${b}${sr}${c}${sr}`
 		);
+	}
+);
 
-	});
-
-And('user clicks {string} and displays {string}, {string}, {string}, {string}, {string}, {string} and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers'
-	, (step, pr, a, b, c, d, e, f, g, currPage, sr) => {
+And(
+	'user clicks {string} and displays {string}, {string}, {string}, {string}, {string}, {string} and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers',
+	(step, pr, a, b, c, d, e, f, g, currPage, sr) => {
 		if (step === 'Next' || step === 'Siguiente') {
 			cy.get('.pager__next').first().click();
 		} else {
@@ -444,7 +444,8 @@ And('user clicks {string} and displays {string}, {string}, {string}, {string}, {
 			`${pr}${a}${sr}${b}${sr}${c}${sr}${d}${sr}${e}${sr}${f}${sr}${g}`
 		);
 		cy.get('.active').should('contain.text', `${currPage}`);
-	});
+	}
+);
 /*
     -----------------------
         Best Bets
