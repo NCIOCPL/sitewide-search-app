@@ -56,6 +56,29 @@ const getDictionaryResults = async (req, res, next) => {
  * @param {Function} next
  */
 const getSearchResults = async (req, res, next) => {
+	const site = req.query.site;
+
+	if (typeof site === 'string' || site instanceof String) {
+		return await getSingleSiteResult(req, res, next);
+	} else if (site instanceof Array) {
+		return await getMultipleSiteResult(req, res, next);
+	} else {
+		const err = {
+			code: 'ENOENT',
+			message:
+				'The site parameter must be either a string or an array of strings.',
+		};
+		return await res.send(mockNoResultsAPI(err));
+	}
+};
+
+/**
+ * getSingleSiteResult - implementation for getting sitewide search results for a single site.
+ * @param {Express.Request} req
+ * @param {Express.Response} res
+ * @param {Function} next
+ */
+const getSingleSiteResult = async (req, res, next) => {
 	const {
 		params: { collection, language, term },
 		query: {
@@ -66,24 +89,62 @@ const getSearchResults = async (req, res, next) => {
 		},
 	} = req;
 
-	const mockDir = path.join(
-		__dirname,
-		'..',
-		'mock-data',
-		'Search',
-		collection,
-		language,
-		site
-	);
-	try {
-		const mockFile = path.join(mockDir, `${term}_${from}-${size}.json`);
-		await readFileAsync(mockFile);
-		res.sendFile(mockFile);
-	} catch (err) {
-		console.error(err);
-		res.send(mockNoResultsAPI(err));
-	}
+		const mockDir = path.join(
+			__dirname,
+			'..',
+			'mock-data',
+			'Search',
+			collection,
+			language,
+			site
+		);
+		try {
+			const mockFile = path.join(mockDir, `${term}_${from}-${size}.json`);
+			await readFileAsync(mockFile);
+			res.sendFile(mockFile);
+		} catch (err) {
+			console.error(err);
+			res.send(mockNoResultsAPI(err));
+		}
 };
+
+/**
+ * getMultipleSiteResult - implementation for getting sitewide search results for an array of sites.
+ * @param {Express.Request} req
+ * @param {Express.Response} res
+ * @param {Function} next
+ */
+const getMultipleSiteResult = async (req, res, next) => {
+	const {
+		params: { collection, language, term },
+		query: {
+			from,
+			size,
+			// This is for a microsite, we filter the host and path.
+			site,
+		},
+	} = req;
+
+		const mockDir = path.join(
+			__dirname,
+			'..',
+			'mock-data',
+			'Search',
+			collection,
+			language,
+			'multisite'
+		);
+		try {
+			const siteCount = site.length;
+			const mockFile = path.join(mockDir, `${siteCount}_${term}_${from}-${size}.json`);
+			await readFileAsync(mockFile);
+			res.sendFile(mockFile);
+		} catch (err) {
+			console.error(err);
+			res.send(mockNoResultsAPI(err));
+		}
+};
+
 
 /**
  * Middleware for getting a Term object by ID or Pretty Url Name field.

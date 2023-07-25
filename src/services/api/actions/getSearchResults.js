@@ -14,6 +14,6 @@ export const getSearchResults = ({ unit = 20, keyword, currentPage = 1 }) => {
 		method: 'GET',
 		endpoint: `{{API_HOST}}/Search/{{COLLECTION}}/{{LANGUAGE}}/${encodeURIComponent(
 			keyword
-		)}?size=${unit}&from=${computedIndex}&site={{SITE_FILTER}}`,
+		)}?size=${unit}&from=${computedIndex}&{{SITE_FILTER_PARAMS}}`,
 	};
 };

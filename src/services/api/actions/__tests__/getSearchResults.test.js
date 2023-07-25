@@ -19,7 +19,7 @@ describe('getSearchResults action', () => {
 			method: 'GET',
 			endpoint: `{{API_HOST}}/Search/{{COLLECTION}}/{{LANGUAGE}}/${encodeURI(
 				keyword
-			)}?size=20&from=0&site={{SITE_FILTER}}`,
+			)}?size=20&from=0&{{SITE_FILTER_PARAMS}}`,
 		};
 		expect(getSearchResults({ keyword })).toEqual(retAction);
 	});
@@ -31,7 +31,7 @@ describe('getSearchResults action', () => {
 			method: 'GET',
 			endpoint: `{{API_HOST}}/Search/{{COLLECTION}}/{{LANGUAGE}}/${encodeURI(
 				keyword
-			)}?size=10&from=20&site={{SITE_FILTER}}`,
+			)}?size=10&from=20&{{SITE_FILTER_PARAMS}}`,
 		};
 		expect(getSearchResults({ keyword, unit: 10, currentPage: 3 })).toEqual(
 			retAction
