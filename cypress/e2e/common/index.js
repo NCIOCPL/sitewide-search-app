@@ -43,7 +43,18 @@ Given('{string} is set to {string}', (key, param) => {
 	cy.on('window:before:load', (win) => {
 		if (param === 'null') {
 			win.INT_TEST_APP_PARAMS[key] = null;
-		} else win.INT_TEST_APP_PARAMS[key] = param;
+		} else if (key === 'searchSiteFilter') {
+			if (param.includes(',')) {
+				// treat as passing multiple values.
+				win.INT_TEST_APP_PARAMS[key] = param.split(',');
+			}
+			// treat as single (scalar) value.
+			else {
+				win.INT_TEST_APP_PARAMS[key] = param;
+			}
+		} else {
+			win.INT_TEST_APP_PARAMS[key] = param;
+		}
 	});
 });
 
@@ -288,6 +299,20 @@ And('the user clicks on the second result', () => {
 	cy.get('.results__container li a')
 		.eq(1)
 		.trigger('click', { followRedirect: false });
+});
+
+And('the results include {int} items from {string}', (count, site) => {
+	let found = 0;
+	cy.get('.result__list-item')
+		.each(($el) => {
+			const href = $el.find('a').attr('href');
+			if (href.startsWith(site)) {
+				found++;
+			}
+		})
+		.should(() => {
+			expect(found).to.eq(count);
+		});
 });
 
 /*
