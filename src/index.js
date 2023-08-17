@@ -112,12 +112,25 @@ const initialize = ({
 		children: PropTypes.node,
 	};
 
+	// Convert the site filter list into query string parameters for the request interceptor.
+	if (
+		typeof searchSiteFilter === 'string' ||
+		searchSiteFilter instanceof String
+	) {
+		searchSiteFilter = new Array(searchSiteFilter);
+	} else if (!Array.isArray(searchSiteFilter)) {
+		throw 'App initialize parammeter searchSiteFilter must be either a string or an array of strings.';
+	}
+	const searchSiteFilterParams = searchSiteFilter
+		.map((site) => 'site=' + encodeURIComponent(site))
+		.join('&');
+
 	// Setup requestInterceptors for RTL client.
 	const requestInterceptors = [
 		replacingRequestInterceptor('sitewide-search-api', {
 			COLLECTION: searchCollection,
 			API_HOST: cleanURI(searchEndpoint),
-			SITE_FILTER: searchSiteFilter,
+			SITE_FILTER_PARAMS: searchSiteFilterParams,
 			LANGUAGE: language,
 		}),
 		bestbetsEndpoint !== null

@@ -166,6 +166,26 @@
 					siteName: 'National Cancer Institute',
 					title: 'NCI-Connect Resultados',
 				},
+				{
+					analyticsChannel: 'Search',
+					analyticsHandler: 'EddlAnalyticsHandler',
+					analyticsPublishedDate: 'unknown',
+					apiBaseEndpoint: 'https://webapis.cancer.gov/',
+					appId: '@@/DEFAULT_SWS_APP_ID',
+					baseHost: 'http://localhost:3000',
+					basePath: '/',
+					bestbetsEndpoint: null,
+					canonicalHost: 'https://www.cancer.gov',
+					dropdownOptions: [20, 50],
+					glossaryEndpoint: null,
+					language: 'en',
+					rootId: 'NCI-app-root',
+					searchEndpoint: 'https://webapis.cancer.gov/sitewidesearch/v1/',
+					searchCollection: 'doc',
+					searchSiteFilter: ["cancercontrol.cancer.gov","staffprofiles.cancer.gov/brp/prgmStaffHome.do","staffprofiles-sg.cancer.gov/brp/granteeList.do","grantees-cancercontrol.cancer.gov/od/investigatorList.do","maps.cancer.gov/overview/index.jsp","maps.cancer.gov/overview/map/index.jsp","epi.grants.cancer.gov","surveillance.cancer.gov","healthcaredelivery.cancer.gov"],
+					siteName: 'Division of Cancer Control and Population Sciences (DCCPS)',
+					title: 'DCCPS Search Results',
+				},
 			];
 
 			window.APP_PARAMS = cfgs[configIndex];
@@ -204,6 +224,7 @@
 				<option value="2">DCEG</option>
 				<option value="3">NCI-Connect</option>
 				<option value="4">NCI-Connect (Spanish)</option>
+				<option value="5">DCCPS Search Results</option>
 			</select>
 		</div>
 		<script type="text/javascript">
