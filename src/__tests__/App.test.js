@@ -1,5 +1,4 @@
 import { act, cleanup, render } from '@testing-library/react';
-import axios from 'axios';
 import nock from 'nock';
 import React from 'react';
 import { ClientContextProvider } from 'react-fetching-library';
@@ -12,8 +11,6 @@ import { MockAnalyticsProvider } from '../tracking';
 import Home from '../views/Home';
 
 jest.mock('../store/store.js');
-
-axios.defaults.adapter = require('axios/lib/adapters/http');
 
 describe('App component', () => {
 	let location;
