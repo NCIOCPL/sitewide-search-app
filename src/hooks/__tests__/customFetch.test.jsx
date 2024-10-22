@@ -1,4 +1,4 @@
-import { act, cleanup, render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { ClientContextProvider } from 'react-fetching-library';
 
@@ -10,7 +10,7 @@ import { i18n } from '../../utils';
 
 jest.mock('../../store/store');
 
-describe('', () => {
+describe('UseCustomQuery error handling', () => {
 	beforeEach(() => {
 		jest.spyOn(console, 'error');
 		console.error.mockImplementation(() => {});
@@ -18,10 +18,9 @@ describe('', () => {
 
 	afterEach(() => {
 		console.error.mockRestore();
-		cleanup();
 	});
 
-	test('should throw an error using a non existent endpoint - English message', async () => {
+	it('should throw an error using a non existent endpoint - English message', async () => {
 		const basePath = '/';
 		const canonicalHost = 'https://www.example.gov';
 		const language = 'en';
@@ -43,23 +42,22 @@ describe('', () => {
 			}),
 		};
 
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<ClientContextProvider client={client}>
-						<ErrorBoundary>
-							<UseCustomQuerySample />
-						</ErrorBoundary>
-					</ClientContextProvider>
-				</MockAnalyticsProvider>
-			);
+		render(
+			<MockAnalyticsProvider>
+				<ClientContextProvider client={client}>
+					<ErrorBoundary>
+						<UseCustomQuerySample />
+					</ErrorBoundary>
+				</ClientContextProvider>
+			</MockAnalyticsProvider>
+		);
+
+		await waitFor(() => {
+			expect(screen.getByText('An error occurred. Please try again later.')).toBeInTheDocument();
 		});
-		expect(
-			screen.getByText('An error occurred. Please try again later.')
-		).toBeInTheDocument();
 	});
 
-	test('should throw an error using a non existent endpoint - Spanish message', async () => {
+	it('should throw an error using a non existent endpoint - Spanish message', async () => {
 		const basePath = '/';
 		const canonicalHost = 'https://www.example.gov';
 		const language = 'es';
@@ -81,25 +79,22 @@ describe('', () => {
 			}),
 		};
 
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<ClientContextProvider client={client}>
-						<ErrorBoundary>
-							<UseCustomQuerySample />
-						</ErrorBoundary>
-					</ClientContextProvider>
-				</MockAnalyticsProvider>
-			);
+		render(
+			<MockAnalyticsProvider>
+				<ClientContextProvider client={client}>
+					<ErrorBoundary>
+						<UseCustomQuerySample />
+					</ErrorBoundary>
+				</ClientContextProvider>
+			</MockAnalyticsProvider>
+		);
+
+		await waitFor(() => {
+			expect(screen.getByText('Se produjo un error. Por favor, vuelva a intentar más tarde.')).toBeInTheDocument();
 		});
-		expect(
-			screen.getByText(
-				'Se produjo un error. Por favor, vuelva a intentar más tarde.'
-			)
-		).toBeInTheDocument();
 	});
 
-	test('useCustomQuery example should throw error - Spanish message', async () => {
+	it('useCustomQuery example should throw error - Spanish message', async () => {
 		const basePath = '/';
 		const canonicalHost = 'https://www.example.gov';
 		const dictionaryAudience = 'Patient';
@@ -123,6 +118,7 @@ describe('', () => {
 				searchSiteFilter: 'all',
 			},
 		]);
+
 		const client = {
 			query: async () => ({
 				error: true,
@@ -130,21 +126,23 @@ describe('', () => {
 				payload: {},
 			}),
 		};
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<ClientContextProvider client={client}>
-						<ErrorBoundary>
-							<UseCustomQuerySample />
-						</ErrorBoundary>
-					</ClientContextProvider>
-				</MockAnalyticsProvider>
-			);
+
+		render(
+			<MockAnalyticsProvider>
+				<ClientContextProvider client={client}>
+					<ErrorBoundary>
+						<UseCustomQuerySample />
+					</ErrorBoundary>
+				</ClientContextProvider>
+			</MockAnalyticsProvider>
+		);
+
+		await waitFor(() => {
+			expect(screen.getByText(i18n.errorPageText[language])).toBeInTheDocument();
 		});
-		expect(screen.getByText(i18n.errorPageText[language])).toBeInTheDocument();
 	});
 
-	test('useCustomQuery example should display content and not throw error', async () => {
+	it('useCustomQuery example should display content and not throw error', async () => {
 		const contentMessage = 'Successful API call with content';
 		const dictionaryAudience = 'Patient';
 		const dictionaryName = 'Cancer.gov';
@@ -173,17 +171,19 @@ describe('', () => {
 				payload: { contentMessage },
 			}),
 		};
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<ClientContextProvider client={client}>
-						<ErrorBoundary>
-							<UseCustomQuerySample />
-						</ErrorBoundary>
-					</ClientContextProvider>
-				</MockAnalyticsProvider>
-			);
+
+		render(
+			<MockAnalyticsProvider>
+				<ClientContextProvider client={client}>
+					<ErrorBoundary>
+						<UseCustomQuerySample />
+					</ErrorBoundary>
+				</ClientContextProvider>
+			</MockAnalyticsProvider>
+		);
+
+		await waitFor(() => {
+			expect(screen.getByText(contentMessage)).toBeInTheDocument();
 		});
-		expect(screen.getByText(contentMessage)).toBeInTheDocument();
 	});
 });

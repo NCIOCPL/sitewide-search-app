@@ -9,8 +9,6 @@ export const getDictionaryResults = ({ keyword }) => {
 	return {
 		interceptorName: 'glossary-api',
 		method: 'GET',
-		endpoint: `{{API_HOST}}/Terms/search/{{DICTIONARY_NAME}}/{{AUDIENCE}}/{{LANGUAGE}}/${encodeURIComponent(
-			keyword
-		)}${queryString}`,
+		endpoint: `{{API_HOST}}/Terms/search/{{DICTIONARY_NAME}}/{{AUDIENCE}}/{{LANGUAGE}}/${encodeURIComponent(keyword)}${queryString}`,
 	};
 };

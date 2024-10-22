@@ -1,7 +1,7 @@
 import { useAppPaths } from '../routing';
 
-import { useStateValue } from '../../store/store.js';
-jest.mock('../../store/store.js');
+import { useStateValue } from '../../store/store.jsx';
+jest.mock('../../store/store.jsx');
 
 describe('when base path is slash', () => {
 	useStateValue.mockReturnValue([
@@ -12,11 +12,11 @@ describe('when base path is slash', () => {
 
 	it('will produce paths without params', () => {
 		const { HomePath } = useAppPaths();
-		expect(HomePath()).toEqual('/');
+		expect(HomePath()).toBe('/');
 	});
 
 	it('will replace paths with params', () => {
 		const { HomePath } = useAppPaths();
-		expect(HomePath({ foo: 'bar' })).toEqual('/');
+		expect(HomePath({ foo: 'bar' })).toBe('/');
 	});
 });
