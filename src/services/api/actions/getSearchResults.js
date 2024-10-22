@@ -12,8 +12,6 @@ export const getSearchResults = ({ unit = 20, keyword, currentPage = 1 }) => {
 	return {
 		interceptorName: 'sitewide-search-api',
 		method: 'GET',
-		endpoint: `{{API_HOST}}/Search/{{COLLECTION}}/{{LANGUAGE}}/${encodeURIComponent(
-			keyword
-		)}?size=${unit}&from=${computedIndex}&{{SITE_FILTER_PARAMS}}`,
+		endpoint: `{{API_HOST}}/Search/{{COLLECTION}}/{{LANGUAGE}}/${encodeURIComponent(keyword)}?size=${unit}&from=${computedIndex}&{{SITE_FILTER_PARAMS}}`,
 	};
 };

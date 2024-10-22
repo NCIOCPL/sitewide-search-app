@@ -1,34 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useTracking } from 'react-tracking';
 
-import {
-	BestBet,
-	Definition,
-	NoResults,
-	SearchResultsList,
-	Spinner,
-} from '../../components';
+import { BestBet, Definition, NoResults, SearchResultsList, Spinner } from '../../components';
 import { useCustomQuery, useURLQuery } from '../../hooks';
-import {
-	getBestBetResults,
-	getDictionaryResults,
-	getSearchResults,
-} from '../../services/api/actions';
+import { getBestBetResults, getDictionaryResults, getSearchResults } from '../../services/api/actions';
 import { useStateValue } from '../../store/store';
 import { i18n } from '../../utils';
 
 const Home = () => {
 	const urlQuery = useURLQuery();
-	const [
-		{
-			canonicalHost,
-			isBestBetsConfigured,
-			isDictionaryConfigured,
-			language,
-			siteName,
-			title,
-		},
-	] = useStateValue();
+	const [{ canonicalHost, isBestBetsConfigured, isDictionaryConfigured, language, siteName, title }] = useStateValue();
 	const [doneLoading, setDoneLoading] = useState(false);
 	const [bestBetResultsLoaded, setBestBetResultsLoaded] = useState(false);
 	const [dictionaryResultsLoaded, setDictionaryResultsLoaded] = useState(false);
@@ -47,35 +28,21 @@ const Home = () => {
 
 	// Only display Definition component if isDictionaryConfigured is true
 	// and no results returned
-	const showDefinition =
-		isDictionaryConfigured && stateDefinitionResult?.results?.length > 0;
+	const showDefinition = isDictionaryConfigured && stateDefinitionResult?.results?.length > 0;
 
 	const tracking = useTracking();
 	// Fetch dictionary results only when
 	// glossaryEndpoint is not null
 	// and keyword is provided
-	const dictionaryResults = useCustomQuery(
-		getDictionaryResults({ keyword }),
-		isDictionaryConfigured && !!keyword && isFirstPage
-	);
+	const dictionaryResults = useCustomQuery(getDictionaryResults({ keyword }), isDictionaryConfigured && !!keyword && isFirstPage);
 
-	const searchResults = useCustomQuery(
-		getSearchResults({ language, keyword, currentPage, unit }),
-		!!keyword
-	);
+	const searchResults = useCustomQuery(getSearchResults({ language, keyword, currentPage, unit }), !!keyword);
 
-	const bestBetResults = useCustomQuery(
-		getBestBetResults({ keyword }),
-		isBestBetsConfigured && !!keyword && isFirstPage
-	);
+	const bestBetResults = useCustomQuery(getBestBetResults({ keyword }), isBestBetsConfigured && !!keyword && isFirstPage);
 
 	// Set hasResults should there be results returned for any search
 	// when a keyword has been provided
-	const hasResults =
-		!!keyword &&
-		(stateDefinitionResult?.results?.length > 0 ||
-			stateSearchResults?.result?.length > 0 ||
-			stateBestBetResult?.length > 0);
+	const hasResults = !!keyword && (stateDefinitionResult?.results?.length > 0 || stateSearchResults?.result?.length > 0 || stateBestBetResult?.length > 0);
 
 	useEffect(() => {
 		// If no keyword was provided set doneLoading to true and early exit
@@ -108,21 +75,10 @@ const Home = () => {
 			setBestBetResultsLoaded(true);
 		}
 
-		if (
-			bestBetResultsLoaded &&
-			dictionaryResultsLoaded &&
-			searchResultsLoaded
-		) {
+		if (bestBetResultsLoaded && dictionaryResultsLoaded && searchResultsLoaded) {
 			setDoneLoading(true);
 		}
-	}, [
-		bestBetResultsLoaded,
-		bestBetResults.payload,
-		dictionaryResultsLoaded,
-		dictionaryResults.payload,
-		searchResultsLoaded,
-		searchResults.payload,
-	]);
+	}, [bestBetResultsLoaded, bestBetResults.payload, dictionaryResultsLoaded, dictionaryResults.payload, searchResultsLoaded, searchResults.payload]);
 
 	useEffect(() => {
 		// Tracking should only be fired when all
@@ -131,9 +87,7 @@ const Home = () => {
 			tracking.trackEvent({
 				event: 'SiteWideSearchApp:Load:Results',
 				metaTitle: `${title} - ${siteName}`,
-				name:
-					canonicalHost.replace(/https:\/\/|http:\/\//, '') +
-					window.location.pathname,
+				name: canonicalHost.replace(/https:\/\/|http:\/\//, '') + window.location.pathname,
 				numberResults: searchResults?.payload?.totalResults || 0,
 				pageNum: current || 1,
 				itemsPerPage: pageunit || 20,
@@ -153,25 +107,12 @@ const Home = () => {
 				<div className="results">
 					<h3>{`${i18n.resultsFor[language]}: ${keyword}`}</h3>
 					{isFirstPage && (
-						<div
-							className={
-								showBestBet && showDefinition
-									? 'results__feature--bestbet--definition'
-									: 'results__feature'
-							}>
-							{showBestBet && (
-								<BestBet language={language} results={stateBestBetResult} />
-							)}
+						<div className={showBestBet && showDefinition ? 'results__feature--bestbet--definition' : 'results__feature'}>
+							{showBestBet && <BestBet language={language} results={stateBestBetResult} />}
 							{showDefinition && <Definition {...stateDefinitionResult} />}
 						</div>
 					)}
-					<SearchResultsList
-						keyword={keyword}
-						language={language}
-						currentPage={current}
-						results={stateSearchResults}
-						resultsPerPage={parseInt(pageunit, 10)}
-					/>
+					<SearchResultsList keyword={keyword} language={language} currentPage={current} results={stateSearchResults} resultsPerPage={parseInt(pageunit, 10)} />
 				</div>
 			) : (
 				doneLoading && <NoResults keyword={keyword} />

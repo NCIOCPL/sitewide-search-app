@@ -8,21 +8,12 @@ import { useTracking } from 'react-tracking';
 
 const Definition = ({ results }) => {
 	const payload = results[0];
-	const definitionSentencesArray =
-		payload && payload.definition
-			? splitSentencesToArray(payload.definition.html)
-			: '';
+	const definitionSentencesArray = payload && payload.definition ? splitSentencesToArray(payload.definition.html) : '';
 	const truncatedDefinition = definitionSentencesArray[0];
 	const [{ dictionaryUrl, language }] = useStateValue();
-	const [defToggleClassName, setDefToggleClassName] = useState(
-		'definition__show-full'
-	);
-	const [definitionContent, setDefinitionContent] = useState(
-		truncatedDefinition
-	);
-	const [definitionToggleText, setDefinitionToggleText] = useState(
-		i18n.showFullDefinition[language]
-	);
+	const [defToggleClassName, setDefToggleClassName] = useState('definition__show-full');
+	const [definitionContent, setDefinitionContent] = useState(truncatedDefinition);
+	const [definitionToggleText, setDefinitionToggleText] = useState(i18n.showFullDefinition[language]);
 	const tracking = useTracking();
 
 	const toggleClickHandler = (e) => {
@@ -47,8 +38,7 @@ const Definition = ({ results }) => {
 			linkName: 'glossifiedTerm',
 			glossaryTerm: payload.termName,
 			glossaryTermId: payload.termId,
-			isDefinitionExpanded:
-				defToggleClassName === 'definition__show-full' ? 'false' : 'true',
+			isDefinitionExpanded: defToggleClassName === 'definition__show-full' ? 'false' : 'true',
 		});
 		return true;
 	};
@@ -64,9 +54,7 @@ const Definition = ({ results }) => {
 					}}></div>
 				{(payload.relatedResources.length > 0 || payload.media.length > 0) && (
 					<p>
-						<a
-							href={`${dictionaryUrl}/def/${idOrPurl}`}
-							onClick={handleMoreInfoClick}>
+						<a href={`${dictionaryUrl}/def/${idOrPurl}`} onClick={handleMoreInfoClick}>
 							{i18n.moreInfoOnDictionaryPage[language]}
 						</a>
 					</p>
@@ -88,11 +76,7 @@ const Definition = ({ results }) => {
 			{payload && (
 				<div className="definition">
 					<h2>{`${i18n.definitionTitle[language]}:`}</h2>
-					<Pronunciation
-						lang={language}
-						pronunciationObj={payload.pronunciation}
-						term={payload.termName}
-					/>
+					<Pronunciation lang={language} pronunciationObj={payload.pronunciation} term={payload.termName} />
 					{payload.definition && renderTermDefinition()}
 				</div>
 			)}

@@ -12,10 +12,7 @@ import { AnalyticsProvider, EddlAnalyticsProvider } from './tracking';
 import * as serviceWorker from './serviceWorker';
 import { cleanURI, getProductTestBase } from './utils';
 import { ClientContextProvider } from 'react-fetching-library';
-import {
-	getAxiosClient,
-	replacingRequestInterceptor,
-} from './services/api/common';
+import { getAxiosClient, replacingRequestInterceptor } from './services/api/common';
 import ErrorBoundary from './views/ErrorBoundary';
 
 /**
@@ -64,10 +61,7 @@ const initialize = ({
 		glossaryEndpoint,
 		dropdownOptions,
 		isBestBetsConfigured: bestbetsEndpoint !== null && rest.bestbetsCollection,
-		isDictionaryConfigured:
-			glossaryEndpoint !== null &&
-			rest.dictionaryAudience &&
-			rest.dictionaryName,
+		isDictionaryConfigured: glossaryEndpoint !== null && rest.dictionaryAudience && rest.dictionaryName,
 		language,
 		searchCollection,
 		searchEndpoint,
@@ -82,10 +76,7 @@ const initialize = ({
 		throw 'App initialize parameter bestbetsCollection was provided without a bestbetsCollection value! Provide appropriate value to properly initialize the app.';
 	}
 
-	if (
-		glossaryEndpoint !== null &&
-		(!rest.dictionaryAudience || !rest.dictionaryName)
-	) {
+	if (glossaryEndpoint !== null && (!rest.dictionaryAudience || !rest.dictionaryName)) {
 		throw 'App initialize parameter glossaryEndpoint was provided without dictionaryAudience or dictionaryName values! Provide appropriate value(s) to properly initialize the app.';
 	}
 
@@ -95,17 +86,11 @@ const initialize = ({
 	// their own custom handler.
 	const AnalyticsHoC = ({ children }) =>
 		analyticsHandler === 'EddlAnalyticsHandler' ? (
-			<EddlAnalyticsProvider
-				pageLanguage={language === 'es' ? 'spanish' : 'english'}
-				pageChannel={analyticsChannel}
-				pageContentGroup={analyticsContentGroup}
-				publishedDate={analyticsPublishedDate}>
+			<EddlAnalyticsProvider pageLanguage={language === 'es' ? 'spanish' : 'english'} pageChannel={analyticsChannel} pageContentGroup={analyticsContentGroup} publishedDate={analyticsPublishedDate}>
 				{children}
 			</EddlAnalyticsProvider>
 		) : (
-			<AnalyticsProvider analyticsHandler={analyticsHandler}>
-				{children}
-			</AnalyticsProvider>
+			<AnalyticsProvider analyticsHandler={analyticsHandler}>{children}</AnalyticsProvider>
 		);
 
 	AnalyticsHoC.propTypes = {
@@ -113,17 +98,12 @@ const initialize = ({
 	};
 
 	// Convert the site filter list into query string parameters for the request interceptor.
-	if (
-		typeof searchSiteFilter === 'string' ||
-		searchSiteFilter instanceof String
-	) {
+	if (typeof searchSiteFilter === 'string' || searchSiteFilter instanceof String) {
 		searchSiteFilter = new Array(searchSiteFilter);
 	} else if (!Array.isArray(searchSiteFilter)) {
 		throw 'App initialize parammeter searchSiteFilter must be either a string or an array of strings.';
 	}
-	const searchSiteFilterParams = searchSiteFilter
-		.map((site) => 'site=' + encodeURIComponent(site))
-		.join('&');
+	const searchSiteFilterParams = searchSiteFilter.map((site) => 'site=' + encodeURIComponent(site)).join('&');
 
 	// Setup requestInterceptors for RTL client.
 	const requestInterceptors = [

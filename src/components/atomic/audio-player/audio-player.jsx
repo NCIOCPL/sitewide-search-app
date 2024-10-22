@@ -39,25 +39,13 @@ const AudioPlayer = ({ audioSrc, lang = 'en', tracking = () => {} }) => {
 		setPlaying(false);
 	};
 
-	const srText =
-		lang === 'es' ? 'escuchar la pronunciación' : 'Listen to pronunciation';
+	const srText = lang === 'es' ? 'escuchar la pronunciación' : 'Listen to pronunciation';
 
 	return (
 		<>
-			<audio
-				src={audioSrc}
-				ref={playerRef}
-				onEnded={trackEnded}
-				onPause={trackPaused}
-				preload="none"
-			/>
+			<audio src={audioSrc} ref={playerRef} onEnded={trackEnded} onPause={trackPaused} preload="none" />
 
-			<button
-				type="button"
-				className={`btnAudio ${playing ? 'playing' : ''}${
-					paused ? 'paused' : ''
-				}${hasError ? 'error' : ''}`}
-				onClick={handlePlay}>
+			<button type="button" className={`btnAudio ${playing ? 'playing' : ''}${paused ? 'paused' : ''}${hasError ? 'error' : ''}`} onClick={handlePlay}>
 				<span className="show-for-sr">{srText}</span>
 			</button>
 		</>

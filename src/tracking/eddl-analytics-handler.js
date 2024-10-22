@@ -43,19 +43,7 @@ const EddlAnalyticsHandler = (window) => {
 				break;
 			}
 			case 'PageLoad': {
-				const {
-					type,
-					event,
-					name,
-					title,
-					metaTitle,
-					language,
-					audience,
-					channel,
-					contentGroup,
-					publishedDate,
-					...additionalDetails
-				} = payload;
+				const { type, event, name, title, metaTitle, language, audience, channel, contentGroup, publishedDate, ...additionalDetails } = payload;
 				// Validate analytics parameters here
 				// (name, language, title, metaTitle)
 				window.NCIDataLayer.push({

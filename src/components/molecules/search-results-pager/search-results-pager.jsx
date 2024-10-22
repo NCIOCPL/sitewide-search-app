@@ -4,14 +4,7 @@ import { i18n } from '../../../utils';
 import { useAppPaths, useURLQuery } from '../../../hooks';
 import './search-results-pager.scss';
 
-const SearchResultsPager = ({
-	current,
-	totalResults,
-	testid = 'tid-results-pager',
-	keyword,
-	resultsPerPage,
-	language = 'en',
-}) => {
+const SearchResultsPager = ({ current, totalResults, testid = 'tid-results-pager', keyword, resultsPerPage, language = 'en' }) => {
 	const { HomeWithQueryPath } = useAppPaths();
 	const urlQuery = useURLQuery();
 	const swKeywordKey = /swKeyword/i;
@@ -39,10 +32,7 @@ const SearchResultsPager = ({
 						<span className="show-for-sr">{i18n.goToPage[language]}</span>
 					</div>
 				)) || (
-					<a
-						href={HomeWithQueryPath({ query: linkPath })}
-						className={bstate}
-						aria-current={i === current}>
+					<a href={HomeWithQueryPath({ query: linkPath })} className={bstate} aria-current={i === current}>
 						{i}
 						<span className="show-for-sr">{i18n.goToPage[language]}</span>
 					</a>
@@ -71,9 +61,7 @@ const SearchResultsPager = ({
 		const links = [];
 		const decorator = (value) => {
 			return (
-				<li
-					key={`pager__ellipses-${value}`}
-					className={`pager__ellipses--${value}`}>
+				<li key={`pager__ellipses-${value}`} className={`pager__ellipses--${value}`}>
 					...
 				</li>
 			);
@@ -116,28 +104,18 @@ const SearchResultsPager = ({
 	// @param page: 					Actual page number
 	// @param pageunit: 			Number of items per page (I presume)
 	const ButtonIU = generateLinks();
-	const linkPathPrevious = getLinkPathPrevious(
-		current,
-		keyword,
-		resultsPerPage
-	);
+	const linkPathPrevious = getLinkPathPrevious(current, keyword, resultsPerPage);
 	const linkPathNext = getLinkPathNext(current, keyword, resultsPerPage);
 	const PgPrevious = (
 		<li key={'pager__button-previous'}>
-			<a
-				href={HomeWithQueryPath({ query: linkPathPrevious })}
-				className="pager__button pager__previous"
-				aria-label={`Goto previous, Page ${current - 1}`}>
+			<a href={HomeWithQueryPath({ query: linkPathPrevious })} className="pager__button pager__previous" aria-label={`Goto previous, Page ${current - 1}`}>
 				{`< ${i18n.previous[language]}`}
 			</a>
 		</li>
 	);
 	const PgNext = (
 		<li key={'pager__button-next'}>
-			<a
-				href={HomeWithQueryPath({ query: linkPathNext })}
-				className="pager__button pager__next"
-				aria-label={`Goto next, Page ${current + 1}`}>
+			<a href={HomeWithQueryPath({ query: linkPathNext })} className="pager__button pager__next" aria-label={`Goto next, Page ${current + 1}`}>
 				{`${i18n.next[language]} >`}
 			</a>
 		</li>
