@@ -78,20 +78,4 @@ describe('EddlAnalyticsHandler', () => {
 		});
 		expect(consoleError).toHaveBeenCalledTimes(2);
 	});
-
-	/*it('logs to the console when a debugging flag is true', () => {
-		const mockWindow = {
-			NCIDataLayer: [],
-		};
-		EddlAnalyticsHandler(mockWindow, true)({
-			type: 'Other',
-			event: 'TestOther',
-			name: 'pageName',
-			channel: 'channel',
-			audience: 'Patient',
-			additional1: '',
-			additional2: '',
-		});
-		expect(consoleLogger).toHaveBeenCalledTimes(1);
-	});*/
 });

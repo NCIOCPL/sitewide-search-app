@@ -15,22 +15,16 @@ const ResultsListItem = ({ result = {}, resultIndex, language = 'en' }) => {
 	// both options.
 	const test = /- National Cancer Institute|- Instituto Nacional del Cáncer$/i;
 	// Quick check to find empty title tags for documents
-	const sanitizedTitle =
-		!title || title.length < 1 ? 'Untitled ' : title.replace(test, '').trim();
+	const sanitizedTitle = !title || title.length < 1 ? 'Untitled ' : title.replace(test, '').trim();
 
-	const displayType =
-		contentType === 'cgvInfographic' || contentType === 'cgvVideo';
+	const displayType = contentType === 'cgvInfographic' || contentType === 'cgvVideo';
 	let decorator;
 	if (displayType) {
 		if (contentType === 'cgvInfographic') {
-			decorator = (
-				<span className="result__type"> ({i18n.infographic[language]})</span>
-			);
+			decorator = <span className="result__type"> ({i18n.infographic[language]})</span>;
 		}
 		if (contentType === 'cgvVideo') {
-			decorator = (
-				<span className="result__type"> ({i18n.video[language]})</span>
-			);
+			decorator = <span className="result__type"> ({i18n.video[language]})</span>;
 		}
 	}
 
@@ -46,10 +40,7 @@ const ResultsListItem = ({ result = {}, resultIndex, language = 'en' }) => {
 
 	return (
 		<li className="result__list-item">
-			<a
-				href={url}
-				className="result__link"
-				onClick={handleResultItemTitleClick}>
+			<a href={url} className="result__link" onClick={handleResultItemTitleClick}>
 				{sanitizedTitle}
 			</a>
 			{displayType && decorator}

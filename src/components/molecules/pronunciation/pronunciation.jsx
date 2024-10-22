@@ -15,9 +15,7 @@ const Pronunciation = ({ pronunciationObj, language = 'en', term }) => {
 					</div>
 				)}
 				{pronunciationObj?.key && (
-					<div
-						className="pronunciation__key"
-						data-testid={testIds.TERM_DEF_PRONUNCIATION}>
+					<div className="pronunciation__key" data-testid={testIds.TERM_DEF_PRONUNCIATION}>
 						{pronunciationObj.key}
 					</div>
 				)}

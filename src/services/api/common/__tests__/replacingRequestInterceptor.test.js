@@ -1,7 +1,7 @@
 import { replacingRequestInterceptor } from '../replacingRequestInterceptor';
 
 describe('replacingRequestInterceptor', () => {
-	test('transforms', async () => {
+	it('transforms', async () => {
 		const interceptor = replacingRequestInterceptor('sampleApi', {
 			API_ENDPOINT: 'https://api.example.org',
 		});
@@ -23,7 +23,7 @@ describe('replacingRequestInterceptor', () => {
 		expect(actual).toEqual(expected);
 	});
 
-	test('passed through', async () => {
+	it('passed through', async () => {
 		const interceptor = replacingRequestInterceptor('sampleApi', {
 			API_ENDPOINT: 'https://api.example.org',
 		});
