@@ -59,7 +59,13 @@ Given('{string} is set to {string}', (key, param) => {
 });
 
 Given('user is viewing the second page of results for {string}', (keyword) => {
-	cy.visit(`/?swKeyword=${keyword}&page=2&offset=21&pageunit=20`);
+	cy.window().then((win) => {
+		// Check if language is Spanish and add cfg=1 parameter
+		const isSpanish = win.INT_TEST_APP_PARAMS && win.INT_TEST_APP_PARAMS.language === 'es';
+		const cfgParam = isSpanish ? 'cfg=1&' : '';
+		const encodedKeyword = encodeURIComponent(keyword);
+		cy.visit(`/?${cfgParam}swKeyword=${encodedKeyword}&page=2&offset=21&pageunit=20`);
+	});
 });
 
 /*
