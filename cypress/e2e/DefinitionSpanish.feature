@@ -6,7 +6,7 @@ Feature: As a user I would like to see the Definition box when I navigate to the
 		Given "title" is set to "Resultados"
 
 	Scenario: Spanish Dictionary Definition Display
-		Given the user navigates to "/?swKeyword=cáncer de mama"
+		Given the user navigates to "/?cfg=1&swKeyword=c%C3%A1ncer%20de%20mama"
 		Then the page title is "Resultados"
 		And page subtitle "Resultados para: cáncer de mama" appears below the page title
 		And definition box appears with title "Definición:"
@@ -21,7 +21,7 @@ Feature: As a user I would like to see the Definition box when I navigate to the
 		Then the definition box no longer appears on the page
 
 	Scenario: Spanish Dictionary Definition Display - no more information link
-		Given the user navigates to "/?swKeyword=tumor"
+		Given the user navigates to "/?cfg=1&swKeyword=tumor"
 		Then the page title is "Resultados"
 		And page subtitle "Resultados para: tumor" appears below the page title
 		And definition box appears with title "Definición:"
@@ -33,7 +33,7 @@ Feature: As a user I would like to see the Definition box when I navigate to the
 		Then full definition toggle button text turns to "Ocultar toda la definición"
 
 	Scenario: Spanish Dictionary Definition Display - no show/hide full definition button
-		Given the user navigates to "/?swKeyword=cáncer de la vagina en estadio lll"
+		Given the user navigates to "/?cfg=1&swKeyword=c%C3%A1ncer%20de%20la%20vagina%20en%20estadio%20lll"
 		Then the page title is "Resultados"
 		And page subtitle "Resultados para: cáncer de la vagina en estadio lll" appears below the page title
 		And definition box appears with title "Definición:"

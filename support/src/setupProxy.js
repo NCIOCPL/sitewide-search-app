@@ -25,7 +25,7 @@ const getDictionaryResults = async (req, res, next) => {
 		params: { audience, dictionary, keyword, language, queryType },
 	} = req;
 	const lang = language.toLowerCase();
-	const query = keyword.toLowerCase();
+	const query = decodeURIComponent(keyword).toLowerCase();
 
 	const mockDir = path.join(
 		__dirname,
@@ -44,7 +44,6 @@ const getDictionaryResults = async (req, res, next) => {
 		await readFileAsync(mockFile);
 		res.sendFile(mockFile);
 	} catch (err) {
-		console.error(err);
 		res.send(mockNoResultsAPI(err));
 	}
 };
@@ -88,6 +87,8 @@ const getSingleSiteResult = async (req, res, next) => {
 			site,
 		},
 	} = req;
+	
+	const decodedTerm = decodeURIComponent(term);
 
 		const mockDir = path.join(
 			__dirname,
@@ -99,11 +100,10 @@ const getSingleSiteResult = async (req, res, next) => {
 			site
 		);
 		try {
-			const mockFile = path.join(mockDir, `${term}_${from}-${size}.json`);
+			const mockFile = path.join(mockDir, `${decodedTerm}_${from}-${size}.json`);
 			await readFileAsync(mockFile);
 			res.sendFile(mockFile);
 		} catch (err) {
-			console.error(err);
 			res.send(mockNoResultsAPI(err));
 		}
 };
@@ -124,6 +124,8 @@ const getMultipleSiteResult = async (req, res, next) => {
 			site,
 		},
 	} = req;
+	
+	const decodedTerm = decodeURIComponent(term);
 
 		const mockDir = path.join(
 			__dirname,
@@ -136,11 +138,10 @@ const getMultipleSiteResult = async (req, res, next) => {
 		);
 		try {
 			const siteCount = site.length;
-			const mockFile = path.join(mockDir, `${siteCount}_${term}_${from}-${size}.json`);
+			const mockFile = path.join(mockDir, `${siteCount}_${decodedTerm}_${from}-${size}.json`);
 			await readFileAsync(mockFile);
 			res.sendFile(mockFile);
 		} catch (err) {
-			console.error(err);
 			res.send(mockNoResultsAPI(err));
 		}
 };
@@ -156,6 +157,8 @@ const getBestBetsResults = async (req, res, next) => {
 	const {
 		params: { collection, language, term },
 	} = req;
+	
+	const decodedTerm = decodeURIComponent(term);
 
 	const mockDir = path.join(
 		__dirname,
@@ -169,11 +172,10 @@ const getBestBetsResults = async (req, res, next) => {
 	);
 
 	try {
-		const mockFile = path.join(mockDir, `${term}.json`);
+		const mockFile = path.join(mockDir, `${decodedTerm}.json`);
 		await readFileAsync(mockFile);
 		res.sendFile(mockFile);
 	} catch (err) {
-		console.error(err);
 		res.send(mockNoResultsAPI(err));
 	}
 };
@@ -187,15 +189,17 @@ const mockNoResultsAPI = (err) => {
 		results: [],
 		links: null,
 	};
-	if (err && err.code === 'ENOENT') {
-		console.error(err);
-		console.log(
-			'Create file with payload in path specified above to return a response with results. ' +
-				'\n' +
-				'Returning response with no results for request.',
-			resObject
-		);
-	}
+	// Only log detailed error information in development mode when explicitly needed
+	// Commented out to reduce noise during tests
+	// if (err && err.code === 'ENOENT') {
+	//		console.error(err);
+	//		console.log(
+	//			'Create file with payload in path specified above to return a response with results. ' +
+	//				'\n' +
+	//				'Returning response with no results for request.',
+	//			resObject
+	//		);
+	// }
 	return resObject;
 };
 
