@@ -10,15 +10,9 @@
  * @param {string} interceptorName The name of the interceptor to match against actions
  * @param {Object} replacements A collection of Key/Value pairs to be used in the replacements
  */
-export const replacingRequestInterceptor = (
-	interceptorName,
-	replacements
-) => () => async (action) => {
+export const replacingRequestInterceptor = (interceptorName, replacements) => () => async (action) => {
 	if (action.interceptorName === interceptorName) {
-		const newEndpoint = Object.entries(replacements).reduce(
-			(ac, [key, val]) => ac.replace(`{{${key}}}`, val),
-			action.endpoint
-		);
+		const newEndpoint = Object.entries(replacements).reduce((ac, [key, val]) => ac.replace(`{{${key}}}`, val), action.endpoint);
 		return {
 			...action,
 			endpoint: newEndpoint,

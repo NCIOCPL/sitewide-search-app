@@ -32,8 +32,7 @@ export const i18n = {
 		es: 'No se encontró la página',
 	},
 	pleaseCheckSpellingOrTryAnotherSearch: {
-		en:
-			'Please check your spelling or try another search using a different word.',
+		en: 'Please check your spelling or try another search using a different word.',
 		es: 'Revise si hay errores en el texto ingresado o intente otra búsqueda.',
 	},
 	resultsFor: {

@@ -9,13 +9,7 @@ import { i18n } from '../../../utils';
 
 import './search-results-list.scss';
 
-const SearchResultsList = ({
-	keyword,
-	results,
-	currentPage,
-	resultsPerPage,
-	language,
-}) => {
+const SearchResultsList = ({ keyword, results, currentPage, resultsPerPage, language }) => {
 	const urlQuery = useURLQuery();
 	const updatePageUnit = (val) => {
 		const swKeywordKey = /swKeyword/i;
@@ -29,8 +23,7 @@ const SearchResultsList = ({
 	// converted values to display in page
 	const positionInResults = (currentPage - 1) * resultsPerPage;
 	let fromPage = currentPage > 1 ? positionInResults + 1 : currentPage;
-	let toPage =
-		currentPage > 1 ? positionInResults + resultsPerPage : resultsPerPage;
+	let toPage = currentPage > 1 ? positionInResults + resultsPerPage : resultsPerPage;
 	if (toPage > results.totalResults) {
 		toPage = results.totalResults;
 	}
@@ -48,13 +41,7 @@ const SearchResultsList = ({
 		);
 	});
 	const dropDown = (
-		<select
-			aria-label="number of results"
-			data-testid={testIds.SEARCH_PAGE_UNIT}
-			className="pager__select"
-			defaultValue={resultsPerPage}
-			onBlur={(e) => updatePageUnit(e.target.value)}
-			onChange={(e) => updatePageUnit(e.target.value)}>
+		<select aria-label="number of results" data-testid={testIds.SEARCH_PAGE_UNIT} className="pager__select" defaultValue={resultsPerPage} onBlur={(e) => updatePageUnit(e.target.value)} onChange={(e) => updatePageUnit(e.target.value)}>
 			{opts}
 		</select>
 	);
@@ -71,14 +58,7 @@ const SearchResultsList = ({
 	};
 
 	const ResultList = results.result.map((result, index) => {
-		return (
-			<ResultsListItem
-				key={`listItem${index}`}
-				result={result}
-				resultIndex={getResultIndex(index)}
-				language={language}
-			/>
-		);
+		return <ResultsListItem key={`listItem${index}`} result={result} resultIndex={getResultIndex(index)} language={language} />;
 	});
 
 	// Is there more than page unit to display?
@@ -87,25 +67,14 @@ const SearchResultsList = ({
 		<>
 			<div className="results__info">
 				<h4>
-					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]}{' '}
-					{results.totalResults} {i18n.for[language]}: {keyword}
+					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults} {i18n.for[language]}: {keyword}
 				</h4>
-				{showPager && (
-					<SearchResultsPager
-						testid={testIds.RESULTS_PAGER_TOP}
-						current={currentPage}
-						totalResults={results.totalResults}
-						resultsPerPage={resultsPerPage}
-						language={language}
-						keyword={keyword}
-					/>
-				)}
+				{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_TOP} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}
 			</div>
 			<ul className="no-bullets results__container">{ResultList}</ul>
 			<div className="results__info">
 				<h4>
-					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]}{' '}
-					{results.totalResults}
+					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults}
 				</h4>
 			</div>
 			<div className="results__info pager__bottom">
@@ -114,16 +83,7 @@ const SearchResultsList = ({
 					{dropDown}
 					{i18n.resultsPerPage[language]}
 				</div>
-				{showPager && (
-					<SearchResultsPager
-						testid={testIds.RESULTS_PAGER_BOTTOM}
-						current={currentPage}
-						totalResults={results.totalResults}
-						resultsPerPage={resultsPerPage}
-						language={language}
-						keyword={keyword}
-					/>
-				)}
+				{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_BOTTOM} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}
 			</div>
 		</>
 	);
