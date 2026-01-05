@@ -17,6 +17,9 @@
 		"registry": "https://npm.pkg.github.com/"
 	},
 	"dependencies": {
+		"@nciocpl/ncids-css": "^3.4.0",
+		"@nciocpl/ncids-js": "^3.4.0",
+		"autoprefixer": "^10.4.23",
 		"axios": "^1.6.7",
 		"camelcase": "^5.3.1",
 		"core-js": "^3.6.4",
@@ -27,6 +30,7 @@
 		"fs-extra": "^8.1.0",
 		"history": "^5.0.0",
 		"identity-obj-proxy": "3.0.0",
+		"postcss": "^8.5.6",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
 		"react-app-polyfill": "^1.0.6",
@@ -45,9 +49,8 @@
 	"scripts": {
 		"start": "node scripts/start.js",
 		"start:silent": "BROWSER=none npm start",
-		"build:cgdp-legacy": "node scripts/generate-cgdp-legacy.js",
 		"build:cra": "node scripts/build.js",
-		"build": "npm run build:cra && npm run build:cgdp-legacy",
+		"build": "npm run build:cra",
 		"test": " npm run pa11y-tests && npm run unit-tests && npm run cy:ci && npm run merge-coverage",
 		"test:it": "NODE_ENV=test cypress open",
 		"test:pa11y": "npm run pa11y-ci",
