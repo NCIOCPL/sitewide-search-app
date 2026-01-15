@@ -1,42 +1,41 @@
+@use "uswds-core" as *;
 @import '../../../styles/breakpoints';
 
 .pager__navigation,
 .pager__container {
-	align-items: center;
-	display: flex;
-	justify-content: flex-start;
-	margin-left: 0;
+	@include u-display(flex);
+	@include u-flex('align-center', 'justify-start');
+	@include u-margin-left(0);
 }
 
 .pager__container {
 	.pager__navigation {
+		@include u-padding(0);
+		@include u-margin-bottom(0);
 		color: #25619b;
 		list-style-type: none;
 
-		padding: 0;
-		margin-bottom: 0;
-
 		& > li {
-			align-items: center;
+			@include u-flex('align-center', 'justify-center');
+			@include u-display(inline-flex);
 			cursor: pointer;
-			display: inline-flex;
-			justify-content: center;
 			list-style-type: none;
 			margin: 0 2px 0;
 		}
 
 		.pager__button {
+			@include u-radius(3px);
+			@include u-display(block);
+			@include u-minw(3);
+			@include u-padding-x(6px);
+			@include u-padding-y(2px);
+			@include u-text('no-wrap');
 			border: none;
-			border-radius: 3px;
-			display: block;
-			min-width: 24px;
-			padding: 2px 6px;
 			text-decoration: none;
-			white-space: nowrap;
 
 			&.active {
+				@include u-text('white');
 				background: #25619b;
-				color: #fff;
 				&:hover {
 					background: #25619b;
 				}
@@ -49,28 +48,31 @@
 
 		.pager__ellipses--right,
 		.pager__ellipses--left {
-			padding: 2px 4px;
+			@include u-padding-x('05');
+			@include u-padding-y(2px);
 			cursor: default;
 		}
 	}
 }
 
 .pager__container {
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-	padding: 16px 0;
-	margin-top: 16px;
+	@include u-border-y(1px, solid, 'black');
+	@include u-padding-x(0);
+	@include u-padding-y(2);
+	@include u-margin-top(2);
 }
 
 @include break(medium) {
 	.pager__navigation,
 	.pager__container {
-		margin-left: auto;
+		@include u-margin-left(auto);
 	}
 
 	.pager__container {
+		@include u-margin-top(0);
+		@include u-padding-y(0);
+		@include u-padding-left(50px);
+		@include u-padding-right(0);
 		border: none;
-		margin-top: 0;
-		padding: 0 0 0 50px;
 	}
 }

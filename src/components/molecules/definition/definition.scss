@@ -1,18 +1,19 @@
+@use "uswds-core" as *;
+
 .definition {
+	@include u-bg($theme-body-background-color); // white
+	@include u-radius(3px);
 	padding: 16px 19px 10px;
-	background: #fff;
-	border-radius: 3px;
 	box-shadow: 0 0 4px 0 hsla(0, 0%, 71%, 0.75);
 
 	&__toggle {
+		@include u-margin-x(-19px); // margin left and right
 		border-top: 1px solid #c7c6c6;
-		margin-left: -19px;
-		margin-right: -19px;
 		padding: 10px 19px 0;
 
 		button {
-			width: auto;
-			padding-left: 0;
+			@include u-width(auto);
+			@include u-padding-left(0);
 			font-size: 1rem;
 			border: none;
 			background: none;
@@ -22,23 +23,25 @@
 			outline: none;
 
 			&::before {
-				border-style: solid;
+				@include u-border(solid);
+				@include u-margin-left(2px);
+				@include u-margin-right(10px);
+				@include u-width(1);
+				@include u-height(1);
+				@include u-display(inline-block);
+				@include u-position(relative);
+				@include u-text('top');
 				border-width: 2px 2px 0 0;
 				content: '';
-				display: inline-block;
-				height: 8px;
-				margin-left: 2px;
-				margin-right: 10px;
-				position: relative;
 				top: 5px;
-				vertical-align: top;
-				width: 8px;
 			}
+
 			&.definition__show-full::before {
 				transform: rotate(135deg);
 			}
+
 			&.definition__hide-full::before {
-				margin-top: 4px;
+				@include u-margin-top('05');
 				//vertical-align: unset;
 				transform: rotate(-45deg);
 			}
@@ -46,11 +49,11 @@
 	}
 
 	&__term-description {
-		margin-top: 7px;
-		margin-bottom: 0.5em;
+		@include u-margin-bottom(1);
+		@include u-margin-top(7px);
 	}
 
 	&__term-description + &__toggle {
-		margin-top: 1.25em;
+		@include u-margin-top('205');
 	}
 }

@@ -1,28 +1,30 @@
+@use "uswds-core" as *;
 @import '../../../styles/breakpoints';
 
 .pronunciation {
 	//display: flex;
 	font-family: Noto Sans, 'Century Gothic', Arial, sans-serif;
 	&__term {
-		padding-top: 8px;
-		display: inline-block;
-		width: auto;
-		font-weight: bold;
+		@include u-padding-top(1); //8px or .5em
+		@include u-display(inline-block);
+		@include u-width(auto);
+		@include u-text($theme-font-weight-bold);
 		line-height: 1.4;
 	}
 	&__audio-key-container {
-		display: inline-block;
+		@include u-display(inline-block);
 	}
 	&__audio {
-		display: inline;
-		width: 42px;
-		margin-right: 5px;
+		@include u-display(inline);
+		@include u-width(42px);
+		@include u-margin-right(5px);
 	}
 	&__key {
-		display: inline;
+		@include u-display(inline);
 		line-height: 1.4;
 	}
 	& .btnAudio {
-		padding: 5px 0;
+		@include u-padding-y(5px);
+		@include u-padding-x(0);
 	}
 }

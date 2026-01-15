@@ -1,22 +1,24 @@
+@use "uswds-core" as *;
+
 definition + .best-bet {
-	margin-top: 1.5rem;
+	@include u-margin-top(3); // 24px or 1.5rem
 }
 
 .best-bet {
-	margin-left: -3.125em;
-	margin-right: -3.125em;
+	@include u-overflow('auto');
+	@include u-margin-left(-3.125em);
+	@include u-margin-right(-3.125em);
 	background-color: #dbf2f8;
-	overflow: auto;
 
 	&__item {
 		padding: 2.5% 3.125em;
 	}
 
 	.list {
-		margin: 0;
+		@include u-margin(0);
 
 		.list-item {
-			margin-bottom: 0;
+			@include u-margin-bottom(0);
 
 			.title-and-desc > * {
 				font-size: 1em;
