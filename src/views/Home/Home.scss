@@ -1,18 +1,19 @@
+@use "uswds-core" as *;
 @import '../../styles/breakpoints';
 
 .results {
 	h2 {
+		@include u-margin-top(0);
+		@include u-margin-bottom(1);
 		font-size: 1.25em;
 		line-height: 1.5em;
-		margin-bottom: 0.5em;
-		margin-top: 0;
 	}
 	h3,
 	h4 {
+		@include u-margin-top(5);
+		@include u-margin-bottom(30px);
 		font-size: 1.25em;
 		line-height: 1.5em;
-		margin-top: 40px;
-		margin-bottom: 30px;
 	}
 
 	/*
@@ -21,33 +22,30 @@
 		--------------------------------------
 	*/
 	&__feature {
-		margin-bottom: 40px;
+		@include u-margin-bottom(5);
 	}
 	&__feature--bestbet--definition {
-		position: relative;
-		margin-left: -3.125em;
-		margin-right: -3.125em;
-		margin-bottom: 50px;
-		display: flex;
-		flex-wrap: wrap;
+		@include u-position(relative);
+		@include u-display(flex);
+		@include u-flex(wrap, 'align-start', 'justify-center');
+		@include u-margin-x(-3.125em);
+		@include u-margin-bottom(50px);
 		padding: 2.5% 3.125em;
 		background-color: #dbf2f8;
-		align-items: flex-start;
-		justify-content: center;
 
 		.best-bet {
-			margin-bottom: 1em;
+			@include u-margin-bottom(2);
 			background-color: transparent;
 		}
 
 		.definition {
+			@include u-margin-bottom(0);
+			@include u-bg($theme-body-background-color); // white
 			flex: 33.33333% 1;
-			margin-bottom: 0;
-			background-color: #fff;
 
 			.pronunciation {
 				&__term {
-					display: inline;
+					@include u-display(inline);
 				}
 			}
 		}
@@ -57,15 +55,14 @@
 @include break(medium) {
 	.results {
 		&__feature--bestbet--definition {
-			flex-wrap: nowrap;
+			@include u-flex('no-wrap');
 			.best-bet {
+				@include u-margin-x(0);
+				@include u-padding-right(0.9375em);
 				flex: 66.66667% 1;
-				margin-left: 0;
-				margin-right: 0;
-				padding-right: 0.9375em;
 
 				.best-bet__item {
-					padding: 0;
+					@include u-padding(0);
 				}
 			}
 		}
