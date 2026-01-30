@@ -243,7 +243,7 @@
 }
 
 #NCI-sws-app-root {
-	.definition__toggle {
+	.sws-results__definition-toggle {
 		button {
 			@include u-font-family('body');
 		}
@@ -254,7 +254,7 @@
 		margin-right: 0;
 	}
 
-	.result__list-item {
+	.sws-results__list-item {
 		@include u-font-family('body');
 	}
 

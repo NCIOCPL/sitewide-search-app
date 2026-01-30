@@ -27,11 +27,11 @@ describe('<ResultsListItem /> component', () => {
 		});
 
 		expect(screen.getByText(/Desmoid tumors grow/)).toBeInTheDocument();
-		expect(screen.getByRole('listitem')).toHaveClass('result__list-item');
+		expect(screen.getByRole('listitem')).toHaveClass('sws-results__list-item');
 		expect(screen.getByText(/Infographic/)).toHaveClass('result__type');
-		expect(screen.getByRole('link')).toHaveClass('result__link');
-		expect(screen.getByText(defaultResult.description)).toHaveClass('result__description');
-		expect(screen.getByText(defaultResult.url)).toHaveClass('result__url');
+		expect(screen.getByRole('link')).toHaveClass('sws-results__list-item-link');
+		expect(screen.getByText(defaultResult.description)).toHaveClass('sws-results__list-item-description');
+		expect(screen.getByText(defaultResult.url)).toHaveClass('sws-results__list-item-url');
 	});
 
 	it('should fire tracking event when search result item title link is clicked', async () => {

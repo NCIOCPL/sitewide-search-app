@@ -37,3 +37,31 @@ nav.nci-header-nav ul.nci-header-nav__primary li.nci-header-nav__primary-item > 
 nav.nci-header-nav ul.nci-header-nav__primary li.nci-header-nav__primary-item > button.nci-header-nav__primary-button[aria-expanded=true] span::after {
     mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg>') no-repeat center / contain;
 }
+
+@media (min-width: 64em) {
+    div.nci-header__navbar, nav.nci-header-nav div.nci-header-nav__inner {
+        @include u-padding-x(0);
+        // padding-left: 2rem;
+        // padding-right: 2rem;
+    }
+}
+
+// div.nci-header__navbar, nav.nci-header-nav div.nci-header-nav__inner {
+//         @include u-padding-x(1);
+//         // padding-left: 2rem;
+//         // padding-right: 2rem;
+//     }
+// #page {
+//     @include u-padding-x(2);
+// }
+
+@media (min-width: 64em) {
+    #page {
+        @include u-padding-x(1);
+    }
+
+    .mock-header {
+        @include u-padding-x(1);
+    }
+}
+

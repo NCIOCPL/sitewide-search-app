@@ -272,11 +272,11 @@ describe('Definition component analytics (English)', () => {
 		);
 
 		// First show full definition using the original querySelector approach
-		const showFull = container.querySelector('.definition__show-full');
+		const showFull = container.querySelector('.sws-results__definition-show-full');
 		fireEvent.click(showFull);
 
 		// Find and click the more info link using the original querySelector approach
-		const moreInfo = container.querySelector('div.definition p a');
+		const moreInfo = container.querySelector('div.sws-results__definition p a');
 		fireEvent.click(moreInfo);
 
 		expect(analyticsHandler).toHaveBeenCalledTimes(1);

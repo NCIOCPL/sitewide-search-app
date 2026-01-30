@@ -1,11 +1,11 @@
 @use "uswds-core" as *;
 @import '../../../styles/breakpoints';
 
-.best-bet + .results__info h4 {
+.best-bet + .sws-results__summary h4 {
 	@include u-margin-top(5); // 40px
 }
 
-.results__info {
+.sws-results__summary {
 	@include u-display(block);
 	align-items: baseline;
 
@@ -15,11 +15,11 @@
 	@include u-margin-bottom(5); // 40px
 }
 
-.result__list-item {
+.sws-results__list-item {
 	font-family: Noto Sans, 'Century Gothic', Arial, sans-serif;
 }
 
-.result__list-item:first-child {
+.sws-results__list-item:first-child {
 	@include u-margin-top(0);
 }
 
@@ -29,15 +29,15 @@
 	overflow-x: hidden;
 }
 @include break(medium) {
-	.results__info {
+	.sws-results__summary {
 		@include u-display(flex);
 	}
 }
-.result__url {
+.sws-results__list-item-url {
 	font-size: 14px;
 	word-break: break-word;
 }
-.result__description {
+.sws-results__list-item-description {
 	word-break: break-word;
 }
 
@@ -89,7 +89,7 @@
 	}
 }
 
-.results__viewby {
+.sws-results__viewby {
 	@include u-display(flex);
 	@include u-text('no-wrap');
 	align-items: baseline;
