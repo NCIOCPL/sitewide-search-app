@@ -6,16 +6,16 @@ import { testIds } from '../../../constants';
 
 const Pronunciation = ({ pronunciationObj, language = 'en', term }) => {
 	return (
-		<div className="pronunciation">
-			{term && <div className="pronunciation__term">{term}</div>}
-			<div className="pronunciation__audio-key-container">
+		<div className="sws-results__pronunciation">
+			{term && <div className="sws-results__pronunciation-term">{term}</div>}
+			<div className="sws-results__pronunciation-audio-key-container">
 				{pronunciationObj?.audio && (
-					<div className="pronunciation__audio">
+					<div className="sws-results__pronunciation-audio">
 						<AudioPlayer audioSrc={pronunciationObj.audio} lang={language} />
 					</div>
 				)}
 				{pronunciationObj?.key && (
-					<div className="pronunciation__key" data-testid={testIds.TERM_DEF_PRONUNCIATION}>
+					<div className="sws-results__pronunciation-key" data-testid={testIds.TERM_DEF_PRONUNCIATION}>
 						{pronunciationObj.key}
 					</div>
 				)}

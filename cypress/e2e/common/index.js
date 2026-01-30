@@ -83,63 +83,63 @@ And('page subtitle {string} appears below the page title', (subTitle) => {
     ------------------
 */
 And('definition box appears with title {string}', (definitionBoxTitle) => {
-	cy.get('div.definition h2').should('have.text', definitionBoxTitle);
+	cy.get('div.sws-results__definition h2').should('have.text', definitionBoxTitle);
 });
 
 And('definition box does not appear on the page', () => {
-	cy.get('div.definition').should('not.exist');
+	cy.get('div.sws-results__definition').should('not.exist');
 });
 
 And('the word {string} appears in the definition box, with the audio icon and pronunciation', (term) => {
-	expect(cy.get(`div.definition div.pronunciation .pronunciation__audio audio`)).to.exist;
-	expect(cy.get(`div.definition div.pronunciation .pronunciation__audio button`)).to.exist;
+	expect(cy.get(`div.sws-results__definition div.sws-results__pronunciation .sws-results__pronunciation-audio audio`)).to.exist;
+	expect(cy.get(`div.sws-results__definition div.sws-results__pronunciation .sws-results__pronunciation-audio button`)).to.exist;
 	expect(cy.get(`div[data-testid='${testIds.TERM_DEF_PRONUNCIATION}']`)).to.exist;
-	cy.get('div.definition div.pronunciation .pronunciation__term').should('have.text', term);
+	cy.get('div.sws-results__definition div.sws-results__pronunciation .sws-results__pronunciation-term').should('have.text', term);
 });
 
 And('the word {string} appears in the definition box with the audio icon', (term) => {
-	expect(cy.get(`div.definition div.pronunciation .pronunciation__audio audio`)).to.exist;
-	expect(cy.get(`div.definition div.pronunciation .pronunciation__audio button`)).to.exist;
-	cy.get('div.definition div.pronunciation .pronunciation__term').should('have.text', term);
+	expect(cy.get(`div.sws-results__definition div.sws-results__pronunciation .sws-results__pronunciation-audio audio`)).to.exist;
+	expect(cy.get(`div.sws-results__definition div.sws-results__pronunciation .sws-results__pronunciation-audio button`)).to.exist;
+	cy.get('div.sws-results__definition div.sws-results__pronunciation .sws-results__pronunciation-term').should('have.text', term);
 });
 
 And('the definition {string} appears in the definition box', (definition) => {
-	cy.get('div.definition .definition__term-description').should('have.text', definition);
+	cy.get('div.sws-results__definition .sws-results__definition-term-description').should('have.text', definition);
 });
 
 And('link to the definition page with text {string} and href {string} in the definition box', (linkText, url) => {
-	cy.get('div.definition p a').should('have.text', linkText);
-	cy.get('div.definition p a').should('have.attr', 'href').and('to.be.eq', url);
+	cy.get('div.sws-results__definition p a').should('have.text', linkText);
+	cy.get('div.sws-results__definition p a').should('have.attr', 'href').and('to.be.eq', url);
 });
 
 And('link to the definition page with text {string} does not display', () => {
-	cy.get('div.definition p a').should('not.exist');
+	cy.get('div.sws-results__definition p a').should('not.exist');
 });
 
 And('a button to toggle the full definition appears in the definition box labelled {string}', (toggleText) => {
-	cy.get('div.definition .definition__toggle button').should('have.text', toggleText);
+	cy.get('div.sws-results__definition .sws-results__definition-toggle button').should('have.text', toggleText);
 });
 
 And('button to toggle the full definition in the definition box labelled {string} does not display', () => {
-	cy.get('div.definition .definition__toggle button').should('not.exist');
+	cy.get('div.sws-results__definition .sws-results__definition-toggle button').should('not.exist');
 });
 
 And('the user clicks the {string} link', () => {
-	cy.get('div.definition p a').trigger('click', { followRedirect: false });
+	cy.get('div.sws-results__definition p a').trigger('click', { followRedirect: false });
 });
 
 //button to toggle the full definition in the definition box labelled "Show full definition" does not display
 
 And('user clicks on the full definition toggle button in the definition box', () => {
-	cy.get('div.definition .definition__toggle button').click();
+	cy.get('div.sws-results__definition .sws-results__definition-toggle button').click();
 });
 
 And('full definition toggle button text turns to {string}', (toggleText) => {
-	cy.get('div.definition .definition__toggle button').should('have.text', toggleText);
+	cy.get('div.sws-results__definition .sws-results__definition-toggle button').should('have.text', toggleText);
 });
 
 And('the definition box no longer appears on the page', () => {
-	cy.get('div.definition').should('not.exist');
+	cy.get('div.sws-results__definition').should('not.exist');
 });
 
 Given('screen breakpoint is set to {string}', (screenSize) => {
@@ -221,23 +221,23 @@ And('the system displays {int} results per page', (numberOfResults) => {
 });
 
 And('each result item displays the title of an item as a link', () => {
-	cy.get('.result__list-item a').should('have.attr', 'href');
-	cy.get('.result__list-item a').first().invoke('text').should('not.be.empty');
+	cy.get('.sws-results__list-item a').should('have.attr', 'href');
+	cy.get('.sws-results__list-item a').first().invoke('text').should('not.be.empty');
 });
 
 And('each result item displays the description of an item', () => {
-	cy.get('.result__list-item div').first().invoke('text').should('not.be.empty');
+	cy.get('.sws-results__list-item div').first().invoke('text').should('not.be.empty');
 });
 
 And('each result item displays the full URL of an item', () => {
-	cy.get('.result__list-item').each(($el) => {
+	cy.get('.sws-results__list-item').each(($el) => {
 		const href = $el.find('a').attr('href');
 		cy.wrap($el).find('cite').invoke('text').should('eq', href);
 	});
 });
 
 And('number {int} result item displays {string} label', (itemNumber, label) => {
-	cy.get('.result__list-item')
+	cy.get('.sws-results__list-item')
 		.eq(itemNumber - 1)
 		.find('.result__type')
 		.invoke('text')
@@ -245,12 +245,12 @@ And('number {int} result item displays {string} label', (itemNumber, label) => {
 });
 
 And('the user clicks on the second result', () => {
-	cy.get('.results__container li a').eq(1).trigger('click', { followRedirect: false });
+	cy.get('.sws-results__list li a').eq(1).trigger('click', { followRedirect: false });
 });
 
 And('the results include {int} items from {string}', (count, site) => {
 	let found = 0;
-	cy.get('.result__list-item')
+	cy.get('.sws-results__list-item')
 		.each(($el) => {
 			const href = $el.find('a').attr('href');
 			if (href.startsWith(site)) {
@@ -279,7 +279,7 @@ Then('the system displays {string} {string} as an {string} tag', (resultsIntroTe
 
 // Check to see if results are there
 Then('the results are displayed', () => {
-	cy.get('.result__description').first().invoke('text').should('not.be.empty');
+	cy.get('.sws-results__list').first().invoke('text').should('not.be.empty');
 });
 
 // Check to see if the first two numbers are present with decorator and button

@@ -65,25 +65,41 @@ const SearchResultsList = ({ keyword, results, currentPage, resultsPerPage, lang
 	const showPager = results.totalResults > resultsPerPage;
 	return (
 		<>
-			<div className="results__info">
-				<h4>
-					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults} {i18n.for[language]}: {keyword}
-				</h4>
-				{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_TOP} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}
-			</div>
-			<ul className="no-bullets results__container">{ResultList}</ul>
-			<div className="results__info">
-				<h4>
-					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults}
-				</h4>
-			</div>
-			<div className="results__info pager__bottom">
-				<div className="results__viewby">
-					{i18n.show[language]}
-					{dropDown}
-					{i18n.resultsPerPage[language]}
+			<div className="sws-results__summary grid-container">
+				<div className="grid-row">
+					<div className="grid-col sws-results__count">
+						<h4>
+							{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults} {i18n.for[language]}: {keyword}
+						</h4>
+					</div>
 				</div>
-				{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_BOTTOM} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}
+				<div className="grid-col sws-results__pager">{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_TOP} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}</div>
+			</div>
+			<div className="sws-results__list grid-container">
+				<div className="grid-row">
+					<div className="grid-col">
+						<ul className="no-bullets">{ResultList}</ul>
+					</div>
+				</div>
+			</div>
+			<div className="sws-results__summary grid-container">
+				<div className="grid-row">
+					<div className="grid-col sws-results__count">
+						<h4>
+							{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults}
+						</h4>
+					</div>
+				</div>
+			</div>
+			<div className="sws-results__summary grid-container pager__bottom">
+				<div className="grid-row">
+					<div className="grid-col sws-results__viewby">
+						{i18n.show[language]}
+						{dropDown}
+						{i18n.resultsPerPage[language]}
+					</div>
+				</div>
+				<div className="grid-col sws-results__pager">{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_BOTTOM} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}</div>
 			</div>
 		</>
 	);

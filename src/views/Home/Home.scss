@@ -28,7 +28,7 @@
 		@include u-position(relative);
 		@include u-display(flex);
 		@include u-flex(wrap, 'align-start', 'justify-center');
-		@include u-margin-x(-3.125em);
+		@include u-margin-right(-3.125em);
 		@include u-margin-bottom(50px);
 		padding: 2.5% 3.125em;
 		background-color: #dbf2f8;
@@ -58,7 +58,7 @@
 			@include u-flex('no-wrap');
 			.best-bet {
 				@include u-margin-x(0);
-				@include u-padding-right(0.9375em);
+				@include u-padding-x(0.9375em);
 				flex: 66.66667% 1;
 
 				.best-bet__item {

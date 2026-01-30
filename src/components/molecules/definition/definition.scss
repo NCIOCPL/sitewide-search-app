@@ -1,12 +1,12 @@
 @use "uswds-core" as *;
 
-.definition {
+.sws-results__definition {
 	@include u-bg($theme-body-background-color); // white
 	@include u-radius(3px);
 	padding: 16px 19px 10px;
 	box-shadow: 0 0 4px 0 hsla(0, 0%, 71%, 0.75);
 
-	&__toggle {
+	&-toggle {
 		@include u-margin-x(-19px); // margin left and right
 		border-top: 1px solid #c7c6c6;
 		padding: 10px 19px 0;
@@ -36,11 +36,11 @@
 				top: 5px;
 			}
 
-			&.definition__show-full::before {
+			&.sws-results__definition-show-full::before {
 				transform: rotate(135deg);
 			}
 
-			&.definition__hide-full::before {
+			&.sws-results__definition-hide-full::before {
 				@include u-margin-top('05');
 				//vertical-align: unset;
 				transform: rotate(-45deg);
@@ -48,12 +48,12 @@
 		}
 	}
 
-	&__term-description {
+	&-term-description {
 		@include u-margin-bottom(1);
 		@include u-margin-top(7px);
 	}
 
-	&__term-description + &__toggle {
+	&-term-description + &-toggle {
 		@include u-margin-top('205');
 	}
 }

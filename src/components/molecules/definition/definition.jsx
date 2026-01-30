@@ -11,7 +11,7 @@ const Definition = ({ results }) => {
 	const definitionSentencesArray = payload && payload.definition ? splitSentencesToArray(payload.definition.html) : '';
 	const truncatedDefinition = definitionSentencesArray[0];
 	const [{ dictionaryUrl, language }] = useStateValue();
-	const [defToggleClassName, setDefToggleClassName] = useState('definition__show-full');
+	const [defToggleClassName, setDefToggleClassName] = useState('sws-results__definition-show-full');
 	const [definitionContent, setDefinitionContent] = useState(truncatedDefinition);
 	const [definitionToggleText, setDefinitionToggleText] = useState(i18n.showFullDefinition[language]);
 	const tracking = useTracking();
@@ -19,15 +19,15 @@ const Definition = ({ results }) => {
 	const toggleClickHandler = (e) => {
 		const { className } = e.target;
 
-		if (className === 'definition__show-full') {
+		if (className === 'sws-results__definition-show-full') {
 			setDefinitionContent(payload.definition.html);
 			setDefinitionToggleText(i18n.hideFullDefinition[language]);
-			setDefToggleClassName('definition__hide-full');
+			setDefToggleClassName('sws-results__definition-hide-full');
 			return;
 		}
 		setDefinitionContent(truncatedDefinition);
 		setDefinitionToggleText(i18n.showFullDefinition[language]);
-		setDefToggleClassName('definition__show-full');
+		setDefToggleClassName('sws-results__definition-show-full');
 	};
 
 	const handleMoreInfoClick = (e) => {
@@ -38,7 +38,7 @@ const Definition = ({ results }) => {
 			linkName: 'glossifiedTerm',
 			glossaryTerm: payload.termName,
 			glossaryTermId: payload.termId,
-			isDefinitionExpanded: defToggleClassName === 'definition__show-full' ? 'false' : 'true',
+			isDefinitionExpanded: defToggleClassName === 'sws-results__definition-show-full' ? 'false' : 'true',
 		});
 		return true;
 	};
@@ -47,24 +47,30 @@ const Definition = ({ results }) => {
 		const idOrPurl = payload.prettyUrlName || payload.termId;
 		return (
 			<>
-				<div
-					className="definition__term-description"
-					dangerouslySetInnerHTML={{
-						__html: definitionContent,
-					}}></div>
+				<div className="grid-row">
+					<div
+						className="sws-results__definition-term-description grid-col"
+						dangerouslySetInnerHTML={{
+							__html: definitionContent,
+						}}></div>
+				</div>
 				{(payload.relatedResources.length > 0 || payload.media.length > 0) && (
-					<p>
-						<a href={`${dictionaryUrl}/def/${idOrPurl}`} onClick={handleMoreInfoClick}>
-							{i18n.moreInfoOnDictionaryPage[language]}
-						</a>
-					</p>
+					<div className="grid-row">
+						<p className="grid-col">
+							<a href={`${dictionaryUrl}/def/${idOrPurl}`} onClick={handleMoreInfoClick}>
+								{i18n.moreInfoOnDictionaryPage[language]}
+							</a>
+						</p>
+					</div>
 				)}
 				{/* Only show toggle button if more that one sentence */}
 				{definitionSentencesArray.length > 1 && (
-					<div className="definition__toggle">
-						<button className={defToggleClassName} onClick={toggleClickHandler}>
-							{definitionToggleText}
-						</button>
+					<div className="sws-results__definition-toggle grid-container">
+						<div className="grid-row">
+							<button className={defToggleClassName} onClick={toggleClickHandler}>
+								{definitionToggleText}
+							</button>
+						</div>
 					</div>
 				)}
 			</>
@@ -74,8 +80,12 @@ const Definition = ({ results }) => {
 	return (
 		<>
 			{payload && (
-				<div className="definition">
-					<h2>{`${i18n.definitionTitle[language]}:`}</h2>
+				<div className="sws-results__definition grid-container">
+					<div className="grid-row">
+						<div className="sws-results__definition-title grid-col">
+							<h2>{`${i18n.definitionTitle[language]}:`}</h2>
+						</div>
+					</div>
 					<Pronunciation lang={language} pronunciationObj={payload.pronunciation} term={payload.termName} />
 					{payload.definition && renderTermDefinition()}
 				</div>
