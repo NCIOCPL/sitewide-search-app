@@ -183,7 +183,7 @@ module.exports = function (webpackEnv) {
 						// Added for profiling in devtools
 						keep_classnames: isEnvProductionProfile,
 						keep_fnames: isEnvProductionProfile,
-						output: {
+						format: {
 							ecma: 5,
 							comments: false,
 							// Turned on because emoji and regex is not minified properly using default
@@ -191,7 +191,6 @@ module.exports = function (webpackEnv) {
 							ascii_only: true,
 						},
 					},
-					sourceMap: shouldUseSourceMap,
 				}),
 				// This is only used in production mode
 				new CssMinimizerPlugin({
