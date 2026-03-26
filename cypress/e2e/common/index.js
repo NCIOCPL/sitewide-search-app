@@ -73,9 +73,6 @@ Given('user is viewing the second page of results for {string}', (keyword) => {
       Home Page
     -------------
 */
-And('page subtitle {string} appears below the page title', (subTitle) => {
-	cy.get('div.results h3').should('have.text', subTitle);
-});
 
 /*
     ------------------
@@ -269,7 +266,7 @@ And('the results include {int} items from {string}', (count, site) => {
 */
 
 Then('the system returns the results page for {string}', (keyword) => {
-	cy.get('h3').first().invoke('text').should('contain', keyword);
+	cy.get('h4').first().invoke('text').should('contain', keyword);
 });
 
 Then('the system displays {string} {string} as an {string} tag', (resultsIntroText, keyword, tag) => {

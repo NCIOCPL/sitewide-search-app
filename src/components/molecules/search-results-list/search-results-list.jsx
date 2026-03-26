@@ -78,16 +78,7 @@ const SearchResultsList = ({ keyword, results, currentPage, resultsPerPage, lang
 			<div className="sws-results__list grid-container">
 				<div className="grid-row">
 					<div className="grid-col">
-						<ul className="no-bullets">{ResultList}</ul>
-					</div>
-				</div>
-			</div>
-			<div className="sws-results__summary grid-container">
-				<div className="grid-row">
-					<div className="grid-col sws-results__count">
-						<h4>
-							{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults}
-						</h4>
+						<ul className="no-bullets usa-collection">{ResultList}</ul>
 					</div>
 				</div>
 			</div>

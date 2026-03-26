@@ -183,7 +183,6 @@ describe('Search Results component(English)', () => {
 		await waitFor(() => {
 			expect(screen.getAllByText('Desmoid Tumor')[0]).toBeInTheDocument();
 		});
-		expect(screen.getAllByText('Results for: tumor')[0]).toBeInTheDocument();
 		expect(screen.getAllByText('https://www.cancer.gov/pediatric/tumors/soft-tissue/desmoid')[0]).toBeInTheDocument();
 		expect(screen.getAllByText('Desmoid tumors grow from the connective tissue in your body.')[0]).toBeInTheDocument();
 		fireEvent.change(screen.getByTestId(testIds.SEARCH_PAGE_UNIT));

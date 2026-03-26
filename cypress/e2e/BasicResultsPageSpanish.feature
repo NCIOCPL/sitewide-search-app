@@ -7,7 +7,6 @@ Feature: Feature name
     Scenario: Spanish Results Page
         Given the user navigates to "/?swKeyword=video"
         And the page title is "Resultados"
-        And the system displays "Resultados para: " "video" as an "h3" tag
         And the system displays "Resultados 1-20 de 157 para: " "video" as an "h4" tag
         And the system displays 20 results per page
         And each result item displays the title of an item as a link
@@ -17,13 +16,11 @@ Feature: Feature name
     Scenario: Spanish Results type of infographic
         Given the user navigates to "/?swKeyword=video"
         And the page title is "Resultados"
-        And the system displays "Resultados para: " "video" as an "h3" tag
         And the system displays "Resultados 1-20 de 157 para: " "video" as an "h4" tag
         And number 1 result item displays "(Infografía)" label
 
     Scenario: Spanish Results type of video
         Given the user navigates to "/?swKeyword=video"
         And the page title is "Resultados"
-        And the system displays "Resultados para: " "video" as an "h3" tag
         And the system displays "Resultados 1-20 de 157 para: " "video" as an "h4" tag
         And number 5 result item displays "(Video)" label
