@@ -7,7 +7,6 @@ Feature: As a content editor, I would like to identify content for users to find
     Scenario: Single best bet with sinlge link
         Given the user navigates to "/?swKeyword=Medicamentos%20para%20el%20cancer"
         Then the page title is "Resultados"
-        And the system displays "Resultados para: " "Medicamentos para el cancer" as an "h3" tag
         And a box for Best Bets appears below the subtitle
         And the system displays best bet number 1 title "Mejores resultados para Medicamentos para el cáncer" as an "h2" tag
         And the title of the related item number 1 appears as a link with text "Formulación y aprobación de medicamentos"

@@ -39,18 +39,20 @@ const ResultsListItem = ({ result = {}, resultIndex, language = 'en' }) => {
 	};
 
 	return (
-		<li className="sws-results__list-item grid-container">
-			<div className="grid-row">
-				<a href={url} className="sws-results__list-item-link grid-col" onClick={handleResultItemTitleClick}>
-					{sanitizedTitle}
-				</a>
-			</div>
-			{displayType && decorator}
-			<div className="grid-row">
-				<div className="sws-results__list-item-description grid-col">{description}</div>
-			</div>
-			<div className="grid-row">
-				<cite className="sws-results__list-item-url grid-col">{url}</cite>
+		<li className="sws-results__list-item usa-collection__item grid-container">
+			<div className="grid-row usa-collection__body">
+				<div className="grid-row">
+					<a href={url} className="sws-results__list-item-link grid-col usa-collection__heading" onClick={handleResultItemTitleClick}>
+						{sanitizedTitle}
+						{displayType && decorator}
+					</a>
+				</div>
+				<div className="grid-row">
+					<div className="sws-results__list-item-description grid-col usa-collection__description">{description}</div>
+				</div>
+				<div className="grid-row">
+					<cite className="sws-results__list-item-url grid-col">{url}</cite>
+				</div>
 			</div>
 		</li>
 	);

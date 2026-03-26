@@ -11,12 +11,17 @@
 
 	h4 {
 		@include u-margin-y(0);
+		@include u-text(normal);
+		@include u-font('sans', $theme-type-scale-xs);
+		line-height: 24px;
 	}
-	@include u-margin-bottom(5); // 40px
+	@media(min-width: 641px) {
+		@include u-margin-bottom(5); // 40px
+	}
 }
 
 .sws-results__list-item {
-	font-family: Noto Sans, 'Century Gothic', Arial, sans-serif;
+	@include u-margin-top(3);
 }
 
 .sws-results__list-item:first-child {
@@ -33,12 +38,20 @@
 		@include u-display(flex);
 	}
 }
+
+.sws-results__list-item-link {
+	@include u-text($theme-color-info-darker); // #01679D
+}
+
 .sws-results__list-item-url {
-	font-size: 14px;
 	word-break: break-word;
 }
 .sws-results__list-item-description {
 	word-break: break-word;
+	&.usa-collection__description {
+		@include u-margin-bottom(0);
+		line-height: 24px;
+	}
 }
 
 .pager__bottom {
