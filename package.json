@@ -18,6 +18,7 @@
 	},
 	"dependencies": {
 		"@nciocpl/ncids-css": "^3.4.0",
+		"@nciocpl/react-components": "^0.1.0",
 		"@nciocpl/ncids-js": "^3.4.0",
 		"autoprefixer": "^10.4.23",
 		"axios": "^1.6.7",

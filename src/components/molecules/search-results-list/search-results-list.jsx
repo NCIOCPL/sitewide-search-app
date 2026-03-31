@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Collection } from '@nciocpl/react-components/ncids';
 
 import { testIds } from '../../../constants';
 import { useURLQuery } from '../../../hooks';
@@ -78,7 +79,7 @@ const SearchResultsList = ({ keyword, results, currentPage, resultsPerPage, lang
 			<div className="sws-results__list grid-container">
 				<div className="grid-row">
 					<div className="grid-col">
-						<ul className="no-bullets usa-collection">{ResultList}</ul>
+						<Collection className="no-bullets">{ResultList}</Collection>
 					</div>
 				</div>
 			</div>
