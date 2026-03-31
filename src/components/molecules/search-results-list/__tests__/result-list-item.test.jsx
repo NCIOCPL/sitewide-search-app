@@ -27,10 +27,10 @@ describe('<ResultsListItem /> component', () => {
 		});
 
 		expect(screen.getByText(/Desmoid tumors grow/)).toBeInTheDocument();
-		expect(screen.getByRole('listitem')).toHaveClass('sws-results__list-item');
+		expect(screen.getByRole('listitem')).toHaveClass('usa-collection__item', 'sws-results__list-item');
 		expect(screen.getByText(/Infographic/)).toHaveClass('result__type');
-		expect(screen.getByRole('link')).toHaveClass('sws-results__list-item-link');
-		expect(screen.getByText(defaultResult.description)).toHaveClass('sws-results__list-item-description');
+		expect(screen.getByRole('link')).toHaveClass('usa-link');
+		expect(screen.getByText(defaultResult.description)).toBeInTheDocument();
 		expect(screen.getByText(defaultResult.url)).toHaveClass('sws-results__list-item-url');
 	});
 
