@@ -15,9 +15,10 @@
 		@include u-font('sans', $theme-type-scale-xs);
 		line-height: 24px;
 	}
-	@media(min-width: 641px) {
-		@include u-margin-bottom(5); // 40px
+	@media(min-width: 880px) {
+		@include u-margin-bottom(4); // 32px
 	}
+	@include u-margin-bottom(3);
 }
 
 .sws-results__list-item {
@@ -33,7 +34,7 @@
 	@include u-width(full);
 	overflow-x: hidden;
 }
-@include break(medium) {
+@media(min-width: 880px) {
 	.sws-results__summary {
 		@include u-display(flex);
 	}
@@ -48,15 +49,17 @@
 }
 .sws-results__list-item-description {
 	word-break: break-word;
-	&.usa-collection__description {
+	.usa-collection__description {
 		@include u-margin-bottom(0);
 		line-height: 24px;
 	}
 }
 
-.pager__bottom {
-	@include u-padding-bottom(45px);
+.usa-collection__description {
+	@include u-margin-bottom(0, '!important');
+	line-height: 24px;
 }
+
 
 .pager__select {
 	@include u-border(1px, solid);
@@ -106,4 +109,9 @@
 	@include u-display(flex);
 	@include u-text('no-wrap');
 	align-items: baseline;
+
+	@media(min-width: 641px) {
+		@include u-margin-top(20px); 
+	}
+	@include u-margin-top('105');
 }
