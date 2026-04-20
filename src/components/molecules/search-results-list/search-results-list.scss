@@ -61,7 +61,7 @@
 }
 
 
-.pager__select {
+.pager__select.usa-select{
 	@include u-border(1px, solid);
 	@include u-radius(0); // border radius
 	@include u-display(block);
@@ -114,4 +114,10 @@
 		@include u-margin-top(20px); 
 	}
 	@include u-margin-top('105');
+}
+
+.usa-select {
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16" fill="none"><path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M4.00005 2.85833L6.64172 5.5L7.81672 4.325L4.00005 0.5L0.175049 4.325L1.35838 5.5L4.00005 2.85833ZM4.00005 13.1417L1.35838 10.5L0.183382 11.675L4.00005 15.5L7.82505 11.675L6.64172 10.5L4.00005 13.1417Z" fill="%231B1B1B"/></svg>') !important;
+	background-size: .5rem !important;
+	background-position: right 1rem center !important;
 }
