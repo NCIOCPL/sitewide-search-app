@@ -42,7 +42,7 @@ const SearchResultsList = ({ keyword, results, currentPage, resultsPerPage, lang
 		);
 	});
 	const dropDown = (
-		<select aria-label="number of results" data-testid={testIds.SEARCH_PAGE_UNIT} className="pager__select" defaultValue={resultsPerPage} onBlur={(e) => updatePageUnit(e.target.value)} onChange={(e) => updatePageUnit(e.target.value)}>
+		<select id="pagerSelect" aria-label="number of results" data-testid={testIds.SEARCH_PAGE_UNIT} className="pager__select usa-select" defaultValue={resultsPerPage} onBlur={(e) => updatePageUnit(e.target.value)} onChange={(e) => updatePageUnit(e.target.value)}>
 			{opts}
 		</select>
 	);
