@@ -34,7 +34,7 @@ Feature: As a user, I would like to be able to page through search results from 
     And both pagers display numbers "< Previous" and "1", followed by "...", "579", "580" and "Go to Page" for screen readers
     And user clicks "Previous" and displays "< Previous", "1", "...578", "579", and "580" followed by "Next >", and "579" highlighted as the page they are on and "Go to Page" for screen readers
     And user clicks "Previous" and displays "< Previous", "1", "...577", "578", "579", and "580" followed by "Next >", and "578" highlighted as the page they are on and "Go to Page" for screen readers
-    And user clicks "Previous" and displays "< Previous", "1", "...576", "577", "578", "579" and "580" followed by "Next >", and "577" highlighted as the page they are on and "Go to Page" for screen readers
+    And user clicks "Previous" and displays "< Previous", "1", "576", "577", "578", and "579" followed by "Next >", and "577" highlighted as the page they are on and "Go to Page" for screen readers
     And user clicks "Previous" and displays "< Previous", "1" followed by "...", "575", "576", "577" followed by "...", and "576" highlighted as the page they are on and "580" the last page and "Go to Page" for screen readers
     And the last page number to be visible
     And the option for "< Previous" appears before the page numbers
