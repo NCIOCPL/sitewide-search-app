@@ -1,81 +1,71 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+
 import SearchResultsPager from '../search-results-pager';
 import { useStateValue } from '../../../../store/store.jsx';
 import { testIds } from '../../../../constants';
 
 jest.mock('../../../../store/store.jsx');
 
-describe('Search Results Pager(English)', () => {
-	let current = 0;
+const mockState = {
+	appId: 'mockAppId',
+	basePath: '/',
+	canonicalHost: 'https://www.example.gov',
+	language: 'en',
+	searchSiteFilter: 'all',
+	title: 'NCI Search Results',
+};
 
-	const setupTest = async () => {
-		const basePath = '/';
-		const canonicalHost = 'https://www.example.gov';
-		const language = 'en';
-		const searchSiteFilter = 'all';
-		const title = 'NCI Search Results';
+const renderPager = (props = {}) =>
+	render(
+		<MemoryRouter initialEntries={['/?swKeyword=tumor']}>
+			<SearchResultsPager testid={testIds.RESULTS_PAGER_TOP} current={1} totalResults={200} resultsPerPage={20} language="en" keyword="tumor" {...props} />
+		</MemoryRouter>
+	);
 
-		useStateValue.mockReturnValue([
-			{
-				appId: 'mockAppId',
-				basePath,
-				canonicalHost,
-				language,
-				searchSiteFilter,
-				title,
-			},
-		]);
-
-		// moves counter up one each test
-		current += 1;
-
-		render(
-			<MemoryRouter initialEntries={['/?swKeyword=tumor']}>
-				<SearchResultsPager testid={testIds.RESULTS_PAGER_TOP} current={current} totalResults={200} resultsPerPage={20} language={'en'} keyword={'tumor'} />
-			</MemoryRouter>
-		);
-	};
-
-	// counter 1
-	it('Should load the pager component', async () => {
-		await setupTest();
-
-		await waitFor(() => {
-			expect(screen.getAllByRole('navigation')[0]).toBeInTheDocument();
-		});
-
-		expect(screen.getAllByText(/1/)[0]).toBeInTheDocument();
-		expect(screen.getAllByText(/2/)[0]).toBeInTheDocument();
-		expect(screen.getAllByText(/.../)[0]).toBeInTheDocument();
-		expect(screen.getAllByText(/Next/)[0]).toBeInTheDocument();
+describe('<SearchResultsPager />', () => {
+	beforeEach(() => {
+		useStateValue.mockReturnValue([mockState]);
 	});
 
-	// counter 2
-	it('Nav element is there and link options', async () => {
-		await setupTest();
-
-		await waitFor(() => {
-			expect(screen.getAllByText(/.../)[1]).toHaveClass('show-for-sr');
-		});
-
-		expect(screen.getAllByText(/.../)[2]).toHaveClass('show-for-sr');
-		expect(screen.getAllByRole('link')[0]).toHaveTextContent('< Previous');
-		expect(screen.getAllByRole('link')[3]).toHaveClass('total_pages');
-		expect(screen.getAllByRole('listitem')[4]).toHaveClass('pager__ellipses--right');
+	it('renders the shared Pager wrapped in a testid container', () => {
+		renderPager();
+		expect(screen.getByTestId(testIds.RESULTS_PAGER_TOP)).toBeInTheDocument();
+		expect(screen.getByRole('navigation', { name: 'Pagination' })).toBeInTheDocument();
 	});
 
-	// counter 3
-	it('href and urls', async () => {
-		await setupTest();
+	it('marks the active page with aria-current', () => {
+		renderPager({ current: 3 });
+		const activeLink = screen.getByRole('link', { name: 'Page 3' });
+		expect(activeLink).toHaveAttribute('aria-current', 'page');
+		expect(activeLink).toHaveClass('usa-current');
+	});
 
-		await waitFor(() => {
-			expect(screen.getAllByText(/3/)[0]).toHaveClass('pager__button active');
+	it('renders ellipses when current page is far from the edges', () => {
+		renderPager({ current: 5 });
+		expect(screen.getAllByText('…')).toHaveLength(2);
+	});
+
+	it('does not render when totalResults <= resultsPerPage', () => {
+		renderPager({ totalResults: 10 });
+		expect(screen.queryByRole('navigation')).not.toBeInTheDocument();
+	});
+
+	it('uses localized previous and next labels', () => {
+		renderPager({ current: 5, language: 'es' });
+		expect(screen.getByText('Anterior')).toBeInTheDocument();
+		expect(screen.getByText('Siguiente')).toBeInTheDocument();
+	});
+
+	it('navigates to the selected page via window.location.href', () => {
+		Object.defineProperty(window, 'location', {
+			writable: true,
+			value: { href: '' },
 		});
-
-		expect(screen.getAllByRole('link')[2]).toHaveAttribute('href', '/?swKeyword=tumor&page=2&pageunit=20');
-		expect(screen.getAllByRole('link')[1]).toHaveAttribute('href', '/?swKeyword=tumor&page=1&pageunit=20');
+		renderPager({ current: 1 });
+		fireEvent.click(screen.getByRole('link', { name: 'Page 2' }));
+		expect(window.location.href).toBe('?swKeyword=tumor&page=2&pageunit=20');
 	});
 });

@@ -1,78 +1,88 @@
-@use "uswds-core" as *;
-@import '../../../styles/breakpoints';
-
-.pager__navigation,
-.pager__container {
-	@include u-display(flex);
-	@include u-flex('align-center', 'justify-start');
-	@include u-margin-left(0);
+// The shared @nciocpl/react-components <Pager /> tags the previous/next
+// anchors with a literal class "hidden" when on the first/last page.
+// Hide the wrapping <li> so the item's min-width and margins don't leave
+// reserved space before "1" (or after the last page) — hiding only the
+// <a> would still let the .usa-pagination__item slot take up width.
+.usa-pagination__arrow:has(> .usa-pagination__link.hidden) {
+	display: none;
 }
 
-.pager__container {
-	.pager__navigation {
-		@include u-padding(0);
-		@include u-margin-bottom(0);
-		color: #25619b;
-		list-style-type: none;
+// Pager renders <svg class="usa-icon"><use href="/img/sprite.svg#..."/></svg>
+// inside Previous/Next links, but the sprite isn't shipped with this app.
+// Hide the empty SVG and replace it with a text caret so the arrows still
+// flank the Previous/Next labels.
+.sws-results__pager .usa-pagination .usa-icon {
+	display: none;
+}
 
-		& > li {
-			@include u-flex('align-center', 'justify-center');
-			@include u-display(inline-flex);
-			cursor: pointer;
-			list-style-type: none;
-			margin: 0 2px 0;
+.sws-results__pager .usa-pagination__previous-page::before {
+	content: '\2039'; // ‹
+	margin-right: 0.25rem;
+}
+
+.sws-results__pager .usa-pagination__next-page::after {
+	content: '\203A'; // ›
+	margin-left: 0.25rem;
+}
+
+// Color tokens per design spec.
+.sws-results__pager {
+	.usa-pagination__button {
+		color: #007bbd; // $text-primary
+		border-color: #dfe1e2; // $bg-base-lighter
+
+		&:hover,
+		&:focus {
+			color: #004971; // $text-primary-dark
+			border-color: #004971;
 		}
 
-		.pager__button {
-			@include u-radius(3px);
-			@include u-display(block);
-			@include u-minw(3);
-			@include u-padding-x(6px);
-			@include u-padding-y(2px);
-			@include u-text('no-wrap');
-			border: none;
-			text-decoration: none;
+		&.usa-current {
+			background-color: #284976; // $accent-cool-dark
+			border-color: #284976;
+			color: #fff;
 
-			&.active {
-				@include u-text('white');
-				background: #25619b;
-				&:hover {
-					background: #25619b;
-				}
-			}
-
-			&:hover {
-				background: #cbe8fc;
+			&:hover,
+			&:focus {
+				background-color: #06162d; // $accent-cool-darker
+				border-color: #06162d;
+				color: #fff;
 			}
 		}
+	}
 
-		.pager__ellipses--right,
-		.pager__ellipses--left {
-			@include u-padding-x('05');
-			@include u-padding-y(2px);
-			cursor: default;
+	.usa-pagination__overflow {
+		color: #71767a; // $text-base
+	}
+
+	.usa-pagination__previous-page,
+	.usa-pagination__next-page {
+		color: #007bbd; // $text-primary
+
+		&:hover,
+		&:focus {
+			color: #004971; // $text-primary-dark
 		}
 	}
 }
 
-// .pager__container {
-// 	@include u-border-y(1px, solid, 'black');
-// 	@include u-padding-x(0);
-// 	@include u-padding-y(2);
-// 	@include u-margin-top(2);
-// }
+// USWDS sets justify-content: center on .usa-pagination by default.
+// Per acceptance criteria: left-aligned at < 880px (stacked under count),
+// right-aligned at >= 880px (sharing a row with count/viewby).
+.sws-results__pager .usa-pagination {
+	justify-content: flex-start;
+}
 
-@media(min-width: 880px) {
-	.pager__navigation,
-	.pager__container {
-		@include u-margin-left(auto);
-	}
+// USWDS gives every .usa-pagination__item a 4px horizontal margin. Drop the
+// leading margin so the first visible item lines up with the count's left
+// edge (covers both the page-button and visible-arrow cases).
+.sws-results__pager .usa-pagination__list > .usa-pagination__item:first-child,
+.sws-results__pager .usa-pagination__arrow:has(> .usa-pagination__link.hidden) + .usa-pagination__item {
+	margin-left: 0;
+}
 
-	.pager__container {
-		@include u-margin-top(0);
-		@include u-padding-y(0);
-		@include u-padding-left(50px);
-		@include u-padding-right(0);
-		border: none;
+@media (min-width: 880px) {
+	.sws-results__pager .usa-pagination {
+		justify-content: flex-end;
 	}
 }

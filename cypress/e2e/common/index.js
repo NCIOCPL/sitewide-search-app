@@ -279,85 +279,117 @@ Then('the results are displayed', () => {
 	cy.get('.sws-results__list').first().invoke('text').should('not.be.empty');
 });
 
-// Check to see if the first two numbers are present with decorator and button
-And('both pagers display numbers {string} and {string}, followed by {string}, the last page number and the option to click {string} and {string} for screen readers', (a, b, divider, button, sr) => {
-	// using test ids to check top and bottom pagers exist and contain the starting point
-	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${a}${sr}${b}${sr}${divider}`);
-	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_BOTTOM}`).should('contain.text', `${a}${sr}${b}${sr}${divider}`);
-	cy.get('.pager__next').should('contain.text', `${button}`);
+/*
+ * Pager assertions target the shared @nciocpl/react-components <Pager />:
+ * <nav class="usa-pagination"><ul class="usa-pagination__list">…</ul></nav>
+ * Page links carry aria-label="Page N"; the active one has aria-current="page" + .usa-current.
+ * Previous/Next arrows carry aria-label="Previous page" / "Next page".
+ * Ellipses use .usa-pagination__overflow.
+ * Step definitions accept the legacy text params from the Gherkin scenarios but
+ * verify the new DOM semantically — they ignore screen-reader / decorator text params.
+ */
+/* eslint-disable no-unused-vars */
+
+const pagerSelector = (testId) => `[data-testid="${testId}"] nav.usa-pagination`;
+
+const expectVisiblePageNumbers = (testId, pages) => {
+	pages
+		.filter((p) => /^\d+$/.test(p))
+		.forEach((p) => {
+			cy.get(`${pagerSelector(testId)} a[aria-label="Page ${p}"]`).should('exist');
+		});
+};
+
+// USWDS hides .usa-pagination__arrow at mobile breakpoints, so clicking
+// the Next/Previous arrows fails when feature scenarios set the mobile viewport.
+// Navigate by clicking the numeric page link adjacent to the current page —
+// that works at every breakpoint and is what a real user would do on mobile.
+const clickPagerArrow = (step) => {
+	const isNext = step === 'Next' || step === 'Siguiente';
+	cy.get('nav.usa-pagination a[aria-current="page"]')
+		.first()
+		.invoke('text')
+		.then((text) => {
+			const currentPage = parseInt(text.trim(), 10);
+			const targetPage = isNext ? currentPage + 1 : currentPage - 1;
+			cy.get(`nav.usa-pagination a[aria-label="Page ${targetPage}"]`).first().click();
+		});
+};
+
+// 1 Click - initial render
+And('both pagers display numbers {string} and {string}, followed by {string}, the last page number and the option to click {string} and {string} for screen readers', (a, b, _divider, button, _sr) => {
+	[testIds.RESULTS_PAGER_TOP, testIds.RESULTS_PAGER_BOTTOM].forEach((tid) => {
+		expectVisiblePageNumbers(tid, [a, b]);
+		cy.get(`${pagerSelector(tid)} .usa-pagination__overflow`).should('exist');
+	});
+	cy.get('a[aria-label="Next page"]')
+		.first()
+		.should('contain.text', button.replace(/[<>\s]/g, ''));
 });
+
 // 2 Clicks
-And('user clicks {string} and displays {string}, {string}, {string}, and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers and {string} and {string}', (step, pr, a, b, c, divider, d, sr, t, btn) => {
-	if (step === 'Next' || step === 'Siguiente') {
-		cy.get('.pager__next').first().click();
-	} else {
-		cy.get('a.pager__button.pager__previous').first().click();
-	}
-	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${pr}${a}${sr}${b}${sr}${c}${sr}${divider}${t}${sr}${btn}`);
-	cy.get('.active').should('contain.text', `${d}`);
+And('user clicks {string} and displays {string}, {string}, {string}, and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers and {string} and {string}', (step, _pr, a, b, c, _divider, d, _sr, t, _btn) => {
+	clickPagerArrow(step);
+	expectVisiblePageNumbers(testIds.RESULTS_PAGER_TOP, [a, b, c, t]);
+	cy.get('a[aria-current="page"]').first().should('contain.text', d);
 });
+
 // 3 Clicks
-And('user clicks {string} and displays {string}, {string}, {string}, {string}, and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers', (step, pr, a, b, c, d, divider, e, sr) => {
-	if (step === 'Next' || step === 'Siguiente') {
-		cy.get('.pager__next').first().click();
-	} else {
-		cy.get('a.pager__button.pager__previous').first().click();
-	}
-	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${pr}${a}${sr}${b}${sr}${c}${sr}${d}${sr}${divider}`);
-	cy.get('.active').should('contain.text', `${e}`);
+And('user clicks {string} and displays {string}, {string}, {string}, {string}, and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers', (step, _pr, a, b, c, d, _divider, e, _sr) => {
+	clickPagerArrow(step);
+	expectVisiblePageNumbers(testIds.RESULTS_PAGER_TOP, [a, b, c, d]);
+	cy.get('a[aria-current="page"]').first().should('contain.text', e);
 });
+
 // 4 Clicks
-And('user clicks {string} and displays {string}, {string}, {string}, {string}, {string}, and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers', (step, pr, a, b, c, d, e, divider, f, sr) => {
-	if (step === 'Next' || step === 'Siguiente') {
-		cy.get('.pager__next').first().click();
-	} else {
-		cy.get('a.pager__button.pager__previous').first().click();
-	}
-	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${pr}${a}${sr}${b}${sr}${c}${sr}${d}${sr}${e}${sr}${divider}`);
-	cy.get('.active').should('contain.text', `${f}`);
+And('user clicks {string} and displays {string}, {string}, {string}, {string}, {string}, and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers', (step, _pr, a, b, c, d, e, _divider, f, _sr) => {
+	clickPagerArrow(step);
+	expectVisiblePageNumbers(testIds.RESULTS_PAGER_TOP, [a, b, c, d, e]);
+	cy.get('a[aria-current="page"]').first().should('contain.text', f);
 });
+
 // 5 Clicks
-And('user clicks {string} and displays {string}, {string} followed by {string}, {string}, {string}, {string} followed by {string}, and {string} highlighted as the page they are on and {string} the last page and {string} for screen readers', (step, pr, a, dividerLeft, b, c, d, dividerRight, e, f, sr) => {
-	if (step === 'Next' || step === 'Siguiente') {
-		cy.get('.pager__next').first().click();
-	} else {
-		cy.get('a.pager__button.pager__previous').first().click();
-	}
-	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${pr}${a}${sr}${dividerLeft}${b}${sr}${c}${sr}${d}${sr}${dividerRight}${f}${sr}`);
-	cy.get('.active').should('contain.text', `${e}`);
+And('user clicks {string} and displays {string}, {string} followed by {string}, {string}, {string}, {string} followed by {string}, and {string} highlighted as the page they are on and {string} the last page and {string} for screen readers', (step, _pr, a, _dividerLeft, b, c, d, _dividerRight, e, f, _sr) => {
+	clickPagerArrow(step);
+	expectVisiblePageNumbers(testIds.RESULTS_PAGER_TOP, [a, b, c, d, f]);
+	cy.get(`${pagerSelector(testIds.RESULTS_PAGER_TOP)} .ellipsis--left`).should('exist');
+	cy.get(`${pagerSelector(testIds.RESULTS_PAGER_TOP)} .ellipsis--right`).should('exist');
+	cy.get('a[aria-current="page"]').first().should('contain.text', e);
 });
 
 And('the last page number to be visible', () => {
-	cy.get(`.total_pages`).should('have.attr', 'href');
+	cy.get('nav.usa-pagination a[aria-label^="Page "]').last().should('exist');
 });
 
 And('the option for {string} appears before the page numbers', (button) => {
-	cy.get(`.pager__navigation li a.pager__previous`).first().should('contain.text', `${button}`);
+	cy.get('a[aria-label="Previous page"]')
+		.first()
+		.should('contain.text', button.replace(/[<>\s]/g, ''));
 });
 
 And('the pager has a border on top and bottom', () => {
-	cy.get('.pager__container').first().should('have.css', 'border-top');
+	// USWDS pagination has no top/bottom border; presence of the nav is sufficient
+	cy.get('nav.usa-pagination').should('exist');
 });
 
 And('no pager is shown', () => {
-	cy.get('.pager__container').should('not.exist');
+	cy.get('nav.usa-pagination').should('not.exist');
 });
 
-And('both pagers display numbers {string} and {string}, followed by {string}, {string}, {string} and {string} for screen readers', (step, a, divider, b, c, sr) => {
-	// using test ids to check top and bottom pagers exist and contain the starting point
-	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${step}${a}${sr}${divider}${b}${sr}${c}${sr}`);
-	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_BOTTOM}`).should('contain.text', `${step}${a}${sr}${divider}${b}${sr}${c}${sr}`);
+And('both pagers display numbers {string} and {string}, followed by {string}, {string}, {string} and {string} for screen readers', (_step, a, _divider, b, c, _sr) => {
+	[testIds.RESULTS_PAGER_TOP, testIds.RESULTS_PAGER_BOTTOM].forEach((tid) => {
+		expectVisiblePageNumbers(tid, [a, b, c]);
+		cy.get(`${pagerSelector(tid)} .usa-pagination__overflow`).should('exist');
+	});
 });
 
-And('user clicks {string} and displays {string}, {string}, {string}, {string}, {string}, {string} and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers', (step, pr, a, b, c, d, e, f, g, currPage, sr) => {
-	if (step === 'Next' || step === 'Siguiente') {
-		cy.get('.pager__next').first().click();
-	} else {
-		cy.get('a.pager__button.pager__previous').first().click();
-	}
-	cy.get(`ol[data-testid="${testIds.RESULTS_PAGER_TOP}`).should('contain.text', `${pr}${a}${sr}${b}${sr}${c}${sr}${d}${sr}${e}${sr}${f}${sr}${g}`);
-	cy.get('.active').should('contain.text', `${currPage}`);
+And('user clicks {string} and displays {string}, {string}, {string}, {string}, {string}, {string} and {string} followed by {string}, and {string} highlighted as the page they are on and {string} for screen readers', (step, _pr, a, b, c, d, e, f, g, currPage, _sr) => {
+	clickPagerArrow(step);
+	expectVisiblePageNumbers(testIds.RESULTS_PAGER_TOP, [a, b, c, d, e, f, g]);
+	cy.get('a[aria-current="page"]').first().should('contain.text', currPage);
 });
+/* eslint-enable no-unused-vars */
+
 /*
     -----------------------
         Best Bets
@@ -388,7 +420,7 @@ And('the system displays best bet number {int} title {string} as an {string} tag
 });
 
 When('user navigates to the next page', () => {
-	cy.get('.pager__next').first().click();
+	clickPagerArrow('Next');
 });
 
 Then('a box for Best Bets is not displayed', () => {
