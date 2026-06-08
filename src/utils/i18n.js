@@ -35,6 +35,10 @@ export const i18n = {
 		en: 'Please check your spelling or try another search using a different word.',
 		es: 'Revise si hay errores en el texto ingresado o intente otra búsqueda.',
 	},
+	pleaseEnterThreeOrMoreCharacters: {
+		en: 'Please enter 3 or more characters',
+		es: 'Ingrese 3 o más caracteres',
+	},
 	resultsFor: {
 		en: 'Results for',
 		es: 'Resultados para',

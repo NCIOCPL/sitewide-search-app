@@ -171,6 +171,78 @@ Then('browser waits', () => {
 	cy.wait(2000);
 });
 
+/*
+    ----------------------------------------
+      Results-page search box (issue #223)
+    ----------------------------------------
+*/
+When('user types {string} in the results search box', (term) => {
+	cy.get('#sws-results-search').clear().type(term);
+});
+
+// Stub the autosuggest endpoint with a deterministic set of terms (pipe-separated).
+Given('the autosuggest service returns {string}', (pipeSeparated) => {
+	const terms = pipeSeparated.split('|').map((t) => t.trim());
+	cy.intercept('GET', '**/Autosuggest/**', {
+		statusCode: 200,
+		body: { results: terms.map((term) => ({ term })), total: terms.length },
+	}).as('autosuggest');
+});
+
+Then('the results search box dropdown displays the options:', (dataTable) => {
+	const expected = dataTable.rawTable.map((row) => row[0]);
+	cy.get('.results-search-box .nci-autocomplete__option').should('have.length', expected.length);
+	expected.forEach((option, i) => {
+		cy.get('.results-search-box .nci-autocomplete__option').eq(i).should('contain.text', option);
+	});
+});
+
+Then('the typed text {string} is bold in each results search box option', (typed) => {
+	cy.get('.results-search-box .nci-autocomplete__option strong')
+		.should('have.length.greaterThan', 0)
+		.each(($el) => {
+			expect($el.text().toLowerCase()).to.contain(typed.toLowerCase());
+		});
+});
+
+Then('the results search box dropdown displays the message {string}', (message) => {
+	cy.get('.results-search-box .nci-autocomplete__status').should('contain.text', message);
+});
+
+When('user selects the autosuggest option {string}', (option) => {
+	cy.get('.results-search-box .nci-autocomplete__option').contains(option).click();
+});
+
+Then('the results search box contains {string}', (value) => {
+	cy.get('#sws-results-search').should('have.value', value);
+});
+
+When('user submits the results search box', () => {
+	// `window.location` can't be stubbed in the iframe (non-configurable + read-only),
+	// so the submit will reload the page and reset NCIDataLayer. The analytics event
+	// is pushed synchronously *before* navigation, so spy on NCIDataLayer.push to
+	// capture it (the spy's recorded calls survive the navigation).
+	cy.window().then((win) => {
+		win.NCIDataLayer = win.NCIDataLayer || [];
+		cy.spy(win.NCIDataLayer, 'push').as('eddlPush');
+	});
+	cy.get('.results-search-box .nci-autocomplete__submit').click();
+});
+
+Then('the SearchBox:Submit EDDL event is raised with previousTerm {string} and searchTerm {string}', (previousTerm, searchTerm) => {
+	cy.get('@eddlPush').should('have.been.calledWithMatch', {
+		type: 'Other',
+		event: 'SiteWideSearchApp:SearchBox:Submit',
+		linkName: 'SiteWideSearchApp:SearchBox:Submit',
+		data: {
+			location: 'Body',
+			formType: 'Search Box',
+			previousTerm,
+			searchTerm,
+		},
+	});
+});
+
 And('the following links and texts exist on the page', (dataTable) => {
 	// Split the data table into array of pairs
 	const rawTable = dataTable.rawTable.slice();

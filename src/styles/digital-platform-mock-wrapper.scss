@@ -2,6 +2,12 @@
 @forward 'ncids-application-page';
 @forward "usa-footer";
 @forward "nci-header";
+// The header search box and our results search box both use the NCIDS
+// `nci-autocomplete` component. The full Drupal shell ships these styles; this
+// mock shell needs them too so the search boxes aren't unstyled locally / in the
+// standalone preview. (App-specific overrides live in results-search-box.scss,
+// scoped under #NCI-sws-app-root, and only patch the React-vs-NCIDS deltas.)
+@forward "nci-autocomplete";
 @forward "usa-banner";
 
 @forward "usa-button";

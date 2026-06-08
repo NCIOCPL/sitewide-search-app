@@ -130,3 +130,46 @@
 	background-size: .5rem !important;
 	background-position: right 1rem center !important;
 }
+
+// Result-item typography per Figma. Scoped under the app root id so it outranks
+// the host's `usa-collection__*` styles and stays confined to this app.
+// (Item-to-item spacing is the existing 24px `.sws-results__list-item` margin.)
+// Both ids: production (`#NCI-sws-app-root`) and local/standalone (`#NCI-app-root`).
+#NCI-sws-app-root,
+#NCI-app-root {
+	.sws-results__list-item {
+		// Title: Poppins 20px 600, underlined, #01679D
+		.usa-collection__heading {
+			@include u-font-family('heading');
+			font-size: 1.25rem; // 20px
+			font-weight: 600;
+			line-height: 24px;
+			margin-bottom: 0.75rem; // 12px to the body text
+
+			a,
+			.usa-link {
+				&,
+				&:visited {
+					color: #01679d;
+				}
+				text-decoration: underline;
+			}
+		}
+
+		// Body + URL: Open Sans 16px 400, #1B1B1B
+		.usa-collection__description,
+		.sws-results__list-item-url {
+			@include u-font-family('body');
+			font-size: 1rem; // 16px
+			font-weight: 400;
+			line-height: 24px;
+			color: #1b1b1b;
+		}
+
+		.sws-results__list-item-url {
+			display: block;
+			font-style: normal; // <cite> defaults to italic
+			word-break: break-word;
+		}
+	}
+}

@@ -1,0 +1,197 @@
+@use 'uswds-core' as *;
+@use '../../../styles/breakpoints' as *;
+
+// The shared @nciocpl/react-components Autocomplete reuses NCIDS `nci-autocomplete*`
+// class names, so the embedded NCIDS stylesheet styles much of it already. All
+// colors here come from the NCIDS theme (`color()` / `$theme-*`), never hardcoded
+// hex; only layout/size — this page's choices — and the React-vs-NCIDS structural
+// deltas (a flex wrapper, a hidden listbox, an sr-only status row) are set
+// explicitly. Everything is scoped under the app root id so it outranks the host's
+// `.nci-autocomplete*` rules and stays confined to this app (the host header search
+// is untouched).
+//
+// Sizing per Figma — mobile (base): ~448px box, 40px tall; desktop
+// (`break(medium)`, ≥641px): ~528px box, 32px tall ("small").
+//
+// Scoped to both the production root id (`#NCI-sws-app-root`) and the local/
+// standalone default (`#NCI-app-root`, set in public/index.html) so the styles
+// apply in every environment.
+#NCI-sws-app-root,
+#NCI-app-root {
+	.results-search-box {
+		margin-bottom: 1.5rem;
+
+		// Intent is conveyed by the placeholder and the search button, so the
+		// Autocomplete's label is visually hidden but kept for screen readers.
+		.usa-label {
+			position: absolute;
+			left: -999em;
+			overflow: hidden;
+		}
+
+		.nci-autocomplete {
+			display: block; // host NCIDS sets `display: flex`
+			position: relative;
+			width: 100%;
+			max-width: 28rem; // mobile ~448px
+
+			@include break(medium) {
+				max-width: 33rem; // desktop ~528px
+			}
+
+			&__control {
+				display: flex;
+				align-items: stretch;
+			}
+
+			&__field {
+				position: relative;
+				flex: 1 1 auto;
+				display: flex;
+				align-items: center;
+			}
+
+			&__input {
+				width: 100%;
+				height: 2.5rem; // mobile ~40px
+				margin: 0;
+				padding: 0 2rem 0 0.625rem; // 10px text inset; 2rem right for the clear (×)
+				border: 1px solid color('base-dark');
+				border-radius: 0;
+				background-color: color('white'); // override the legacy #f2f2f3 input bg
+				color: color('ink');
+				box-shadow: none;
+				font-size: 1rem;
+
+				@include break(medium) {
+					height: 2rem; // desktop "small" ~32px
+				}
+			}
+
+			&__clear {
+				position: absolute;
+				right: 0.5rem;
+				top: 50%;
+				transform: translateY(-50%);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 1.5rem; // 24px icon box
+				height: 1.5rem;
+				background: none;
+				border: none;
+				cursor: pointer;
+				font-size: 1.5rem; // × glyph ≈ 14px
+				line-height: 1;
+				padding: 0;
+				color: color('base');
+
+				&:hover {
+					color: color('ink');
+				}
+
+				&:focus {
+					outline: 0.25rem solid color($theme-focus-color);
+					outline-offset: 0;
+				}
+			}
+
+			&__submit {
+				flex: 0 0 auto;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 3rem;
+				height: 2.5rem; // match the mobile input height
+				margin: 0;
+				padding: 0;
+				border: none;
+				background-color: color('primary'); // #007BBD from the NCIDS theme
+				color: color('white');
+				cursor: pointer;
+
+				@include break(medium) {
+					height: 2rem; // match the desktop input height
+				}
+
+				&:hover {
+					background-color: color('primary-dark');
+				}
+
+				&:focus {
+					outline: 0.25rem solid color($theme-focus-color);
+					outline-offset: 0;
+				}
+
+				&:disabled {
+					background-color: color('disabled-light');
+					cursor: not-allowed;
+				}
+
+				svg {
+					width: 1.5rem;
+					height: 1.5rem;
+					fill: currentColor;
+				}
+			}
+
+			// host NCIDS keeps the listbox `display: none` (shown only via `.active`).
+			&__listbox {
+				display: block;
+				position: absolute;
+				z-index: 400; // above the NCIDS header listbox (z-index 301)
+				top: 100%;
+				left: 0;
+				right: 3rem; // align to the input width (exclude the 3rem button)
+				background-color: color('white');
+				border: 1px solid color('base-dark');
+				border-radius: 0;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				max-height: 15rem;
+				overflow-y: auto;
+
+				&[hidden] {
+					display: none;
+				}
+			}
+
+			&__option {
+				padding: 0.5rem 0.5rem 0.5rem 1rem; // 8 / 8 / 8 / 16 per Figma
+				cursor: pointer;
+				font-size: 0.875rem; // 14px
+				line-height: 21px;
+				color: color('ink');
+
+				strong {
+					font-weight: 700;
+				}
+
+				// selected / keyboard-highlighted (and hover) per Figma
+				&:hover,
+				&--highlighted {
+					background-color: color('primary');
+					color: color('white');
+					outline: none;
+				}
+			}
+
+			// host NCIDS renders the status row sr-only; keep ours visible.
+			&__status {
+				position: static;
+				width: auto;
+				height: auto;
+				margin: 0;
+				padding: 0.5rem 1rem;
+				overflow: visible;
+				clip: auto;
+				clip-path: none;
+				white-space: normal;
+				color: color('base');
+				font-style: italic;
+				cursor: default;
+			}
+		}
+	}
+}
