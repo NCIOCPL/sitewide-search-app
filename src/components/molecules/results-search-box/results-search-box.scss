@@ -1,0 +1,139 @@
+.results-search-box {
+	margin-bottom: 1.5rem;
+
+	// The search intent is conveyed by the placeholder and the search button,
+	// so the Autocomplete's label is visually hidden but kept for screen readers.
+	.usa-label {
+		position: absolute;
+		left: -999em;
+		overflow: hidden;
+	}
+}
+
+// Layout styles for the shared @nciocpl/react-components Autocomplete. The
+// component ships these class names; the rules live here (rather than importing
+// the library's full USWDS bundle) so we don't duplicate the app's curated NCIDS
+// styles. The input itself inherits the app's global text-input styling.
+.nci-autocomplete {
+	position: relative;
+	display: block;
+	width: 100%;
+
+	&__control {
+		display: flex;
+		align-items: stretch;
+	}
+
+	&__field {
+		position: relative;
+		flex: 1 1 auto;
+		display: flex;
+		align-items: center;
+	}
+
+	&__input {
+		width: 100%;
+		padding-right: 2rem;
+	}
+
+	&__clear {
+		position: absolute;
+		right: 0.5rem;
+		top: 50%;
+		transform: translateY(-50%);
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: 1.25rem;
+		line-height: 1;
+		padding: 0 0.25rem;
+		color: #71767a;
+
+		&:hover {
+			color: #1b1b1b;
+		}
+
+		&:focus {
+			outline: 0.25rem solid #2491ff;
+			outline-offset: 0;
+		}
+	}
+
+	&__submit {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 3rem;
+		margin: 0;
+		padding: 0 1rem;
+		border: none;
+		background-color: #005ea2;
+		color: #ffffff;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #1a4480;
+		}
+
+		&:focus {
+			outline: 0.25rem solid #2491ff;
+			outline-offset: 0;
+		}
+
+		&:disabled {
+			background-color: #c9c9c9;
+			cursor: not-allowed;
+		}
+
+		svg {
+			width: 1.5rem;
+			height: 1.5rem;
+			fill: currentColor;
+		}
+	}
+
+	&__listbox {
+		position: absolute;
+		z-index: 100;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background-color: #ffffff;
+		border: 1px solid #a9aeb1;
+		border-top: none;
+		border-radius: 0 0 0.25rem 0.25rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		max-height: 15rem;
+		overflow-y: auto;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	&__option {
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+		font-size: 1rem;
+
+		&:hover {
+			background-color: #f0f0f0;
+		}
+
+		strong {
+			font-weight: 700;
+		}
+
+		&--highlighted {
+			background-color: #d9e8f6;
+			outline: none;
+		}
+	}
+
+	&__status {
+		padding: 0.5rem 1rem;
+		color: #71767a;
+		font-style: italic;
+		cursor: default;
+	}
+}

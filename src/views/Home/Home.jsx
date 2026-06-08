@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTracking } from 'react-tracking';
 
-import { BestBet, Definition, NoResults, SearchResultsList, Spinner } from '../../components';
+import { BestBet, Definition, NoResults, ResultsSearchBox, SearchResultsList, Spinner } from '../../components';
 import { useCustomQuery, useURLQuery } from '../../hooks';
 import { getBestBetResults, getDictionaryResults, getSearchResults } from '../../services/api/actions';
 import { useStateValue } from '../../store/store';
@@ -102,6 +102,7 @@ const Home = () => {
 	return (
 		<>
 			<h1>{title}</h1>
+			{keyword && <ResultsSearchBox keyword={keyword} />}
 			{doneLoading && hasResults ? (
 				<div className="results">
 					{isFirstPage && (

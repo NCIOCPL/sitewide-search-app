@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Mirror the `min-release-age=7` install cooldown in .npmrc so Dependabot
+    # does not open PRs for versions that cannot yet be installed locally/CI.
+    cooldown:
+      default-days: 7
+    # Internal package: published to GitHub Packages.
+    registries:
+      - npm-github
+registries:
+  npm-github:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{ secrets.GITHUB_TOKEN }}

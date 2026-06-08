@@ -98,6 +98,12 @@ module.exports = function (webpackEnv) {
 					? {
 							sassOptions: {
 								includePaths: [path.join(__dirname, '../node_modules/@nciocpl/ncids-css/packages'), path.join(__dirname, '../node_modules/@nciocpl/ncids-css/uswds-packages')],
+								// Quiet build noise: deprecation notices and USWDS compile
+								// warnings (the app already opts out via
+								// `$theme-show-compile-warnings: false`). Errors still surface.
+								quietDeps: true,
+								silenceDeprecations: ['legacy-js-api', 'import', 'mixed-decls'],
+								logger: { warn() {}, debug() {} },
 							},
 					  }
 					: {};
