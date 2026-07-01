@@ -71,6 +71,7 @@
 // right-aligned at >= 880px (sharing a row with count/viewby).
 .sws-results__pager .usa-pagination {
 	justify-content: flex-start;
+	margin-bottom: 0;
 }
 
 // USWDS gives every .usa-pagination__item a 4px horizontal margin. Drop the

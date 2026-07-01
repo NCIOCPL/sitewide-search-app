@@ -21,6 +21,15 @@
 	@include u-margin-bottom(3);
 }
 
+.sws-results__summary.grid-container, .sws-results__list.grid-container {
+	@include u-padding-left(0);
+}
+
+.sws-results__list.grid-container {
+	display: grid;
+	justify-content: start;
+}
+
 .sws-results__list-item {
 	@include u-margin-top(3);
 }
