@@ -4,7 +4,7 @@ Feature: As a content editor, I would like to display both the best bets and def
         Given the user navigates to "/?swKeyword=carcinoma"
         Then the page title is "NCI Search Results"
         And a box for Best Bets appears below the subtitle
-        And the system displays best bet number 1 title "Best Bets for Carcinoma" as an "h2" tag
+        And the system displays best bet number 1 title "Recommended Results for Carcinoma" as an "h2" tag
         And the title of the related item number 1 appears as a link with text "What Is Cancer?"
         And definition box appears with title "Definition:"
         And the word "carcinoma" appears in the definition box, with the audio icon and pronunciation
@@ -19,7 +19,7 @@ Feature: As a content editor, I would like to display both the best bets and def
         When the user navigates to "/?swKeyword=carcinoma"
         Then the page title is "Resultados"
         And a box for Best Bets appears below the subtitle
-        And the system displays best bet number 1 title "Mejores resultados para Carcinoma (en español)" as an "h2" tag
+        And the system displays best bet number 1 title "Resultados recomendados para Carcinoma (en español)" as an "h2" tag
         And the title of the related item number 1 appears as a link with text "Tipos de cáncer"
         And definition box appears with title "Definición:"
         And the word "carcinoma" appears in the definition box with the audio icon
@@ -32,7 +32,7 @@ Feature: As a content editor, I would like to display both the best bets and def
         Given the user navigates to "/?swKeyword=carcinoma"
         Then the page title is "NCI Search Results"
         And a box for Best Bets appears below the subtitle
-        And the system displays best bet number 1 title "Best Bets for Carcinoma" as an "h2" tag
+        And the system displays best bet number 1 title "Recommended Results for Carcinoma" as an "h2" tag
         And the title of the related item number 1 appears as a link with text "What Is Cancer?"
         And definition box appears with title "Definition:"
         And the word "carcinoma" appears in the definition box, with the audio icon and pronunciation
@@ -61,7 +61,7 @@ Feature: As a content editor, I would like to display both the best bets and def
         Then the page title is "NCI Search Results"
         And a box for Best Bets appears below the subtitle
         And definition box does not appear on the page
-        And the system displays best bet number 1 title "Best Bets for Carcinoma" as an "h2" tag
+        And the system displays best bet number 1 title "Recommended Results for Carcinoma" as an "h2" tag
         And the title of the related item number 1 appears as a link with text "What Is Cancer?"
         And each result item displays the title of an item as a link
         When user navigates to the next page

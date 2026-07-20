@@ -1,7 +1,7 @@
 export const i18n = {
 	bestBetTitle: {
-		en: 'Best Bets for',
-		es: 'Mejores resultados para',
+		en: 'Recommended Results for',
+		es: 'Resultados recomendados para',
 	},
 	definitionTitle: {
 		en: 'Definition',
