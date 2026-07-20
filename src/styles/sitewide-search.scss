@@ -45,10 +45,28 @@ p {
 
 // Global styles
 h1 {
-	@include u-margin-bottom('205');
 	@include u-text($theme-color-base-darkest); // #1B1B1B
 	@include u-line-height($theme-font-role-heading, $theme-heading-line-height); // 1.1em
 	@include u-font($theme-font-role-heading, $theme-h1-font-size); // 1.75em
+}
+
+// The bundled normalize reset (`h1 { margin: .67em 0 }`) sits at the same (0,0,1)
+// specificity as a bare `h1` rule and wins by source order, so the spacing to the
+// search box is set under the app root id to outrank it. Both ids: production
+// (`#NCI-sws-app-root`) and local/standalone (`#NCI-app-root`).
+#NCI-sws-app-root,
+#NCI-app-root {
+	h1 {
+		// Gaps are equidistant by the *visible* text edges, not the line box. The
+		// h1's line box adds whitespace on both sides — ~15px above the caps
+		// (ascent leading) and ~8px below the baseline (descent) — on top of the
+		// breadcrumb's own ~24px below its baseline. So:
+		//  - top: 0 margin already leaves 32px between the breadcrumb text and the
+		//    title caps (also overrides the normalize reset's .67em top margin).
+		//  - bottom: 24px margin + ~8px descent = 32px visible to the search box.
+		margin-top: 0;
+		@include u-margin-bottom(3); // 24px box → 32px visible
+	}
 }
 
 h2 {

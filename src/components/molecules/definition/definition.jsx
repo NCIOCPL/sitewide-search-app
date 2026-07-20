@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { Pronunciation } from '../../index';
 import { useStateValue } from '../../../store/store';
-import { i18n, splitSentencesToArray } from '../../../utils';
+import { i18n, splitSentencesToArray, toRelativeUrl } from '../../../utils';
 import { useTracking } from 'react-tracking';
 
 const Definition = ({ results }) => {
@@ -47,31 +47,31 @@ const Definition = ({ results }) => {
 		const idOrPurl = payload.prettyUrlName || payload.termId;
 		return (
 			<>
-				<div className="grid-row">
-					<div
-						className="sws-results__definition-term-description grid-col"
+				{/* The definition text and the show/hide toggle flow as one paragraph:
+				    the toggle sits inline after the last word of the definition. The
+				    definition html is kept in its own element so its text content stays
+				    free of the toggle label. */}
+				<div className="sws-results__definition-body">
+					<span
+						className="sws-results__definition-term-description"
 						dangerouslySetInnerHTML={{
 							__html: definitionContent,
-						}}></div>
-				</div>
-				{(payload.relatedResources.length > 0 || payload.media.length > 0) && (
-					<div className="grid-row">
-						<p className="grid-col">
-							<a href={`${dictionaryUrl}/def/${idOrPurl}`} onClick={handleMoreInfoClick}>
-								{i18n.moreInfoOnDictionaryPage[language]}
-							</a>
-						</p>
-					</div>
-				)}
-				{/* Only show toggle button if more that one sentence */}
-				{definitionSentencesArray.length > 1 && (
-					<div className="sws-results__definition-toggle grid-container">
-						<div className="grid-row">
+						}}></span>
+					{/* Only show toggle button if more that one sentence */}
+					{definitionSentencesArray.length > 1 && (
+						<span className="sws-results__definition-toggle">
 							<button className={defToggleClassName} onClick={toggleClickHandler}>
 								{definitionToggleText}
 							</button>
-						</div>
-					</div>
+						</span>
+					)}
+				</div>
+				{(payload.relatedResources.length > 0 || payload.media.length > 0) && (
+					<p className="sws-results__definition-more-info">
+						<a href={`${toRelativeUrl(dictionaryUrl)}/def/${idOrPurl}`} onClick={handleMoreInfoClick}>
+							{i18n.moreInfoOnDictionaryPage[language]}
+						</a>
+					</p>
 				)}
 			</>
 		);
@@ -80,13 +80,9 @@ const Definition = ({ results }) => {
 	return (
 		<>
 			{payload && (
-				<div className="sws-results__definition grid-container">
-					<div className="grid-row">
-						<div className="sws-results__definition-title grid-col">
-							<h2>{`${i18n.definitionTitle[language]}:`}</h2>
-						</div>
-					</div>
-					<Pronunciation lang={language} pronunciationObj={payload.pronunciation} term={payload.termName} />
+				<div className="usa-summary-box sws-results__definition">
+					<h2 className="usa-summary-box__heading sws-results__definition-title">{`${i18n.definitionTitle[language]}:`}</h2>
+					<Pronunciation language={language} pronunciationObj={payload.pronunciation} term={payload.termName} />
 					{payload.definition && renderTermDefinition()}
 				</div>
 			)}

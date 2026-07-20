@@ -101,7 +101,15 @@ And('the word {string} appears in the definition box with the audio icon', (term
 });
 
 And('the definition {string} appears in the definition box', (definition) => {
-	cy.get('div.sws-results__definition .sws-results__definition-term-description').should('have.text', definition);
+	// Dictionary content can carry doubled spaces (e.g. "Relacionado con  los
+	// genes."), which the browser collapses when rendering. Compare on collapsed
+	// whitespace so the assertion matches the text as a user actually sees it.
+	const normalize = (s) => s.replace(/\s+/g, ' ').trim();
+	cy.get('div.sws-results__definition .sws-results__definition-term-description')
+		.invoke('text')
+		.then((text) => {
+			expect(normalize(text)).to.eq(normalize(definition));
+		});
 });
 
 And('link to the definition page with text {string} and href {string} in the definition box', (linkText, url) => {

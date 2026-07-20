@@ -69,8 +69,12 @@
 // USWDS sets justify-content: center on .usa-pagination by default.
 // Per acceptance criteria: left-aligned at < 880px (stacked under count),
 // right-aligned at >= 880px (sharing a row with count/viewby).
+// USWDS also gives .usa-pagination a 1rem top+bottom margin; both are zeroed so
+// the pager aligns with the results count in the summary row instead of sitting
+// ~16px lower (which otherwise inflates the gap below the summary/definition box).
 .sws-results__pager .usa-pagination {
 	justify-content: flex-start;
+	margin-top: 0;
 	margin-bottom: 0;
 }
 

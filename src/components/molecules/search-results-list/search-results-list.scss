@@ -43,9 +43,38 @@
 	@include u-width(full);
 	overflow-x: hidden;
 }
+// When the summary stacks (< 880px) the pager sits below the count/viewby. Give
+// it 32px of visible space above: the count/viewby text has ~6px of descent below
+// its baseline, so a 26px box margin reads as a 32px visible gap. This is reset to
+// 0 at >= 880px, where the pager shares the row and must stay top-aligned.
+.sws-results__summary > .sws-results__pager {
+	margin-top: 1.625rem; // 26px box → 32px visible
+}
+
 @media(min-width: 880px) {
 	.sws-results__summary {
 		@include u-display(flex);
+		gap: 1rem;
+
+		// The count/viewby lives in a bare `.grid-row`, which carries the
+		// `.app-content .grid-row` -1rem side margins. On this flex row those
+		// negative margins let the count box bleed into the adjacent pager, so a
+		// long search term overlaps the pagination (#229). Zero the margins and
+		// let the count shrink within the row; the `gap` keeps the two apart.
+		> .grid-row {
+			@include u-margin-x(0);
+			flex: 1 1 auto;
+			min-width: 0;
+		}
+
+		// The pager keeps its natural width so it is never squeezed under the
+		// count; its internal `justify-content: flex-end` keeps it right-aligned.
+		// margin-top is reset here (it only applies to the stacked layout below).
+		> .sws-results__pager {
+			flex: 0 0 auto;
+			width: auto;
+			margin-top: 0;
+		}
 	}
 }
 
