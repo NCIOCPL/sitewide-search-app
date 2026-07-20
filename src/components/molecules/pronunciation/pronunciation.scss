@@ -1,30 +1,55 @@
 @use "uswds-core" as *;
 @import '../../../styles/breakpoints';
 
+// The term, the audio button and the phonetic key sit on a single line. When
+// the term is long enough that they no longer fit, the audio button and key
+// wrap together onto the line below the term.
 .sws-results__pronunciation {
-	//display: flex;
-	font-family: Noto Sans, 'Century Gothic', Arial, sans-serif;
+	@include u-display(flex);
+	@include u-flex(wrap, 'align-center');
+	@include u-font-family('body');
+	@include u-margin-bottom(1);
+	column-gap: 8px;
+
 	&-term {
-		@include u-padding-top(1); //8px or .5em
-		@include u-display(inline-block);
-		@include u-width(auto);
 		@include u-text($theme-font-weight-bold);
 		line-height: 1.4;
 	}
+
 	&-audio-key-container {
-		@include u-display(inline-block);
+		@include u-display(flex);
+		@include u-flex('align-center');
+		column-gap: 8px;
 	}
-	&-audio {
-		@include u-display(inline);
-		@include u-width(42px);
-		@include u-margin-right(5px);
-	}
+
 	&-key {
-		@include u-display(inline);
 		line-height: 1.4;
 	}
-	& .btnAudio {
-		@include u-padding-y(5px);
-		@include u-padding-x(0);
+}
+
+// The comps size the audio icon at 20x20. Both the `.btnAudio` base styles
+// (42px) and the shared stylesheet's `#NCI-sws-app-root .btnAudio` override
+// (30px) are larger, and beating the latter needs an id selector. Both roots are
+// listed because production mounts the app at `NCI-sws-app-root` while local and
+// standalone builds mount it at `NCI-app-root`.
+#NCI-sws-app-root,
+#NCI-app-root {
+	.sws-results__pronunciation .btnAudio {
+		@include u-height(20px);
+		@include u-width(20px);
+		@include u-padding(0);
+
+		&::before {
+			background-size: contain;
+			height: 20px;
+			width: 20px;
+		}
+
+		&.paused::before,
+		&.playing::before {
+			background-size: contain;
+			height: 14px;
+			width: 14px;
+		}
 	}
 }

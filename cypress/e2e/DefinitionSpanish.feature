@@ -37,3 +37,32 @@ Feature: As a user I would like to see the Definition box when I navigate to the
 		And the definition "El cáncer se diseminó hasta la pared de la pelvis." appears in the definition box
 		And link to the definition page with text "Más información" and href "https://www.cancer.gov/espanol/publicaciones/diccionario/def/cancer-de-la-vagina-en-estadio-lll" in the definition box
 		And button to toggle the full definition in the definition box labelled "Mostrar toda la definición" does not display
+
+	Scenario: Spanish Dictionary Definition Display - genético with full definition and dictionary link
+		Given the user navigates to "/?cfg=1&swKeyword=gen%C3%A9tico"
+		Then the page title is "Resultados"
+		And definition box appears with title "Definición:"
+		And the word "genético" appears in the definition box with the audio icon
+		And the definition "Relacionado con los genes." appears in the definition box
+		And link to the definition page with text "Más información" and href "https://www.cancer.gov/espanol/publicaciones/diccionario/def/genetico" in the definition box
+		And a button to toggle the full definition appears in the definition box labelled "Mostrar toda la definición"
+		When user clicks on the full definition toggle button in the definition box
+		Then full definition toggle button text turns to "Ocultar toda la definición"
+
+	Scenario: Spanish Dictionary Definition Display - vitamina soluble en grasas with full definition and no dictionary link
+		Given the user navigates to "/?cfg=1&swKeyword=vitamina soluble en grasas"
+		Then the page title is "Resultados"
+		And definition box appears with title "Definición:"
+		And the word "vitamina soluble en grasas" appears in the definition box with the audio icon
+		And the definition "Vitamina que se disuelve en grasas y aceites." appears in the definition box
+		And link to the definition page with text "Más información" does not display
+		And a button to toggle the full definition appears in the definition box labelled "Mostrar toda la definición"
+
+	Scenario: Spanish Dictionary Definition Display - de novo with no dictionary link and no full definition toggle
+		Given the user navigates to "/?cfg=1&swKeyword=de novo"
+		Then the page title is "Resultados"
+		And definition box appears with title "Definición:"
+		And the word "de novo" appears in the definition box with the audio icon
+		And the definition "En cáncer, presentación por primera vez de cáncer en el cuerpo." appears in the definition box
+		And link to the definition page with text "Más información" does not display
+		And button to toggle the full definition in the definition box labelled "Mostrar toda la definición" does not display

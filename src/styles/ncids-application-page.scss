@@ -4,6 +4,7 @@
 // @forward 'usa-button';
 // @forward 'usa-accordion';
 @forward 'usa-select';
+@forward 'usa-summary-box';
 // @forward 'usa-input';
 // @forward 'usa-combo-box';
 // @forward "usa-checkbox";
@@ -47,6 +48,10 @@
       padding-bottom: 4px;
 		}
 	}
+
+	// Sitewide Search's pronunciation styles live in the component stylesheet
+	// (`pronunciation.scss`) so they apply under every app root id, not just the
+	// two scoped here.
 
 
 	.dictionary-list-container {
