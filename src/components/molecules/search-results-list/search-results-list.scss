@@ -46,6 +46,25 @@
 @media(min-width: 880px) {
 	.sws-results__summary {
 		@include u-display(flex);
+		gap: 1rem;
+
+		// The count/viewby lives in a bare `.grid-row`, which carries the
+		// `.app-content .grid-row` -1rem side margins. On this flex row those
+		// negative margins let the count box bleed into the adjacent pager, so a
+		// long search term overlaps the pagination (#229). Zero the margins and
+		// let the count shrink within the row; the `gap` keeps the two apart.
+		> .grid-row {
+			@include u-margin-x(0);
+			flex: 1 1 auto;
+			min-width: 0;
+		}
+
+		// The pager keeps its natural width so it is never squeezed under the
+		// count; its internal `justify-content: flex-end` keeps it right-aligned.
+		> .sws-results__pager {
+			flex: 0 0 auto;
+			width: auto;
+		}
 	}
 }
 

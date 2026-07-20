@@ -1,6 +1,18 @@
 @use "uswds-core" as *;
 @import '../../styles/breakpoints';
 
+// The comps constrain the results column — the Best Bets/Definition combo, the
+// count/pager rows, and the results list — to 994px, left-aligned inside the
+// host page's grid container (87.5rem on the Drupal `ncids_no_left_nav`
+// template). Without this the app spans the full container width. Scoped under
+// both root ids: production (`#NCI-sws-app-root`) and standalone (`#NCI-app-root`).
+#NCI-sws-app-root,
+#NCI-app-root {
+	.results {
+		max-width: 62.125rem; // 994px per Figma
+	}
+}
+
 .results {
 	h2 {
 		@include u-margin-top(0);
@@ -24,46 +36,53 @@
 	&__feature {
 		@include u-margin-bottom(5);
 	}
+	// The Best Bets container wraps around the entire Definition container.
 	&__feature--bestbet--definition {
 		@include u-position(relative);
 		@include u-display(flex);
-		@include u-flex(wrap, 'align-start', 'justify-center');
-		@include u-margin-right(-3.125em);
-		@include u-margin-bottom(50px);
-		padding: 2.5% 3.125em;
-		background-color: #dbf2f8;
+		@include u-flex(wrap, 'align-start');
+		@include u-bg('info-lighter'); // #D4E7F2
+		@include u-padding(2); // 16px
+		@include u-margin-bottom(5);
+		gap: 16px;
 
+		// The wrapper supplies the background and padding for the combination,
+		// so the Best Bets block itself is transparent and unpadded.
 		.best-bet {
-			@include u-margin-bottom(2);
+			@include u-padding(0);
 			background-color: transparent;
+			flex: 100% 1;
 		}
 
-		.definition {
+		// Mobile, mobile large, tablet (< 880px): the Definition summary box sits
+		// full width below the Best Bets links.
+		.sws-results__definition {
 			@include u-margin-bottom(0);
-			@include u-bg($theme-body-background-color); // white
-			flex: 33.33333% 1;
-
-			.pronunciation {
-				&__term {
-					@include u-display(inline);
-				}
-			}
+			flex: 100% 1;
 		}
 	}
 }
 
-@include break(medium) {
+// Tablet large, desktop, widescreen (>= 880px): the Best Bets links and the
+// Definition summary box sit side by side, with the Definition right-aligned
+// within the Best Bets container.
+@include break('min-width: 880px') {
 	.results {
+		// The Best Bets block (heading and links) and the Definition summary box
+		// sit side by side, with the box top-aligned to the Best Bets heading.
 		&__feature--bestbet--definition {
 			@include u-flex('no-wrap');
-			.best-bet {
-				@include u-margin-x(0);
-				@include u-padding-x(0.9375em);
-				flex: 66.66667% 1;
 
-				.best-bet__item {
-					@include u-padding(0);
-				}
+			.best-bet {
+				flex: 1 1 auto;
+				min-width: 0;
+			}
+
+			// The comps size the summary box at 457px within the container's 962px
+			// content area — roughly 47.5%.
+			.sws-results__definition {
+				align-self: flex-start;
+				flex: 0 0 47.5%;
 			}
 		}
 	}

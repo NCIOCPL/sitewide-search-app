@@ -6,5 +6,5 @@ export { matchItemToTerm } from './matchItemToTerm';
 export { getKeyValueFromObject } from './objects';
 export { TokenParser } from './replaceTokens';
 export { emboldenSubstring, splitSentencesToArray } from './strings';
-export { getKeyValueFromQueryString } from './url';
+export { getKeyValueFromQueryString, toRelativeUrl } from './url';
 export { default as closest } from './closest';

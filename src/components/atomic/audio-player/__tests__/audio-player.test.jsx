@@ -14,9 +14,13 @@ describe('<AudioPlayer /> component', () => {
 		expect(audioElement).toHaveAttribute('preload', 'none');
 	});
 
-	it('renders a button with screenreader text', () => {
+	it('renders a button with visually hidden screenreader text', () => {
 		render(<AudioPlayer audioSrc="mock.mp3" />);
-		expect(screen.getByText(/listen to pronunciation/i)).toBeInTheDocument();
+		const srText = screen.getByText(/listen to pronunciation/i);
+		expect(srText).toBeInTheDocument();
+		// `usa-sr-only` is the NCIDS/USWDS screen-reader-only utility; the legacy
+		// `show-for-sr` class has no styles on NCIDS pages so the text renders visibly.
+		expect(srText).toHaveClass('usa-sr-only');
 	});
 
 	it('has spanish screenreader text if language is specified as spanish', () => {
