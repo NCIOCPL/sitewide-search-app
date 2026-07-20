@@ -46,7 +46,7 @@ const AudioPlayer = ({ audioSrc, lang = 'en', tracking = () => {} }) => {
 			<audio src={audioSrc} ref={playerRef} onEnded={trackEnded} onPause={trackPaused} preload="none" />
 
 			<button type="button" className={`btnAudio ${playing ? 'playing' : ''}${paused ? 'paused' : ''}${hasError ? 'error' : ''}`} onClick={handlePlay}>
-				<span className="show-for-sr">{srText}</span>
+				<span className="usa-sr-only">{srText}</span>
 			</button>
 		</>
 	);

@@ -7,11 +7,11 @@ const FigureCgovImage = ({ altText, caption, classes = '', credit, enlarge_uri, 
 	t.linkText =
 		lang === 'en' ? (
 			<>
-				Enlarge <span className="show-for-sr"> this image in new window</span>
+				Enlarge <span className="usa-sr-only"> this image in new window</span>
 			</>
 		) : (
 			<>
-				Ampliar <span className="show-for-sr">- abre en nueva ventana</span>
+				Ampliar <span className="usa-sr-only">- abre en nueva ventana</span>
 			</>
 		);
 	t.creditText = lang === 'en' ? 'Credit' : 'Crédito';

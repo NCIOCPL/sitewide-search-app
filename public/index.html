@@ -7,11 +7,63 @@
 		<title>
 			NCI Search Results - National Cancer Institute
 		</title>
+		<!-- Load the same web fonts the real Drupal (test-ac) shell loads so the
+		     standalone preview renders H1 (Poppins) and body/breadcrumb (Open Sans)
+		     with identical metrics — otherwise fallback fonts throw off spacing. -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
 		<!-- <link rel="stylesheet" href="%PUBLIC_URL%/__nci-dev__common.css" /> -->
 		<style>
 			.hide {
 				display: none;
+			}
+
+			/*
+			 * Breadcrumb styling for the LOCAL/STANDALONE PREVIEW ONLY.
+			 *
+			 * The breadcrumb lives in the Drupal shell in production (Drupal styles
+			 * its own), so these rules must NOT ship in the app bundle. They are
+			 * inlined here — index.html is never used in production — to mirror the
+			 * NCIDS breadcrumb's height/spacing above the <h1> while developing. Values
+			 * mirror @nciocpl/ncids-css 3.4.0 `usa-breadcrumb` (font-size .89rem,
+			 * 1rem top/bottom padding).
+			 */
+			.usa-breadcrumb {
+				color: #1b1b1b;
+				background-color: #fff;
+				font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+				font-size: 0.89rem;
+				line-height: 1.5; /* matches Drupal's computed 21.36px */
+				padding: 1rem 0;
+			}
+			.usa-breadcrumb__list {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				list-style: none;
+				margin: 0 -0.25rem; /* NCIDS focus-width offset */
+				padding: 0.25rem;
+			}
+			.usa-breadcrumb__list-item {
+				display: inline-flex;
+				align-items: center;
+			}
+			.usa-breadcrumb__list-item:not(:first-child)::before {
+				content: '\203A'; /* › separator */
+				margin: 0 0.5rem;
+				color: #1b1b1b;
+			}
+			.usa-breadcrumb__link {
+				color: #005ea2;
+				text-decoration: underline;
+			}
+			.usa-breadcrumb__list-item.usa-current > span {
+				color: #1b1b1b;
 			}
 		</style>
 		<script type="text/javascript">
@@ -307,17 +359,37 @@
 			</div>
 		</header>
 
-		<div id="page" class="grid-container">
-			<div class="grid-row">
-				<div class="grid-col">
-					<main id="main-content" class="main-content">
-						<div class="general-page-body-container">
-							<div class="content-container contentzone">
-								<div id="NCI-app-root"></div>
-							</div>
-						</div>
-					</main>
+		<!-- Breadcrumb mirrors the real Drupal shell (a bare grid-container above
+		     #page) so the local/standalone preview accounts for the breadcrumb's
+		     height and spacing above the app's <h1>. -->
+		<div class="grid-container">
+			<div class="grid-row flex-no-wrap">
+				<div class="grid-col-10">
+					<nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs">
+						<ol class="usa-breadcrumb__list">
+							<li class="usa-breadcrumb__list-item">
+								<a href="/" class="usa-breadcrumb__link">
+									<span>Home</span>
+								</a>
+							</li>
+							<li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+								<span>NCI Search Results</span>
+							</li>
+						</ol>
+					</nav>
 				</div>
+			</div>
+		</div>
+
+		<!-- Matches the real Drupal (test-ac) main-content structure: the app root
+		     mounts directly inside <main class="cgdp-main-content grid-col-12"> within
+		     a grid-row grid-gap, so the standalone preview reflects the same widths
+		     and centering. -->
+		<div id="page" class="grid-container">
+			<div class="grid-row grid-gap">
+				<main class="cgdp-main-content grid-col-12" id="main-content">
+					<div id="NCI-app-root"></div>
+				</main>
 			</div>
 		</div>
 

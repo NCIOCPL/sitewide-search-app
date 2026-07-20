@@ -9,6 +9,11 @@
 // scoped under #NCI-sws-app-root, and only patch the React-vs-NCIDS deltas.)
 @forward "nci-autocomplete";
 @forward "usa-banner";
+// NOTE: breadcrumb styles are intentionally NOT forwarded here. This mock
+// wrapper compiles into the shipped `main.css`, and the breadcrumb lives in the
+// Drupal shell (which styles its own). The local/standalone preview styles its
+// mock breadcrumb inline in `public/index.html` so nothing breadcrumb-related
+// reaches production.
 
 @forward "usa-button";
 @forward "usa-form-group";

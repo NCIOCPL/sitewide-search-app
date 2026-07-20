@@ -1,0 +1,35 @@
+{
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 44277,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "de novo",
+			"firstLetter": "d",
+			"prettyUrlName": "de-novo",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/704400.mp3"
+			},
+			"definition": {
+				"html": "En cáncer, presentación por primera vez de cáncer en el cuerpo.",
+				"text": "En cáncer, presentación por primera vez de cáncer en el cuerpo."
+			},
+			"otherLanguages": [
+				{
+					"language": "en",
+					"termName": "de novo",
+					"prettyUrlName": "de-novo"
+				}
+			],
+			"relatedResources": [],
+			"media": []
+		}
+	],
+	"links": null
+}

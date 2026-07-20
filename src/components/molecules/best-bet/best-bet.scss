@@ -1,17 +1,27 @@
 @use "uswds-core" as *;
 
-definition + .best-bet {
-	@include u-margin-top(3); // 24px or 1.5rem
-}
-
 .best-bet {
-	@include u-overflow('auto');
-	// @include u-margin-left(-3.125em);
-	@include u-margin-right(-3.125em);
-	background-color: #dbf2f8;
+	@include u-bg('info-lighter'); // #D4E7F2
+	@include u-padding(2); // 16px
 
-	&__item {
-		padding: 2.5% 3.125em;
+	// Each Best Bets category after the first is separated from the one above it.
+	&__item + &__item {
+		@include u-margin-top(2);
+	}
+
+	// The heading stays an h2 for document structure, but the comps set it at
+	// Poppins SemiBold 20px/24px (Figma "Prose/h3") rather than the page's
+	// default h2 scale. Selector is doubled up so it outranks the page-level
+	// `.results h2` rule, which is emitted later in the bundle at the same
+	// specificity.
+	& &__item h2 {
+		@include u-margin-top(0);
+		@include u-margin-bottom(2);
+		@include u-font-family('heading'); // Poppins
+		@include u-text($theme-color-base-darkest); // #1B1B1B
+		font-size: 1.25rem; // 20px
+		font-weight: 600;
+		line-height: 24px;
 	}
 
 	.list {
@@ -22,10 +32,17 @@ definition + .best-bet {
 
 			.title-and-desc > * {
 				font-size: 1em;
-      }
+			}
 
+			// These links sit on the `info-lighter` container rather than on white,
+			// where the comps' `primary` (#007BBD) only reaches 3.61:1 and fails
+			// WCAG AA. `$theme-link-color` (#01679D) reaches 4.82:1 on that
+			// background and is the same link colour the Definition box uses.
+			// `set-link-from-bg` keeps the link, visited and hover colours compliant.
 			a.title {
-				color: #276998;
+				@include set-link-from-bg('info-lighter', $theme-link-color, 'primary-darker', $context: 'Best Bets');
+				@include u-text($theme-font-weight-bold);
+				text-decoration: underline;
 			}
 		}
 	}

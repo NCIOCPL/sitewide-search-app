@@ -1,0 +1,35 @@
+{
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 45485,
+			"language": "en",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "dialysis",
+			"firstLetter": "d",
+			"prettyUrlName": "dialysis",
+			"pronunciation": {
+				"key": "(dy-A-luh-sis)",
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/705523.mp3"
+			},
+			"definition": {
+				"html": "The process of filtering the blood when the kidneys are not able to cleanse it.",
+				"text": "The process of filtering the blood when the kidneys are not able to cleanse it."
+			},
+			"otherLanguages": [
+				{
+					"language": "es",
+					"termName": "diálisis",
+					"prettyUrlName": "dialisis"
+				}
+			],
+			"relatedResources": [],
+			"media": []
+		}
+	],
+	"links": null
+}
