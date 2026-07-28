@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, useLocation } from 'react-router-dom';
 
 import SearchResultsPager from '../search-results-pager';
 import { useStateValue } from '../../../../store/store.jsx';
@@ -18,9 +18,15 @@ const mockState = {
 	title: 'NCI Search Results',
 };
 
+const LocationDisplay = () => {
+	const location = useLocation();
+	return <div data-testid="location">{location.search}</div>;
+};
+
 const renderPager = (props = {}) =>
 	render(
 		<MemoryRouter initialEntries={['/?swKeyword=tumor']}>
+			<LocationDisplay />
 			<SearchResultsPager testid={testIds.RESULTS_PAGER_TOP} current={1} totalResults={200} resultsPerPage={20} language="en" keyword="tumor" {...props} />
 		</MemoryRouter>
 	);
@@ -59,13 +65,9 @@ describe('<SearchResultsPager />', () => {
 		expect(screen.getByText('Siguiente')).toBeInTheDocument();
 	});
 
-	it('navigates to the selected page via window.location.href', () => {
-		Object.defineProperty(window, 'location', {
-			writable: true,
-			value: { href: '' },
-		});
+	it('updates the router location for the selected page without a full page navigation', () => {
 		renderPager({ current: 1 });
 		fireEvent.click(screen.getByRole('link', { name: 'Page 2' }));
-		expect(window.location.href).toBe('?swKeyword=tumor&page=2&pageunit=20');
+		expect(screen.getByTestId('location')).toHaveTextContent('?swKeyword=tumor&page=2&pageunit=20');
 	});
 });

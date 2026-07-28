@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { i18n } from '../../../utils';
 import { useURLQuery } from '../../../hooks';
@@ -25,6 +26,7 @@ const buildPageWindow = (current, pageCount) => {
 };
 
 const SearchResultsPager = ({ current, totalResults, testid = 'tid-results-pager', keyword, resultsPerPage, language = 'en' }) => {
+	const navigate = useNavigate();
 	const urlQuery = useURLQuery();
 	const pageCount = Math.ceil(totalResults / resultsPerPage);
 
@@ -39,11 +41,11 @@ const SearchResultsPager = ({ current, totalResults, testid = 'tid-results-pager
 		urlQuery.delete('true');
 		urlQuery.set('page', page.toString());
 		urlQuery.set('pageunit', resultsPerPage);
-		window.location.href = `?${urlQuery.toString()}`;
+		navigate({ search: `?${urlQuery.toString()}` });
 	};
 
-	const handleClick = (e, page) => {
-		e.preventDefault();
+	const handleClick = (page) => {
+		// e.preventDefault();
 		navigateTo(page);
 	};
 
@@ -57,7 +59,7 @@ const SearchResultsPager = ({ current, totalResults, testid = 'tid-results-pager
 				<ul className="usa-pagination__list">
 					{showPrevious && (
 						<li className="usa-pagination__item usa-pagination__arrow">
-							<a href="#" className="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page" role="button" onClick={(e) => handleClick(e, currentPage - 1)}>
+							<a href="#" className="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page" role="button" onClick={() => handleClick(currentPage - 1)}>
 								<span className="usa-pagination__link-text">{i18n.previous[language]}</span>
 							</a>
 						</li>
@@ -80,7 +82,7 @@ const SearchResultsPager = ({ current, totalResults, testid = 'tid-results-pager
 						const isCurrent = item === currentPage;
 						return (
 							<li key={`page-${item}`} className="usa-pagination__item usa-pagination__page-no">
-								<a href="#" className={`usa-pagination__button${isCurrent ? ' usa-current' : ''}`} aria-label={`Page ${item}`} aria-current={isCurrent ? 'page' : undefined} onClick={(e) => handleClick(e, item)}>
+								<a href="#" className={`usa-pagination__button${isCurrent ? ' usa-current' : ''}`} aria-label={`Page ${item}`} aria-current={isCurrent ? 'page' : undefined} onClick={() => handleClick(item)}>
 									{item}
 								</a>
 							</li>
@@ -88,7 +90,7 @@ const SearchResultsPager = ({ current, totalResults, testid = 'tid-results-pager
 					})}
 					{showNext && (
 						<li className="usa-pagination__item usa-pagination__arrow">
-							<a href="#" className="usa-pagination__link usa-pagination__next-page" aria-label="Next page" role="button" onClick={(e) => handleClick(e, currentPage + 1)}>
+							<a href="#" className="usa-pagination__link usa-pagination__next-page" aria-label="Next page" role="button" onClick={() => handleClick(currentPage + 1)}>
 								<span className="usa-pagination__link-text">{i18n.next[language]}</span>
 							</a>
 						</li>

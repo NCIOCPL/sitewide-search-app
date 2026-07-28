@@ -19,8 +19,8 @@ const Home = () => {
 	const keyword = urlQuery.get('swKeyword') || urlQuery.get('swkeyword');
 	const currentPage = parseInt(urlQuery.get('page'), 10) || 1;
 	const unit = parseInt(urlQuery.get('pageunit'), 10) || 20;
-	const [pageunit] = useState(unit);
-	const [current] = useState(currentPage);
+	const [pageunit, setPageunit] = useState(unit);
+	const [current, setCurrent] = useState(currentPage);
 	const isFirstPage = !urlQuery.get('page') || urlQuery.get('page') === '1';
 
 	const showBestBet = isBestBetsConfigured && stateBestBetResult?.length > 0;
@@ -42,6 +42,18 @@ const Home = () => {
 	// Set hasResults should there be results returned for any search
 	// when a keyword has been provided
 	const hasResults = !!keyword && (stateDefinitionResult?.results?.length > 0 || stateSearchResults?.result?.length > 0 || stateBestBetResult?.length > 0);
+
+	useEffect(() => {
+		setCurrent(currentPage);
+		setPageunit(unit);
+		setDoneLoading(false);
+		setBestBetResultsLoaded(false);
+		setDictionaryResultsLoaded(false);
+		setSearchResultsLoaded(false);
+		setStateBestBetResult(undefined);
+		setStateDefinitionResult(undefined);
+		setStateSearchResults(undefined);
+	}, [currentPage, unit]);
 
 	useEffect(() => {
 		// If no keyword was provided set doneLoading to true and early exit
