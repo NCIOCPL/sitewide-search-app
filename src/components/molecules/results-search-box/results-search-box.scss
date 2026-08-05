@@ -155,6 +155,14 @@
 				&[hidden] {
 					display: none;
 				}
+
+				// Loading and no-match states: the component blanks both
+				// `loadingMessage` and `noOptionsMessage` (see results-search-box.jsx),
+				// leaving an empty status row. Hide the entire box so nothing is shown
+				// (and no "Loading…" flashes) at all — see issue #232.
+				&:has(> .nci-autocomplete__status:empty) {
+					display: none;
+				}
 			}
 
 			&__option {
@@ -177,7 +185,10 @@
 				}
 			}
 
-			// host NCIDS renders the status row sr-only; keep ours visible.
+			// host NCIDS renders the status row sr-only; keep ours visible. With the
+			// loading and no-match messages blanked (see results-search-box.jsx), the
+			// only status that shows is the min-chars hint, styled black and normal to
+			// match the host header search box's `.min-placeholder-message`.
 			&__status {
 				position: static;
 				width: auto;
@@ -188,8 +199,8 @@
 				clip: auto;
 				clip-path: none;
 				white-space: normal;
-				color: color('base');
-				font-style: italic;
+				color: color('ink'); // #1B1B1B — black, matches the header
+				font-style: normal;
 				cursor: default;
 			}
 		}

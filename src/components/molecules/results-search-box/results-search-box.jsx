@@ -123,9 +123,18 @@ const ResultsSearchBox = ({ keyword = '' }) => {
 
 	const value = keyword ? { label: keyword, value: keyword } : null;
 
+	// The shared Autocomplete opens its listbox as soon as it starts loading and
+	// renders a status row for both the loading state (`loadingMessage`,
+	// "Loading…" by default) and the no-matches state (`noOptionsMessage`, "No
+	// results found." by default, English-only). This app offers nothing in either
+	// case, so both messages are blanked here and the resulting empty rows hide the
+	// listbox via scss (issue #232) — blanking `loadingMessage` also removes the
+	// brief "Loading…" flash before a non-matching term resolves. Only the
+	// min-chars hint remains.
+
 	return (
 		<div className="results-search-box">
-			<Autocomplete id="sws-results-search" className="results-search-box__autocomplete" label={i18n.search[language]} minChars={MIN_CHARS} minCharsMessage={i18n.pleaseEnterThreeOrMoreCharacters[language]} highlightMatch loadOptions={loadOptions} onChange={handleChange} onSubmit={handleSubmit} searchButtonLabel={i18n.search[language]} value={value} />
+			<Autocomplete id="sws-results-search" className="results-search-box__autocomplete" label={i18n.search[language]} minChars={MIN_CHARS} minCharsMessage={i18n.pleaseEnterThreeOrMoreCharacters[language]} noOptionsMessage="" loadingMessage="" highlightMatch loadOptions={loadOptions} onChange={handleChange} onSubmit={handleSubmit} searchButtonLabel={i18n.search[language]} value={value} />
 		</div>
 	);
 };

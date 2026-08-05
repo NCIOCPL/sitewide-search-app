@@ -19,6 +19,14 @@ Feature: As a Spanish user, the results-page search box offers autosuggestions a
         And user types "ad" in the results search box
         Then the results search box dropdown displays the message "Ingrese 3 o más caracteres"
 
+    Scenario: No dropdown is shown when the typed text matches no suggestions (issue #232)
+        Given "language" is set to "es"
+        And "searchCollection" is set to "cgov"
+        And the autosuggest service returns no results
+        When the user navigates to "/?swKeyword=video"
+        And user types "arrr" in the results search box
+        Then the results search box dropdown is not displayed
+
     Scenario: Selecting an autosuggest option populates the search box
         Given "language" is set to "es"
         And "searchCollection" is set to "cgov"

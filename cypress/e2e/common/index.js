@@ -197,6 +197,14 @@ Given('the autosuggest service returns {string}', (pipeSeparated) => {
 	}).as('autosuggest');
 });
 
+// Stub the autosuggest endpoint with an empty result set (issue #232).
+Given('the autosuggest service returns no results', () => {
+	cy.intercept('GET', '**/Autosuggest/**', {
+		statusCode: 200,
+		body: { results: [], total: 0 },
+	}).as('autosuggest');
+});
+
 Then('the results search box dropdown displays the options:', (dataTable) => {
 	const expected = dataTable.rawTable.map((row) => row[0]);
 	cy.get('.results-search-box .nci-autocomplete__option').should('have.length', expected.length);
@@ -215,6 +223,12 @@ Then('the typed text {string} is bold in each results search box option', (typed
 
 Then('the results search box dropdown displays the message {string}', (message) => {
 	cy.get('.results-search-box .nci-autocomplete__status').should('contain.text', message);
+});
+
+Then('the results search box dropdown is not displayed', () => {
+	cy.wait('@autosuggest');
+	cy.get('.results-search-box .nci-autocomplete__option').should('not.exist');
+	cy.get('.results-search-box .nci-autocomplete__listbox').should('not.be.visible');
 });
 
 When('user selects the autosuggest option {string}', (option) => {
