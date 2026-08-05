@@ -19,6 +19,14 @@ Feature: As a user, the results-page search box offers autosuggestions as I type
         And user types "lu" in the results search box
         Then the results search box dropdown displays the message "Please enter 3 or more characters"
 
+    Scenario: No dropdown is shown when the typed text matches no suggestions (issue #232)
+        Given "language" is set to "en"
+        And "searchCollection" is set to "cgov"
+        And the autosuggest service returns no results
+        When the user navigates to "/?swKeyword=breast+cancer"
+        And user types "arrr" in the results search box
+        Then the results search box dropdown is not displayed
+
     Scenario: Selecting an autosuggest option populates the search box
         Given "language" is set to "en"
         And "searchCollection" is set to "cgov"
