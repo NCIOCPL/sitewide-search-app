@@ -1,76 +1,93 @@
-@import '../../../styles/breakpoints';
+// The shared @nciocpl/react-components <Pager /> tags the previous/next
+// anchors with a literal class "hidden" when on the first/last page.
+// Hide the wrapping <li> so the item's min-width and margins don't leave
+// reserved space before "1" (or after the last page) — hiding only the
+// <a> would still let the .usa-pagination__item slot take up width.
+.usa-pagination__arrow:has(> .usa-pagination__link.hidden) {
+	display: none;
+}
 
-.pager__navigation,
-.pager__container {
-	align-items: center;
-	display: flex;
+// Pager renders <svg class="usa-icon"><use href="/img/sprite.svg#..."/></svg>
+// inside Previous/Next links, but the sprite isn't shipped with this app.
+// Hide the empty SVG and replace it with a text caret so the arrows still
+// flank the Previous/Next labels.
+.sws-results__pager .usa-pagination .usa-icon {
+	display: none;
+}
+
+.sws-results__pager .usa-pagination__previous-page::before {
+	content: '\2039'; // ‹
+	margin-right: 0.25rem;
+}
+
+.sws-results__pager .usa-pagination__next-page::after {
+	content: '\203A'; // ›
+	margin-left: 0.25rem;
+}
+
+// Color tokens per design spec.
+.sws-results__pager {
+	.usa-pagination__button {
+		color: #007bbd; // $text-primary
+		border-color: #dfe1e2; // $bg-base-lighter
+
+		&:hover,
+		&:focus {
+			color: #004971; // $text-primary-dark
+			border-color: #004971;
+		}
+
+		&.usa-current {
+			background-color: #284976; // $accent-cool-dark
+			border-color: #284976;
+			color: #fff;
+
+			&:hover,
+			&:focus {
+				background-color: #06162d; // $accent-cool-darker
+				border-color: #06162d;
+				color: #fff;
+			}
+		}
+	}
+
+	.usa-pagination__overflow {
+		color: #71767a; // $text-base
+	}
+
+	.usa-pagination__previous-page,
+	.usa-pagination__next-page {
+		color: #007bbd; // $text-primary
+
+		&:hover,
+		&:focus {
+			color: #004971; // $text-primary-dark
+		}
+	}
+}
+
+// USWDS sets justify-content: center on .usa-pagination by default.
+// Per acceptance criteria: left-aligned at < 880px (stacked under count),
+// right-aligned at >= 880px (sharing a row with count/viewby).
+// USWDS also gives .usa-pagination a 1rem top+bottom margin; both are zeroed so
+// the pager aligns with the results count in the summary row instead of sitting
+// ~16px lower (which otherwise inflates the gap below the summary/definition box).
+.sws-results__pager .usa-pagination {
 	justify-content: flex-start;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+// USWDS gives every .usa-pagination__item a 4px horizontal margin. Drop the
+// leading margin so the first visible item lines up with the count's left
+// edge (covers both the page-button and visible-arrow cases).
+.sws-results__pager .usa-pagination__list > .usa-pagination__item:first-child,
+.sws-results__pager .usa-pagination__arrow:has(> .usa-pagination__link.hidden) + .usa-pagination__item {
 	margin-left: 0;
 }
 
-.pager__container {
-	.pager__navigation {
-		color: #25619b;
-		list-style-type: none;
-
-		padding: 0;
-		margin-bottom: 0;
-
-		& > li {
-			align-items: center;
-			cursor: pointer;
-			display: inline-flex;
-			justify-content: center;
-			list-style-type: none;
-			margin: 0 2px 0;
-		}
-
-		.pager__button {
-			border: none;
-			border-radius: 3px;
-			display: block;
-			min-width: 24px;
-			padding: 2px 6px;
-			text-decoration: none;
-			white-space: nowrap;
-
-			&.active {
-				background: #25619b;
-				color: #fff;
-				&:hover {
-					background: #25619b;
-				}
-			}
-
-			&:hover {
-				background: #cbe8fc;
-			}
-		}
-
-		.pager__ellipses--right,
-		.pager__ellipses--left {
-			padding: 2px 4px;
-			cursor: default;
-		}
-	}
-}
-
-.pager__container {
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-	padding: 16px 0;
-	margin-top: 16px;
-}
-
-@include break(medium) {
-	.pager__navigation,
-	.pager__container {
-		margin-left: auto;
-	}
-
-	.pager__container {
-		border: none;
-		margin-top: 0;
-		padding: 0 0 0 50px;
+@media (min-width: 880px) {
+	.sws-results__pager .usa-pagination {
+		justify-content: flex-end;
 	}
 }

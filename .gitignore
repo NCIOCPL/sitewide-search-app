@@ -99,6 +99,7 @@ _UpgradeReport_Files/
 # === Rules for release artifacts ===
 /*.tar.*
 /*.pkg
+/*.zip
 /SHASUMS*.txt*
 
 # === Rules for `node_modules` ===

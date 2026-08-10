@@ -1,0 +1,11 @@
+{
+  "results": [
+    {
+      "title": "Mock result",
+      "url": "https://www.cancer.gov/mock",
+      "contentType": "cgvArticle",
+      "description": "Mock description"
+    }
+  ],
+  "totalResults": 20180
+}

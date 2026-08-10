@@ -1,0 +1,46 @@
+{
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 797800,
+			"language": "en",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "adenosine deaminase-deficient severe combined immunodeficiency",
+			"firstLetter": "a",
+			"prettyUrlName": "adenosine-deaminase-deficient-severe-combined-immunodeficiency",
+			"pronunciation": {
+				"key": "(uh-DEH-nuh-seen dee-A-mih-nays-deh-FIH-shunt seh-VEER kum-BIND IH-myoo-noh-deh-FIH-shun-see)",
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/799612.mp3"
+			},
+			"definition": {
+				"html": "A rare, inherited disorder in which the immune system is damaged, causing a person to have a complete lack of B lymphocytes and T lymphocytes (types of white blood cells that help the body fight infection). People with adenosine deaminase-deficient severe combined immunodeficiency are at high risk of developing life-threatening viral, bacterial, and fungal infections and certain types of cancers. Signs and symptoms of adenosine deaminase-deficient severe combined immunodeficiency usually occur before 6 months of age and include serious lung infections, chronic diarrhea, skin rashes, and slow growth and development. When symptoms begin later in life, they are usually milder. Adenosine deaminase-deficient severe combined immunodeficiency is caused by mutations (changes) in the ADA gene. The ADA gene makes an enzyme called adenosine deaminase, which helps protect lymphocytes from harmful substances in the body. Also called ADA-SCID.",
+				"text": "A rare, inherited disorder in which the immune system is damaged, causing a person to have a complete lack of B lymphocytes and T lymphocytes (types of white blood cells that help the body fight infection). People with adenosine deaminase-deficient severe combined immunodeficiency are at high risk of developing life-threatening viral, bacterial, and fungal infections and certain types of cancers. Signs and symptoms of adenosine deaminase-deficient severe combined immunodeficiency usually occur before 6 months of age and include serious lung infections, chronic diarrhea, skin rashes, and slow growth and development. When symptoms begin later in life, they are usually milder. Adenosine deaminase-deficient severe combined immunodeficiency is caused by mutations (changes) in the ADA gene. The ADA gene makes an enzyme called adenosine deaminase, which helps protect lymphocytes from harmful substances in the body. Also called ADA-SCID."
+			},
+			"otherLanguages": [
+				{
+					"language": "es",
+					"termName": "inmunodeficiencia combinada grave por deficiencia de adenosina–desaminasa",
+					"prettyUrlName": "inmunodeficiencia-combinada-grave-por-deficiencia-de-adenosina-desaminasa"
+				}
+			],
+			"relatedResources": [
+				{
+					"Type": "External",
+					"Url": "https://rarediseases.info.nih.gov/diseases/5748/adenosine-deaminase-deficiency",
+					"Text": "Adenosine deaminase deficiency (Genetic and Rare Diseases Information Center)"
+				},
+				{
+					"Type": "External",
+					"Url": "https://medlineplus.gov/genetics/condition/adenosine-deaminase-deficiency/",
+					"Text": "Adenosine deaminase deficiency (MedlinePlus)"
+				}
+			],
+			"media": []
+		}
+	],
+	"links": null
+}

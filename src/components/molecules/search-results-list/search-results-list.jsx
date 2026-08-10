@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Collection } from '@nciocpl/react-components';
 
 import { testIds } from '../../../constants';
 import { useURLQuery } from '../../../hooks';
@@ -41,7 +42,7 @@ const SearchResultsList = ({ keyword, results, currentPage, resultsPerPage, lang
 		);
 	});
 	const dropDown = (
-		<select aria-label="number of results" data-testid={testIds.SEARCH_PAGE_UNIT} className="pager__select" defaultValue={resultsPerPage} onBlur={(e) => updatePageUnit(e.target.value)} onChange={(e) => updatePageUnit(e.target.value)}>
+		<select id="pagerSelect" aria-label="number of results" data-testid={testIds.SEARCH_PAGE_UNIT} className="pager__select usa-select" defaultValue={resultsPerPage} onBlur={(e) => updatePageUnit(e.target.value)} onChange={(e) => updatePageUnit(e.target.value)}>
 			{opts}
 		</select>
 	);
@@ -65,25 +66,32 @@ const SearchResultsList = ({ keyword, results, currentPage, resultsPerPage, lang
 	const showPager = results.totalResults > resultsPerPage;
 	return (
 		<>
-			<div className="results__info">
-				<h4>
-					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults} {i18n.for[language]}: {keyword}
-				</h4>
-				{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_TOP} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}
-			</div>
-			<ul className="no-bullets results__container">{ResultList}</ul>
-			<div className="results__info">
-				<h4>
-					{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults}
-				</h4>
-			</div>
-			<div className="results__info pager__bottom">
-				<div className="results__viewby">
-					{i18n.show[language]}
-					{dropDown}
-					{i18n.resultsPerPage[language]}
+			<div className="sws-results__summary grid-container">
+				<div className="grid-row">
+					<div className="grid-col sws-results__count">
+						<h4>
+							{i18n.results[language]} {fromPage}-{toPage} {i18n.of[language]} {results.totalResults} {i18n.for[language]}: {keyword}
+						</h4>
+					</div>
 				</div>
-				{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_BOTTOM} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}
+				<div className="grid-col sws-results__pager">{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_TOP} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}</div>
+			</div>
+			<div className="sws-results__list grid-container">
+				<div className="grid-row">
+					<div className="grid-col">
+						<Collection className="no-bullets">{ResultList}</Collection>
+					</div>
+				</div>
+			</div>
+			<div className="sws-results__summary grid-container pager__bottom">
+				<div className="grid-row">
+					<div className="grid-col sws-results__viewby">
+						{i18n.show[language]}
+						{dropDown}
+						{i18n.resultsPerPage[language]}
+					</div>
+				</div>
+				<div className="grid-col sws-results__pager">{showPager && <SearchResultsPager testid={testIds.RESULTS_PAGER_BOTTOM} current={currentPage} totalResults={results.totalResults} resultsPerPage={resultsPerPage} language={language} keyword={keyword} />}</div>
 			</div>
 		</>
 	);

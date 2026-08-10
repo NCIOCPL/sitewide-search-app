@@ -1,0 +1,35 @@
+{
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 560348,
+			"language": "en",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "fat-soluble vitamin",
+			"firstLetter": "f",
+			"prettyUrlName": "fat-soluble-vitamin",
+			"pronunciation": {
+				"key": "(… SOL-yoo-bul VY-tuh-min)",
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/720996.mp3"
+			},
+			"definition": {
+				"html": "A vitamin that can dissolve in fats and oils. Vitamins are nutrients that the body needs in small amounts to stay healthy and work the way it should. Fat-soluble vitamins are absorbed along with fats in the diet and are stored in the body’s fatty tissue and in the liver. They are found in many plant and animal foods and in dietary supplements. Vitamins A, D, E, and K are fat-soluble.",
+				"text": "A vitamin that can dissolve in fats and oils. Vitamins are nutrients that the body needs in small amounts to stay healthy and work the way it should. Fat-soluble vitamins are absorbed along with fats in the diet and are stored in the body’s fatty tissue and in the liver. They are found in many plant and animal foods and in dietary supplements. Vitamins A, D, E, and K are fat-soluble."
+			},
+			"otherLanguages": [
+				{
+					"language": "es",
+					"termName": "vitamina soluble en grasas",
+					"prettyUrlName": "vitamina-soluble-en-grasas"
+				}
+			],
+			"relatedResources": [],
+			"media": []
+		}
+	],
+	"links": null
+}

@@ -1,133 +1,101 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import { i18n } from '../../../utils';
-import { useAppPaths, useURLQuery } from '../../../hooks';
+import { useURLQuery } from '../../../hooks';
+
 import './search-results-pager.scss';
 
-const SearchResultsPager = ({ current, totalResults, testid = 'tid-results-pager', keyword, resultsPerPage, language = 'en' }) => {
-	const { HomeWithQueryPath } = useAppPaths();
-	const urlQuery = useURLQuery();
-	const swKeywordKey = /swKeyword/i;
-	// total pages = total results / pageunit
-	let total = ~~(totalResults / resultsPerPage);
-	// check for odd remainder of items and make new page
-	if (totalResults / resultsPerPage - total > 0) {
-		total += 1;
+// Build the visible page-window. With current near the start (≤4) or end
+// (≥pageCount-3), show a contiguous block of 5 pages at that edge plus the
+// opposite first/last anchor and a single ellipsis. Otherwise show first,
+// last, current ± 1, with ellipses on both sides as needed.
+const buildPageWindow = (current, pageCount) => {
+	if (pageCount <= 7) {
+		return Array.from({ length: pageCount }, (_, i) => i + 1);
 	}
-	// Pagination Button
-	const PgButton = (i) => {
-		let bstate = `pager__button `;
-		if (i === current) bstate += 'active ';
-		if (i === total) bstate += 'total_pages';
-		urlQuery.set(swKeywordKey.ignoreCase, keyword);
+	if (current <= 4) {
+		return [1, 2, 3, 4, 5, 'ellipsis-right', pageCount];
+	}
+	if (current >= pageCount - 3) {
+		return [1, 'ellipsis-left', pageCount - 4, pageCount - 3, pageCount - 2, pageCount - 1, pageCount];
+	}
+	return [1, 'ellipsis-left', current - 1, current, current + 1, 'ellipsis-right', pageCount];
+};
+
+const SearchResultsPager = ({ current, totalResults, testid = 'tid-results-pager', keyword, resultsPerPage, language = 'en' }) => {
+	const urlQuery = useURLQuery();
+	const pageCount = Math.ceil(totalResults / resultsPerPage);
+
+	if (pageCount <= 1) {
+		return null;
+	}
+
+	const currentPage = current < 1 || current > pageCount ? 1 : current;
+
+	const navigateTo = (page) => {
+		urlQuery.set('swKeyword', keyword);
 		urlQuery.delete('true');
-		urlQuery.set('page', i);
+		urlQuery.set('page', page.toString());
 		urlQuery.set('pageunit', resultsPerPage);
-		const linkPath = `?${urlQuery.toString()}`;
-		return (
-			<li className="pager__list-item" key={`pager__button-${i}`}>
-				{(i === current && (
-					<div className={bstate}>
-						{i}
-						<span className="show-for-sr">{i18n.goToPage[language]}</span>
-					</div>
-				)) || (
-					<a href={HomeWithQueryPath({ query: linkPath })} className={bstate} aria-current={i === current}>
-						{i}
-						<span className="show-for-sr">{i18n.goToPage[language]}</span>
-					</a>
-				)}
-			</li>
-		);
+		window.location.href = `?${urlQuery.toString()}`;
 	};
 
-	const getLinkPathNext = (currentPage, keyword, resultsPerPage) => {
-		urlQuery.set(swKeywordKey.ignoreCase, keyword);
-		urlQuery.delete('true');
-		urlQuery.set('page', (currentPage + 1).toString());
-		urlQuery.set('pageunit', resultsPerPage);
-		return `?${urlQuery.toString()}`;
+	const handleClick = (e, page) => {
+		e.preventDefault();
+		navigateTo(page);
 	};
 
-	const getLinkPathPrevious = (currentPage, keyword, resultsPerPage) => {
-		urlQuery.set(swKeywordKey.ignoreCase, keyword);
-		urlQuery.delete('true');
-		urlQuery.set('page', (currentPage - 1).toString());
-		urlQuery.set('pageunit', resultsPerPage);
-		return `?${urlQuery.toString()}`;
-	};
+	const items = buildPageWindow(currentPage, pageCount);
+	const showPrevious = currentPage > 1;
+	const showNext = currentPage < pageCount;
 
-	const generateLinks = () => {
-		const links = [];
-		const decorator = (value) => {
-			return (
-				<li key={`pager__ellipses-${value}`} className={`pager__ellipses--${value}`}>
-					...
-				</li>
-			);
-		};
-		// end check and start check
-		const end_total = total - 4;
-		const start_min = current < 5;
-
-		// check to see if we're less that 5 from start or end
-		const inout = start_min || current + 1 > end_total;
-
-		// set start position
-		let start = inout ? (start_min ? 1 : end_total) : current - 1;
-		let end = current > end_total ? total : current + 2;
-
-		// set decorators and end points
-		if (current >= end_total) {
-			const offset = end_total - current;
-			start = end_total - offset - 1;
-		}
-		if (current > end_total) end = total + 1;
-
-		// Generate first and decorator
-		if (current > 4) {
-			links.push(PgButton(1));
-			links.push(decorator('left'));
-		}
-		for (let i = start; i < end; i++) {
-			if (i > 0) links.push(PgButton(i));
-		}
-		// Generate decorator and last
-		if (end < total && current - 1 < end_total) {
-			if (end < total - 1) links.push(decorator('right'));
-			links.push(PgButton(total));
-		}
-		return links;
-	};
-	// url pattern ?swKeyword=term&page=2&pageunit=10
-	// @param swKeyword:			Search Term
-	// @param page: 					Actual page number
-	// @param pageunit: 			Number of items per page (I presume)
-	const ButtonIU = generateLinks();
-	const linkPathPrevious = getLinkPathPrevious(current, keyword, resultsPerPage);
-	const linkPathNext = getLinkPathNext(current, keyword, resultsPerPage);
-	const PgPrevious = (
-		<li key={'pager__button-previous'}>
-			<a href={HomeWithQueryPath({ query: linkPathPrevious })} className="pager__button pager__previous" aria-label={`Goto previous, Page ${current - 1}`}>
-				{`< ${i18n.previous[language]}`}
-			</a>
-		</li>
-	);
-	const PgNext = (
-		<li key={'pager__button-next'}>
-			<a href={HomeWithQueryPath({ query: linkPathNext })} className="pager__button pager__next" aria-label={`Goto next, Page ${current + 1}`}>
-				{`${i18n.next[language]} >`}
-			</a>
-		</li>
-	);
 	return (
-		<nav className="pager__container" aria-label="Pagination Navigation">
-			<ol className="pager__navigation" data-testid={testid}>
-				{current >= 2 && PgPrevious}
-				{ButtonIU}
-				{current !== total && PgNext}
-			</ol>
-		</nav>
+		<div data-testid={testid}>
+			<nav className="usa-pagination" aria-label="Pagination">
+				<ul className="usa-pagination__list">
+					{showPrevious && (
+						<li className="usa-pagination__item usa-pagination__arrow">
+							<a href="#" className="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page" role="button" onClick={(e) => handleClick(e, currentPage - 1)}>
+								<span className="usa-pagination__link-text">{i18n.previous[language]}</span>
+							</a>
+						</li>
+					)}
+					{items.map((item) => {
+						if (item === 'ellipsis-left') {
+							return (
+								<li key="ellipsis-left" className="usa-pagination__item usa-pagination__overflow ellipsis--left" aria-hidden="true">
+									<span>…</span>
+								</li>
+							);
+						}
+						if (item === 'ellipsis-right') {
+							return (
+								<li key="ellipsis-right" className="usa-pagination__item usa-pagination__overflow ellipsis--right" aria-hidden="true">
+									<span>…</span>
+								</li>
+							);
+						}
+						const isCurrent = item === currentPage;
+						return (
+							<li key={`page-${item}`} className="usa-pagination__item usa-pagination__page-no">
+								<a href="#" className={`usa-pagination__button${isCurrent ? ' usa-current' : ''}`} aria-label={`Page ${item}`} aria-current={isCurrent ? 'page' : undefined} onClick={(e) => handleClick(e, item)}>
+									{item}
+								</a>
+							</li>
+						);
+					})}
+					{showNext && (
+						<li className="usa-pagination__item usa-pagination__arrow">
+							<a href="#" className="usa-pagination__link usa-pagination__next-page" aria-label="Next page" role="button" onClick={(e) => handleClick(e, currentPage + 1)}>
+								<span className="usa-pagination__link-text">{i18n.next[language]}</span>
+							</a>
+						</li>
+					)}
+				</ul>
+			</nav>
+		</div>
 	);
 };
 

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useTracking } from 'react-tracking';
+import { CollectionItem } from '@nciocpl/react-components';
 
 import { i18n } from '../../../utils';
 
@@ -39,14 +40,19 @@ const ResultsListItem = ({ result = {}, resultIndex, language = 'en' }) => {
 	};
 
 	return (
-		<li className="result__list-item">
-			<a href={url} className="result__link" onClick={handleResultItemTitleClick}>
-				{sanitizedTitle}
-			</a>
-			{displayType && decorator}
-			<div className="result__description">{description}</div>
-			<cite className="result__url">{url}</cite>
-		</li>
+		<CollectionItem
+			heading={
+				<>
+					{sanitizedTitle}
+					{displayType && decorator}
+				</>
+			}
+			href={url}
+			onHeadingClick={handleResultItemTitleClick}
+			description={description}
+			className="sws-results__list-item grid-container">
+			<cite className="sws-results__list-item-url grid-col">{url}</cite>
+		</CollectionItem>
 	);
 };
 

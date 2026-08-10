@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTracking } from 'react-tracking';
 
-import { BestBet, Definition, NoResults, SearchResultsList, Spinner } from '../../components';
+import { BestBet, Definition, NoResults, ResultsSearchBox, SearchResultsList, Spinner } from '../../components';
 import { useCustomQuery, useURLQuery } from '../../hooks';
 import { getBestBetResults, getDictionaryResults, getSearchResults } from '../../services/api/actions';
 import { useStateValue } from '../../store/store';
-import { i18n } from '../../utils';
 
 const Home = () => {
 	const urlQuery = useURLQuery();
@@ -103,9 +102,9 @@ const Home = () => {
 	return (
 		<>
 			<h1>{title}</h1>
+			{keyword && <ResultsSearchBox keyword={keyword} />}
 			{doneLoading && hasResults ? (
 				<div className="results">
-					<h3>{`${i18n.resultsFor[language]}: ${keyword}`}</h3>
 					{isFirstPage && (
 						<div className={showBestBet && showDefinition ? 'results__feature--bestbet--definition' : 'results__feature'}>
 							{showBestBet && <BestBet language={language} results={stateBestBetResult} />}

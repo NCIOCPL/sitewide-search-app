@@ -13,42 +13,63 @@ code {
 		monospace;
 }
 
-.general-page-body-container,
-.mock-header {
-	position: relative;
-	margin: 0 auto;
-	max-width: 62.5em;
+/*
+ * NCIDS grid system — mirrors the real Drupal (test-ac) shell so the
+ * standalone preview matches its widths, centering and breadcrumb alignment.
+ * PREVIEW-ONLY: index.css is never loaded in production (Drupal supplies its
+ * own grid there), so none of this ships in the app bundle. Values match
+ * @nciocpl/ncids-css 3.4.0 `.grid-container` (max-width 87.5rem, 1rem padding
+ * growing to 2rem at the desktop breakpoint) and the USWDS grid-gap gutters.
+ */
+.grid-container {
+	max-width: 87.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	box-sizing: border-box;
 }
 
-.general-page-body-container {
-	background: #fffffb;
-	box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5),
-		-10px 0 10px -7px rgba(0, 0, 0, 0.5);
-	clear: both;
-	height: 100%;
-	min-height: 100vh;
-	overflow: auto;
-}
-
-@media only screen and (min-width: 1441px) {
-	.general-page-body-container,
-	.mock-header {
-		max-width: 1200px;
+@media (min-width: 64em) {
+	.grid-container {
+		padding-left: 2rem;
+		padding-right: 2rem;
 	}
 }
 
-.content-container {
-	position: relative;
-	padding-left: 0.9375em;
-	padding-right: 0.9375em;
+.grid-row {
+	display: flex;
+	flex-wrap: wrap;
 }
 
-@media only screen and (min-width: 1025px) {
-	.content-container {
-		float: right;
-		padding-right: 3.125em;
-		width: 100%;
-	}
+.grid-row.flex-no-wrap {
+	flex-wrap: nowrap;
+}
+
+.grid-row.grid-gap {
+	margin-left: -0.5rem;
+	margin-right: -0.5rem;
+}
+
+.grid-row.grid-gap > * {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	box-sizing: border-box;
+}
+
+.grid-col-12 {
+	flex: 0 1 auto;
+	width: 100%;
+}
+
+.grid-col-10 {
+	flex: 0 1 auto;
+	width: 83.33333%;
+}
+
+/* Drupal's main content region; only contributes bottom spacing. */
+.cgdp-main-content {
+	padding-bottom: 1rem;
 }
 
 .show-for-sr {
@@ -108,6 +129,6 @@ code {
 	}
 	.mock-language-bar a,
 	.mock-language-bar a:hover {
-		color: #2b7bba;
+		color: #01679D;
 	}
 }

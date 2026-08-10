@@ -12,7 +12,6 @@ Feature: As a DOC site owner, I want to be able to configure the site filter to 
 		Given the user navigates to "/?swKeyword=tumor"
 		And the page title is "DCCPS Search Results"
 		And definition box does not appear on the page
-		And the system displays "Results for: " "tumor" as an "h3" tag
 		And the system displays "Results 1-20 of 390 for: " "tumor" as an "h4" tag
 		And the system displays 20 results per page
 		And each result item displays the title of an item as a link

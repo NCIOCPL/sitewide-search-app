@@ -1,56 +1,98 @@
-.definition {
-	padding: 16px 19px 10px;
-	background: #fff;
-	border-radius: 3px;
-	box-shadow: 0 0 4px 0 hsla(0, 0%, 71%, 0.75);
+@use "uswds-core" as *;
 
-	&__toggle {
-		border-top: 1px solid #c7c6c6;
-		margin-left: -19px;
-		margin-right: -19px;
-		padding: 10px 19px 0;
+// The box chrome — white background, 4px `secondary` top border, shadow and
+// 24px padding — comes from the NCIDS `usa-summary-box` component that this
+// element also carries, so only the contents are styled here.
+.sws-results__definition {
+	// Box contents per the comps: Open Sans 16px at 25.9px (~1.62) line height.
+	// The title below overrides this with the heading (Poppins) styles.
+	@include u-font-family('body');
+	font-size: 1rem;
+	line-height: 1.62;
+
+	// Selector is doubled up so the spacing outranks the page-level `.results h2`
+	// rule, which is emitted later in the bundle.
+	// Typography matches the Best Bets heading per the comps (Figma "Prose/h3"):
+	// Poppins SemiBold 20px/24px.
+	& &-title {
+		@include u-margin-top(0);
+		@include u-margin-bottom(2);
+		@include u-font-family('heading'); // Poppins
+		@include u-text($theme-color-base-darkest); // #1B1B1B
+		font-size: 1.25rem; // 20px
+		font-weight: 600;
+		line-height: 24px;
+	}
+
+	// The definition text and the show/hide toggle read as a single paragraph:
+	// the toggle sits inline directly after the last word of the definition.
+	&-body {
+		@include u-margin-bottom(1);
+
+		// The definition html from the API may arrive wrapped in a block element.
+		p {
+			@include u-display(inline);
+			@include u-margin(0);
+		}
+	}
+
+	&-term-description {
+		@include u-display(inline);
+	}
+
+	&-toggle {
+		@include u-display(inline);
 
 		button {
-			width: auto;
-			padding-left: 0;
-			font-size: 1rem;
-			border: none;
+			@include u-display(inline);
+			@include u-width(auto);
+			@include u-padding(0);
+			@include u-margin-left('05');
+			@include u-text($theme-link-color);
+			@include u-font-family('body');
 			background: none;
-			color: #2e2e2e;
+			border: none;
 			cursor: pointer;
-			font-family: Noto Sans, Century Gothic, Arial, sans-serif;
-			outline: none;
+			font-size: 1rem;
 
-			&::before {
+			// Chevron: points down when the definition is collapsed, up when expanded.
+			&::after {
+				@include u-display(inline-block);
+				@include u-margin-left('05');
+				@include u-height(1);
+				@include u-width(1);
+				border-color: currentcolor;
 				border-style: solid;
-				border-width: 2px 2px 0 0;
+				border-width: 0 2px 2px 0;
 				content: '';
-				display: inline-block;
-				height: 8px;
-				margin-left: 2px;
-				margin-right: 10px;
 				position: relative;
-				top: 5px;
-				vertical-align: top;
-				width: 8px;
 			}
-			&.definition__show-full::before {
-				transform: rotate(135deg);
+
+			&.sws-results__definition-show-full::after {
+				top: -2px;
+				transform: rotate(45deg);
 			}
-			&.definition__hide-full::before {
-				margin-top: 4px;
-				//vertical-align: unset;
-				transform: rotate(-45deg);
+
+			&.sws-results__definition-hide-full::after {
+				top: 2px;
+				transform: rotate(-135deg);
 			}
 		}
 	}
 
-	&__term-description {
-		margin-top: 7px;
-		margin-bottom: 0.5em;
-	}
+	// The comps show this link without an underline, so the browser default is
+	// reset. It is still underlined on hover/focus to keep the affordance.
+	&-more-info {
+		@include u-margin(0);
 
-	&__term-description + &__toggle {
-		margin-top: 1.25em;
+		a {
+			@include u-text($theme-link-color);
+			text-decoration: none;
+
+			&:focus,
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 }

@@ -1,7 +1,7 @@
 export const i18n = {
 	bestBetTitle: {
-		en: 'Best Bets for',
-		es: 'Mejores resultados para',
+		en: 'Recommended Results for',
+		es: 'Resultados recomendados para',
 	},
 	definitionTitle: {
 		en: 'Definition',
@@ -34,6 +34,10 @@ export const i18n = {
 	pleaseCheckSpellingOrTryAnotherSearch: {
 		en: 'Please check your spelling or try another search using a different word.',
 		es: 'Revise si hay errores en el texto ingresado o intente otra búsqueda.',
+	},
+	pleaseEnterThreeOrMoreCharacters: {
+		en: 'Please enter 3 or more characters',
+		es: 'Ingrese 3 o más caracteres',
 	},
 	resultsFor: {
 		en: 'Results for',

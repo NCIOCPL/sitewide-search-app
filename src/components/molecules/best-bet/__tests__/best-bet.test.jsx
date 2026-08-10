@@ -17,7 +17,7 @@ describe('<BestBet />', () => {
 				weight: 100,
 			},
 		];
-		const expectedTitle = `Best Bets for ${results[0].name}`;
+		const expectedTitle = `Recommended Results for ${results[0].name}`;
 		const expectedContent = 'CTEP is the program within the Division of Cancer Treatment and Diagnosis that plans, assesses, and coordinates all aspects of clinical trials.';
 
 		render(
@@ -54,11 +54,11 @@ describe('<BestBet />', () => {
 		);
 
 		// Check for first result
-		expect(screen.getByText(`Best Bets for ${results[0].name}`)).toBeInTheDocument();
+		expect(screen.getByText(`Recommended Results for ${results[0].name}`)).toBeInTheDocument();
 		expect(screen.getByText('An NCI database of cancer-specific scientific and patient care-related images, as well as general biomedical and science-related images and portraits of NCI directors and staff.')).toBeInTheDocument();
 
 		// Check for second result
-		expect(screen.getByText(`Best Bets for ${results[1].name}`)).toBeInTheDocument();
+		expect(screen.getByText(`Recommended Results for ${results[1].name}`)).toBeInTheDocument();
 		expect(screen.getByText('Provides information on how specific breast changes, including atypical hyperplasia, lobular carcinoma in situ, ductal carcinoma in situ and breast cancer, are detected, diagnosed, and treated.')).toBeInTheDocument();
 	});
 
@@ -72,7 +72,7 @@ describe('<BestBet />', () => {
 				weight: 5,
 			},
 		];
-		const expectedTitle = `Mejores resultados para ${results[0].name}`;
+		const expectedTitle = `Resultados recomendados para ${results[0].name}`;
 
 		render(
 			<MockAnalyticsProvider>
@@ -93,8 +93,8 @@ describe('<BestBet />', () => {
 			</MockAnalyticsProvider>
 		);
 
-		expect(screen.queryByText(/Mejores resultados/)).not.toBeInTheDocument();
-		expect(screen.queryByText(/Best Bets/)).not.toBeInTheDocument();
+		expect(screen.queryByText(/Resultados recomendados/)).not.toBeInTheDocument();
+		expect(screen.queryByText(/Recommended Results/)).not.toBeInTheDocument();
 	});
 
 	it('Analytics are firing on the best bet link click', () => {

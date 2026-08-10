@@ -272,13 +272,51 @@ describe('Definition component analytics (English)', () => {
 		);
 
 		// First show full definition using the original querySelector approach
-		const showFull = container.querySelector('.definition__show-full');
+		const showFull = container.querySelector('.sws-results__definition-show-full');
 		fireEvent.click(showFull);
 
 		// Find and click the more info link using the original querySelector approach
-		const moreInfo = container.querySelector('div.definition p a');
+		const moreInfo = container.querySelector('div.sws-results__definition p a');
 		fireEvent.click(moreInfo);
 
 		expect(analyticsHandler).toHaveBeenCalledTimes(1);
+	});
+
+	it('renders the More information link as a host-relative path even when dictionaryUrl is absolute', () => {
+		const definitionResult = {
+			meta: { totalResults: 1, from: 0 },
+			results: [
+				{
+					termId: 46710,
+					language: 'en',
+					dictionary: 'Cancer.gov',
+					audience: 'Patient',
+					termName: 'metastasis',
+					prettyUrlName: 'metastasis',
+					pronunciation: { key: '(meh-TAS-tuh-sis)', audio: '' },
+					definition: { html: 'The spread of cancer cells. It is a process.', text: 'The spread of cancer cells. It is a process.' },
+					otherLanguages: [],
+					relatedResources: [{ Url: 'https://www.cancer.gov/types/metastatic-cancer', Type: 'External', Text: 'Metastatic Cancer' }],
+					media: [],
+				},
+			],
+		};
+
+		useStateValue.mockReturnValue([
+			{
+				appId: 'mockAppId',
+				dictionaryUrl: 'https://www.cancer.gov/publications/dictionaries/cancer-terms',
+				language: 'en',
+			},
+		]);
+
+		const { container } = render(
+			<MockAnalyticsProvider analyticsHandler={analyticsHandler}>
+				<Definition {...definitionResult} />
+			</MockAnalyticsProvider>
+		);
+
+		const moreInfo = container.querySelector('div.sws-results__definition p a');
+		expect(moreInfo).toHaveAttribute('href', '/publications/dictionaries/cancer-terms/def/metastasis');
 	});
 });

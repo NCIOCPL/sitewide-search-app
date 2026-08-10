@@ -1,0 +1,41 @@
+{
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 46391,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "genético",
+			"firstLetter": "g",
+			"prettyUrlName": "genetico",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/708658.mp3"
+			},
+			"definition": {
+				"html": "Relacionado con  los genes. La mayoría de los genes son secuencias de ADN que contienen información para producir moléculas de ARN o proteínas específicas que tienen funciones importantes en una célula. La información en los genes pasa de padres a hijos. A veces, ciertos cambios en los genes afectan el riesgo de una persona de enfermar; por ejemplo, de cáncer. Estos cambios se pueden heredar o se pueden presentar con la edad o la exposición a factores ambientales como la alimentación, el ejercicio, los medicamentos y las sustancias químicas.",
+				"text": "Relacionado con  los genes. La mayoría de los genes son secuencias de ADN que contienen información para producir moléculas de ARN o proteínas específicas que tienen funciones importantes en una célula. La información en los genes pasa de padres a hijos. A veces, ciertos cambios en los genes afectan el riesgo de una persona de enfermar; por ejemplo, de cáncer. Estos cambios se pueden heredar o se pueden presentar con la edad o la exposición a factores ambientales como la alimentación, el ejercicio, los medicamentos y las sustancias químicas."
+			},
+			"otherLanguages": [
+				{
+					"language": "en",
+					"termName": "genetic",
+					"prettyUrlName": "genetic"
+				}
+			],
+			"relatedResources": [
+				{
+					"Type": "External",
+					"Url": "https://www.cancer.gov/espanol/cancer/causas-prevencion/genetica",
+					"Text": "Genética del cáncer"
+				}
+			],
+			"media": []
+		}
+	],
+	"links": null
+}

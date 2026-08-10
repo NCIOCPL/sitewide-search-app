@@ -55,7 +55,7 @@ const YoutubeVideoPlayer = ({ youtubeId, videoTitle, trackVideoLoad = () => {} }
 					</svg>
 				</div>
 				<p>
-					<span className="show-for-sr">click to view video titled </span>
+					<span className="usa-sr-only">click to view video titled </span>
 					{videoTitle}
 				</p>
 			</button>

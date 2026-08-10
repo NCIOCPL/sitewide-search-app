@@ -1,0 +1,35 @@
+{
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 560348,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "vitamina soluble en grasas",
+			"firstLetter": "v",
+			"prettyUrlName": "vitamina-soluble-en-grasas",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media.cancer.gov/pdq/media/audio/720997.mp3"
+			},
+			"definition": {
+				"html": "Vitamina que se disuelve en grasas y aceites. Las vitaminas son nutrientes que el cuerpo necesita en pequeñas cantidades para estar sano y funcionar como se debe. Las vitaminas solubles en grasas se absorben junto con las grasas de los alimentos, y se almacenan en el tejido graso del cuerpo y en el hígado. Se encuentran en muchos alimentos de origen vegetal y animal, también se encuentran en suplementos alimentarios. Las vitaminas A, D, E y K son solubles en grasas. También se llama vitamina liposoluble.",
+				"text": "Vitamina que se disuelve en grasas y aceites. Las vitaminas son nutrientes que el cuerpo necesita en pequeñas cantidades para estar sano y funcionar como se debe. Las vitaminas solubles en grasas se absorben junto con las grasas de los alimentos, y se almacenan en el tejido graso del cuerpo y en el hígado. Se encuentran en muchos alimentos de origen vegetal y animal, también se encuentran en suplementos alimentarios. Las vitaminas A, D, E y K son solubles en grasas. También se llama vitamina liposoluble."
+			},
+			"otherLanguages": [
+				{
+					"language": "en",
+					"termName": "fat-soluble vitamin",
+					"prettyUrlName": "fat-soluble-vitamin"
+				}
+			],
+			"relatedResources": [],
+			"media": []
+		}
+	],
+	"links": null
+}

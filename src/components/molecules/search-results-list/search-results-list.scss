@@ -1,64 +1,118 @@
+@use "uswds-core" as *;
 @import '../../../styles/breakpoints';
 
-.best-bet + .results__info h4 {
-	margin-top: 40px;
+.best-bet + .sws-results__summary h4 {
+	@include u-margin-top(5); // 40px
 }
 
-.results__info {
-	display: block;
+.sws-results__summary {
+	@include u-display(block);
 	align-items: baseline;
 
 	h4 {
-		margin-top: 0;
-		margin-bottom: 0;
+		@include u-margin-y(0);
+		@include u-text(normal);
+		@include u-font('sans', $theme-type-scale-xs);
+		line-height: 24px;
 	}
-	margin-bottom: 40px;
+	@media(min-width: 880px) {
+		@include u-margin-bottom(4); // 32px
+	}
+	@include u-margin-bottom(3);
 }
 
-.result__list-item {
-	font-family: Noto Sans, 'Century Gothic', Arial, sans-serif;
+.sws-results__summary.grid-container, .sws-results__list.grid-container {
+	@include u-padding-left(0);
 }
 
-.result__list-item:first-child {
-	margin-top: 0;
+.sws-results__list.grid-container {
+	display: grid;
+	justify-content: start;
+}
+
+.sws-results__list-item {
+	@include u-margin-top(3);
+}
+
+.sws-results__list-item:first-child {
+	@include u-margin-top(0);
 }
 
 .content-container {
-	position: relative;
-	width: 100%;
+	@include u-position(relative);
+	@include u-width(full);
 	overflow-x: hidden;
 }
-@include break(medium) {
-	.results__info {
-		display: flex;
+// When the summary stacks (< 880px) the pager sits below the count/viewby. Give
+// it 32px of visible space above: the count/viewby text has ~6px of descent below
+// its baseline, so a 26px box margin reads as a 32px visible gap. This is reset to
+// 0 at >= 880px, where the pager shares the row and must stay top-aligned.
+.sws-results__summary > .sws-results__pager {
+	margin-top: 1.625rem; // 26px box → 32px visible
+}
+
+@media(min-width: 880px) {
+	.sws-results__summary {
+		@include u-display(flex);
+		gap: 1rem;
+
+		// The count/viewby lives in a bare `.grid-row`, which carries the
+		// `.app-content .grid-row` -1rem side margins. On this flex row those
+		// negative margins let the count box bleed into the adjacent pager, so a
+		// long search term overlaps the pagination (#229). Zero the margins and
+		// let the count shrink within the row; the `gap` keeps the two apart.
+		> .grid-row {
+			@include u-margin-x(0);
+			flex: 1 1 auto;
+			min-width: 0;
+		}
+
+		// The pager keeps its natural width so it is never squeezed under the
+		// count; its internal `justify-content: flex-end` keeps it right-aligned.
+		// margin-top is reset here (it only applies to the stacked layout below).
+		> .sws-results__pager {
+			flex: 0 0 auto;
+			width: auto;
+			margin-top: 0;
+		}
 	}
 }
-.result__url {
-	font-size: 14px;
-	word-break: break-word;
-}
-.result__description {
-	word-break: break-word;
+
+.sws-results__list-item-link {
+	@include u-text($theme-color-info-darker); // #01679D
 }
 
-.pager__bottom {
-	padding-bottom: 45px;
+.sws-results__list-item-url {
+	word-break: break-word;
+}
+.sws-results__list-item-description {
+	word-break: break-word;
+	.usa-collection__description {
+		@include u-margin-bottom(0);
+		line-height: 24px;
+	}
 }
 
-.pager__select {
-	border-width: 1px;
+.usa-collection__description {
+	@include u-margin-bottom(0, '!important');
+	line-height: 24px;
+}
+
+
+.pager__select.usa-select{
+	@include u-border(1px, solid);
+	@include u-radius(0); // border radius
+	@include u-display(block);
+	@include u-height(5); // 40px
+	@include u-width(70px);
+	@include u-maxw(100px);
+	@include u-padding-right(4); // 32px
+	@include u-margin-x(2); // 16px
+	@include u-margin-y(0);
 	border-color: #bdbdc2;
-	border-style: solid;
 	box-sizing: border-box;
 	appearance: none;
-	border-radius: 0;
 	color: #2e2e2e;
-	display: block;
-	margin: 0 16px;
-	height: 40px;
-	width: 70px;
-	max-width: 100px;
-	//
 	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxNCI+PGcgZmlsbD0iIzNkNDU1MSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNLjYyNjM5NjI4IDUuOTk5OTM4OTZIOS4zNzI3Mzg5Yy4yNTMzOTE3My4wMDEzMDg1Ni40ODI0MTYtLjE1MDc0MjY0LjU3OTU2MjAyLS4zODQ3NzYyNC4wOTcxNDU5OC0uMjM0MDMzNi4wNDMxMjI5NC0uNTAzNTc2MTYtLjEzNjcwOTIyLS42ODIwOTY0TDUuNDQwMTgxNS4xODM1NDM1QzUuMzI0NzU2MDYuMDY2MTMxMTYgNS4xNjcwMDgzIDAgNS4wMDIzNjExNCAwYy0uMTY0NjQ3MTYgMC0uMzIyMzk0OS4wNjYxMzExNy0uNDM3ODIwMzcuMTgzNTQzNUwuMTgzNTQzNSA0LjkzMzA2NjMyQy4wNjYxMzExNiA1LjA0ODQ5MTggMCA1LjIwNjIzOTUzIDAgNS4zNzA4ODY3cy4wNjYxMzExNy4zMjIzOTQ5Mi4xODM1NDM1LjQzNzgyMDM4Yy4xMTQ2NDQ0LjEyMjQ5MzQuMjc1MDgwMDYuMTkxNzcyNDQuNDQyODUyNzguMTkxMjMxODh6TTkuMzcyNzM4OSA3Ljk5OTk2ODVILjYyNjM5NjNjLS4xNjYyNjUzLS4wMDMxNjE4My0uMzI2NDc2MDguMDYyMzc4OTQtLjQ0Mjg1MjguMTgxMTY3MDVDLjA2NjEzMTIgOC4yOTY1NjEgMCA4LjQ1NDMwODc1IDAgOC42MTg5NTU5MnMuMDY2MTMxMTcuMzIyMzk0OTIuMTgzNTQzNS40Mzc4MjAzN2w0LjM4MDk5NzI2IDQuNzU5NjgwMkM0LjY3OTk2NjIyIDEzLjkzMzg2ODggNC44Mzc3MTM5NiAxNCA1LjAwMjM2MTEzIDE0cy4zMjIzOTQ5Mi0uMDY2MTMxMi40Mzc4MjAzOC0uMTgzNTQzNWw0LjM3NTQxMDItNC43NDk2MTUzN2MuMTc5ODMyMTYtLjE3ODUyMDIzLjIzMzg1NTItLjQ0ODA2Mjc4LjEzNjcwOTIyLS42ODIwOTYzOC0uMDk3MTQ2MDItLjIzNDAzMzYtLjMyNjE3MDMtLjM4NjA4NDgtLjU3OTU2Mi0uMzg0Nzc2MjV6Ii8+PC9nPjwvc3ZnPg=='),
 		linear-gradient(transparent, transparent);
 	background-repeat: no-repeat;
@@ -66,14 +120,16 @@
 	background-color: transparent;
 	background-position: right 5px center;
 	background-size: 35% 35%;
-	padding-right: 32px;
+
 	&::-ms-expand {
-		display: none;
+		@include u-display(none);
 	}
+
 	&:-webkit-autofill {
 		-webkit-appearance: menulist;
 		appearance: menulist;
 	}
+
 	&:focus {
 		border-color: #aaa;
 		box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
@@ -81,13 +137,68 @@
 		color: #222;
 		outline: none;
 	}
+
 	option {
-		font-weight: normal;
+		@include u-text($theme-font-weight-normal); // 400
 	}
 }
 
-.results__viewby {
-	display: flex;
+.sws-results__viewby {
+	@include u-display(flex);
+	@include u-text('no-wrap');
 	align-items: baseline;
-	white-space: nowrap;
+
+	@media(min-width: 641px) {
+		@include u-margin-top(20px); 
+	}
+	@include u-margin-top('105');
+}
+
+.usa-select {
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16" fill="none"><path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M4.00005 2.85833L6.64172 5.5L7.81672 4.325L4.00005 0.5L0.175049 4.325L1.35838 5.5L4.00005 2.85833ZM4.00005 13.1417L1.35838 10.5L0.183382 11.675L4.00005 15.5L7.82505 11.675L6.64172 10.5L4.00005 13.1417Z" fill="%231B1B1B"/></svg>') !important;
+	background-size: .5rem !important;
+	background-position: right 1rem center !important;
+}
+
+// Result-item typography per Figma. Scoped under the app root id so it outranks
+// the host's `usa-collection__*` styles and stays confined to this app.
+// (Item-to-item spacing is the existing 24px `.sws-results__list-item` margin.)
+// Both ids: production (`#NCI-sws-app-root`) and local/standalone (`#NCI-app-root`).
+#NCI-sws-app-root,
+#NCI-app-root {
+	.sws-results__list-item {
+		// Title: Poppins 20px 600, underlined, #01679D
+		.usa-collection__heading {
+			@include u-font-family('heading');
+			font-size: 1.25rem; // 20px
+			font-weight: 600;
+			line-height: 24px;
+			margin-bottom: 0.75rem; // 12px to the body text
+
+			a,
+			.usa-link {
+				&,
+				&:visited {
+					color: #01679d;
+				}
+				text-decoration: underline;
+			}
+		}
+
+		// Body + URL: Open Sans 16px 400, #1B1B1B
+		.usa-collection__description,
+		.sws-results__list-item-url {
+			@include u-font-family('body');
+			font-size: 1rem; // 16px
+			font-weight: 400;
+			line-height: 24px;
+			color: #1b1b1b;
+		}
+
+		.sws-results__list-item-url {
+			display: block;
+			font-style: normal; // <cite> defaults to italic
+			word-break: break-word;
+		}
+	}
 }

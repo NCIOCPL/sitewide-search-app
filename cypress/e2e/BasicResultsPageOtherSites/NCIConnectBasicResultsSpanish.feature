@@ -11,7 +11,6 @@ Feature: As a user, I want to be able to see my search results when on Spanish N
         Given the user navigates to "/?swKeyword=tumor"
         And the page title is "NCI-Connect Resultados"
         And definition box does not appear on the page
-        And the system displays "Resultados para: " "tumor" as an "h3" tag
         And the system displays "Resultados 1-20 de 21 para: " "tumor" as an "h4" tag
         And the system displays 20 results per page
         And each result item displays the title of an item as a link
@@ -22,7 +21,6 @@ Feature: As a user, I want to be able to see my search results when on Spanish N
         Given the user navigates to "/?swKeyword=tumor"
         And the page title is "NCI-Connect Resultados"
         And definition box does not appear on the page
-        And the system displays "Resultados para: " "tumor" as an "h3" tag
         And the system displays "Resultados 1-20 de 21 para: " "tumor" as an "h4" tag
         And number 1 result item displays "(Infografía)" label
 
@@ -30,6 +28,5 @@ Feature: As a user, I want to be able to see my search results when on Spanish N
         Given the user navigates to "/?swKeyword=tumor"
         And the page title is "NCI-Connect Resultados"
         And definition box does not appear on the page
-        And the system displays "Resultados para: " "tumor" as an "h3" tag
         And the system displays "Resultados 1-20 de 21 para: " "tumor" as an "h4" tag
         And number 3 result item displays "(Video)" label

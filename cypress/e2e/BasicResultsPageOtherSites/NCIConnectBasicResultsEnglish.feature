@@ -12,7 +12,6 @@ Feature: As a user, I want to be able to see my search results when on English N
         Given the user navigates to "/?swKeyword=tumor"
         And the page title is "NCI-Connect Search Results"
         And definition box does not appear on the page
-        And the system displays "Results for: " "tumor" as an "h3" tag
         And the system displays "Results 1-20 of 139 for: " "tumor" as an "h4" tag
         And the system displays 20 results per page
         And each result item displays the title of an item as a link
@@ -23,7 +22,6 @@ Feature: As a user, I want to be able to see my search results when on English N
         Given the user navigates to "/?swKeyword=tumor"
         And the page title is "NCI-Connect Search Results"
         And definition box does not appear on the page
-        And the system displays "Results for: " "tumor" as an "h3" tag
         And the system displays "Results 1-20 of 139 for: " "tumor" as an "h4" tag
         And number 1 result item displays "(Infographic)" label
 
@@ -31,12 +29,10 @@ Feature: As a user, I want to be able to see my search results when on English N
         Given the user navigates to "/?swKeyword=tumor"
         And the page title is "NCI-Connect Search Results"
         And definition box does not appear on the page
-        And the system displays "Results for: " "tumor" as an "h3" tag
         And the system displays "Results 1-20 of 139 for: " "tumor" as an "h4" tag
         And number 3 result item displays "(Video)" label
 
     Scenario: Best bets is not displayed
         Given the user navigates to "/?swKeyword=cancer%20risk%20assessment%20tools"
         Then the page title is "NCI-Connect Search Results"
-        And the system displays "Results for: " "cancer risk assessment tools" as an "h3" tag
         Then a box for Best Bets is not displayed
