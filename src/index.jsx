@@ -15,11 +15,6 @@ import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient, replacingRequestInterceptor } from './services/api/common';
 import ErrorBoundary from './views/ErrorBoundary';
 
-// /**
-//  * Imports the NCI Big Footer component auto initializer.
-//  */
-import '@nciocpl/ncids-js/usa-footer/nci-big/auto-init';
-
 /**
  * Initializes the Glossary App.
  * @param {object} params - Configuration for the app
