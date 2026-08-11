@@ -44,19 +44,24 @@ p {
 
 
 // Global styles
-h1 {
-	@include u-text($theme-color-base-darkest); // #1B1B1B
-	@include u-line-height($theme-font-role-heading, $theme-heading-line-height); // 1.1em
-	@include u-font($theme-font-role-heading, $theme-h1-font-size); // 1.75em
-}
-
-// The bundled normalize reset (`h1 { margin: .67em 0 }`) sits at the same (0,0,1)
-// specificity as a bare `h1` rule and wins by source order, so the spacing to the
-// search box is set under the app root id to outrank it. Both ids: production
-// (`#NCI-sws-app-root`) and local/standalone (`#NCI-app-root`).
+//
+// The bundled normalize reset (`h1 { font-size: 2em; margin: .67em 0 }`) sits at
+// the same (0,0,1) specificity as a bare `h1` rule and wins by source order, so
+// the whole h1 ruleset is set under the app root id to outrank it — otherwise the
+// title renders at normalize's 32px instead of the NCIDS 29.12px. Both ids:
+// production (`#NCI-sws-app-root`) and local/standalone (`#NCI-app-root`).
 #NCI-sws-app-root,
 #NCI-app-root {
 	h1 {
+		// Matches NCIDS `.nci-heading-h1` (`typeset-h1`). Set as discrete
+		// properties rather than `@include typeset-h1` because that mixin also
+		// emits `* + h1` / `h1 + *` sibling margins, which would undo the spacing
+		// tuned below.
+		@include u-text($theme-color-base-darkest); // #1B1B1B
+		@include u-line-height($theme-font-role-heading, $theme-heading-line-height); // 1.2
+		@include u-font($theme-font-role-heading, $theme-h1-font-size); // 1.82rem → 29.12px
+		font-weight: 600; // semibold; not exposed as a uswds-core token here
+
 		// Gaps are equidistant by the *visible* text edges, not the line box. The
 		// h1's line box adds whitespace on both sides — ~15px above the caps
 		// (ascent leading) and ~8px below the baseline (descent) — on top of the
