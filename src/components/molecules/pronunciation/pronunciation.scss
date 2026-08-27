@@ -18,7 +18,7 @@
 
 	&-audio-key-container {
 		@include u-display(flex);
-		@include u-flex('align-center');
+		@include u-flex('align-start');
 		column-gap: 8px;
 	}
 
