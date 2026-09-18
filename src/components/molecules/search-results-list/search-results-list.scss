@@ -177,6 +177,9 @@
 
 			a,
 			.usa-link {
+				&:hover {
+						@include u-text($theme-color-primary-dark); // #004971
+					}
 				&,
 				&:visited {
 					color: #01679d;
