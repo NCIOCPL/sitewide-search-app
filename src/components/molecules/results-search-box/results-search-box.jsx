@@ -131,10 +131,14 @@ const ResultsSearchBox = ({ keyword = '' }) => {
 	// listbox via scss (issue #232) — blanking `loadingMessage` also removes the
 	// brief "Loading…" flash before a non-matching term resolves. Only the
 	// min-chars hint remains.
+	//
+	// `type="search"` renders a native search input, so the browser's own clear
+	// (×) button is used instead of the component's, matching the host header
+	// search box (issue #249).
 
 	return (
 		<div className="results-search-box">
-			<Autocomplete id="sws-results-search" className="results-search-box__autocomplete" label={i18n.search[language]} minChars={MIN_CHARS} minCharsMessage={i18n.pleaseEnterThreeOrMoreCharacters[language]} noOptionsMessage="" loadingMessage="" highlightMatch loadOptions={loadOptions} onChange={handleChange} onSubmit={handleSubmit} searchButtonLabel={i18n.search[language]} value={value} />
+			<Autocomplete id="sws-results-search" className="results-search-box__autocomplete" label={i18n.search[language]} minChars={MIN_CHARS} minCharsMessage={i18n.pleaseEnterThreeOrMoreCharacters[language]} noOptionsMessage="" loadingMessage="" highlightMatch loadOptions={loadOptions} onChange={handleChange} onSubmit={handleSubmit} searchButtonLabel={i18n.search[language]} type="search" value={value} />
 		</div>
 	);
 };
