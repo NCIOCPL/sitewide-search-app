@@ -84,6 +84,10 @@
 				background-color: color('primary'); // #007BBD from the NCIDS theme
 				color: color('white');
 				cursor: pointer;
+				// Layer the button above the input so the input's focus outline sits
+				// below it, as in the header; the button's own outline stays on top.
+				position: relative;
+				z-index: 1;
 
 				// At ≥1024px the header button reads "Search" instead of the icon. The
 				// shared Autocomplete only renders the icon, so the label is drawn from
