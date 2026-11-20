@@ -10,8 +10,12 @@
 // `.nci-autocomplete*` rules and stays confined to this app (the host header search
 // is untouched).
 //
-// Sizing per Figma — mobile (base): ~448px box, 40px tall; desktop
-// (`break(medium)`, ≥641px): ~528px box, 32px tall ("small").
+// Sizing and type match the host header search box exactly (issue #249), using
+// the same NCIDS tokens as `nci-header/internal/_search.scss` and
+// `nci-autocomplete`: 40px tall with a magnifying-glass button below the header's
+// desktop breakpoint (1024px); 32px tall with a "Search" text button at and
+// above it. Width is the one deliberate difference: the prose measure, full
+// width of the container up to a 761px max.
 //
 // Scoped to both the production root id (`#NCI-sws-app-root`) and the local/
 // standalone default (`#NCI-app-root`, set in public/index.html) so the styles
@@ -33,11 +37,7 @@
 			display: block; // host NCIDS sets `display: flex`
 			position: relative;
 			width: 100%;
-			max-width: 28rem; // mobile ~448px
-
-			@include break(medium) {
-				max-width: 33rem; // desktop ~528px
-			}
+			max-width: 47.5625rem; // 761px prose measure; full width below that
 
 			&__control {
 				display: flex;
@@ -53,46 +53,20 @@
 
 			&__input {
 				width: 100%;
-				height: 2.5rem; // mobile ~40px
+				max-width: none; // host `.usa-input` caps at 30rem; fill to the button
+				height: units(5); // 40px, as the header
 				margin: 0;
-				padding: 0 2rem 0 0.625rem; // 10px text inset; 2rem right for the clear (×)
-				border: 1px solid color('base-dark');
+				padding: 0 units(1); // header's 8px inset
+				border: 1px solid color('gray-50');
 				border-radius: 0;
 				background-color: color('white'); // override the legacy #f2f2f3 input bg
 				color: color('ink');
 				box-shadow: none;
-				font-size: 1rem;
+				font-size: size($theme-button-font-family, 'md');
 
-				@include break(medium) {
-					height: 2rem; // desktop "small" ~32px
-				}
-			}
-
-			&__clear {
-				position: absolute;
-				right: 0.5rem;
-				top: 50%;
-				transform: translateY(-50%);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 1.5rem; // 24px icon box
-				height: 1.5rem;
-				background: none;
-				border: none;
-				cursor: pointer;
-				font-size: 1.5rem; // × glyph ≈ 14px
-				line-height: 1;
-				padding: 0;
-				color: color('base');
-
-				&:hover {
-					color: color('ink');
-				}
-
-				&:focus {
-					outline: 0.25rem solid color($theme-focus-color);
-					outline-offset: 0;
+				@include at-media($theme-header-min-width) {
+					height: units(4); // 32px
+					font-size: size($theme-button-font-family, 'xs');
 				}
 			}
 
@@ -102,16 +76,36 @@
 				align-items: center;
 				justify-content: center;
 				width: 3rem;
-				height: 2.5rem; // match the mobile input height
+				height: units(5); // match the input height
 				margin: 0;
 				padding: 0;
 				border: none;
+				border-radius: 0 radius('md') radius('md') 0; // match the header button
 				background-color: color('primary'); // #007BBD from the NCIDS theme
 				color: color('white');
 				cursor: pointer;
+				// Layer the button above the input so the input's focus outline sits
+				// below it, as in the header; the button's own outline stays on top.
+				position: relative;
+				z-index: 1;
 
-				@include break(medium) {
-					height: 2rem; // match the desktop input height
+				// At ≥1024px the header button reads "Search" instead of the icon. The
+				// shared Autocomplete only renders the icon, so the label is drawn from
+				// its (localized) aria-label.
+				@include at-media($theme-header-min-width) {
+					width: 4.8rem; // 76.8px, the header button's rendered width
+					height: units(4); // match the input height
+					font-size: size($theme-button-font-family, 'xs');
+					font-weight: font-weight('bold'); // as `.usa-button`
+					line-height: 1;
+
+					svg {
+						display: none;
+					}
+
+					&::after {
+						content: attr(aria-label);
+					}
 				}
 
 				&:hover {
@@ -140,17 +134,20 @@
 				display: block;
 				position: absolute;
 				z-index: 400; // above the NCIDS header listbox (z-index 301)
-				top: 100%;
+				top: calc(100% - 1px); // overlap the input's bottom border, as the header
 				left: 0;
 				right: 3rem; // align to the input width (exclude the 3rem button)
 				background-color: color('white');
-				border: 1px solid color('base-dark');
+				border: 1px solid;
+				border-color: color('white') color('gray-50') color('gray-50') color('gray-50');
 				border-radius: 0;
 				list-style: none;
 				margin: 0;
-				padding: 0;
-				max-height: 15rem;
-				overflow-y: auto;
+				padding: 0; // no max-height: all 10 suggestions show without a scroll bar
+
+				@include at-media($theme-header-min-width) {
+					right: 4.8rem; // exclude the wider "Search" button
+				}
 
 				&[hidden] {
 					display: none;
@@ -166,17 +163,18 @@
 			}
 
 			&__option {
-				padding: 0.5rem 0.5rem 0.5rem 1rem; // 8 / 8 / 8 / 16 per Figma
+				padding: units(1); // as the header
 				cursor: pointer;
-				font-size: 0.875rem; // 14px
-				line-height: 21px;
+				font-family: family('ui');
+				font-size: size('ui', 5);
+				line-height: line-height('ui', 4);
 				color: color('ink');
 
 				strong {
 					font-weight: 700;
 				}
 
-				// selected / keyboard-highlighted (and hover) per Figma
+				// selected / keyboard-highlighted (and hover), as the header
 				&:hover,
 				&--highlighted {
 					background-color: color('primary');
@@ -194,12 +192,13 @@
 				width: auto;
 				height: auto;
 				margin: 0;
-				padding: 0.5rem 1rem;
+				padding: units(1); // as the header's `.nci-autocomplete__option`
 				overflow: visible;
 				clip: auto;
 				clip-path: none;
 				white-space: normal;
 				color: color('ink'); // #1B1B1B — black, matches the header
+				font-size: size('ui', '2xs'); // as the header's `.min-placeholder-message`
 				font-style: normal;
 				cursor: default;
 			}
